@@ -1,0 +1,13 @@
+Cores
+
+The Noise:
+Cor do macacão: #f8e080
+Cor da capa: #d88818
+Cor da pele: #d868a0
+Cor da pele (Pepper Mode): #dc0000
+
+The Doise:
+Cor do macacão: #2c6ebf
+Cor da capa: #d868a0
+Cor da pele: c08038
+Cor da pele (Pepper Mode): #85271c

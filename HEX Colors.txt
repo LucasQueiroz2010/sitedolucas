@@ -1,0 +1,16 @@
+Cores
+
+The Noise:
+Jumpsuit color: #f8e080
+Cape color: #d88818
+Skin color: #d868a0
+Skin color (Pepper Mode): #dc0000
+
+The Doise:
+Jumpsuit color#2c6ebf
+Cape color: #d868a0
+Skin color: #c08038
+Skin color (Pepper Mode): #85271c
+
+Fake Peppino:
+Clones tanktop color: #b0b0b0
