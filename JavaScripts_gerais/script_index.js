@@ -1,46 +1,48 @@
 var nomecompleto = 'Lucas Oliveira de Queiroz'
 var nome = 'Lucas'
 var teste = 'Teste'
-var nomepessoal = prompt ('Me diga o seu nome com letra maiúscula no começo (clique em cancelar para não informar):')
-var idadepessoal = prompt ('Me diga a sua idade (clique em cancelar para não informar):')
-var genero = prompt ('Me diga o seu gênero (M/F) e escreva com letra maiúscula no começo (clique em cancelar para não informar):')
+var nomepessoal = prompt('Me diga o seu nome com letra maiúscula no começo (clique em cancelar para não informar):')
+var idadepessoal = prompt('Me diga a sua idade (clique em cancelar para não informar):')
+var genero = prompt('Me diga o seu gênero (M/F) e escreva com letra maiúscula no começo (clique em cancelar para não informar):')
 
+// NOME
+if (!nomepessoal) {
+    document.getElementById("saudações").innerText = `Seja bem-vindo ao Site do Lucas, pessoa genérica sem nome!`
+    nomepessoal = null;}
 
-//NOME
-if (nomepessoal == null) {
-    document.getElementById("saudações").innerText = `Seja bem-vindo ao Site do Lucas, pessoa genérica sem nome!`}
-    document.getElementById("saudações").innerText = `Seja bem-vindo ao Site do Lucas ${nomepessoal}!`
+// IDADE
+if (!idadepessoal) {
+    document.getElementById("Idade").innerText = `Olá, ser humano sem idade!`
+    idadepessoal = null;} 
+else {
+    let idadeNum = parseInt(idadepessoal);
+    if (idadeNum <= 12) {
+        document.getElementById("Idade").innerText = `Uau, ${nomepessoal ? nomepessoal : 'pequeno'}! Você é bem pequeno, só tem ${idadepessoal} anos!`
+        document.getElementById("saudações2").innerText = `Fique a vontade!`} 
+    else if (idadeNum >= 13 && idadeNum <= 17) {
+        document.getElementById("Idade").innerText = `Interessante, ${nomepessoal ? nomepessoal : 'jovem'}! Você é um adolescente, tem ${idadepessoal} anos!`
+        document.getElementById("saudações2").innerText = `Fique a vontade!`} 
+    else if (idadeNum > 17) {
+        document.getElementById("Idade").innerText = `Que legal, ${nomepessoal ? nomepessoal : 'adulto'}! Você já é um adulto, já tem ${idadepessoal} anos!`
+        document.getElementById("saudações2").innerText = `Fique a vontade!`}}
 
-//IDADE
-if (idadepessoal <= 12) {
-    document.getElementById("Idade").innerText = `Uau, ${nomepessoal}! Você é bem pequeno, só tem ${idadepessoal} anos!`
-    document.getElementById("saudações2").innerText = `Fique a vontade!`}
-else if (idadepessoal >= 13 && idadepessoal <= 17) {
-    document.getElementById("Idade").innerText = `Interessante, ${nomepessoal}! Você é um adolescente, tem ${idadepessoal} anos!`
-    document.getElementById("saudações2").innerText = `Fique a vontade!`}
-else if (idadepessoal > 17) {
-    document.getElementById("Idade").innerText = `Que legal, ${nomepessoal}! Você já é um adulto, já tem ${idadepessoal} anos!`
-    document.getElementById("saudações2").innerText = `Fique a vontade!`}
-if (idadepessoal == undefined || idadepessoal == null) {
-    document.getElementById("Idade").innerText = `Você não tem personalidade ao não querer me dizer sua idade...`}
-
-//GÊNERO
+// GÊNERO
 if (genero == 'M') {
-    document.getElementById("saudações").innerText = `Seja bem-vindo ao Site do Lucas ${nomepessoal}, meu caro amigo!`
-    document.getElementById("saudações2").innerText = `Fique a vontade, meu brother!`}
+    let nomeExibicao = nomepessoal ? nomepessoal : "Jacinto Pinto";
+    document.getElementById("saudações").innerText = `Seja bem-vindo ao Site do Lucas ${nomeExibicao}, meu caro amigo!`
+    document.getElementById("saudações2").innerText = `Fique a vontade, meu brother!`} 
 else if (genero == 'F') {
-    document.getElementById("saudações").innerText = `Seja bem-vinda ao Site do Lucas ${nomepessoal}, minha amada amiga!`
-    document.getElementById("saudações2").innerText = `Fique a vontade, minha linda!`}
-else if (genero != 'M' && genero != 'F') {
-    document.getElementById("saudações").innerText = `Seja bem-vindo/a ao Site do Lucas ${nomepessoal}, ser humano genérico!`
-    document.getElementById("saudações2").innerText = `Gênero neutro?`}
-if (genero == null) {
-    document.getElementById("saudações").innerText = `Você é chato, sabia?!`
-    document.getElementById("saudações2").innerText = `Não fique a vontade!`}
+    let nomeExibicao = nomepessoal ? nomepessoal : "Dolores Nashana";
+    document.getElementById("saudações").innerText = `Seja bem-vinda ao Site do Lucas ${nomeExibicao}, minha amada amiga!`
+    document.getElementById("saudações2").innerText = `Fique a vontade, minha linda!`} 
+else if (genero != 'M' && genero != 'F' && genero != null) {
+    document.getElementById("saudações2").innerText = `Gênero neutro?`
+}
 
-//EASTER EGGS
+// --- EASTER EGGS ---
+
 if (idadepessoal == 67) {
-    document.getElementById("Idade").innerText = `O meme '67' é horrível! Você deveria cometer suicídio, ${nomepessoal}!`}
+    document.getElementById("Idade").innerText = `O meme '67' já está ultrapassado, ${nomepessoal}! Você deveria cometer suicídio!`}
 if (nomepessoal == 'Taynan' && idadepessoal == 36 && genero == 'F') {
     document.getElementById("saudações").innerText = `Oi, mãe! Seja bem-vinda ao meu site!`
     document.getElementById("Idade").innerText = `Minha mãe tem ${idadepessoal} anos? Tá novinha ainda!`
@@ -56,10 +58,10 @@ if (nomepessoal == 'Icaro' && idadepessoal == 42 && genero == 'M') {
 if (nomepessoal == 'Josefina' && idadepessoal == 65 && genero == 'F') {
     document.getElementById("saudações").innerText = `Oi, Vó Nega! Bem-vinda ao meu site!`
     document.getElementById("Idade").innerText = `${idadepessoal} anos? Ainda está no ápice da juventude!`
-    document.getElementById("saudações2").innerText = `Fuqie a vontade, Vó Nega!`}
-if (nomepessoal == null && idadepessoal == null && genero == null) {
+    document.getElementById("saudações2").innerText = `Fique a vontade, Vó Nega!`}
+if (!nomepessoal && !idadepessoal && !genero) {
     document.getElementById("saudações").innerText = `Olhem! Um anônimo!`
-    document.getElementById("Idade").innerText = `Sem idade? Sem gênero? Que pessoa sem personalidade...`
+    document.getElementById("Idade").innerText = `Sem idade? Sem gênero? Que pessoa chata...`
     document.getElementById("saudações2").innerText = `Faça o que quiser no meu site.`}
 if (nomepessoal == 'Peppino Spaghetti' && idadepessoal == 44 && genero == 'M') {
     document.getElementById("saudações").innerText = `Olhe! é o Peppino Spaghetti, do jogo Indie Pizza Tower!`
@@ -70,10 +72,10 @@ if (nomepessoal == 'Theodore Noise' && idadepessoal == 40 && genero == 'M') {
     document.getElementById("Idade").innerText = `woag`
     document.getElementById("saudações2").innerText = `GGGGAAAAAAAAAAAAAAAAAAAAAHHHH!!!`}
 if (nomepessoal == 'Ana Júlia' && idadepessoal == 16 && genero == 'F') {
-    document.getElementById("saudações").innerText = `Oi bicha! Bem vinda ao meu site, benze!`
-    document.getElementById("Idade").innerText = `Você até pode ter ${idadepessoal} anos, mas eu sou maior, então eu sou superior.`
-    document.getElementById("saudações2").innerText = `Priminha linda da minha vida!`}
-if (nomepessoal == 'Alexander' && nomepessoal == 'Batatão' && idadepessoal == 28 && genero == 'M') {
+    document.getElementById("saudações").innerText = `Oi prima! Bem vinda ao meu site!`
+    document.getElementById("Idade").innerText = `Você tem ${idadepessoal} anos.`
+    document.getElementById("saudações2").innerText = `Priminha da minha vida!`}
+if ((nomepessoal == 'Alexander' || nomepessoal == 'Batatão') && idadepessoal == 28 && genero == 'M') {
     document.getElementById("saudações").innerText = `É dentro ou fora, Batatão?`
     document.getElementById("Idade").innerText = `${idadepessoal} anos? Já tá véio, meeeeeeeeeu!`
     document.getElementById("saudações2").innerText = `É o homem mais polêmico do mundo todo.`}
@@ -81,10 +83,6 @@ if (nomepessoal == 'Mario' && idadepessoal == 25 && genero == 'M') {
     document.getElementById("saudações").innerText = `Olhe! é o Super Mario, do jogo de plataforma Super Mario Bros!`
     document.getElementById("Idade").innerText = `Quando que você vai salvar a princesa?`
     document.getElementById("saudações2").innerText = `WAAAAHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!`}
-if (nomepessoal == 'Giovanna' && idadepessoal == 14 && genero == 'F') {
-    document.getElementById("saudações").innerText = `UMA LÉSBICA! CADÊ O NOISE? OU UM DEMONIO QUALQUER PRA ME SALVAR DESSA LÉSBICA!`
-    document.getElementById("Idade").innerText = `${idadepessoal} anos? Que tchola...`
-    document.getElementById("saudações2").innerText = `* Jogo o The Noise na sua direção, fazendo-o explodir, por que o Noise é alérgico a lésbicas. *`}
 if (nomepessoal == 'Baldi Baldimore' && idadepessoal == 29 && genero == 'M') {
     document.getElementById("saudações").innerText = `Oh, hi! Welcome to my website.`
     document.getElementById("Idade").innerText = `Now is time for everybody's favorite subject: MATH!`

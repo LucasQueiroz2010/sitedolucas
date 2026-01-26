@@ -187,9 +187,14 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 2) Essa versão ainda não foi 100% testada, então pode sofrer mudanças no futuro.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.5.1- Site do Lucas V1.9.5.1: Update do "Cool-O-Meter" e UQV.
+9.6- Site do Lucas V1.9.6: Update do "Cool-O-Meter" e UQV.
 1) Foi adicionado um novo site chamado Cool-O-Meter, cujo objetivo é definir o quão legal é a pessoa acesando o site (ou seja, você, o leitor).
 2) Foi adicionado uma nova sessão na área "Outros sites feitos pelo Lucas" na página 'Site do Lucas!'.
 3) Melhorias de qualidade de vida foram feitas.
 4) Foi mudado uma palavra no dicionário (UQL para UQV).
 5) Algumas mudanças foram feitas no README por causa da mudança do dicionário.
+
+9.6.1- Site do Lucas V1.9.6.1: UQV e mudanças pequenas.
+1) Foi adicionado o easter egg do anônimo.
+2) Foi mudado a lógica dos easter eggs e dos nomes em geral.
+3) Foi adicionado/mudado algumas coisas no site 'Cool-O-Meter'.
