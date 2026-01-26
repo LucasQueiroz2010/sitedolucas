@@ -1,12 +1,14 @@
 Dicionário:
 WIP = Work In Progress, ou seja, trabalho em progresso. Algo quenão está 100% pronto e pode sofrer atualizações.
-UB = Update besta, ou seja, um update que aconteceu somente porque eu esqueci de adicionar/atualizar um ponto pequeno/específico.
+UD = Update dispensável, ou seja, um update que aconteceu somente porque eu esqueci de adicionar/atualizar um ponto pequeno/específico.
+URM = Update README, ou seja, um update que apensa mudou o README.
 MQL = Mudança de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.
 PTWE = Pizza Tower Web Edition. 
 ND = Nota do desenvolvedor.
 README = 'Avisos importantes!'.
 pobs = Pequena observação.
 JS = Javascript.
+
 Atualizações abaixo:
 
 1- Site do Lucas V1.0: o começo de tudo.
@@ -32,7 +34,7 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 11) Pequenas mudanças de colocamento de texto/código adicionados para melhorar a qualidade de vida.
 12) Conserto de erros/bugs.
 
-2.1- Site do Lucas V1.2.1 / V1.2.2: UB 1 e 2.
+2.1- Site do Lucas V1.2.1 / V1.2.2: URM 1 e 2.
 1) O arquivo "Avisos Importantes!" sofreu algumas melhoras de design.
 
 3.0- Site do Lucas V1.3; interação estelar/ MQL.
@@ -54,7 +56,7 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 4) Foi removida a interação que ante existia na página "Foto do Lucas!".
 !-try.remove "fatal_error" ... task_failed-!
 
-5.1- Site do Lucas V1.5.1 / 1.5.2 / 1.5.3 / 1.5.4: UB 3, 4, 5 e 6.
+5.1- Site do Lucas V1.5.1 / 1.5.2 / 1.5.3 / 1.5.4: UD 1, 2, 3 e 4/URM 2.
 1) A versão 1.5.1 foi uma versão sem atualizações, sendo exatamente igual a versão 1.4. Essa versão foi enviada por acidente.
 2) Acidentalmente, na versão 1.5.2, foi enviado nada, além do arquivo de fotos, oque já foi corrigido.
 3) A versão 1.5.3 é a versão onde tudo da versão 1.5 foi implementado, além da mudança do README.
@@ -75,7 +77,7 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 6) Foi adicionado um botão de mute/unmute.  
 !-try.remove "fatal_error" ... task_failed-!
 
-7.1- Site do Lucas V1.7.1: UB 7.
+7.1- Site do Lucas V1.7.1: UD 5/URM 3.
 1) Mudanças no README.
 2) Mudanças pequenas no "jogo.html"
 !-try.remove "fatal_error" ... task_failed-!
@@ -157,7 +159,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 3) Foi adicionado o JavaScript 'script_contatos'.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.4.2- Site do Lucas V1.9.4.2: UB 8 e update do README.
+9.4.2- Site do Lucas V1.9.4.2: UD 8 e update do README.
 1) Foi mudado o indicador de versões na página inicial.
 2) O README sofreu certos upgrades/mudanças.
 3) Foi adicionado algumas palavras novas ao dicionário.
@@ -167,10 +169,13 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 1) Foi adicionado o JavaScript 'script_foto'.
 2) Foi adicionado o JavaScript 'script_geral'.
 3) Foi atualizado a parte mais de cima de todas da página 'Site do Lucas!' para que combine com a cor do site.
-4) Foi adicionado uma caixa de texto preta no começo da página 'Site Principal' para melhor leitura da mensagem de boas vindas.
+4) Foi adicionado uma caixa de texto preta no começo da página 'Site Principal' para melhor leitura da mensagem de boas vindas personalizada.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.4.4- Site do Lucas V9.4.4: UB 9.
+9.4.4- Site do Lucas V1.9.4.4: UD 6/URM 4.
 1) Foi mudado o README.
 2) Foi mudado o contator de versão.
-ND: Eu sou burro.
+
+9.4.4.1-Site do Lucas V1.9.4.4: Remoneação de updates e URM 5.
+1) Foi adicionado uma palavra nova ao dicionário.
+2) Foi mudado alguns pontos do README.

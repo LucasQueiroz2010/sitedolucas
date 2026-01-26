@@ -474,13 +474,21 @@ padding: 3px;
 	position: relative;
 	}
 
-.Pizza_Link:hover{
+.PTWE{
 	text-decoration: none;
 	color: yellow;
 }
 
-.Pizza_Link:active {
+.PTWE:hover{
+	text-decoration: none;
 	color: darkorange;
+	cursor: crosshair;
+}
+
+.PTWE:active {
+	color: darkred;
+	text-decoration: none;
+	cursor: crosshair;
 }
 
 .AUTISMO:hover{

@@ -80,6 +80,26 @@ body {
     align-items: center;
     z-index: 25;
     gap: 20px;}
+/* NOVA TELA DE CARREGAMENTO */
+#loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-size: cover; /* Ajuste para cover ou contain conforme sua imagem */
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Acima de tudo */
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #000;}
 .mode-select-btn {
     font-size: 1.8em;
     font-weight: bold;
@@ -130,7 +150,7 @@ body {
     height: 100%;
     background-color: black;
     background-image: url(imagens_jogo/Stuff/backwoag.png);
-    background-size: 100% 100%; /* Mudado para 100% 100% para garantir alinhamento das paredes */
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     position: relative;
     display: none;}
@@ -140,6 +160,30 @@ body {
     background-repeat: no-repeat;
     z-index: 10;}
 .facing-left { transform: scaleX(-1); }
+
+/* ESTILOS DA PEDRA (ROCK) */
+.rock-entity {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 15;
+    /* Substitua pela imagem da pedra */
+    background-image: url(imagens_jogo/Stuff/rock.png); 
+}
+.rock-warning {
+    opacity: 0.8;
+    animation: flicker-warning 0.2s infinite;
+}
+@keyframes flicker-warning {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+.rock-breaking {
+    /* Animação ou sprite de quebra */
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
 
 /* SPRITES */
 .moving-sprite { background-image: url(imagens_jogo/P_sprites/Peppino_walk.gif); }
@@ -339,6 +383,9 @@ body {
         <button id="btn-doise-mode" class="mode-select-btn" onclick="selectMode('doise')">Doise Overlay</button>
         <button id="btn-faker-mode" class="mode-select-btn">Faker Attack</button>
     </div>
+    <div id="loading-screen">
+        Loading...
+    </div>
     <div id="game-area">
         <div id="player"></div> 
         <div id="the-noise"></div>
@@ -350,6 +397,10 @@ body {
 <div id="rank-image-container" class="final-rank-image" style="display:none;"></div>
 <script>
 let isDoiseMode = false;
+
+// TELAS DE CARREGAMENTO
+const LOADING_SCREEN_NOISE = "url('imagens_jogo/Stuff/loading_woag.gif')";
+const LOADING_SCREEN_DOISE = "url('imagens_jogo/Stuff/loading_wong.gif')";
 
 // CONFIGURAÇÕES DO MODO DE JOGO
 let currentToppingChance = 1.0;
@@ -368,6 +419,7 @@ const PEPPER_DOISE_AUDIO = document.getElementById('pepper-doise-audio');
 const MAIN_CONTAINER = document.getElementById('main-container');
 const START_SCREEN = document.getElementById('start-screen');
 const MODE_SCREEN = document.getElementById('mode-screen');
+const LOADING_SCREEN = document.getElementById('loading-screen');
 const GAME_AREA = document.getElementById('game-area');
 const PLAYER = document.getElementById('player');
 const NOISE = document.getElementById('the-noise');
@@ -388,11 +440,26 @@ function goToModeSelection() {
     MODE_SCREEN.style.display = 'flex';}
 function selectMode(mode) {
     MODE_SCREEN.style.display = 'none';
-    hideStartScreen();
     if (mode === 'normal') {
-        startNormalGame();
+        startLoadingSequence('normal');
     } else if (mode === 'doise') {
-        startDoiseMode();}}
+        startLoadingSequence('doise');}}
+function startLoadingSequence(targetMode) {
+    LOADING_SCREEN.style.display = 'flex';
+
+    // LÓGICA DE ÁUDIO DA TELA DE CARREGAMENTO
+    playBGM(START_BGM_AUDIO);     
+    if (targetMode === 'doise') {
+        LOADING_SCREEN.style.backgroundImage = LOADING_SCREEN_DOISE;
+    } else {
+        LOADING_SCREEN.style.backgroundImage = LOADING_SCREEN_NOISE;}
+    preloadGameAssets(() => {
+        LOADING_SCREEN.style.display = 'none';
+        hideStartScreen();
+        if (targetMode === 'normal') {
+            startNormalGame();
+        } else if (targetMode === 'doise') {
+            startDoiseMode();}});}
 function toggleDesktopFullscreen() {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().catch(err => {
@@ -423,9 +490,9 @@ const FULLSCREEN_EXIT_ICON_SPRITE = "imagens_jogo/Stuff/fullscreen_off";
 function toggleGameMode() {
     isGameOver = true;
     if (isDoiseMode) {
-        startNormalGame();
+        startLoadingSequence('normal');
     } else {
-        startDoiseMode();}}
+        startLoadingSequence('doise');}}
 function updateModeButton() {
     if (isDoiseMode) {
         MODE_SWITCH_BUTTON.classList.remove('icon-mode-doise');
@@ -489,6 +556,9 @@ const DOISE_WIN_SPRITE = "url(imagens_jogo/D_sprites/Doise_win.gif)";
 const DOISE_JOKE_SPRITE = "url(imagens_jogo/D_sprites/Doise_joke.png)";
 const DOISE_BACKGROUND = "url(imagens_jogo/Stuff/backwong.png)";
 const NORMAL_BACKGROUND = "url(imagens_jogo/Stuff/backwoag.png)";
+// SPRITE ÚNICO DE STUN DA PEDRA PRO DOISE E PEDRAS
+const DOISE_ROCK_STUN_SPRITE = "url(imagens_jogo/D_sprites/Doise_rock_stun.png)";
+const ROCK_SPRITE = "url(imagens_jogo/Stuff/rock.png)";
 
 // SPRITES DO GUSTAVO
 const GUSTAVO_IDLE_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_idle.gif)";
@@ -499,6 +569,44 @@ const GUSTAVO_PEPPER_PEPPINO_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_PP.gif
 const GUSTAVO_PEPPER_NOISE_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_PN.gif)";
 const GUSTAVO_WIN_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_P_win.gif)";
 const GUSTAVO_LOSE_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_N_win.gif)";
+
+// LISTA COMPLETA DE ASSETS PARA PRELOAD
+const ALL_ASSETS = [
+    PLAYER_IDLE_SPRITE, PLAYER_WALK_SPRITE, PLAYER_RUN_SPRITE, PLAYER_JUMP_SPRITE, PLAYER_WALL_SLIDE_SPRITE, PLAYER_HURT_SPRITE, PLAYER_STUN_SPRITE, PEPPINO_PARRY_SPRITE, PEPPER_SPRITE, PLAYER_TIRED_SPRITE, PEPPINO_WIN_TIME_SPRITE, PEPPINO_LOSE_NOISE_SPRITE,
+    NOISE_WALK_SPRITE, NOISE_JUMP_SPRITE, NOISE_DOUBLE_JUMP_SPRITE, NOISE_SCARED_SPRITE, NOISE_HAPPY_SPRITE, NOISE_POWERED_SPRITE, STUNNED_SPRITE, NOISE_IDLE_SPRITE_NEW, NOISE_TIRED_SPRITE, NOISE_PEPPER_STUN_SPRITE, NOISE_POWERUP_PARRY_SPRITE, NOISE_LOSE_SPRITE, NOISE_WIN_SPRITE, NOISE_JOKE_SPRITE, F_NOISE_IDLE, F_NOISE_DROP, F_NOISE_SCARED, F_NOISE_HAPPY, F_NOISE_PANIC, F_NOISE_THUMBS, F_NOISE_WIN, F_NOISE_LOSE,
+    DOISE_WALK_SPRITE, DOISE_JUMP_SPRITE, DOISE_STUNNED_SPRITE, DOISE_POWERED_SPRITE, DOISE_IDLE_SPRITE_NEW, DOISE_DOUBLE_JUMP_SPRITE, DOISE_SCARED_SPRITE, DOISE_HAPPY_SPRITE, DOISE_TIRED_SPRITE, DOISE_PEPPER_STUN_SPRITE, DOISE_POWERUP_PARRY_SPRITE, DOISE_LOSE_SPRITE, DOISE_WIN_SPRITE, DOISE_JOKE_SPRITE,
+    GUSTAVO_IDLE_SPRITE, GUSTAVO_NOISE_HIT_SPRITE, GUSTAVO_DROP_SPRITE, GUSTAVO_PEPPINO_HIT_SPRITE, GUSTAVO_PEPPER_PEPPINO_SPRITE, GUSTAVO_PEPPER_NOISE_SPRITE, GUSTAVO_WIN_SPRITE, GUSTAVO_LOSE_SPRITE,
+    "url(imagens_jogo/Toppings/Mushroom.gif)", "url(imagens_jogo/Toppings/Cheese.gif)", "url(imagens_jogo/Toppings/Tomato.gif)", "url(imagens_jogo/Toppings/Weiner.gif)", "url(imagens_jogo/Toppings/Pineapple.gif)", "url(imagens_jogo/Toppings/Gerome.gif)", "url(imagens_jogo/Toppings/Life_hat.png)", "url(imagens_jogo/Toppings/Pepper_Pizza.gif)",
+    DOISE_BACKGROUND, NORMAL_BACKGROUND, "url(imagens_jogo/Stuff/Title_screen.png)", "url(imagens_jogo/Stuff/Mode%20screen.jpg)",
+    "url(imagens_jogo/Ranks/P-Rank.png)", "url(imagens_jogo/Ranks/S-Rank.png)", "url(imagens_jogo/Ranks/A-Rank.png)", "url(imagens_jogo/Ranks/B-Rank.jpg)", "url(imagens_jogo/Ranks/C-Rank.png)", "url(imagens_jogo/Ranks/D-Rank.png)", "url(imagens_jogo/Ranks/F-Rank.png)", "url(imagens_jogo/Ranks/IDK-Rank.png)", "url(imagens_jogo/Ranks/DEAD_Rank.png)", ROCK_SPRITE, DOISE_ROCK_STUN_SPRITE];
+
+// FUNÇÃO DE PRELOAD
+function preloadGameAssets(callback) {
+    let loadedCount = 0;
+    const totalToLoad = ALL_ASSETS.length;
+     
+    if (totalToLoad === 0) {
+        callback();
+        return;}
+    const minLoadTime = 1000; 
+    const startTime = Date.now();
+
+    ALL_ASSETS.forEach(srcRaw => {
+        const src = srcRaw.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');        
+        const img = new Image();
+        img.onload = () => {
+            loadedCount++;
+            checkDone();};
+        img.onerror = () => {
+            console.warn("Falha ao carregar imagem: " + src);
+            loadedCount++;
+            checkDone();};
+        img.src = src;});
+    function checkDone() {
+        if (loadedCount >= totalToLoad) {
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+            setTimeout(callback, remainingTime);}}}
 
 // DETALHES MÍNIMOS
 const BASE_GAME_WIDTH = 900;
@@ -515,7 +623,7 @@ const BASE_PLATFORM_HEIGHT = 40;
 const BASE_PLATFORM_Y = 180;
 const BASE_PLAYER_START_X = 50;
 const BASE_NOISE_START_X_POS = BASE_GAME_WIDTH - BASE_NOISE_WIDTH - 50;
-const BASE_WALL_MARGIN = 35;
+const BASE_WALL_MARGIN = 45;
 const BASE_GROUND_HEIGHT = 50;
 const BASE_SPRITE_OFFSET_Y = -15;
 let GAME_SCALE_FACTOR = 1;
@@ -529,13 +637,13 @@ let NOISE_WIDTH = BASE_NOISE_WIDTH;
 let NOISE_HEIGHT = BASE_NOISE_HEIGHT;
 let TOPPING_SIZE = BASE_TOPPING_SIZE;
 let NOISE_START_X = getScaledValue(BASE_NOISE_START_X_POS);
-let SCALED_WALL_MARGIN = BASE_WALL_MARGIN;
-let SCALED_GROUND_HEIGHT = BASE_GROUND_HEIGHT;
-let SCALED_SPRITE_OFFSET_Y = BASE_SPRITE_OFFSET_Y;
+let SCALED_WALL_MARGIN = getScaledValue(BASE_WALL_MARGIN);
+let SCALED_GROUND_HEIGHT = getScaledValue(BASE_GROUND_HEIGHT);
+let SCALED_SPRITE_OFFSET_Y = getScaledValue(BASE_SPRITE_OFFSET_Y);
 function updateScaledConstants() {
     GAME_WIDTH = GAME_AREA.clientWidth;
     GAME_HEIGHT = GAME_AREA.clientHeight;
-    GAME_SCALE_FACTOR = GAME_WIDTH / BASE_GAME_WIDTH;    
+    GAME_SCALE_FACTOR = GAME_WIDTH / BASE_GAME_WIDTH;     
     PLAYER_WIDTH = getScaledValue(BASE_PLAYER_WIDTH);
     PLAYER_HEIGHT = getScaledValue(BASE_PLAYER_HEIGHT);
     NOISE_WIDTH = getScaledValue(BASE_NOISE_WIDTH);
@@ -548,11 +656,11 @@ function updateScaledConstants() {
     PLAYER.style.width = PLAYER_WIDTH + 'px';
     PLAYER.style.height = PLAYER_HEIGHT + 'px';
     NOISE.style.width = NOISE_WIDTH + 'px';
-    NOISE.style.height = NOISE_HEIGHT + 'px';    
+    NOISE.style.height = NOISE_HEIGHT + 'px';     
     const GUSTAVO_WIDTH = getScaledValue(BASE_GUSTAVO_WIDTH); 
     const GUSTAVO_HEIGHT = getScaledValue(BASE_GUSTAVO_HEIGHT); 
     const GUSTAVO_X = (GAME_WIDTH / 2) - (GUSTAVO_WIDTH / 2);
-    const GUSTAVO_Y = SCALED_GROUND_HEIGHT;    
+    const GUSTAVO_Y = SCALED_GROUND_HEIGHT;     
     GUSTAVO.style.width = GUSTAVO_WIDTH + 'px';
     GUSTAVO.style.height = GUSTAVO_HEIGHT + 'px';
     GUSTAVO.style.left = GUSTAVO_X + 'px';
@@ -627,6 +735,7 @@ const platformBaseData = [
 let timerInterval;
 let gameLoopInterval;
 let spawnInterval;
+let rockSpawnInterval; // Intervalo para spawn de pedras
 let activePowerupElement = null;
 let playerPowerupTimer;
 let noisePowerupTimer;
@@ -656,9 +765,14 @@ function updateItemsPosition() {
             platform.style.bottom = getScaledValue(data.y) + 'px';
             platform.style.width = getScaledValue(data.w) + 'px';
             platform.style.height = getScaledValue(data.h) + 'px';}});
-    document.querySelectorAll('.topping, .power-up').forEach(item => {
-        item.style.width = TOPPING_SIZE + 'px';
-        item.style.height = TOPPING_SIZE + 'px';});}
+    document.querySelectorAll('.topping, .power-up, .rock-entity').forEach(item => {
+        if (!item.classList.contains('rock-entity')) {
+            item.style.width = TOPPING_SIZE + 'px';
+            item.style.height = TOPPING_SIZE + 'px';
+        } else {
+            // Reajusta pedras se necessário, mas elas têm tamanho fixo na classe ou inline
+        }
+    });}
 function updateHealthDisplay() {
     HEALTH_DISPLAY.innerHTML = 'Hits: ';
     for (let i = 0; i < health; i++) {
@@ -726,7 +840,9 @@ const SOUNDS = {
     HurtDoise: "soundtrack_jogo/Doise_hurt.mp3",
     JumpPeppino: "soundtrack_jogo/Peppino_jump.wav",
     JumpNoise: "soundtrack_jogo/Noise_jump.wav",
+    DoiseJump: "soundtrack_jogo/Doise_jump.wav", // Som novo
     DoubleJumpNoise: "soundtrack_jogo/Double_jump.wav",
+    DoiseDoubleJump: "soundtrack_jogo/Doise_doublejump.wav", // Som novo
     RunPeppino: "soundtrack_jogo/Peppino_run.wav",
     WinPeppino: "soundtrack_jogo/Peppino_win.mp3",
     WinNoise: "soundtrack_jogo/Noise_win.mp3",
@@ -741,7 +857,9 @@ const SOUNDS = {
     GeromeCollect: "soundtrack_jogo/Gerome_collect.wav",
     LifeCollect: "soundtrack_jogo/Hat_collect.wav",
     GustavoDrop: "soundtrack_jogo/Gustavo_drop.mp3", 
-    FriendlyDrop: "soundtrack_jogo/Noise_drop.mp3"};
+    FriendlyDrop: "soundtrack_jogo/Noise_drop.mp3",
+    RockFall: "soundtrack_jogo/Rock_fall.wav" // Som novo da pedra
+};
 function updateGustavoSprite() {
     GUSTAVO.classList.remove('facing-left', 'gustavo-idle-sprite', 'gustavo-noise-hit-sprite', 'gustavo-drop-sprite', 'gustavo-peppino-hit-sprite', 'gustavo-pepper-peppino-sprite', 'gustavo-pepper-noise-sprite', 'gustavo-win-sprite', 'gustavo-lose-sprite');
     const GUSTAVO_CENTER_X = GUSTAVO.offsetLeft + (GUSTAVO.offsetWidth / 2);
@@ -848,6 +966,8 @@ function updateNoiseSprite() {
     const scaredSprite = isDoiseMode ? DOISE_SCARED_SPRITE : NOISE_SCARED_SPRITE;
     const happySprite = isDoiseMode ? DOISE_HAPPY_SPRITE : NOISE_HAPPY_SPRITE;
     const idleSprite = isDoiseMode ? DOISE_IDLE_SPRITE_NEW : NOISE_IDLE_SPRITE_NEW;
+    const rockStunSprite = isDoiseMode ? DOISE_ROCK_STUN_SPRITE : stunnedSprite;
+
     if (noiseIsStunned || noiseIsJoking) {
         NOISE.classList.remove('noise-disabled');
         if (noiseIsJoking) {
@@ -859,8 +979,14 @@ function updateNoiseSprite() {
             return;}
         if (NOISE.style.backgroundImage === pepperStunSprite) {
             NOISE.style.backgroundImage = pepperStunSprite;
-        } else {
-            NOISE.style.backgroundImage = NOISE.classList.contains('noise-tired-sprite') ? tiredSprite : stunnedSprite;}
+            return;
+        }
+        if (NOISE.style.backgroundImage === rockStunSprite) {
+             NOISE.style.backgroundImage = rockStunSprite;
+             return;
+        }
+        
+        NOISE.style.backgroundImage = NOISE.classList.contains('noise-tired-sprite') ? tiredSprite : stunnedSprite;
         return;}
     NOISE.classList.remove('is-stunned', 'invincible', 'noise-happy', 'noise-scared', 'noise-jumping', 'noise-double-jump', 'noise-powered-up', 'noise-idle-sprite', 'noise-tired-sprite', 'noise-joke-mode');
     const onPlatform = checkNoisePlatformCollision();
@@ -950,6 +1076,7 @@ function updatePlayerPosition() {
     if (PLAYER.classList.contains('peppino-tired-sprite') && isPeppinoStunned) {
         velocityY = 0;
         return;}
+    // Se stunnado, a gravidade ainda deve agir, mas o player não controla
     if (isPeppinoStunned || isParrying) {
         let onPlatform = checkPlatformCollision();
         if (!onPlatform) { velocityY -= SCALED_GRAVITY; }
@@ -1088,15 +1215,20 @@ function jumpNoise() {
     const SCALED_NOISE_JUMP_STRENGTH = getScaledValue(NOISE_JUMP_STRENGTH);
     const currentTime = Date.now();
     const isGrounded = noiseY === SCALED_GROUND_HEIGHT || checkNoisePlatformCollision();
+    
+    // LÓGICA DE SOM MODIFICADA PARA DOISE
+    const jumpSound = isDoiseMode ? SOUNDS.DoiseJump : SOUNDS.JumpNoise;
+    const doubleJumpSound = isDoiseMode ? SOUNDS.DoiseDoubleJump : SOUNDS.DoubleJumpNoise;
+
     if (isGrounded) {
         noiseVY = SCALED_NOISE_JUMP_STRENGTH;
         noiseJumpsUsed = 1;
         noiseLastJumpTime = currentTime;
-        playSFX(SOUNDS.JumpNoise);
+        playSFX(jumpSound);
     } else if (noiseJumpsUsed === 1 && (currentTime - noiseLastJumpTime) >= NOISE_DOUBLE_JUMP_COOLDOWN) {
         noiseVY = SCALED_NOISE_JUMP_STRENGTH;
         noiseJumpsUsed++;
-        playSFX(SOUNDS.DoubleJumpNoise);}}
+        playSFX(doubleJumpSound);}}
 function checkCollision() {
     const playerRect = PLAYER.getBoundingClientRect();
     const noiseRect = NOISE.getBoundingClientRect();
@@ -1134,6 +1266,188 @@ function checkCollision() {
 function isColliding(rect1, rect2) {
     return (rect1.left < rect2.right && rect1.right > rect2.left &&
     rect1.bottom > rect2.top && rect1.top < rect2.bottom);}
+
+// --- LÓGICA DAS PEDRAS (FALLING ROCKS) ---
+let activeRocks = []; // Array para rastrear pedras caindo
+const ROCK_WARNING_TIME = 3000;
+const ROCK_GROUND_TIME = 1750;
+const ROCK_SPEED = 10; // Velocidade de queda
+
+function spawnRock() {
+    if (!isDoiseMode || isGameOver) return;
+
+    const rock = document.createElement('div');
+    rock.classList.add('rock-entity', 'rock-warning');
+    // Tamanho da pedra
+    const size = getScaledValue(50); // Ajuste conforme seu sprite
+    rock.style.width = size + 'px';
+    rock.style.height = size + 'px';
+    rock.style.backgroundImage = ROCK_SPRITE;
+
+    // Posição Aleatória no topo
+    const maxX = GAME_WIDTH - size - SCALED_WALL_MARGIN;
+    const minX = SCALED_WALL_MARGIN;
+    const startX = minX + Math.random() * (maxX - minX);
+    const startY = GAME_HEIGHT - size; // Topo da tela
+
+    rock.style.left = startX + 'px';
+    rock.style.bottom = startY + 'px';
+
+    GAME_AREA.appendChild(rock);
+
+    // Objeto de dados da pedra
+    const rockData = {
+        element: rock,
+        x: startX,
+        y: startY,
+        state: 'warning', // warning, falling, ground
+        vy: 0
+    };
+    activeRocks.push(rockData);
+
+    // Após 3 segundos, começa a cair
+    setTimeout(() => {
+        if (!isGameOver && rockData.state === 'warning') {
+            rock.classList.remove('rock-warning');
+            rockData.state = 'falling';
+            rockData.vy = -getScaledValue(ROCK_SPEED);
+            playSFX(SOUNDS.RockFall); // Som ao cair
+        }
+    }, ROCK_WARNING_TIME);
+}
+
+function updateRocks() {
+    if (!isDoiseMode) return;
+
+    for (let i = activeRocks.length - 1; i >= 0; i--) {
+        const rock = activeRocks[i];
+        
+        if (rock.state === 'falling') {
+            rock.y += rock.vy;
+            rock.element.style.bottom = rock.y + 'px';
+
+            const rockRect = rock.element.getBoundingClientRect();
+            
+            // Colisão com Peppino durante queda
+            const playerRect = PLAYER.getBoundingClientRect();
+            if (isColliding(rockRect, playerRect)) {
+                handleRockHitPeppino();
+                breakRock(rock, i);
+                continue;
+            }
+
+            // Colisão com Doise durante queda
+            const doiseRect = NOISE.getBoundingClientRect();
+            if (isColliding(rockRect, doiseRect) && !noiseIsStunned) {
+                handleRockHitDoise();
+                breakRock(rock, i);
+                continue;
+            }
+
+            // Colisão com Chão
+            if (rock.y <= SCALED_GROUND_HEIGHT) {
+                rock.y = SCALED_GROUND_HEIGHT;
+                rock.element.style.bottom = rock.y + 'px';
+                rock.state = 'ground';
+                rock.vy = 0;
+                
+                // Toca o mesmo som ao bater no chão
+                playSFX(SOUNDS.RockFall);
+
+                // Timer para sumir
+                setTimeout(() => {
+                    // Ao sumir, pode dar dano em quem estiver em cima
+                    if(rock.state === 'ground' && !isGameOver) {
+                        checkGroundRockDamage(rock);
+                        breakRock(rock, i, true); // true = foi removido pelo timer
+                    }
+                }, ROCK_GROUND_TIME);
+            }
+        }
+    }
+}
+
+function checkGroundRockDamage(rock) {
+    // Checa colisão estática
+    const rockRect = rock.element.getBoundingClientRect();
+    const playerRect = PLAYER.getBoundingClientRect();
+    const doiseRect = NOISE.getBoundingClientRect();
+
+    // Peppino (10% chance)
+    if (isColliding(rockRect, playerRect)) {
+        if (Math.random() < 0.10) {
+            handleRockHitPeppino();
+        }
+    }
+
+    // Doise (50% chance)
+    if (isColliding(rockRect, doiseRect) && !noiseIsStunned) {
+        if (Math.random() < 0.50) {
+             handleRockHitDoise();
+        }
+    }
+}
+
+function breakRock(rock, index, fromArray = false) {
+    if (!fromArray) {
+        // Se não veio do loop reverso do updateRocks, precisamos achar o index
+        const idx = activeRocks.indexOf(rock);
+        if (idx > -1) activeRocks.splice(idx, 1);
+    } else {
+         // Se veio do loop que já está iterando ou de um callback assíncrono onde o array pode ter mudado
+         const idx = activeRocks.indexOf(rock);
+         if (idx > -1) activeRocks.splice(idx, 1);
+    }
+
+    rock.element.classList.add('rock-breaking');
+    // Animação de quebra aqui se tiver sprite
+    setTimeout(() => {
+        rock.element.remove();
+    }, 200); // Breve delay visual
+}
+
+function handleRockHitPeppino() {
+    if (isInvincible || isPowerupInvincible || isGameOver) return;
+    
+    health -= 1;
+    hitsTaken++;
+    updateHealthDisplay();
+    playSFX(SOUNDS.HurtPeppino);
+    
+    if (health <= 0) { endGame(); return; }
+
+    // Stun logic
+    isPeppinoStunned = true;
+    PLAYER.classList.add('is-stunned', 'peppino-stun-sprite', 'invincible');
+    // O stun sprite geralmente é usado, ou hurt sprite
+    PLAYER.style.backgroundImage = PLAYER_STUN_SPRITE;
+    STATUS_DISPLAY.textContent = "BONK! Rock Hit!";
+    
+    setTimeout(() => {
+        isPeppinoStunned = false;
+        PLAYER.classList.remove('is-stunned', 'peppino-stun-sprite', 'invincible');
+        updatePeppinoSprite();
+    }, 1500); // 1.5 segundos
+}
+
+function handleRockHitDoise() {
+    if (noiseIsStunned || isGameOver) return;
+
+    noiseIsStunned = true;
+    NOISE.classList.add('noise-disabled');
+    playSFX(SOUNDS.HurtDoise);
+    
+    // Sprite único de stun da pedra
+    NOISE.style.backgroundImage = DOISE_ROCK_STUN_SPRITE;
+    STATUS_DISPLAY.textContent = "The Doise was crushed!";
+
+    clearTimeout(noiseStunTimer);
+    noiseStunTimer = setTimeout(() => {
+        noiseIsStunned = false;
+        NOISE.classList.remove('noise-disabled');
+        updateNoiseSprite();
+    }, 12500); // 12.5 segundos
+}
 
 // FUNÇÕES DE DANO
 function handleNoiseHit(damage = 1) {
@@ -1287,7 +1601,7 @@ function endNoisePowerup() {
     if (isDoiseMode) {
         playBGM(DOISE_BGM);
     } else {
-        playBGM(BGM_AUDIO);}    
+        playBGM(BGM_AUDIO);}     
     STATUS_DISPLAY.textContent = 'The dumbass calmed down!';
     clearTimeout(noiseStunTimer);
     gustavoState = 'idle';
@@ -1313,9 +1627,9 @@ function handleNoisePepperHit() {
     noiseX = Math.max(SCALED_WALL_MARGIN, Math.min(GAME_WIDTH - NOISE_WIDTH - SCALED_WALL_MARGIN, noiseX));
     STATUS_DISPLAY.textContent = `The dumbass was HEATED UP!`; 
     if (isDoiseMode) {
-          playSFX(SOUNDS.HurtDoise);
+           playSFX(SOUNDS.HurtDoise);
     } else {
-          playSFX(SOUNDS.HurtNoise);}
+           playSFX(SOUNDS.HurtNoise);}
     if (!attemptGustavoDrop(noiseX, noiseY)) {
         setGustavoState('noise_hit');    }
     clearTimeout(noiseStunTimer);
@@ -1339,7 +1653,7 @@ function handleNoisePowerupConflict() {
         PLAYER.classList.add('facing-left');
         playerFacingRight = false;}
     noiseIsStunned = true;
-    NOISE.classList.add('noise-disabled');    
+    NOISE.classList.add('noise-disabled');     
     const parrySprite = isDoiseMode ? DOISE_POWERUP_PARRY_SPRITE : NOISE_POWERUP_PARRY_SPRITE;
     NOISE.style.backgroundImage = parrySprite;
     const pushBack = getScaledValue(50);
@@ -1423,9 +1737,11 @@ function getRandomSpawnPosition() {
         spawnYPoints.push(pY + pH);});
     const selectedY = spawnYPoints[Math.floor(Math.random() * spawnYPoints.length)];
     const scaledToppingSize = TOPPING_SIZE;
+    const groundMinX = SCALED_WALL_MARGIN;
+    const groundMaxX = GAME_WIDTH - SCALED_WALL_MARGIN - scaledToppingSize;
     if (selectedY === SCALED_GROUND_HEIGHT) {
         return {
-            x: Math.random() * (GAME_WIDTH - scaledToppingSize),
+            x: groundMinX + Math.random() * (groundMaxX - groundMinX),
             y: selectedY + getScaledValue(5)};
     } else {
         let platformElement = Array.from(document.querySelectorAll('.platform')).find(p => parseFloat(p.style.bottom) + parseFloat(p.style.height) === selectedY);
@@ -1436,7 +1752,7 @@ function getRandomSpawnPosition() {
                 x: minX + Math.random() * (maxX - minX),
                 y: selectedY};}
         return {
-            x: Math.random() * (GAME_WIDTH - scaledToppingSize),
+            x: groundMinX + Math.random() * (groundMaxX - groundMinX),
             y: SCALED_GROUND_HEIGHT};}}
 function spawnTopping() {
     if (isGameOver) return;
@@ -1528,6 +1844,8 @@ function calculateRank(hits, finalScore) {
     updateGustavoSprite();
     updatePlayerPosition();
     updateNoisePosition();
+    // ATUALIZAÇÃO DAS PEDRAS
+    updateRocks();
     checkCollision();
     score = Math.max(0, score);}
 function startTimer() {
@@ -1542,12 +1860,15 @@ function endGame(timeUp = false) {
     clearInterval(timerInterval);
     clearInterval(gameLoopInterval);
     clearInterval(spawnInterval);
+    clearInterval(rockSpawnInterval); // Para pedras
     clearTimeout(playerPowerupTimer);
     clearTimeout(noisePowerupTimer);
     clearTimeout(noiseStunTimer);
     clearTimeout(parryTimer);
     clearTimeout(gustavoStateTimer);
-    document.querySelectorAll('.topping, .power-up').forEach(t => t.remove());
+    // REMOVE PEDRAS
+    activeRocks = [];
+    document.querySelectorAll('.topping, .power-up, .rock-entity').forEach(t => t.remove());
     RANK_IMAGE_CONTAINER.style.display = 'none';
     stopBGM();
     activePowerupElement = null;
@@ -1562,7 +1883,7 @@ function endGame(timeUp = false) {
     NOISE.classList.remove('noise-disabled', 'noise-jumping', 'noise-double-jump', 'noise-happy', 'noise-scared', 'noise-powered-up', 'noise-idle-sprite', 'noise-tired-sprite', 'noise-joke-mode', 'is-stunned', 'invincible');
     NOISE.style.backgroundImage = isDoiseMode ? DOISE_WALK_SPRITE : NOISE_WALK_SPRITE;
     const rankData = calculateRank(hitsTaken, score);
-    
+     
     // VITÓRIA DO NOISE/DOISE
     if (health <= 0) {
         STATUS_DISPLAY.textContent = `F-RANK! ${rankData.message} Points: ${score}.`;
@@ -1577,7 +1898,7 @@ function endGame(timeUp = false) {
         NOISE.classList.remove('facing-left');
         RANK_IMAGE_CONTAINER.style.display = 'block';
         RANK_IMAGE_CONTAINER.className = `final-rank-image ${rankData.rankClass}`;
-    
+     
     // VITÓRIA DO PEPPINO
     } else if (timeUp) {
         playSFX(SOUNDS.WinPeppino);
@@ -1654,6 +1975,8 @@ function startGame() {
     isParrying = false;
     playerFacingRight = true;
     hasGeromeSpawned = false;
+    // Reset Pedras
+    activeRocks = [];
     clearTimeout(playerPowerupTimer);
     clearTimeout(noisePowerupTimer);
     clearTimeout(noiseStunTimer);
@@ -1672,7 +1995,8 @@ function startGame() {
     clearInterval(timerInterval);
     clearInterval(gameLoopInterval);
     clearInterval(spawnInterval);
-    document.querySelectorAll('.topping, .power-up').forEach(t => t.remove());
+    clearInterval(rockSpawnInterval); // Limpa intervalo de pedras
+    document.querySelectorAll('.topping, .power-up, .rock-entity').forEach(t => t.remove());
     SCORE_DISPLAY.textContent = 'Score: 0';
     updateHealthDisplay();
     STATUS_DISPLAY.textContent = 'Use the platforms to get the Toppings!';
@@ -1686,14 +2010,19 @@ function startGame() {
         GAME_AREA.style.backgroundImage = DOISE_BACKGROUND;
         playerX = getScaledValue(GAME_WIDTH - PLAYER_WIDTH - 50 - SCALED_WALL_MARGIN);
         noiseX = getScaledValue(50 + SCALED_WALL_MARGIN);
+        // INICIA O INTERVALO DE PEDRAS PARA O MODO DOISE
+        rockSpawnInterval = setInterval(() => {
+            if (isDoiseMode && !isGameOver && Math.random() < 0.10) {
+                spawnRock();
+            }
+        }, 2500);
     } else {
         time = 60;
         playBGM(BGM_AUDIO);
         currentNoiseSpeed = NOISE_SPEED;
         GAME_AREA.style.backgroundImage = NORMAL_BACKGROUND;
         playerX = getScaledValue(BASE_PLAYER_START_X + BASE_WALL_MARGIN);
-        noiseX = getScaledValue(BASE_NOISE_START_X_POS - BASE_WALL_MARGIN);
-    }
+        noiseX = getScaledValue(BASE_NOISE_START_X_POS - BASE_WALL_MARGIN);}
     TIMER_DISPLAY.textContent = `Time: ${time}`;
     playerY = SCALED_GROUND_HEIGHT;
     noiseY = SCALED_GROUND_HEIGHT;
@@ -1724,6 +2053,5 @@ window.onload = () => {
     MUTE_BUTTON.classList.add(UNMUTE_ICON_SPRITE);
     updateModeButton();};
 </script>
-<script src="JavaScripts_gerais/script_geral.js"></script>
 </body>
 </html>
