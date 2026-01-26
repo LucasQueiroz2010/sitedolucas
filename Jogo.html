@@ -80,7 +80,6 @@ body {
     align-items: center;
     z-index: 25;
     gap: 20px;}
-/* NOVA TELA DE CARREGAMENTO */
 #loading-screen {
     position: absolute;
     top: 0;
@@ -88,14 +87,14 @@ body {
     width: 100%;
     height: 100%;
     background-color: black;
-    background-size: cover; /* Ajuste para cover ou contain conforme sua imagem */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 100; /* Acima de tudo */
+    z-index: 100;
     color: white;
     font-size: 2em;
     font-weight: bold;
@@ -160,30 +159,22 @@ body {
     background-repeat: no-repeat;
     z-index: 10;}
 .facing-left { transform: scaleX(-1); }
-
-/* ESTILOS DA PEDRA (ROCK) */
 .rock-entity {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 15;
-    /* Substitua pela imagem da pedra */
-    background-image: url(imagens_jogo/Stuff/rock.png); 
-}
+    background-image: url(imagens_jogo/Stuff/Rock.png);}
 .rock-warning {
     opacity: 0.8;
-    animation: flicker-warning 0.2s infinite;
-}
+    animation: flicker-warning 0.2s infinite;}
 @keyframes flicker-warning {
     0% { opacity: 0.5; }
     50% { opacity: 1; }
-    100% { opacity: 0.5; }
-}
+    100% { opacity: 0.5; }}
 .rock-breaking {
-    /* Animação ou sprite de quebra */
     opacity: 0.7;
-    transition: opacity 0.2s;
-}
+    transition: opacity 0.2s;}
 
 /* SPRITES */
 .moving-sprite { background-image: url(imagens_jogo/P_sprites/Peppino_walk.gif); }
@@ -556,9 +547,8 @@ const DOISE_WIN_SPRITE = "url(imagens_jogo/D_sprites/Doise_win.gif)";
 const DOISE_JOKE_SPRITE = "url(imagens_jogo/D_sprites/Doise_joke.png)";
 const DOISE_BACKGROUND = "url(imagens_jogo/Stuff/backwong.png)";
 const NORMAL_BACKGROUND = "url(imagens_jogo/Stuff/backwoag.png)";
-// SPRITE ÚNICO DE STUN DA PEDRA PRO DOISE E PEDRAS
-const DOISE_ROCK_STUN_SPRITE = "url(imagens_jogo/D_sprites/Doise_rock_stun.png)";
-const ROCK_SPRITE = "url(imagens_jogo/Stuff/rock.png)";
+const DOISE_ROCK_STUN_SPRITE = "url(imagens_jogo/D_sprites/Doise_rock_stun.gif)";
+const ROCK_SPRITE = "url(imagens_jogo/Stuff/Rock.png)";
 
 // SPRITES DO GUSTAVO
 const GUSTAVO_IDLE_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_idle.gif)";
@@ -584,13 +574,11 @@ const ALL_ASSETS = [
 function preloadGameAssets(callback) {
     let loadedCount = 0;
     const totalToLoad = ALL_ASSETS.length;
-     
     if (totalToLoad === 0) {
         callback();
         return;}
     const minLoadTime = 1000; 
     const startTime = Date.now();
-
     ALL_ASSETS.forEach(srcRaw => {
         const src = srcRaw.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');        
         const img = new Image();
@@ -735,7 +723,7 @@ const platformBaseData = [
 let timerInterval;
 let gameLoopInterval;
 let spawnInterval;
-let rockSpawnInterval; // Intervalo para spawn de pedras
+let rockSpawnInterval;
 let activePowerupElement = null;
 let playerPowerupTimer;
 let noisePowerupTimer;
@@ -769,10 +757,7 @@ function updateItemsPosition() {
         if (!item.classList.contains('rock-entity')) {
             item.style.width = TOPPING_SIZE + 'px';
             item.style.height = TOPPING_SIZE + 'px';
-        } else {
-            // Reajusta pedras se necessário, mas elas têm tamanho fixo na classe ou inline
-        }
-    });}
+        } else {}});}
 function updateHealthDisplay() {
     HEALTH_DISPLAY.innerHTML = 'Hits: ';
     for (let i = 0; i < health; i++) {
@@ -840,9 +825,9 @@ const SOUNDS = {
     HurtDoise: "soundtrack_jogo/Doise_hurt.mp3",
     JumpPeppino: "soundtrack_jogo/Peppino_jump.wav",
     JumpNoise: "soundtrack_jogo/Noise_jump.wav",
-    DoiseJump: "soundtrack_jogo/Doise_jump.wav", // Som novo
+    DoiseJump: "soundtrack_jogo/Doise_jump.wav",
     DoubleJumpNoise: "soundtrack_jogo/Double_jump.wav",
-    DoiseDoubleJump: "soundtrack_jogo/Doise_doublejump.wav", // Som novo
+    DoiseDoubleJump: "soundtrack_jogo/Doise_doublejump.wav",
     RunPeppino: "soundtrack_jogo/Peppino_run.wav",
     WinPeppino: "soundtrack_jogo/Peppino_win.mp3",
     WinNoise: "soundtrack_jogo/Noise_win.mp3",
@@ -858,8 +843,7 @@ const SOUNDS = {
     LifeCollect: "soundtrack_jogo/Hat_collect.wav",
     GustavoDrop: "soundtrack_jogo/Gustavo_drop.mp3", 
     FriendlyDrop: "soundtrack_jogo/Noise_drop.mp3",
-    RockFall: "soundtrack_jogo/Rock_fall.wav" // Som novo da pedra
-};
+    RockFall: "soundtrack_jogo/Rock.wav"};
 function updateGustavoSprite() {
     GUSTAVO.classList.remove('facing-left', 'gustavo-idle-sprite', 'gustavo-noise-hit-sprite', 'gustavo-drop-sprite', 'gustavo-peppino-hit-sprite', 'gustavo-pepper-peppino-sprite', 'gustavo-pepper-noise-sprite', 'gustavo-win-sprite', 'gustavo-lose-sprite');
     const GUSTAVO_CENTER_X = GUSTAVO.offsetLeft + (GUSTAVO.offsetWidth / 2);
@@ -967,7 +951,6 @@ function updateNoiseSprite() {
     const happySprite = isDoiseMode ? DOISE_HAPPY_SPRITE : NOISE_HAPPY_SPRITE;
     const idleSprite = isDoiseMode ? DOISE_IDLE_SPRITE_NEW : NOISE_IDLE_SPRITE_NEW;
     const rockStunSprite = isDoiseMode ? DOISE_ROCK_STUN_SPRITE : stunnedSprite;
-
     if (noiseIsStunned || noiseIsJoking) {
         NOISE.classList.remove('noise-disabled');
         if (noiseIsJoking) {
@@ -979,13 +962,10 @@ function updateNoiseSprite() {
             return;}
         if (NOISE.style.backgroundImage === pepperStunSprite) {
             NOISE.style.backgroundImage = pepperStunSprite;
-            return;
-        }
+            return;}
         if (NOISE.style.backgroundImage === rockStunSprite) {
              NOISE.style.backgroundImage = rockStunSprite;
-             return;
-        }
-        
+             return;}
         NOISE.style.backgroundImage = NOISE.classList.contains('noise-tired-sprite') ? tiredSprite : stunnedSprite;
         return;}
     NOISE.classList.remove('is-stunned', 'invincible', 'noise-happy', 'noise-scared', 'noise-jumping', 'noise-double-jump', 'noise-powered-up', 'noise-idle-sprite', 'noise-tired-sprite', 'noise-joke-mode');
@@ -1076,7 +1056,6 @@ function updatePlayerPosition() {
     if (PLAYER.classList.contains('peppino-tired-sprite') && isPeppinoStunned) {
         velocityY = 0;
         return;}
-    // Se stunnado, a gravidade ainda deve agir, mas o player não controla
     if (isPeppinoStunned || isParrying) {
         let onPlatform = checkPlatformCollision();
         if (!onPlatform) { velocityY -= SCALED_GRAVITY; }
@@ -1215,11 +1194,8 @@ function jumpNoise() {
     const SCALED_NOISE_JUMP_STRENGTH = getScaledValue(NOISE_JUMP_STRENGTH);
     const currentTime = Date.now();
     const isGrounded = noiseY === SCALED_GROUND_HEIGHT || checkNoisePlatformCollision();
-    
-    // LÓGICA DE SOM MODIFICADA PARA DOISE
     const jumpSound = isDoiseMode ? SOUNDS.DoiseJump : SOUNDS.JumpNoise;
     const doubleJumpSound = isDoiseMode ? SOUNDS.DoiseDoubleJump : SOUNDS.DoubleJumpNoise;
-
     if (isGrounded) {
         noiseVY = SCALED_NOISE_JUMP_STRENGTH;
         noiseJumpsUsed = 1;
@@ -1266,188 +1242,118 @@ function checkCollision() {
 function isColliding(rect1, rect2) {
     return (rect1.left < rect2.right && rect1.right > rect2.left &&
     rect1.bottom > rect2.top && rect1.top < rect2.bottom);}
-
-// --- LÓGICA DAS PEDRAS (FALLING ROCKS) ---
-let activeRocks = []; // Array para rastrear pedras caindo
+let activeRocks = [];
 const ROCK_WARNING_TIME = 3000;
 const ROCK_GROUND_TIME = 1750;
-const ROCK_SPEED = 10; // Velocidade de queda
-
+const ROCK_SPEED = 10;
 function spawnRock() {
     if (!isDoiseMode || isGameOver) return;
-
     const rock = document.createElement('div');
     rock.classList.add('rock-entity', 'rock-warning');
-    // Tamanho da pedra
-    const size = getScaledValue(50); // Ajuste conforme seu sprite
+    const size = getScaledValue(50);
     rock.style.width = size + 'px';
     rock.style.height = size + 'px';
     rock.style.backgroundImage = ROCK_SPRITE;
-
-    // Posição Aleatória no topo
     const maxX = GAME_WIDTH - size - SCALED_WALL_MARGIN;
     const minX = SCALED_WALL_MARGIN;
     const startX = minX + Math.random() * (maxX - minX);
-    const startY = GAME_HEIGHT - size; // Topo da tela
-
+    const startY = GAME_HEIGHT - size;
     rock.style.left = startX + 'px';
     rock.style.bottom = startY + 'px';
-
     GAME_AREA.appendChild(rock);
-
-    // Objeto de dados da pedra
     const rockData = {
         element: rock,
         x: startX,
         y: startY,
-        state: 'warning', // warning, falling, ground
-        vy: 0
-    };
+        state: 'warning',
+        vy: 0};
     activeRocks.push(rockData);
-
-    // Após 3 segundos, começa a cair
     setTimeout(() => {
         if (!isGameOver && rockData.state === 'warning') {
             rock.classList.remove('rock-warning');
             rockData.state = 'falling';
             rockData.vy = -getScaledValue(ROCK_SPEED);
-            playSFX(SOUNDS.RockFall); // Som ao cair
-        }
-    }, ROCK_WARNING_TIME);
-}
-
+            playSFX(SOUNDS.RockFall);}
+    }, ROCK_WARNING_TIME);}
 function updateRocks() {
     if (!isDoiseMode) return;
-
     for (let i = activeRocks.length - 1; i >= 0; i--) {
         const rock = activeRocks[i];
-        
         if (rock.state === 'falling') {
             rock.y += rock.vy;
             rock.element.style.bottom = rock.y + 'px';
-
             const rockRect = rock.element.getBoundingClientRect();
-            
-            // Colisão com Peppino durante queda
             const playerRect = PLAYER.getBoundingClientRect();
             if (isColliding(rockRect, playerRect)) {
                 handleRockHitPeppino();
                 breakRock(rock, i);
-                continue;
-            }
-
-            // Colisão com Doise durante queda
+                continue;}
             const doiseRect = NOISE.getBoundingClientRect();
             if (isColliding(rockRect, doiseRect) && !noiseIsStunned) {
                 handleRockHitDoise();
                 breakRock(rock, i);
-                continue;
-            }
-
-            // Colisão com Chão
+                continue;}
             if (rock.y <= SCALED_GROUND_HEIGHT) {
                 rock.y = SCALED_GROUND_HEIGHT;
                 rock.element.style.bottom = rock.y + 'px';
                 rock.state = 'ground';
                 rock.vy = 0;
-                
-                // Toca o mesmo som ao bater no chão
                 playSFX(SOUNDS.RockFall);
-
-                // Timer para sumir
                 setTimeout(() => {
-                    // Ao sumir, pode dar dano em quem estiver em cima
                     if(rock.state === 'ground' && !isGameOver) {
                         checkGroundRockDamage(rock);
-                        breakRock(rock, i, true); // true = foi removido pelo timer
-                    }
-                }, ROCK_GROUND_TIME);
-            }
-        }
-    }
-}
-
+                        breakRock(rock, i, true);}
+                }, ROCK_GROUND_TIME);}}}}
 function checkGroundRockDamage(rock) {
-    // Checa colisão estática
     const rockRect = rock.element.getBoundingClientRect();
     const playerRect = PLAYER.getBoundingClientRect();
     const doiseRect = NOISE.getBoundingClientRect();
-
-    // Peppino (10% chance)
     if (isColliding(rockRect, playerRect)) {
         if (Math.random() < 0.10) {
-            handleRockHitPeppino();
-        }
-    }
-
-    // Doise (50% chance)
+            handleRockHitPeppino();}}
     if (isColliding(rockRect, doiseRect) && !noiseIsStunned) {
         if (Math.random() < 0.50) {
-             handleRockHitDoise();
-        }
-    }
-}
-
+             handleRockHitDoise();}}}
 function breakRock(rock, index, fromArray = false) {
     if (!fromArray) {
-        // Se não veio do loop reverso do updateRocks, precisamos achar o index
         const idx = activeRocks.indexOf(rock);
         if (idx > -1) activeRocks.splice(idx, 1);
     } else {
-         // Se veio do loop que já está iterando ou de um callback assíncrono onde o array pode ter mudado
          const idx = activeRocks.indexOf(rock);
-         if (idx > -1) activeRocks.splice(idx, 1);
-    }
-
+         if (idx > -1) activeRocks.splice(idx, 1);}
     rock.element.classList.add('rock-breaking');
-    // Animação de quebra aqui se tiver sprite
     setTimeout(() => {
         rock.element.remove();
-    }, 200); // Breve delay visual
-}
-
+    }, 200);}
 function handleRockHitPeppino() {
     if (isInvincible || isPowerupInvincible || isGameOver) return;
-    
     health -= 1;
     hitsTaken++;
     updateHealthDisplay();
     playSFX(SOUNDS.HurtPeppino);
-    
     if (health <= 0) { endGame(); return; }
-
-    // Stun logic
     isPeppinoStunned = true;
     PLAYER.classList.add('is-stunned', 'peppino-stun-sprite', 'invincible');
-    // O stun sprite geralmente é usado, ou hurt sprite
     PLAYER.style.backgroundImage = PLAYER_STUN_SPRITE;
-    STATUS_DISPLAY.textContent = "BONK! Rock Hit!";
-    
+    STATUS_DISPLAY.textContent = "Wacth out for the falling rocks!";
     setTimeout(() => {
         isPeppinoStunned = false;
         PLAYER.classList.remove('is-stunned', 'peppino-stun-sprite', 'invincible');
         updatePeppinoSprite();
-    }, 1500); // 1.5 segundos
-}
-
+    }, 1500);
 function handleRockHitDoise() {
     if (noiseIsStunned || isGameOver) return;
-
     noiseIsStunned = true;
     NOISE.classList.add('noise-disabled');
     playSFX(SOUNDS.HurtDoise);
-    
-    // Sprite único de stun da pedra
     NOISE.style.backgroundImage = DOISE_ROCK_STUN_SPRITE;
-    STATUS_DISPLAY.textContent = "The Doise was crushed!";
-
+    STATUS_DISPLAY.textContent = "The Doise hit himself. What a bozo!";
     clearTimeout(noiseStunTimer);
     noiseStunTimer = setTimeout(() => {
         noiseIsStunned = false;
         NOISE.classList.remove('noise-disabled');
         updateNoiseSprite();
-    }, 12500); // 12.5 segundos
-}
+    }, 12500);}}
 
 // FUNÇÕES DE DANO
 function handleNoiseHit(damage = 1) {
@@ -1584,8 +1490,7 @@ function collectNoisePowerup(powerupElement) {
         STATUS_DISPLAY.textContent = "The Doise got the Pepper Pizza! WHERE'S PEDDITO?";
     } else {
         playBGM(PEPPER_NOISE_AUDIO);
-        STATUS_DISPLAY.textContent = "The Noise got the Pepper Pizza! RUN FOR YOUR LIFE!";
-    }
+        STATUS_DISPLAY.textContent = "The Noise got the Pepper Pizza! RUN FOR YOUR LIFE!";}
     noisePowerupTimer = setTimeout(() => {
         endNoisePowerup();
     }, POWERUP_INVINCIBILITY_TIME);}
@@ -1844,7 +1749,6 @@ function calculateRank(hits, finalScore) {
     updateGustavoSprite();
     updatePlayerPosition();
     updateNoisePosition();
-    // ATUALIZAÇÃO DAS PEDRAS
     updateRocks();
     checkCollision();
     score = Math.max(0, score);}
@@ -1860,13 +1764,12 @@ function endGame(timeUp = false) {
     clearInterval(timerInterval);
     clearInterval(gameLoopInterval);
     clearInterval(spawnInterval);
-    clearInterval(rockSpawnInterval); // Para pedras
+    clearInterval(rockSpawnInterval);
     clearTimeout(playerPowerupTimer);
     clearTimeout(noisePowerupTimer);
     clearTimeout(noiseStunTimer);
     clearTimeout(parryTimer);
     clearTimeout(gustavoStateTimer);
-    // REMOVE PEDRAS
     activeRocks = [];
     document.querySelectorAll('.topping, .power-up, .rock-entity').forEach(t => t.remove());
     RANK_IMAGE_CONTAINER.style.display = 'none';
@@ -1975,7 +1878,6 @@ function startGame() {
     isParrying = false;
     playerFacingRight = true;
     hasGeromeSpawned = false;
-    // Reset Pedras
     activeRocks = [];
     clearTimeout(playerPowerupTimer);
     clearTimeout(noisePowerupTimer);
@@ -1995,7 +1897,7 @@ function startGame() {
     clearInterval(timerInterval);
     clearInterval(gameLoopInterval);
     clearInterval(spawnInterval);
-    clearInterval(rockSpawnInterval); // Limpa intervalo de pedras
+    clearInterval(rockSpawnInterval);
     document.querySelectorAll('.topping, .power-up, .rock-entity').forEach(t => t.remove());
     SCORE_DISPLAY.textContent = 'Score: 0';
     updateHealthDisplay();
@@ -2010,7 +1912,6 @@ function startGame() {
         GAME_AREA.style.backgroundImage = DOISE_BACKGROUND;
         playerX = getScaledValue(GAME_WIDTH - PLAYER_WIDTH - 50 - SCALED_WALL_MARGIN);
         noiseX = getScaledValue(50 + SCALED_WALL_MARGIN);
-        // INICIA O INTERVALO DE PEDRAS PARA O MODO DOISE
         rockSpawnInterval = setInterval(() => {
             if (isDoiseMode && !isGameOver && Math.random() < 0.10) {
                 spawnRock();

@@ -2,7 +2,7 @@ Dicionário:
 WIP = Work In Progress, ou seja, trabalho em progresso. Algo quenão está 100% pronto e pode sofrer atualizações.
 UD = Update dispensável, ou seja, um update que aconteceu somente porque eu esqueci de adicionar/atualizar um ponto pequeno/específico.
 URM = Update README, ou seja, um update que apensa mudou o README.
-MQL = Mudança de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.
+UQL = Update de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.
 PTWE = Pizza Tower Web Edition. 
 ND = Nota do desenvolvedor.
 README = 'Avisos importantes!'.
@@ -179,3 +179,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 9.4.4.1-Site do Lucas V1.9.4.4: Remoneação de updates e URM 5.
 1) Foi adicionado uma palavra nova ao dicionário.
 2) Foi mudado alguns pontos do README.
+
+9.5- Site do Lucas V1.9.5: UQL e update GAMER 6.
+1) Foi adicionado uma nova mecânica no Doise Mode, onde pedras podem cair do céu de forma aleatória.
+2) Essa versão ainda não foi 100% testada, então pode sofrer mudanças no futuro.
