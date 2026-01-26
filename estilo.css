@@ -65,12 +65,24 @@
 			font-size: 32px;
 		}
 
+		.t34px {
+			font-size: 34px;
+		}
+
+		.t38px {
+			font-size: 38px;
+		}
+
 		.t40px {
 			font-size: 40px;
 		}
 
 		.t50px {
 			font-size: 50px;
+		}
+
+		.t60px {
+			font-size: 60px;
 		}
 
 		.direita {
@@ -629,3 +641,55 @@ padding: 3px;
     background-clip: text;
     color: transparent;
 }
+
+		@media (max-width: 576px)  { 
+			body{
+				background-image: url(imagens/Fundo1celular.jpg);
+			}
+		}
+		@media (max-width: 768px) {
+			body{
+				background-image: url(imagens/Fundo1tablet.jpg);
+			}
+		}
+		@media (max-width: 992px) {
+			body{
+				background-image: url(imagens/Fundo1.jfif);
+			}
+		}
+		@media (max-width: 1200px) {
+			body{
+				background-image: url(imagens/Fundo1XL.jpg);
+			}
+		}
+
+		.linkprincipal{
+			border: 5px  groove #54260d;
+			text-decoration: none;
+			color: white;
+		}
+
+		.linkprincipal:hover{
+			text-decoration: none;
+			color: gray;
+			cursor: pointer;
+		}
+
+		.linkprincipal:active{
+			color: blue;
+			text-decoration: none;
+		}
+
+        .branco2 {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;}
+
+        .preto2 {
+            color: black;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;}

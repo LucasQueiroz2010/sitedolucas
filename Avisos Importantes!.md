@@ -2,7 +2,7 @@ Dicionário:
 WIP = Work In Progress, ou seja, trabalho em progresso. Algo quenão está 100% pronto e pode sofrer atualizações.
 UD = Update dispensável, ou seja, um update que aconteceu somente porque eu esqueci de adicionar/atualizar um ponto pequeno/específico.
 URM = Update README, ou seja, um update que apensa mudou o README.
-UQL = Update de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.
+UQV = Update de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.
 PTWE = Pizza Tower Web Edition. 
 ND = Nota do desenvolvedor.
 README = 'Avisos importantes!'.
@@ -37,7 +37,7 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 2.1- Site do Lucas V1.2.1 / V1.2.2: URM 1 e 2.
 1) O arquivo "Avisos Importantes!" sofreu algumas melhoras de design.
 
-3.0- Site do Lucas V1.3; interação estelar/ MQL.
+3.0- Site do Lucas V1.3; interação estelar/ UQV.
 1) Foi adicionado uma interação com a estrela amarela na "Página Inicial".
 2) Foi adicionado uma interação específica na página "Foto do Lucas!"
 3) Foi inplementado algumas mudanças de qualidade de vida/detalhes.
@@ -63,7 +63,7 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 4) Na versão 1.5.4, foi adicionado uma imagem que estava faltando, além da edição do README.
 !-try.remove "fatal_error" ... task_failed-!
 
-6.0- Site do Lucas V1.6: adição GAMER/MQL.
+6.0- Site do Lucas V1.6: adição GAMER/UQV.
 1) Pizza Tower - Web edition (ou PTWE) foi adicionado na parte mais baixa da "Página principal".
 2) Pequenas mudanças de qualidade de vida/detalhes.
 !-try.remove "fatal_error" ... task_failed-!
@@ -165,7 +165,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 3) Foi adicionado algumas palavras novas ao dicionário.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.4.3- Site do Lucas V1.9.4.3: Design fix pequeno 2 e MQL.
+9.4.3- Site do Lucas V1.9.4.3: Design fix pequeno 2 e UQV.
 1) Foi adicionado o JavaScript 'script_foto'.
 2) Foi adicionado o JavaScript 'script_geral'.
 3) Foi atualizado a parte mais de cima de todas da página 'Site do Lucas!' para que combine com a cor do site.
@@ -175,11 +175,21 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 9.4.4- Site do Lucas V1.9.4.4: UD 6/URM 4.
 1) Foi mudado o README.
 2) Foi mudado o contator de versão.
+?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
 9.4.4.1-Site do Lucas V1.9.4.4: Remoneação de updates e URM 5.
 1) Foi adicionado uma palavra nova ao dicionário.
 2) Foi mudado alguns pontos do README.
+?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.5- Site do Lucas V1.9.5: UQL e update GAMER 6.
+9.5- Site do Lucas V1.9.5: UQV e update GAMER 6.
 1) Foi adicionado uma nova mecânica no Doise Mode, onde pedras podem cair do céu de forma aleatória.
 2) Essa versão ainda não foi 100% testada, então pode sofrer mudanças no futuro.
+?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
+
+9.5.1- Site do Lucas V1.9.5.1: Update do "Cool-O-Meter" e UQV.
+1) Foi adicionado um novo site chamado Cool-O-Meter, cujo objetivo é definir o quão legal é a pessoa acesando o site (ou seja, você, o leitor).
+2) Foi adicionado uma nova sessão na área "Outros sites feitos pelo Lucas" na página 'Site do Lucas!'.
+3) Melhorias de qualidade de vida foram feitas.
+4) Foi mudado uma palavra no dicionário (UQL para UQV).
+5) Algumas mudanças foram feitas no README por causa da mudança do dicionário.
