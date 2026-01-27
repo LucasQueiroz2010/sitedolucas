@@ -432,18 +432,16 @@ padding: 3px;
     vertical-align: top;
 	align-items: baseline;
 }
-.estrela3{
+
+.estrela3 {
     width: 350px;
     height: 350px;
     background-image: url('imagens/estrela_basica_marrom.png');
     background-size: contain;
-	background-repeat: no-repeat;
-    transition: background-image 1s ease-in;
-	cursor: none;
-}
-
-.estrela3:hover{
-	background-image: url('imagens/taunt.gif');
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in;
+    cursor: crosshair;
+	user-select: none;
 }
 
   .estrela2 {
@@ -453,24 +451,19 @@ padding: 3px;
     background-size: contain;
 	background-repeat: no-repeat;
     transition: background-image 1s ease-in;
-	cursor: none;
+	cursor: crosshair;
+	user-select: none;
   }
 
-  .estrela2:hover {
-    background-image: url('imagens/estrela.gif');
-  }
-
-.estrela1{
+.estrela1 {
     width: 350px;
     height: 350px;
     background-image: url('imagens/estrela_basica_marrom.png');
     background-size: contain;
-	background-repeat: no-repeat;
-    transition: background-image 30s ease-in;
-}
-
-.estrela1:hover{
-	background-image: url(imagens/Foto.jpeg);
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in;
+    cursor: crosshair;
+	user-select: none;
 }
 
 .textnoselect{
@@ -636,7 +629,7 @@ padding: 3px;
 			}
 
 			.text-bicolor {
-    background-image: linear-gradient(to right, black 46%, white 54%);
+    background-image: linear-gradient(to right, rgb(255, 255, 255) 46%, rgb(0, 0, 0) 54%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

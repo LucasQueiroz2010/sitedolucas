@@ -1,6 +1,7 @@
 var nomecompleto = 'Lucas Oliveira de Queiroz'
 var nome = 'Lucas'
 var teste = 'Teste'
+
 var nomepessoal = prompt('Me diga o seu nome com letra maiúscula no começo (clique em cancelar para não informar):')
 var idadepessoal = prompt('Me diga a sua idade (clique em cancelar para não informar):')
 var genero = prompt('Me diga o seu gênero (M/F) e escreva com letra maiúscula no começo (clique em cancelar para não informar):')
@@ -39,7 +40,7 @@ else if (genero != 'M' && genero != 'F' && genero != null) {
     document.getElementById("saudações2").innerText = `Gênero neutro?`
 }
 
-// --- EASTER EGGS ---
+// EASTER EGGS
 
 if (idadepessoal == 67) {
     document.getElementById("Idade").innerText = `O meme '67' já está ultrapassado, ${nomepessoal}! Você deveria cometer suicídio!`}
@@ -90,4 +91,34 @@ if (nomepessoal == 'Baldi Baldimore' && idadepessoal == 29 && genero == 'M') {
 if (nomepessoal == 'Marta' && idadepessoal == 45 && genero == 'F') {
     document.getElementById("saudações").innerText = `Oi, Marta. Seja bem vinda ao meu site!`
     document.getElementById("Idade").innerText = `${idadepessoal} anos? Nem parece...`
-    document.getElementById("saudações2").innerText = `Eu te amo! Obrigado por aturar minhas loucuras!`}
+    document.getElementById("saudações2").innerText = `Eu te amo! Obrigado por aguentar minhas loucuras!`}
+
+// Mudança das estrelas
+var imagemOriginal1 = true;
+function mudarestrela1(elemento) {
+    if (imagemOriginal1) {
+        elemento.style.backgroundImage = "url('imagens/taunt.gif')";
+        imagemOriginal1 = false;
+    } else {
+        elemento.style.backgroundImage = "url('imagens/estrela_basica_marrom.png')";
+        imagemOriginal1 = true;}}
+
+var imagemOriginal2 = true;
+
+function mudarestrela2(elemento) {
+    if (imagemOriginal2) {
+        elemento.style.backgroundImage = "url('imagens/estrela_mario.gif')";
+        imagemOriginal2 = false;
+    } else {
+        elemento.style.backgroundImage = "url('imagens/estrela_basica.png')";
+        imagemOriginal2 = true;}}
+
+var imagemOriginal3 = true;
+
+function mudarestrela3(elemento) {
+    if (imagemOriginal3) {
+        elemento.style.backgroundImage = "url('imagens/taunt2.gif')";
+        imagemOriginal3 = false;
+    } else {
+        elemento.style.backgroundImage = "url('imagens/estrela_basica_marrom.png')";
+        imagemOriginal3 = true;}}
