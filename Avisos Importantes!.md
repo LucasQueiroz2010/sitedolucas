@@ -200,3 +200,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 2) Foi mudado a lógica dos easter eggs e dos nomes em geral.
 3) Foi adicionado/mudado algumas coisas no site 'Cool-O-Meter'.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
+
+9.6.1- Site do Lucas V1.9.6.2: UQV e mudanças pequenas 2.
+1) Foi mudado algumas coisas nos Java Scripts.
+2) Foi mudado a interação com as três estrelas na página inicial.
