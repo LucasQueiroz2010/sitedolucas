@@ -67,4 +67,4 @@ if (Q3 == 1) {
     document.getElementById("Q3").innerText = `Opção inválida na questão 3. (+0 Pontos)`;}
 
 // Resultado Final
-document.getElementById("A1").innerHTML = `RESULTADO FINAL: Sua pontuação de "legalzice" é: <strong>${pontuacao}</strong>`;
+document.getElementById("A1").innerHTML = `RESULTADO FINAL: Sua pontuação de "legalzice" é: ${pontuacao}!`;

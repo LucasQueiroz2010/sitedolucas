@@ -341,6 +341,9 @@ body {
 .doise-btn:hover { background-color: #3b8cd6 !important; transform: scale(1.05) !important; }
 .doise-btn:active { transform: translateY(4px) !important; }
 </style>
+
+	<link rel="icon" href="imagens/favicons/favicon_jogo.png" type="image/png">
+    <link rel="apple-touch-icon" href="imagens/favicons/favicon_jogo_apple_touch.png">
 </head>
 <body>
 <div class="line"><a class="Bordalink branco Pizza_Game_Link" href="index.html"> Site Principal </a></div>
@@ -560,7 +563,7 @@ const GUSTAVO_PEPPER_NOISE_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_PN.gif)"
 const GUSTAVO_WIN_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_P_win.gif)";
 const GUSTAVO_LOSE_SPRITE = "url(imagens_jogo/G_sprites/Gustavo_N_win.gif)";
 
-// LISTA COMPLETA DE ASSETS PARA PRELOAD
+// PRELOAD
 const ALL_ASSETS = [
     PLAYER_IDLE_SPRITE, PLAYER_WALK_SPRITE, PLAYER_RUN_SPRITE, PLAYER_JUMP_SPRITE, PLAYER_WALL_SLIDE_SPRITE, PLAYER_HURT_SPRITE, PLAYER_STUN_SPRITE, PEPPINO_PARRY_SPRITE, PEPPER_SPRITE, PLAYER_TIRED_SPRITE, PEPPINO_WIN_TIME_SPRITE, PEPPINO_LOSE_NOISE_SPRITE,
     NOISE_WALK_SPRITE, NOISE_JUMP_SPRITE, NOISE_DOUBLE_JUMP_SPRITE, NOISE_SCARED_SPRITE, NOISE_HAPPY_SPRITE, NOISE_POWERED_SPRITE, STUNNED_SPRITE, NOISE_IDLE_SPRITE_NEW, NOISE_TIRED_SPRITE, NOISE_PEPPER_STUN_SPRITE, NOISE_POWERUP_PARRY_SPRITE, NOISE_LOSE_SPRITE, NOISE_WIN_SPRITE, NOISE_JOKE_SPRITE, F_NOISE_IDLE, F_NOISE_DROP, F_NOISE_SCARED, F_NOISE_HAPPY, F_NOISE_PANIC, F_NOISE_THUMBS, F_NOISE_WIN, F_NOISE_LOSE,
@@ -569,8 +572,6 @@ const ALL_ASSETS = [
     "url(imagens_jogo/Toppings/Mushroom.gif)", "url(imagens_jogo/Toppings/Cheese.gif)", "url(imagens_jogo/Toppings/Tomato.gif)", "url(imagens_jogo/Toppings/Weiner.gif)", "url(imagens_jogo/Toppings/Pineapple.gif)", "url(imagens_jogo/Toppings/Gerome.gif)", "url(imagens_jogo/Toppings/Life_hat.png)", "url(imagens_jogo/Toppings/Pepper_Pizza.gif)",
     DOISE_BACKGROUND, NORMAL_BACKGROUND, "url(imagens_jogo/Stuff/Title_screen.png)", "url(imagens_jogo/Stuff/Mode%20screen.jpg)",
     "url(imagens_jogo/Ranks/P-Rank.png)", "url(imagens_jogo/Ranks/S-Rank.png)", "url(imagens_jogo/Ranks/A-Rank.png)", "url(imagens_jogo/Ranks/B-Rank.jpg)", "url(imagens_jogo/Ranks/C-Rank.png)", "url(imagens_jogo/Ranks/D-Rank.png)", "url(imagens_jogo/Ranks/F-Rank.png)", "url(imagens_jogo/Ranks/IDK-Rank.png)", "url(imagens_jogo/Ranks/DEAD_Rank.png)", ROCK_SPRITE, DOISE_ROCK_STUN_SPRITE];
-
-// FUNÇÃO DE PRELOAD
 function preloadGameAssets(callback) {
     let loadedCount = 0;
     const totalToLoad = ALL_ASSETS.length;
@@ -1279,7 +1280,15 @@ function updateRocks() {
     if (!isDoiseMode) return;
     for (let i = activeRocks.length - 1; i >= 0; i--) {
         const rock = activeRocks[i];
-        if (rock.state === 'falling') {
+        if (rock.state === 'warning') {
+             let targetX = playerX + (PLAYER_WIDTH / 2) - (parseFloat(rock.element.style.width) / 2);
+             const size = parseFloat(rock.element.style.width);
+             const maxX = GAME_WIDTH - size - SCALED_WALL_MARGIN;
+             const minX = SCALED_WALL_MARGIN;
+             targetX = Math.max(minX, Math.min(maxX, targetX));
+             rock.element.style.left = targetX + 'px';
+             rock.x = targetX;}
+        else if (rock.state === 'falling') {
             rock.y += rock.vy;
             rock.element.style.bottom = rock.y + 'px';
             const rockRect = rock.element.getBoundingClientRect();
@@ -1340,7 +1349,7 @@ function handleRockHitPeppino() {
         isPeppinoStunned = false;
         PLAYER.classList.remove('is-stunned', 'peppino-stun-sprite', 'invincible');
         updatePeppinoSprite();
-    }, 1500);
+    }, 1500);}
 function handleRockHitDoise() {
     if (noiseIsStunned || isGameOver) return;
     noiseIsStunned = true;
@@ -1353,7 +1362,7 @@ function handleRockHitDoise() {
         noiseIsStunned = false;
         NOISE.classList.remove('noise-disabled');
         updateNoiseSprite();
-    }, 12500);}}
+    }, 12500);}
 
 // FUNÇÕES DE DANO
 function handleNoiseHit(damage = 1) {
@@ -1532,9 +1541,9 @@ function handleNoisePepperHit() {
     noiseX = Math.max(SCALED_WALL_MARGIN, Math.min(GAME_WIDTH - NOISE_WIDTH - SCALED_WALL_MARGIN, noiseX));
     STATUS_DISPLAY.textContent = `The dumbass was HEATED UP!`; 
     if (isDoiseMode) {
-           playSFX(SOUNDS.HurtDoise);
+            playSFX(SOUNDS.HurtDoise);
     } else {
-           playSFX(SOUNDS.HurtNoise);}
+            playSFX(SOUNDS.HurtNoise);}
     if (!attemptGustavoDrop(noiseX, noiseY)) {
         setGustavoState('noise_hit');    }
     clearTimeout(noiseStunTimer);
@@ -1558,7 +1567,7 @@ function handleNoisePowerupConflict() {
         PLAYER.classList.add('facing-left');
         playerFacingRight = false;}
     noiseIsStunned = true;
-    NOISE.classList.add('noise-disabled');     
+    NOISE.classList.add('noise-disabled');      
     const parrySprite = isDoiseMode ? DOISE_POWERUP_PARRY_SPRITE : NOISE_POWERUP_PARRY_SPRITE;
     NOISE.style.backgroundImage = parrySprite;
     const pushBack = getScaledValue(50);
@@ -1914,9 +1923,8 @@ function startGame() {
         noiseX = getScaledValue(50 + SCALED_WALL_MARGIN);
         rockSpawnInterval = setInterval(() => {
             if (isDoiseMode && !isGameOver && Math.random() < 0.10) {
-                spawnRock();
-            }
-        }, 2500);
+                spawnRock();}
+        }, 1000);
     } else {
         time = 60;
         playBGM(BGM_AUDIO);

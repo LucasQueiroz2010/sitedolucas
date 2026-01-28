@@ -7,6 +7,9 @@ PTWE = Pizza Tower Web Edition.
 ND = Nota do desenvolvedor.
 README = 'Avisos importantes!'.
 pobs = Pequena observação.
+Peppino: player.
+The Noise/The Doise: inimigo.
+Friendly Noise/Gustavo: amigo que fica no centro.
 JS = Javascript.
 
 Atualizações abaixo:
@@ -183,7 +186,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
 9.5- Site do Lucas V1.9.5: UQV e update GAMER 6.
-1) Foi adicionado uma nova mecânica no Doise Mode, onde pedras podem cair do céu de forma aleatória.
+1) Foi adicionado uma nova mecânica no Doise Mode, onde rochas podem cair do céu de forma aleatória.
 2) Essa versão ainda não foi 100% testada, então pode sofrer mudanças no futuro.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
@@ -204,3 +207,10 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 9.6.1- Site do Lucas V1.9.6.2: UQV e mudanças pequenas 2.
 1) Foi mudado algumas coisas nos Java Scripts.
 2) Foi mudado a interação com as três estrelas na página inicial.
+
+9.7- Site do Lucas V1.9.7: UQV, adição de ícones e melhora das rochas.
+1) Algumas coisas/detalhes pequenos foram mudados.
+2) Foi adicionado ícones em cada um dos sites, ou seja, cada site tem seu ícone único.
+3) Foi melhorado a mecânica das rochas que caem aleatóriamente no Doise Mode, agora elas caem com um pouco mais de frequência e seguem o Peppino até elas cairem.
+4) Foi adicionado algumas palavras novas no dicionário.
+5) Alguns sprites estão bugados/sendo executados na hora errada. Isso vai ser corrigido em versões futuras.
