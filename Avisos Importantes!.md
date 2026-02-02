@@ -214,3 +214,18 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 3) Foi melhorado a mecânica das rochas que caem aleatóriamente no Doise Mode, agora elas caem com um pouco mais de frequência e seguem o Peppino até elas cairem.
 4) Foi adicionado algumas palavras novas no dicionário.
 5) Alguns sprites estão bugados/sendo executados na hora errada. Isso vai ser corrigido em versões futuras.
+?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
+
+9.8- Site do Lucas V1.9.8: atualização GAMER 7.
+1) No "Doise Overlay", as pedras caem com um pouco mais de frequência.
+2) No "Doise Overlay", podem cair bombas, que vão sempre focar no The Doise.
+3) ..."edoM rekaF" on euqilC
+?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
+
+9.9- Site do Lucas V1.9.9: implementação do jogo da velha + ND + UQV.
+1) Foi adicionado um jogo da velha feito por mim, pois meu chefe mandou eu fazer um jogo da velha para que eu possa colocar meus conhecimentos em algo simples.
+2) A forma de acessar o jogo da velha é igual a forma de acessar o PTWE.
+3) Algumas pequenas mudanças foram feitas no PTWE.
+4) Foi adicionado a sessão do jogo da velha na sessão 'Outros sites feitos pelo Lucas' no "Site do Lucas".
+ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
+?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?

@@ -57,6 +57,10 @@
 		.t20px {
 			font-size: 20px;
 		}
+		.t29px {
+			font-size: 29px;
+		}
+
 		.t30px {
 			font-size: 30px;
 		}
@@ -686,3 +690,9 @@ padding: 3px;
             padding: 10px;
             margin-bottom: 10px;
             border-radius: 5px;}
+
+			.linkdavelha{
+				color: rgb(66, 61, 61);
+				text-decoration: none;
+				cursor: crosshair;
+			}
