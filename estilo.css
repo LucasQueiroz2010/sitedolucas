@@ -696,3 +696,9 @@ padding: 3px;
 				text-decoration: none;
 				cursor: crosshair;
 			}
+
+			.linkdavelha:hover{
+				color: gray;
+				text-decoration: none;
+				cursor: crosshair;
+			}

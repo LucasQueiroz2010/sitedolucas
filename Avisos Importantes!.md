@@ -9,7 +9,7 @@ README = 'Avisos importantes!'.
 pobs = Pequena observação.
 Peppino: player.
 The Noise/The Doise: inimigo.
-Friendly Noise/Gustavo: amigo que fica no centro.
+Friendly Noise/Gustavo: personagem que fica no centro da tela.
 JS = Javascript.
 
 Atualizações abaixo:
@@ -162,7 +162,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 3) Foi adicionado o JavaScript 'script_contatos'.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.4.2- Site do Lucas V1.9.4.2: UD 8 e update do README.
+9.4.2- Site do Lucas V1.9.4.2: UD 6 e update do README.
 1) Foi mudado o indicador de versões na página inicial.
 2) O README sofreu certos upgrades/mudanças.
 3) Foi adicionado algumas palavras novas ao dicionário.
@@ -175,7 +175,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 4) Foi adicionado uma caixa de texto preta no começo da página 'Site Principal' para melhor leitura da mensagem de boas vindas personalizada.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.4.4- Site do Lucas V1.9.4.4: UD 6/URM 4.
+9.4.4- Site do Lucas V1.9.4.4: UD 7/URM 4.
 1) Foi mudado o README.
 2) Foi mudado o contator de versão.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
@@ -228,4 +228,9 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 3) Algumas pequenas mudanças foram feitas no PTWE.
 4) Foi adicionado a sessão do jogo da velha na sessão 'Outros sites feitos pelo Lucas' no "Site do Lucas".
 ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
+?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
+
+9.9.1- Site do Lucas V1.9.9.1: UD 8.
+1) Foi mudado detalhes mínimos em alguns sites.
+2) Foi mudado a aparência do link que dá acesso ao jogo da velha.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
