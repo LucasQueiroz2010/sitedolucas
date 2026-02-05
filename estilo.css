@@ -57,6 +57,11 @@
 		.t20px {
 			font-size: 20px;
 		}
+
+		.t25px {
+			font-size: 25px;
+		}
+
 		.t29px {
 			font-size: 29px;
 		}
@@ -71,6 +76,10 @@
 
 		.t34px {
 			font-size: 34px;
+		}
+
+		.t36px {
+			font-size: 36px;
 		}
 
 		.t38px {
@@ -689,16 +698,26 @@ padding: 3px;
             background-color: rgba(255, 255, 255, 0.5);
             padding: 10px;
             margin-bottom: 10px;
-            border-radius: 5px;}
+            border-radius: 5px;
+		display: inline-block;}
 
 			.linkdavelha{
 				color: rgb(66, 61, 61);
 				text-decoration: none;
 				cursor: crosshair;
+				background-color: white;
 			}
 
 			.linkdavelha:hover{
 				color: gray;
 				text-decoration: none;
+				cursor: pointer;
+				background-color: black;
+			}
+
+			.linkdavelha:active{
+				color: red;
+				text-decoration: none;
 				cursor: crosshair;
+				background-color: greenyellow;
 			}

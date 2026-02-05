@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="estilo.css">
+	<link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Jogo dos Loucos!</title>
+    <title>Jogo da velha?</title>
     <style type="text/css">
         :root {
             --img-p1: url('');
             --img-p2: url('');
-            --bg-setup: url('jogodavelha/background_config.png'); 
-            --bg-game: url('jogodavelha/background_game.jpg');}
+            --bg-setup: url('jogodavelha/Icons/background_config.png'); 
+            --bg-game: url('jogodavelha/Icons/background_game.jpg');}
         body {
             background-image: var(--bg-setup);
             background-color: #222;
@@ -101,7 +101,7 @@
 <body>
     <div class="centralizar" id="setup">
         <h1>Configuração do Jogo</h1>
-        <a class="Bordalink branco Pizza_Game_Link" href="index.html">Site Principal</a><br>
+        <a class="Bordalink branco linkdavelha" href="index.html">Site Principal</a><br>
         <input class="centralizar" type="text" id="p1Name" placeholder="Nome Jogador 1">
         <br>
         <input class="centralizar" type="text" id="p2Name" placeholder="Nome Jogador 2">
@@ -125,7 +125,7 @@
     <div id="game-container" style="display:none;">
         <div class="controls">
             <button id="fullscreen-btn" onclick="toggleFullscreen()">
-                <img id="fs-icon" src="jogodavelha/fullscreen_on.png" alt="Fullscreen">
+                <img id="fs-icon" src="jogodavelha/Icons/fullscreen_on.png" alt="Fullscreen">
             </button>
             <button onclick="resetFullGame()">Resetar</button>
         </div>

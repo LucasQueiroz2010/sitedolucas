@@ -14,7 +14,7 @@ JS = Javascript.
 
 Atualizações abaixo:
 
-1- Site do Lucas V1.0: o começo de tudo.
+1- Site do Lucas V1.0: o começo de tudo (ND 1).
 ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-o público. Então obrigado por visitá-lo!  (Só para avisar, esse site ainda está imcompleto, ou seja, espere por mais atualizações!). Eu gostaria de agradecer meu irmão Davi por ter falado com meus pais (os donos da empresa) para que eu possa trabalhar com 15 anos. Agradeço também o meu pai Icaro e minha mãe Taynan por me deixarem trabalhar na FIT Gestão empresarial (a empresa dos dois). Agradeço também ao Renan e ao Felipe (duas pessoas que trabalham na minha área) por serem tão legais comigo, mesmo eu sendo um novato. Agradeçimentos especiais ao Bruno, que me ajudou a publicar o site no GitHub.
 1) Foi criado o 'Site do Lucas!'.
 
@@ -40,7 +40,7 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 2.1- Site do Lucas V1.2.1 / V1.2.2: URM 1 e 2.
 1) O arquivo "Avisos Importantes!" sofreu algumas melhoras de design.
 
-3.0- Site do Lucas V1.3; interação estelar/ UQV.
+3.0- Site do Lucas V1.3; interação estelar/ UQV 1.
 1) Foi adicionado uma interação com a estrela amarela na "Página Inicial".
 2) Foi adicionado uma interação específica na página "Foto do Lucas!"
 3) Foi inplementado algumas mudanças de qualidade de vida/detalhes.
@@ -59,19 +59,19 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 4) Foi removida a interação que ante existia na página "Foto do Lucas!".
 !-try.remove "fatal_error" ... task_failed-!
 
-5.1- Site do Lucas V1.5.1 / 1.5.2 / 1.5.3 / 1.5.4: UD 1, 2, 3 e 4/URM 2.
+5.1- Site do Lucas V1.5.1 / 1.5.2 / 1.5.3 / 1.5.4: UD 1, 2, 3 e 4/URM 3.
 1) A versão 1.5.1 foi uma versão sem atualizações, sendo exatamente igual a versão 1.4. Essa versão foi enviada por acidente.
 2) Acidentalmente, na versão 1.5.2, foi enviado nada, além do arquivo de fotos, oque já foi corrigido.
 3) A versão 1.5.3 é a versão onde tudo da versão 1.5 foi implementado, além da mudança do README.
 4) Na versão 1.5.4, foi adicionado uma imagem que estava faltando, além da edição do README.
 !-try.remove "fatal_error" ... task_failed-!
 
-6.0- Site do Lucas V1.6: adição GAMER/UQV.
+6.0- Site do Lucas V1.6: adição GAMER 1/UQV 2.
 1) Pizza Tower - Web edition (ou PTWE) foi adicionado na parte mais baixa da "Página principal".
 2) Pequenas mudanças de qualidade de vida/detalhes.
 !-try.remove "fatal_error" ... task_failed-!
 
-7.0.- Site do Lucas V1.7: atualização GAMER.
+7.0.- Site do Lucas V1.7: atualização GAMER 2.
 1) Muitos sprites novos (Peppino_wall, Noise_joke, Gerome.webp, etc.) foram adicionados.
 2) Foi adicionado o poder Pepper Pizza, que faz você ficar invencivel por 5 segundos.
 3) Foi adicionado um "topping de HP", que tem 20% de chance de dropar quando o Noise recebe dano.
@@ -80,12 +80,12 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 6) Foi adicionado um botão de mute/unmute.  
 !-try.remove "fatal_error" ... task_failed-!
 
-7.1- Site do Lucas V1.7.1: UD 5/URM 3.
+7.1- Site do Lucas V1.7.1: UD 5/URM 4.
 1) Mudanças no README.
 2) Mudanças pequenas no "jogo.html"
 !-try.remove "fatal_error" ... task_failed-!
 
-8.0- Site do Lucas V1.8: adição/atualização GAMER mobile (e outras coisas).
+8.0- Site do Lucas V1.8: adição/atualização GAMER 3 (mobile) e outras coisas.
 1) Foi adicionado um dicionário no começo do README.
 2) Foi adicionado o modo mobile no PTWE (Pizza Tower Web Edition, vou me referir ao jogo assim de agora em diante). O modo mobile faz o jogo ficar em tela cheia e faz aparecer quatro botões: botão de andar para esquerda e direita, botão de pular e de correr, mas tirando isso, é a mesma coisa (isso é um WIP). 
 3) Foi mudado algumas interações entre as estrelas da "Página Inicial".
@@ -93,27 +93,27 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 5) Foi adicionado backgrounds variados dependendo do tamanho da sua tela na "Página Inicial", dando certo suporte para mobile e telas maiores.
 !-try.remove "fatal_error" ... task_failed-!
 
-8.1- Site do Lucas V1.8.1: atualização GAMER 2.
+8.1- Site do Lucas V1.8.1: atualização GAMER 4.
 1) Foi adicionado uma interação caso o Player (Peppino) e o inimigo (The Noise) estejam com o poder da Pepper Pizza.
 2) Outros pequenos bugs/erros foram consertados
 3) Essa atualização tem o proposito de testar o modo mobile do jogo.
 !-try.remove "fatal_error" ... task_failed-!
 
-8.2- Site do Lucas V1.8.2: atualização GAMER 3.
+8.2- Site do Lucas V1.8.2: atualização GAMER 5.
 1) Gustavo foi adicionado ao PTWE, sendo sua funcionalidade a de, quando o The Noise for atingido, ele tem 25% de chance de dropar um HP para o Peppino (player).
 2) Melhores botões de mute/unmute, fullscreen on/off e modo mobile/PC.
 3) Melhoria em alguns sprites do Peppino e do The Noise.
 4) Foi adicionado a versão do site da 'Página Inicial".
 !-try.remove "fatal_error" ... task_failed-!
 
-8.3- Site do Lucas V1.8.3: atualização GAMER 4 (e pequenos detalhes).
+8.3- Site do Lucas V1.8.3: atualização GAMER 6 (e pequenos detalhes).
 1) Todos os sprites do Peppino foram atualizados.
 2) (Quase) Todos os sprites do The Noise foram atualizados.
 3) Todos os sprites do Gustavo foram atualizados.
 4) Algumas mudanças ocorreram na 'Página Principal'.
 !-try.remove "fatal_error" ... task_failed ... updating_system-!
 
-8.4- Site do Lucas V1.8.4: atualização GAMER 5: acesso atualizado (1ª versão e teste para mobile).
+8.4- Site do Lucas V1.8.4: atualização GAMER 7: acesso atualizado (1ª versão e teste para mobile).
 1) A form de acessar o PTWE foi mudado para uma forma mais caracterizada.
 2) Pequenos detalhes no jogo/site foram atualizados/mudados.
 3) Essa é a primeira versão para testar o modo mobile do PTWE.
@@ -125,7 +125,7 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 8.4.1- Site do Lucas V1.8.4.1: teste mobile 1.
 1) Novo botão adicionado, pois os players da versão mobile não conseguem acessar a antiga forma de entrar no PTWE (essa interação ocorre quando é clicado emcima do Peppino da "Página Inicial", e ainda existe essa interação). 
 
-9.0- Site do Lucas V1.9: Modo Hard (e ND).
+9.0- Site do Lucas V1.9: Modo Hard (e ND 2).
 1) Foi adicionado um modo 'díficil' para o PTWE, que consiste no 'Doise Mode', um modo onde o The Doise está no lugar do The Noise e o The Noise está no lugar do Gustavo.
 2) Algumas mudanças foram feitas, como a diminuição da chance de HP dropado pelo The Noise em comparação ao Gustavo (de 50% para 25%), o tempo (de 60 para 90 segundos), a música, background, sons, etc.
 3) Alguns bugs de sprite e de música ainda existem, que serão consertados no futuro.
@@ -168,29 +168,29 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 3) Foi adicionado algumas palavras novas ao dicionário.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.4.3- Site do Lucas V1.9.4.3: Design fix pequeno 2 e UQV.
+9.4.3- Site do Lucas V1.9.4.3: Design fix pequeno 2 e UQV 3.
 1) Foi adicionado o JavaScript 'script_foto'.
 2) Foi adicionado o JavaScript 'script_geral'.
 3) Foi atualizado a parte mais de cima de todas da página 'Site do Lucas!' para que combine com a cor do site.
 4) Foi adicionado uma caixa de texto preta no começo da página 'Site Principal' para melhor leitura da mensagem de boas vindas personalizada.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.4.4- Site do Lucas V1.9.4.4: UD 7/URM 4.
+9.4.4- Site do Lucas V1.9.4.4: UD 7/URM 5.
 1) Foi mudado o README.
 2) Foi mudado o contator de versão.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.4.4.1-Site do Lucas V1.9.4.4: Remoneação de updates e URM 5.
+9.4.4.1-Site do Lucas V1.9.4.4: Remoneação de updates e URM 6.
 1) Foi adicionado uma palavra nova ao dicionário.
 2) Foi mudado alguns pontos do README.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.5- Site do Lucas V1.9.5: UQV e update GAMER 6.
+9.5- Site do Lucas V1.9.5: UQV 4 e update GAMER 8.
 1) Foi adicionado uma nova mecânica no Doise Mode, onde rochas podem cair do céu de forma aleatória.
 2) Essa versão ainda não foi 100% testada, então pode sofrer mudanças no futuro.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.6- Site do Lucas V1.9.6: Update do "Cool-O-Meter" e UQV.
+9.6- Site do Lucas V1.9.6: Update do "Cool-O-Meter" e UQV 5.
 1) Foi adicionado um novo site chamado Cool-O-Meter, cujo objetivo é definir o quão legal é a pessoa acesando o site (ou seja, você, o leitor).
 2) Foi adicionado uma nova sessão na área "Outros sites feitos pelo Lucas" na página 'Site do Lucas!'.
 3) Melhorias de qualidade de vida foram feitas.
@@ -198,17 +198,17 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 5) Algumas mudanças foram feitas no README por causa da mudança do dicionário.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.6.1- Site do Lucas V1.9.6.1: UQV e mudanças pequenas.
+9.6.1- Site do Lucas V1.9.6.1: UQV 6 e mudanças pequenas.
 1) Foi adicionado o easter egg do anônimo.
 2) Foi mudado a lógica dos easter eggs e dos nomes em geral.
 3) Foi adicionado/mudado algumas coisas no site 'Cool-O-Meter'.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.6.1- Site do Lucas V1.9.6.2: UQV e mudanças pequenas 2.
+9.6.1- Site do Lucas V1.9.6.2: UQV 7 e mudanças pequenas 2.
 1) Foi mudado algumas coisas nos Java Scripts.
 2) Foi mudado a interação com as três estrelas na página inicial.
 
-9.7- Site do Lucas V1.9.7: UQV, adição de ícones e melhora das rochas.
+9.7- Site do Lucas V1.9.7: UQV 8, adição de ícones e melhora das rochas.
 1) Algumas coisas/detalhes pequenos foram mudados.
 2) Foi adicionado ícones em cada um dos sites, ou seja, cada site tem seu ícone único.
 3) Foi melhorado a mecânica das rochas que caem aleatóriamente no Doise Mode, agora elas caem com um pouco mais de frequência e seguem o Peppino até elas cairem.
@@ -216,13 +216,13 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 5) Alguns sprites estão bugados/sendo executados na hora errada. Isso vai ser corrigido em versões futuras.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.8- Site do Lucas V1.9.8: atualização GAMER 7.
+9.8- Site do Lucas V1.9.8: atualização GAMER 9.
 1) No "Doise Overlay", as pedras caem com um pouco mais de frequência.
-2) No "Doise Overlay", podem cair bombas, que vão sempre focar no The Doise.
+2) No "Doise Overlay", podem cair bombas, que vão sempre focar no The Doise e causar uma explosão, que dá dano em área por algum tempo.
 3) ..."edoM rekaF" on euqilC
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.9- Site do Lucas V1.9.9: implementação do jogo da velha + ND + UQV.
+9.9- Site do Lucas V1.9.9: implementação do jogo da velha + ND 3 + UQV 9.
 1) Foi adicionado um jogo da velha feito por mim, pois meu chefe mandou eu fazer um jogo da velha para que eu possa colocar meus conhecimentos em algo simples.
 2) A forma de acessar o jogo da velha é igual a forma de acessar o PTWE.
 3) Algumas pequenas mudanças foram feitas no PTWE.
@@ -234,3 +234,16 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 1) Foi mudado detalhes mínimos em alguns sites.
 2) Foi mudado a aparência do link que dá acesso ao jogo da velha.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
+
+9.10- Site do Lucas V1.9.10: Jogo da velha genérico (update GAMER 10) + UQV 10 + grande URM 7.
+1) Foi adicionado um jogo da velha, só que mais genérico e simples.
+2) Também foi adicionado seu acesso no "Site do Lucas". na seção 'Outros sites feitos pelo Lucas'.
+3) Foi adicionado a sessão de 'Números', que serve pra que eu saiba quantas vezes eu já usei uma apreviação.
+4) Teve uma grande organização no README por completo.
+?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
+?!+ Update_system to 'Remover V4.0' +!?
+(4)! Update completed !(4)
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Números: UQV: 10 / UD: 8 / Atualização GAMER: 10 / ND: 3 / URM: 7

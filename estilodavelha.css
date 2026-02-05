@@ -1,0 +1,150 @@
+* {    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Fonte;}
+
+@font-face {
+	font-family: "Fonte";
+	src: url("fontes/fontedavelha.woff");}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+        background-image: url('jogodavelha/Icons_generico/background_image.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;}
+
+.jogo {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    text-align: center;}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;}
+
+#turno {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;}
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin-bottom: 20px;}
+
+.celula {
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    border: 2px solid #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: background 0.3s;}
+
+.celula:hover {
+    background-color: #f0f0f0;}
+
+.celula img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    pointer-events: none;}
+
+.botao {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background 0.3s;}
+
+.botao:hover {
+    background-color: #555;}
+
+.botao-imagem {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s;}
+
+.botao-imagem img {
+    width: 50px;
+    height: 50px;}
+
+.botao-imagem:hover {
+    transform: scale(1.1);}
+
+.branco{
+	color: rgb(191, 189, 189);}
+
+.teladeinicio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;}
+
+.teladeinicio_desativada {
+    opacity: 0;
+    pointer-events: none;}
+
+.conteudo_teladeinicio {
+    text-align: center;
+    color: white;
+    font-family: sans-serif;}
+
+.conteudo_teladeinicio button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #54260d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;}
+
+.conteudo_teladeinicio button:hover {
+    background-color: #82492b;}
+
+.conteudo_teladeinicio button:active {
+    background-color: #ac653f;}
+
+.linkgenerico{
+    color: #90461d;
+    background-color: black;
+    border: 6px solid gray;
+text-decoration: none;}
+
+.linkgenerico:hover{
+    color: black;
+    background-color: gray;
+    border: 6px solid #54260d;
+text-decoration: none;}
+
+.linkgenerico:active{
+    color: white;
+    background-color: black;
+    border: 6px solid #54260d;
+text-decoration: none;}

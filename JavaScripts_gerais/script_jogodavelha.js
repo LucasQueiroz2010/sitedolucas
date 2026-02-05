@@ -79,7 +79,7 @@ function updateCharUI() {
     const p2Char = characterData[p2Index];
     document.getElementById('btn-p1-select').style.backgroundImage = `url('${p1Char.img}')`;
     document.getElementById('label-p1').innerText = p1Char.name;
-    document.getElementById('btn-p2-select').style.backgroundImage = `url('${p2Char.img}')`;
+    document.getElementById('btn-p2-select').style.backgroundImage = `url('${p2Char.img}'`;
     document.getElementById('label-p2').innerText = p2Char.name;}
 
 function setupGameAudio() {
@@ -198,9 +198,9 @@ function toggleFullscreen() {
     const icon = document.getElementById('fs-icon');
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
-        icon.src = "jogodavelha/fullscreen_off.png";
+        icon.src = "jogodavelha/Icons/fullscreen_off.png";
     } else {
         if (document.exitFullscreen) {
             document.exitFullscreen();
-            icon.src = "jogodavelha/fullscreen_on.png";}}}
+            icon.src = "jogodavelha/Icons/fullscreen_on.png";}}}
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));

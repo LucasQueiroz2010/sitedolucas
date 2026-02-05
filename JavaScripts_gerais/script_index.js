@@ -95,13 +95,13 @@ if (nomepessoal == 'Marta' && idadepessoal == 45 && genero == 'F') {
 
 // Mudança das estrelas
 var imagemOriginal1 = true;
+
 function mudarestrela1(elemento) {
     if (imagemOriginal1) {
         elemento.style.backgroundImage = "url('imagens/taunt.gif')";
         imagemOriginal1 = false;
     } else {
-        elemento.style.backgroundImage = "url('imagens/estrela_basica_marrom.png')";
-        imagemOriginal1 = true;}}
+        window.location.href = "Jogo.html";}}
 
 var imagemOriginal2 = true;
 
@@ -117,8 +117,7 @@ var imagemOriginal3 = true;
 
 function mudarestrela3(elemento) {
     if (imagemOriginal3) {
-        elemento.style.backgroundImage = "url('imagens/taunt2.gif')";
+        elemento.style.backgroundImage = "url('imagens/velha.png')";
         imagemOriginal3 = false;
     } else {
-        elemento.style.backgroundImage = "url('imagens/estrela_basica_marrom.png')";
-        imagemOriginal3 = true;}}
+        window.location.href = "jogodavelha.html";}}
