@@ -121,3 +121,16 @@ function mudarestrela3(elemento) {
         imagemOriginal3 = false;
     } else {
         window.location.href = "jogodavelha.html";}}
+
+// Função do RADIO.
+const range = document.getElementById('myRange');
+        const rangeV = document.getElementById('rangeValue');
+        function updateRange() {
+            const newValue = range.value;
+            const min = range.min ? range.min : 0;
+            const max = range.max ? range.max : 100;
+            rangeV.innerHTML = newValue;
+            const newVal = Number(((newValue - min) * 100) / (max - min));
+            rangeV.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;}
+        range.addEventListener('input', updateRange);
+        document.addEventListener("DOMContentLoaded", updateRange);

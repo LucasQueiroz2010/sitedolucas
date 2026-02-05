@@ -1,15 +1,14 @@
-Dicionário:
-WIP = Work In Progress, ou seja, trabalho em progresso. Algo quenão está 100% pronto e pode sofrer atualizações.
-UD = Update dispensável, ou seja, um update que aconteceu somente porque eu esqueci de adicionar/atualizar um ponto pequeno/específico.
-URM = Update README, ou seja, um update que apensa mudou o README.
-UQV = Update de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.
-PTWE = Pizza Tower Web Edition. 
-ND = Nota do desenvolvedor.
+Dicionário do Lucas:
+WIP = 'Work In Progress, ou seja, trabalho em progresso. Algo quenão está 100% pronto e pode sofrer atualizações.'
+UD = 'Update 'desnecessário', ou seja, um update que aconteceu somente porque eu esqueci de adicionar/atualizar um ponto pequeno/específico e/ou porque eu atualizai algo sem testar e/ou porque eu sem querer atualizai o site com coisas inconpletas.'
+URM = 'Update README, ou seja, um update que apensa mudou o README.'
+UQV = 'Update de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.'
+PTWE = 'Pizza Tower Web Edition.'
+ND = 'Nota do desenvolvedor.'
 README = 'Avisos importantes!'.
-pobs = Pequena observação.
-Peppino: player.
-The Noise/The Doise: inimigo.
-Friendly Noise/Gustavo: personagem que fica no centro da tela.
+pobs = 'Pequena observação.'
+JV = 'Jogo da velha.'
+JVG = 'Jogo da velha genérico.'
 JS = Javascript.
 
 Atualizações abaixo:
@@ -24,11 +23,11 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 3) Foi excluido: 2 "documentos".
 
 2.0- Site do Lucas V1.2: grandes adições.
-1) Foi adicionado a sessão "que dia você nasceu?" na aba de informações na "Página Principal".
+1) Foi adicionado a seção "que dia você nasceu?" na aba de informações na "Página Principal".
 2) Foi adicionado um copyright (© 2025 - Lucas Oliveira de Queiroz) em todas as páginas.
 3) Foi adicionado duas novas imagens no "Site do Lucas!"
 4) Os títulos na "Página do Lucas!" agora crescem quando o cursor está por cima das palavras para melhor visibilidade.
-5) A sessão "Veja o Lucas!" sofreu mudanças severas.
+5) A seção "Veja o Lucas!" sofreu mudanças severas.
 6) As páginas "Página Principal" e "Site do Lucas!" agora tem fontes personalizadas.
 7) A "Página Principal" teve algumas mudanças em seus textos.
 8) As imagens na parallax no "Site do Lucas!" estão com qualidade melhorada.
@@ -89,7 +88,7 @@ ND: O primeiro site que eu fiz em toda a minha vida, e eu estou agora, deixando-
 1) Foi adicionado um dicionário no começo do README.
 2) Foi adicionado o modo mobile no PTWE (Pizza Tower Web Edition, vou me referir ao jogo assim de agora em diante). O modo mobile faz o jogo ficar em tela cheia e faz aparecer quatro botões: botão de andar para esquerda e direita, botão de pular e de correr, mas tirando isso, é a mesma coisa (isso é um WIP). 
 3) Foi mudado algumas interações entre as estrelas da "Página Inicial".
-4) Foi mudado um botão da sessão "Sua Opinião!" na "Página Inicial".
+4) Foi mudado um botão da seção "Sua Opinião!" na "Página Inicial".
 5) Foi adicionado backgrounds variados dependendo do tamanho da sua tela na "Página Inicial", dando certo suporte para mobile e telas maiores.
 !-try.remove "fatal_error" ... task_failed-!
 
@@ -135,7 +134,7 @@ ND: Eu desisti completamente do Modo Mobile, pois o jogo ainda não tem suporte 
 9.1- Site do Lucas V1.9.1: Design fix 1.
 1) Na página "Site do Lucas!" grandes mudanças aconteceram, como a mudança das imagens da parallax para ser os bosses do jogo Pizza Tower.
 2) A maioria das fontes do site foram atualizadas.
-3) Uma nova sessão foi adicionada na página "Site do Lucas!".
+3) Uma nova seção foi adicionada na página "Site do Lucas!".
 pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
@@ -192,7 +191,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 
 9.6- Site do Lucas V1.9.6: Update do "Cool-O-Meter" e UQV 5.
 1) Foi adicionado um novo site chamado Cool-O-Meter, cujo objetivo é definir o quão legal é a pessoa acesando o site (ou seja, você, o leitor).
-2) Foi adicionado uma nova sessão na área "Outros sites feitos pelo Lucas" na página 'Site do Lucas!'.
+2) Foi adicionado uma nova caixa de texto na seção "Outros sites feitos pelo Lucas" na página 'Site do Lucas!'.
 3) Melhorias de qualidade de vida foram feitas.
 4) Foi mudado uma palavra no dicionário (UQL para UQV).
 5) Algumas mudanças foram feitas no README por causa da mudança do dicionário.
@@ -226,7 +225,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 1) Foi adicionado um jogo da velha feito por mim, pois meu chefe mandou eu fazer um jogo da velha para que eu possa colocar meus conhecimentos em algo simples.
 2) A forma de acessar o jogo da velha é igual a forma de acessar o PTWE.
 3) Algumas pequenas mudanças foram feitas no PTWE.
-4) Foi adicionado a sessão do jogo da velha na sessão 'Outros sites feitos pelo Lucas' no "Site do Lucas".
+4) Foi adicionado uma caixa de texto do jogo da velha na seção 'Outros sites feitos pelo Lucas' no "Site do Lucas".
 ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
@@ -237,17 +236,29 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 
 9.10- Site do Lucas V1.9.10: Jogo da velha genérico (update GAMER 10) + UQV 10 + grande URM 7.
 1) Foi adicionado um jogo da velha, só que mais genérico e simples.
-2) Também foi adicionado seu acesso no "Site do Lucas". na seção 'Outros sites feitos pelo Lucas'.
-3) Foi adicionado a sessão de 'Números', que serve pra que eu saiba quantas vezes eu já usei uma apreviação.
+2) Também foi adicionado o acesso no "Site do Lucas". na seção 'Outros sites feitos pelo Lucas'.
+3) Foi adicionado a seção de 'Números', que serve pra que eu saiba quantas vezes eu já usei uma apreviação.
 4) Teve uma grande organização no README por completo.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 ?!+ Update_system to 'Remover V4.0' +!?
-(4)! Update completed !(4)
+(4)!' Update completed '!(4)
 
 9.10.1- Site do Lucas V1.9.10.1: UD 9.
 1) Foi mudado o estilo do contador de versões na "Página Principal".
 2) Algumas mudanças minúsculas de código foram feitas.
 3) Um arquivo vazio que foi enviado acidentalmente foi excluído.
 
+9.10.2- Site do Lucas V1.9.10.2: UD 10 + UQV 11.
+1) Foi adicionados algumas novas mecânicas/aparencias à 'página inicial'.
+2) O CSS sofreu uma organização severa.
+3) vai ser adicionado uma nova mecânica de vitória no JVG.
+4) Foi adicionado duas novas palavras ao dicionário.
+5) O dicioná teve leves mudanças de aparência.
+(4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
+
+9.10.3- Site do Lucas V1.9.10.2: UD 11 + UQV 12 + URM 8.
+1) Foi adicionado duas novas caixas de texto na seção 'Sites feitos pelo Lucas'. 
+2) O README foi alterado (removido alguns erros gramaticais / substituido algumas palavras).
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Números: UQV: 10 / UD: 9 / Atualização GAMER: 10 / ND: 3 / URM: 7
+Números: UQV: 12. / UD: 11. / Atualização GAMER: 10. / ND: 3. / URM: 8.
