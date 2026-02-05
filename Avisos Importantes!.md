@@ -244,6 +244,10 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 ?!+ Update_system to 'Remover V4.0' +!?
 (4)! Update completed !(4)
 
+9.10.1- Site do Lucas V1.9.10.1: UD 9.
+1) Foi mudado o estilo do contador de versões na "Página Principal".
+2) Algumas mudanças minúsculas de código foram feitas.
+3) Um arquivo vazio que foi enviado acidentalmente foi excluído.
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Números: UQV: 10 / UD: 8 / Atualização GAMER: 10 / ND: 3 / URM: 7
+Números: UQV: 10 / UD: 9 / Atualização GAMER: 10 / ND: 3 / URM: 7
