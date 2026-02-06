@@ -41,25 +41,6 @@ function celulaClicada() {
     if (opçoes[indexCelula] != "" || !running) {
         return;}
 
-// Atualiza a célula e verifica o resultado.
-    atualizaCelula(this, indexCelula);
-    checarVitoria();}
-function atualizaCelula(cell, index) {
-    opçoes[index] = playerAtual;
-    if (playerAtual == "1") {
-        cell.innerHTML = imagemP1;
-    } else {
-        cell.innerHTML = imagemP2;}}
-
-// Troca a vez dos players após seu turno.
-function trocarPlayer() {
-    playerAtual = (playerAtual == "1") ? "2" : "1";
-    textoTurno.textContent = `Vez do Jogador: ${playerAtual}`;}
-
-// Verificação do vencedor.
-function checarVitoria() {
-    let roundWon = false;
-
 // Loop de todas as condições de vitória
     for (let i = 0; i < condiçaodevitoria.length; i++) {
         const condition = condiçaodevitoria[i];
