@@ -92,6 +92,10 @@ if (nomepessoal == 'Marta' && idadepessoal == 45 && genero == 'F') {
     document.getElementById("saudações").innerText = `Oi, Marta. Seja bem vinda ao meu site!`
     document.getElementById("Idade").innerText = `${idadepessoal} anos? Nem parece...`
     document.getElementById("saudações2").innerText = `Eu te amo! Obrigado por aguentar minhas loucuras!`}
+if (nomepessoal == 'Gabriel' && idadepessoal == 18 && genero == 'M') {
+    document.getElementById("saudações").innerText = `Oi, Biel, seja bem vindo ao meu site!`
+    document.getElementById("Idade").innerText = `${idadepessoal} anos? Mesmo tendo essa idade, você é o melhor do mundo!`
+    document.getElementById("saudações2").innerText = `Eu te amo! Obrigado por aguentar minhas loucuras e por ser um primo incrível para mim!`}
 
 // Mudança das estrelas
 var imagemOriginal1 = true;
