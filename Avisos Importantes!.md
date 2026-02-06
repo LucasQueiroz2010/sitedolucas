@@ -7,7 +7,7 @@ PTWE = 'Pizza Tower Web Edition.'
 ND = 'Nota do desenvolvedor.'
 README = 'Avisos importantes!'.
 pobs = 'Pequena observação.'
-JV = 'Jogo da velha.'
+JVDC = 'Jogo da velha desnecessáriamente complicado.'
 JVG = 'Jogo da velha genérico.'
 JS = Javascript.
 
@@ -256,9 +256,14 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 5) O dicioná teve leves mudanças de aparência.
 (4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
-9.10.3- Site do Lucas V1.9.10.2: UD 11 + UQV 12 + URM 8.
+9.10.2.1- Site do Lucas V1.9.10.3: UD 11 + UQV 12 + URM 8.
 1) Foi adicionado duas novas caixas de texto na seção 'Sites feitos pelo Lucas'. 
 2) O README foi alterado (removido alguns erros gramaticais / substituido algumas palavras).
 
+9.10.3- Site do Lucas V 1.9.10.4: UQV 13 + correção de bugs.
+1) Foi feita a mudança de vitória no JVG.
+2) Pequenos detalhes mudaram no JVDC.
+3) Alguns detalhes foram mudaram/atualizados.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Números: UQV: 12. / UD: 11. / Atualização GAMER: 10. / ND: 3. / URM: 8.
+Números: UQV: 13. / UD: 11. / Atualização GAMER: 10. / ND: 3. / URM: 8.

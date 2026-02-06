@@ -2,108 +2,121 @@
 // DOM é 'Document Object Model', que é uma interface de programação que representa páginas HTML como uma estrutura de árvore hierárquica.
 const celulas = document.querySelectorAll(".celula");
 const textoTurno = document.querySelector("#turno");
-const resetBtn = document.querySelector("#resetBtn"); 
+const resetBtn = document.querySelector("#resetBtn");
+const textoReset = document.getElementById("textoReset");
+const musica = document.getElementById("minhaMusica");
+const overlay = document.getElementById("overlayMusica");
+const btnStart = document.getElementById("botaostart");
 
-// Sons/Imagens
+// Sons e Imagens.
 const somVitoria = new Audio('jogodavelha/Soundtrack_generico/vitoria.wav');
 const somEmpate = new Audio('jogodavelha/Soundtrack_generico/empate.wav');
-const imagemP1 ='<img src="jogodavelha/Icons_generico/X.png">';
+const imagemP1 = '<img src="jogodavelha/Icons_generico/X.png">';
 const imagemP2 = '<img src="jogodavelha/Icons_generico/O.png">';
+const imagemVitoriaP1 = '<img src="jogodavelha/Icons_generico/X_win.png">';
+const imagemVitoriaP2 = '<img src="jogodavelha/Icons_generico/O_win.png">';
 
 // Váriaveis de estado do jogo.
 // Array para as 9 posições do tabuleiro (deixei vazio para que o jogo começe com elas vazias).
 // 'Array' é um objeto que funciona como uma lista de valores armazenados em uma única variável através de um índice numérico.
 let opçoes = ["", "", "", "", "", "", "", "", ""];
 let playerAtual = "1";
-let running = false;
+let running = false; // Começa pausado até clicar em Start
 
 // Condições de vitória.
 // Índices do array que formam uma linha, coluna ou diagonal.
-const condiçaodevitoria = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
-    [0, 4, 8], [2, 4, 6]];           // Diagonais
+const condicaoDeVitoria = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas.
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columas
+    [0, 4, 8], [2, 4, 6]];           // Diagonais.
 
-// Inicialização
-function começarJogo() {
-// Adicionei um evento de clique em cada célula.
-    celulas.forEach(cell => cell.addEventListener("click", celulaClicada));
-// Evento para botão de reinício.
-    resetBtn.addEventListener("click", resetarJogo);
-    textoTurno.textContent = `Vez do Jogador: ${playerAtual}`;
-    running = true;}
-
-// Lógica de clique das células.
+// Funções do jogo.
+// Função chamada ao clicar em uma célula.
 function celulaClicada() {
     const indexCelula = this.getAttribute("data-index");
-
-// Se a célula já tem algo OU o jogo parou, não faz nada
+// Se a célula já tem algo OU o jogo não está rodando, para aqui.
     if (opçoes[indexCelula] != "" || !running) {
         return;}
+    atualizaCelula(this, indexCelula);
+    checarVitoria();}
 
-// Loop de todas as condições de vitória
-    for (let i = 0; i < condiçaodevitoria.length; i++) {
-        const condition = condiçaodevitoria[i];
+// Váriaveis de estado do jogo.
+// Array para as 9 posições do tabuleiro (deixei vazio para que o jogo começe com elas vazias).
+// 'Array' é um objeto que funciona como uma lista de valores armazenados em uma única variável através de um índice numérico.
+function atualizaCelula(cell, index) {
+    opçoes[index] = playerAtual;
+    
+    if (playerAtual == "1") {
+        cell.innerHTML = imagemP1;
+    } else {
+        cell.innerHTML = imagemP2;}}
+
+// Função que troca a vez dos players após seu turno.
+function trocarPlayer() {
+    playerAtual = (playerAtual == "1") ? "2" : "1";
+    textoTurno.textContent = `Vez do Jogador: ${playerAtual}`;}
+
+// Função que verifica se alguém ganhou.
+function checarVitoria() {
+    let roundWon = false;
+    let sequenciaVencedora = [];
+
+// Loop de todas as condições de vitória.
+    for (let i = 0; i < condicaoDeVitoria.length; i++) {
+        const condition = condicaoDeVitoria[i];
         const celulaA = opçoes[condition[0]];
         const celulaB = opçoes[condition[1]];
         const celulaC = opçoes[condition[2]];
-// Se alguma célula estiver vazia, o jogo continua.
         if (celulaA == "" || celulaB == "" || celulaC == "") {
             continue;}
         if (celulaA == celulaB && celulaB == celulaC) {
             roundWon = true;
+            sequenciaVencedora = condition;
             break;}}
-
-// Se todas as células estiverem vazias, o jogo continua.
     if (roundWon) {
         textoTurno.textContent = `O Jogador ${playerAtual} venceu!`;
         running = false;
-        somVitoria.play();} 
-    else if (!opçoes.includes("")) {
-        textoTurno.textContent = `Empate! Reiniciando...`;
+        somVitoria.play();
+        somVitoria.volume = 0.2;
+// lógica que troca para a imagem de vitória.
+        sequenciaVencedora.forEach(index => {
+            if (playerAtual == "1") {
+                celulas[index].innerHTML = imagemVitoriaP1;
+            } else {
+                celulas[index].innerHTML = imagemVitoriaP2;}});
+    } else if (!opçoes.includes("")) {
+        textoTurno.textContent = `Empate!`;
         somEmpate.play();
         running = false;
-        // Reinicia automaticamente após 2 segundos se der empate
-        setTimeout(resetarJogo, 700);
-    } 
-    else {
+        setTimeout(resetarJogo, 690);
+        somEmpate.volume = 1.8;
+    } else {
         trocarPlayer();}}
 
-// Funções.
+// Função que reseta o jogo.
 function resetarJogo() {
     playerAtual = "1";
     opçoes = ["", "", "", "", "", "", "", "", ""];
-    textoTurno.textContent = `Vez do Jogador: ${playerAtual}`;
-        celulas.forEach(cell => {
+    textoTurno.textContent = `Vez do Jogador: ${playerAtual}`;    
+    celulas.forEach(cell => {
         cell.innerHTML = "";
-        cell.classList.remove("x", "o");});
-        running = true;
+        cell.classList.remove("x", "o");});    
+    if(textoReset) textoReset.innerText = "Resetar jogo.";
+    running = true;}
 
-    // 'getElementById' é usado para acessar um elemento HTML específico no DOM através do seu atributo de 'id'.
-    const textoReset = document.getElementById("textoReset");
-    if(textoReset) textoReset.innerText = "Resetar jogo.";}
+// Lógica que configura os cliques nas células e no botão reset.
+celulas.forEach(cell => cell.addEventListener("click", celulaClicada));
+if(resetBtn) resetBtn.addEventListener("click", resetarJogo);
 
-    document.addEventListener("DOMContentLoaded", function() {
-    const musica = document.getElementById("minhaMusica");
-    const overlay = document.getElementById("overlayMusica");
-    const btnEntrar = document.getElementById("btnEntrar");
-
-    musica.volume = 0.5;
-
-// Função para iniciar o site e a música.
-    function iniciarExperiencia() {
-        musica.play().then(() => {
-            console.log("Música iniciada.");
-        }).catch(error => {
-            console.log("Erro ao tocar música:", error);});
-// Esconde a tela de início.
-        overlay.classList.remove("teladeinicio");
-        overlay.classList.add("teladeinicio_desativada");}
-    musica.play().then(() => {
-        overlay.classList.remove("teladeinicio");
-        overlay.classList.add("teladeinicio_desativada");
-    }).catch(() => {
-        console.log("Autoplay bloqueado. Aguardando interação do usuário.");});
-    btnEntrar.addEventListener("click", iniciarExperiencia);});
-
-começarJogo();
+// Se a música tocar automáticamente, não mostra a tela de início. 
+// Se a música não tocar, mostra a tela de início que, ao clicar no botão de start, queinicia o jogo e a música.
+if(btnStart) {
+    btnStart.addEventListener("click", function() {
+        if(musica) {
+            musica.volume = 0.5;
+            musica.play().catch(error => console.log("Erro ao tocar música:", error));}        
+        if(overlay) {
+            overlay.classList.remove("teladeinicio");
+            overlay.classList.add("teladeinicio_desativada");}
+        
+        resetarJogo();});}
