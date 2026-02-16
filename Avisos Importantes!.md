@@ -272,5 +272,11 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 2) Pequenos detalhes foram mudados/atualizados.
 (4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
+9.10.4- Site do Lucas V1.9.10.4: update de aviversário (+ND 4)
+1) Foi alterado o número da idade no site 'Site do Lucas!'.
+2) Foi adicionado um subtítulo em algumas páginas.
+ND: Ontem (dia 15/02/2010), eu fiz 16 anos, e quando eu começei a programar em HTML, não achei que ia tão longe. Mas cá estou eu, começando a aprender MySQL e um monte de outras coisas. Sou grato enernamente a Fit Gestão Empresarial por me dar essa oportunidade incrível! 
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Números: UQV: 13. / UD: 13. / Atualização GAMER: 10. / ND: 3. / URM: 8.
+Números: UQV: 13. / UD: 13. / Atualização GAMER: 10. / ND: 4. / URM: 8.
