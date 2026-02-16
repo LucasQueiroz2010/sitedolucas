@@ -277,6 +277,12 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 2) Foi adicionado um subtítulo em algumas páginas.
 ND: Ontem (dia 15/02/2010), eu fiz 16 anos, e quando eu começei a programar em HTML, não achei que ia tão longe. Mas cá estou eu, começando a aprender MySQL e um monte de outras coisas. Sou grato enernamente a Fit Gestão Empresarial por me dar essa oportunidade incrível! 
 
+9.10.4.1: Site do Lucas V1.9.10.4.1: UQV 14 + UD 14 + ND 5 + URM 9.
+1) Foi mudados alguns delathes no README.
+2) Foi mudado o texto do contador de versão da página inicial.
+3) Foi adicionado 3 arquivos PHP e 1 imagem nova.
+ND: Eu tentyei implementar um banco de dados (para que seja possível fazer login/se cadastrar no meu site), mas eu ainda não consegui, pois isso precisa de um backend externo, e eu ainda não sei usar um backend externo.
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Números: UQV: 13. / UD: 13. / Atualização GAMER: 10. / ND: 4. / URM: 8.
+Informações: UQV: 14. / UD: 14. / Atualização GAMER: 10. / ND: 4. / URM: 9.
