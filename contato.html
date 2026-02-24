@@ -16,14 +16,10 @@
 			background-position: top right;
 			background-size: auto, unset;
 			background-attachment: fixed;
-			font-family: contatos;
-		}
-
-
+			font-family: contatos;}
 		
 		a {
-			color: white;
-		}
+			color: white;}
 
 	</style>
 
@@ -48,9 +44,9 @@
 	<br>
 	<h2 class="centralizar preto">Informações:</h2>
 	<p class="centralizar preto">Lucas Oliveira de Queiroz: (11) 99522-2506.</p>
-	<p class="centralizar preto">E-mail: (clique para copiar)<div class="texto-copiavel centralizar" id="meuTexto">ﾠmaildolucas2010@gmail.comﾠ</div></p>
+	<p class="centralizar preto">E-mail: (clique para copiar)<div class="texto-copiavel centralizar" id="meuTexto">lucas.queiroz@fitgestão.com</div></p>
     <p class="centralizar" id="mensagem-confirmacao">ﾠTexto copiado!ﾠ</p>
-	<p class="centralizar preto">Emprego: FIT Gestão Empresarial.</p>
+	<p class="centralizar preto">Emprego: Estágiario na FIT Gestão Empresarial.</p>
 <br>
 <h2 class="centralizar branco">Redes Sociais:</h2>
     <div class="centralizar">
@@ -59,39 +55,7 @@
     </div>
 	<h2 class="centralizar branco">Horários de atendimento: </h2>
 	<p class="centralizar branco">Segunda a Sexta: 9h - 18h</p>
-
     <p id="resultado"></p>
-
-    <script>
-        function copiarTexto() {
-            const elementoTexto = document.getElementById('meuTexto');
-            const areaDeTextoTemp = document.createElement('textarea');
-            areaDeTextoTemp.value = elementoTexto.textContent || elementoTexto.innerText;
-            areaDeTextoTemp.style.position = 'fixed';
-            areaDeTextoTemp.style.top = '0';
-            areaDeTextoTemp.style.left = '0';
-            areaDeTextoTemp.style.opacity = '0';
-            document.body.appendChild(areaDeTextoTemp);
-            areaDeTextoTemp.select();
-            try {
-                const sucesso = document.execCommand('copy');
-                if (sucesso) {
-                    const mensagem = document.getElementById('mensagem-confirmacao');
-                    mensagem.style.display = 'block';
-                    setTimeout(() => {
-                        mensagem.style.display = 'none';
-                    }, 2000);
-                } else {
-                    console.error('Falha ao copiar o texto.');
-                }
-            } catch (err) {
-                console.error('Erro ao tentar copiar o texto: ', err);
-            } finally {
-                document.body.removeChild(areaDeTextoTemp);
-            }
-        }
-        document.getElementById('meuTexto').addEventListener('click', copiarTexto);
-    </script>
 <br><br>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -99,5 +63,6 @@
     <script src="js/bootstrap.min.js"></script>
 	<script src="JavaScripts_gerais/script_contatos.js"></script>
 	<script src="JavaScripts_gerais/script_geral.js"></script>
+    <script src="JavaScripts_gerais/script_contato.js"></script>
   </body>
 </html>

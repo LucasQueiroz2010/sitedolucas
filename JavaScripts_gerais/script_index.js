@@ -2,9 +2,9 @@ var nomecompleto = 'Lucas Oliveira de Queiroz'
 var nome = 'Lucas'
 var teste = 'Teste'
 
-var nomepessoal = prompt('Me diga o seu nome com letra maiúscula no começo (clique em cancelar para não informar):')
-var idadepessoal = prompt('Me diga a sua idade (clique em cancelar para não informar):')
-var genero = prompt('Me diga o seu gênero (M/F) e escreva com letra maiúscula no começo (clique em cancelar para não informar):')
+var nomepessoal = prompt('Me diga o seu nome com letra maiúscula no começo:')
+var idadepessoal = prompt('Me diga a sua idade:')
+var genero = prompt('Me diga o seu gênero (M/F) e escreva com letra maiúscula no começo:')
 
 // NOME
 if (!nomepessoal) {

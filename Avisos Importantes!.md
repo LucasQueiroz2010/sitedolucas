@@ -283,6 +283,12 @@ ND: Ontem (dia 15/02/2010), eu fiz 16 anos, e quando eu começei a programar em 
 3) Foi adicionado 3 arquivos PHP e 1 imagem nova.
 ND: Eu tentyei implementar um banco de dados (para que seja possível fazer login/se cadastrar no meu site), mas eu ainda não consegui, pois isso precisa de um backend externo, e eu ainda não sei usar um backend externo.
 
+2.0_beta: Site do Lucas V2.0 - BETA 1: Versão experimental da versão 2.0 + Atualização GAMER 11 + ND 5.
+1) Foi finalmente adicionado o modo 'Faker Attack'.
+2) O Fake Peppino pode dar um pulo, um pulo duplo, um Grab Attack (que é um dash) e tem uma barra de vida.
+3) O Peppino pode dar um Grab Attack também. 
+4) Os botões de controle foram modificados para ser igual o do jogo original (Pizza Tower).
+ND: Essa versão é experimental. Espere muitas mudanças no futuro!
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 14. / UD: 14. / Atualização GAMER: 10. / ND: 4. / URM: 9.
+Informações: UQV: 14. / UD: 14. / Atualização GAMER: 11. / ND: 5. / URM: 9.

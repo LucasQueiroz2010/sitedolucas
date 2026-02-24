@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,9 +10,7 @@
     <style>
         :root {
             --game-base-width: 900px;
-            --game-base-height: 500px;
-        }
-
+            --game-base-height: 500px;}
         body {
             font-family: PzzTwr, sans-serif;
             background-color: #54260d;
@@ -25,22 +22,39 @@
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
-            -ms-user-select: none;
-        }
+            -ms-user-select: none;}
         @keyframes floating {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
+            100% { transform: translateY(0px); }}
         .floating-anim {
-            animation: floating 3s ease-in-out infinite;
-        }
-
+            animation: floating 3s ease-in-out infinite;}
         .icon-unmute { background-image: url(imagens_jogo/Stuff/unmute_button.png) !important; }
         .icon-mute { background-image: url(imagens_jogo/Stuff/mute_button.png) !important; }
         .icon-fullscreen-enter { background-image: url(imagens_jogo/Stuff/fullscreen_on.png) !important; }
         .icon-fullscreen-exit { background-image: url(imagens_jogo/Stuff/fullscreen_off.png) !important; }
-
+        #top-right-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;}
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 5px;
+            border: 2px solid transparent;
+            transition: transform 0.1s;}
+        .menu-btn:hover { border-color: white; transform: scale(1.1); }
+        .menu-btn:active { transform: scale(0.95); }
+        .icon-restart { background-image: url(imagens_jogo/Stuff/restart_button.png); }
         #main-container {
             position: relative;
             width: 100%;
@@ -52,9 +66,7 @@
             overflow: hidden;
             margin: auto;
             height: auto;
-            min-height: 200px;
-        }
-
+            min-height: 200px;}
         :fullscreen #main-container {
             width: 100vw;
             height: 100vh;
@@ -62,9 +74,7 @@
             max-width: none;
             max-height: none;
             margin: 0;
-            border: none;
-        }
-
+            border: none;}
         #start-screen {
             position: absolute;
             top: 0;
@@ -79,9 +89,7 @@
             justify-content: flex-end;
             align-items: center;
             z-index: 20;
-            color: white;
-        }
-
+            color: white;}
         #mode-screen {
             position: absolute;
             top: 0;
@@ -97,9 +105,7 @@
             justify-content: center;
             align-items: center;
             z-index: 25;
-            gap: 20px;
-        }
-
+            gap: 20px;}
         #loading-screen {
             position: absolute;
             top: 0;
@@ -118,9 +124,7 @@
             color: white;
             font-size: 2em;
             font-weight: bold;
-            text-shadow: 2px 2px 0 #000;
-        }
-
+            text-shadow: 2px 2px 0 #000;}
         #pause-screen {
             position: absolute;
             top: 0;
@@ -133,16 +137,12 @@
             justify-content: center;
             align-items: center;
             z-index: 90;
-            gap: 20px;
-        }
-
+            gap: 20px;}
         .pause-title {
             font-size: 3em;
             color: white;
             margin-bottom: 20px;
-            text-shadow: 4px 4px 0 #000;
-        }
-
+            text-shadow: 4px 4px 0 #000;}
         .mode-select-btn {
             font-size: 1.8em;
             font-weight: bold;
@@ -155,33 +155,12 @@
             border-width: 5px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
             transition: transform 0.1s;
-            font-family: inherit;
-        }
-
+            font-family: inherit;}
         .mode-select-btn:hover { transform: scale(1.05); }
         .mode-select-btn:active { transform: scale(0.95); }
-
         #btn-noise-mode { background-color: #f8e080; border-color: #d88818; color: #54260d; }
         #btn-doise-mode { background-color: #2c6ebf; border-color: #d868a0; color: white; }
         #btn-faker-mode { background-color: #b0b0b0; border-color: black; color: black; }
-
-        #mute-button, #desktop-fullscreen-button {
-            position: fixed;
-            top: 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
-            width: 40px;
-            height: 40px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
-        #mute-button { right: 20px; }
-        #desktop-fullscreen-button { right: 70px; }
-
         #game-area {
             width: 100%;
             height: 100%;
@@ -190,21 +169,17 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
             position: relative;
-            display: none;
-        }
-
-        #player, #the-noise, .topping, .power-up {
+            display: none;}
+        #player, #the-noise, .topping, .power-up, #jukebox {
             position: absolute;
             background-size: contain;
             background-repeat: no-repeat;
-            z-index: 10;
-        }
+            z-index: 10;}
         #static-peppino, #static-noise, #static-doise {
             position: absolute;
             background-size: contain;
             background-repeat: no-repeat;
-            z-index: 9;
-        }
+            z-index: 9;}
         #coming-soon {
             position: absolute;
             top: 20px;
@@ -218,56 +193,41 @@
             z-index: 50;
             display: none;
             font-family: inherit;
-            pointer-events: none;
-        }
-
+            pointer-events: none;}
         .platform {
             position: absolute;
             background-color: #d98918;
             border: 3px solid black;
             border-radius: 5px;
             box-sizing: border-box;
-            z-index: 5;
-        }
-
+            z-index: 5;}
         .facing-left { transform: scaleX(-1); }
-
         .rock-entity {
             position: absolute;
             background-size: contain;
             background-repeat: no-repeat;
             z-index: 15;
-            background-image: url(imagens_jogo/Stuff/Rock.png);
-        }
-
+            background-image: url(imagens_jogo/Stuff/Rock.png);}
         .bomb-entity {
             position: absolute;
             background-size: contain;
             background-repeat: no-repeat;
             z-index: 15;
-            background-image: url(imagens_jogo/Stuff/Bomb.gif);
-        }
-
+            background-image: url(imagens_jogo/Stuff/Bomb.gif);}
         .explosion-entity {
             position: absolute;
             background-size: contain;
             background-repeat: no-repeat;
             z-index: 16;
             background-image: url(imagens_jogo/Stuff/Explosion.gif);
-            pointer-events: none;
-        }
-
+            pointer-events: none;}
         .rock-warning, .bomb-warning {
             opacity: 0.8;
-            animation: flicker-warning 0.2s infinite;
-        }
-
+            animation: flicker-warning 0.2s infinite;}
         @keyframes flicker-warning {
             0% { opacity: 0.5; }
             50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-
+            100% { opacity: 0.5; }}
         .rock-breaking { opacity: 0.7; transition: opacity 0.2s; }
 
         /* SPRITES */
@@ -283,7 +243,6 @@
         .invincible { opacity: 0.7; animation: flicker 0.1s infinite alternate; }
         .is-stunned { pointer-events: none; }
         .peppino-tired-sprite { background-image: url(imagens_jogo/Peppino_milk.gif); }
-
         #the-noise {
             width: 75px;
             height: 100px;
@@ -296,23 +255,19 @@
             text-indent: -9999px;
             border-radius: 5px;
             z-index: 9;
-            transition: opacity 0.1s;
-        }
-
+            transition: opacity 0.1s;}
         .noise-jumping { background-image: url(imagens_jogo/N_sprites/Noise_jump.png); }
         .noise-double-jump { background-image: url(imagens_jogo/N_sprites/Noise_doublejump.gif); }
         .noise-win-sprite { background-image: url(imagens_jogo/N_sprites/Noise_win.gif); }
         .noise-disabled {
             opacity: 0.7;
             transform: translateY(10px);
-            background-image: url(imagens_jogo/Noise_hurt.gif);
-        }
+            background-image: url(imagens_jogo/Noise_hurt.gif);}
         .noise-joke-mode { opacity: 1; pointer-events: none; }
         .noise-happy { background-image: url(imagens_jogo/N_sprites/Noise_happy.gif); }
         .noise-scared { background-image: url(imagens_jogo/N_sprites/Noise_scaried.gif); }
         .noise-powered-up { background-image: url(imagens_jogo/N_sprites/Pepper_Pizza_Noise.gif); }
         .noise-tired-sprite { background-image: url(imagens_jogo/N_sprites/Noise_milk.gif); }
-
         #gustavo {
             position: absolute;
             width: 60px;
@@ -322,9 +277,7 @@
             transform: translateX(-50%);
             background-size: contain;
             background-repeat: no-repeat;
-            z-index: 5;
-        }
-
+            z-index: 5;}
         .gustavo-idle-sprite { background-image: url(imagens_jogo/G_sprites/Gustavo_idle.gif); }
         .gustavo-noise-hit-sprite { background-image: url(imagens_jogo/G_sprites/Gustavo_N_hit.gif); }
         .gustavo-drop-sprite { background-image: url(imagens_jogo/G_sprites/Gustavo_drop.gif); }
@@ -333,7 +286,6 @@
         .gustavo-pepper-noise-sprite { background-image: url(imagens_jogo/G_sprites/Gustavo_PN.gif); }
         .gustavo-win-sprite { background-image: url(imagens_jogo/G_sprites/Gustavo_P_win.gif); }
         .gustavo-lose-sprite { background-image: url(imagens_jogo/G_sprites/Gustavo_N_win.gif); }
-
         .power-up {
             width: 35px;
             height: 35px;
@@ -341,19 +293,14 @@
             background-size: contain;
             background-repeat: no-repeat;
             animation: glow 1s infinite alternate;
-            z-index: 12;
-        }
+            z-index: 12;}
         .invincibility-powerup { background-image: url(imagens_jogo/Toppings/Pepper_Pizza.gif); }
-
         @keyframes flicker {
             from { opacity: 1; }
-            to { opacity: 0.7; }
-        }
+            to { opacity: 0.7; }}
         @keyframes glow {
             from { box-shadow: 0 0 5px orange, 0 0 10px yellow; }
-            to { box-shadow: 0 0 10px orange, 0 0 20px yellow; }
-        }
-
+            to { box-shadow: 0 0 10px orange, 0 0 20px yellow; }}
         .topping {
             width: 25px;
             height: 25px;
@@ -363,8 +310,7 @@
             text-indent: -9999px;
             border-radius: 50%;
             animation: bounce 0.5s infinite alternate;
-            z-index: 8;
-        }
+            z-index: 8;}
         .topping-1 { background-image: url(imagens_jogo/Toppings/Mushroom.gif); }
         .topping-2 { background-image: url(imagens_jogo/Toppings/Cheese.gif); }
         .topping-3 { background-image: url(imagens_jogo/Toppings/Tomato.gif); }
@@ -372,12 +318,9 @@
         .topping-5 { background-image: url(imagens_jogo/Toppings/Pineapple.gif); }
         .topping-gerome { background-image: url(imagens_jogo/Toppings/Gerome.gif); }
         .topping-life { background-image: url(imagens_jogo/Toppings/Life_hat.png); border-radius: 5px; }
-
         @keyframes bounce {
             from { transform: translateY(0px); }
-            to { transform: translateY(-5px); }
-        }
-
+            to { transform: translateY(-5px); }}
         #ui-bar {
             width: 100%;
             max-width: 900px;
@@ -386,9 +329,7 @@
             justify-content: space-between;
             font-size: 1.5em;
             font-weight: bold;
-            color: yellow;
-        }
-
+            color: yellow;}
         #score, #timer, #health {
             background-color: #54260d;
             padding: 5px 15px;
@@ -399,35 +340,18 @@
             flex-direction: column;
             align-items: center;
             min-width: 150px;
-            text-align: center;
-        }
-
+            text-align: center;}
         #health {
             min-width: 250px;
             justify-content: space-around;
-            flex-direction: row;
-        }
-
-        #heart-icon {
+            flex-direction: row;}
+        .health-icon {
             width: 25px;
             height: 25px;
             background-size: contain;
             background-repeat: no-repeat;
             margin-right: 5px;
-            display: inline-block;
-            background-image: url(imagens_jogo/Stuff/Peppino_hat.png);
-        }
-
-        #empty-heart-icon {
-            width: 25px;
-            height: 25px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            margin-right: 5px;
-            display: inline-block;
-            background-image: url(imagens_jogo/Stuff/Peppino_hat_damaged.png);
-        }
-
+            display: inline-block;}
         .final-rank-image {
             width: 350px;
             height: 200px;
@@ -435,9 +359,7 @@
             background-repeat: no-repeat;
             background-position: center;
             margin: 20px auto 0;
-            background-color: transparent;
-        }
-
+            background-color: transparent;}
         .rank-P-image { background-image: url(imagens_jogo/Ranks/P-Rank.png); border: 3px solid black; }
         .rank-S-image { background-image: url(imagens_jogo/Ranks/S-Rank.png); border: 3px solid black; }
         .rank-A-image { background-image: url(imagens_jogo/Ranks/A-Rank.png); border: 3px solid black; }
@@ -449,24 +371,18 @@
         .rank-DEAD-image {
             background-image: url(imagens_jogo/Ranks/DEAD_Rank.png);
             border: 5px solid black;
-            filter: drop-shadow(0 0 10px #d0b8b8);
-        }
-
+            filter: drop-shadow(0 0 10px #d0b8b8);}
         .message {
             margin-top: 20px;
             font-size: 2em;
             font-weight: bold;
-            min-height: 50px;
-        }
-
+            min-height: 50px;}
         .message2 {
             margin-top: 20px;
             font-size: 2em;
             font-weight: bold;
             color: black;
-            min-height: 50px;
-        }
-
+            min-height: 50px;}
         .depression {
             position: absolute;
             bottom: 50px;
@@ -482,10 +398,8 @@
             border-radius: 10px;
             box-shadow: 0 8px #d35400;
             transition: transform 0.1s, box-shadow 0.1s;
-            z-index: 30;
-        }
+            z-index: 30;}
         .depression:hover { background-color: #f39c12; }
-
         .doise-btn {
             background-color: #48a0f9 !important;
             color: white !important;
@@ -499,23 +413,22 @@
             border-bottom-color: #d868a0 !important;
             font-size: 1.1em;
             padding: 8px 15px;
-            z-index: 100;
-        }
+            z-index: 100;}
         .doise-btn:hover {
             background-color: #3b8cd6 !important;
-            transform: scale(1.05) !important;
-        }
+            transform: scale(1.05) !important;}
         .doise-btn:active { transform: translateY(4px) !important; }
     </style>
     <link rel="icon" href="imagens/favicons/favicon_jogo.png" type="image/png">
     <link rel="apple-touch-icon" href="imagens/favicons/favicon_jogo_apple_touch.png">
 </head>
-
 <body>
-    <div class="line"><a class="Bordalink branco Pizza_Game_Link" href="index.html"> Site Principal </a></div>
-    <button id="desktop-fullscreen-button" onclick="toggleDesktopFullscreen()" title="Modo Tela Cheia"
-        class="icon-fullscreen-enter"></button>
-    <button id="mute-button" onclick="toggleMute()" title="Ligar/Desligar Áudio" class="icon-unmute"></button>
+    <div class="line"><a class="Bordalink branco Pizza_Game_Link" href="index.html"> Site Principal </a></div>    
+    <div id="top-right-menu">
+        <button id="desktop-fullscreen-button" class="menu-btn icon-fullscreen-enter" onclick="toggleDesktopFullscreen()" title="Modo Tela Cheia"></button>
+        <button id="restart-round-button" class="menu-btn icon-restart" onclick="if(document.getElementById('start-screen').style.display === 'none') startGame();" title="Reiniciar Round"></button>
+        <button id="mute-button" class="menu-btn icon-unmute" onclick="toggleMute()" title="Ligar/Desligar Áudio"></button>
+    </div>
     <h2 class="Pizza_text">Pizza Tower - Web Edition</h2>
     <div style="display:none;">
         <audio id="bgm-audio" loop src="soundtrack_jogo/Background_Music.mp3"></audio>
@@ -533,7 +446,9 @@
     </div>
     <div id="ui-bar">
         <div id="score">Score: 0</div>
-        <div id="health">Hits: </div>
+        <div style="display:flex; flex-direction: column; gap: 5px;">
+            <div id="health">Hits: </div>
+        </div>
         <div id="timer">Time: 60</div>
     </div>
     <div id="main-container">
@@ -546,20 +461,17 @@
             <button id="btn-faker-mode" class="mode-select-btn" onclick="startFakerMode()">Faker Attack</button>
         </div>
         <div id="loading-screen">
-            Loading Stuff...
+            Loading...
         </div>
-        <div id="pause-screen">
+<div id="pause-screen">
             <div class="pause-title">PAUSED</div>
-            <button id="btn-back-battle" class="mode-select-btn" onclick="togglePause()">Back to Battle!</button>
-            <button id="btn-chance" class="mode-select-btn" style="background-color: white; border-color: black; color: black;"
-                onclick="toggleGameMode()">Chance Mode</button>
-            <button id="btn-restart" class="mode-select-btn" style="background-color: #ff3333; border-color: #880000; color: white;"
-                onclick="startGame()">Restart Game</button>
-            <button class="mode-select-btn" style="background-color: #b0b0b0; border-color: black; color: black;"
-                onclick="window.location.reload()">Title screen</button>
-        </div>
-
+            <button id="btn-back-battle" class="mode-select-btn" style="background-color: black; border-color: gray; color: white;" onclick="togglePause()">Back to Battle!</button>
+            <button id="btn-chance" class="mode-select-btn" onclick="toggleGameMode()">Switch Mode</button>
+            <button id="btn-restart" class="mode-select-btn" style="background-color: #ff3333; border-color: #880000; color: white;" onclick="startGame()">Restart Game</button>
+            <button class="mode-select-btn" style="background-color: #b0b0b0; border-color: black; color: black;" onclick="window.location.reload()">Title screen</button>
+        </div>        
         <div id="game-area">
+            <div id="faker-health-container" style="display:none; position:absolute; top:10px; left:10px; z-index:100; background-color:#54260d; padding:5px 15px; border:2px solid black; color:white; border-radius:5px; min-width:250px; justify-content:space-around; flex-direction:row; align-items:center;">Faker: </div>
             <div id="coming-soon">COMING SOON!</div>
             <div id="player"></div>
             <div id="the-noise"></div>
@@ -567,14 +479,16 @@
             <div id="static-peppino"></div>
             <div id="static-noise"></div>
             <div id="static-doise"></div>
-        </div>
-    </div>
-    <div id="status" class="message2"> Controls: [A/D] to move, [W] to jump, [SHIFT] to run and [P] to pause.</div>
+            <div id="jukebox" style="display:none;"></div>
+        </div> 
+    </div> <div id="status" class="message2"> Controls: Arrows to move, [Z] = Jump, [SHIFT] = Run, [X] = Grab, [C] = Taunt.</div>
     <div id="rank-image-container" class="final-rank-image" style="display:none;"></div>
     <script>
         let isDoiseMode = false;
         let isFakerMode = false;
         let isPaused = false;
+        const EASY_SPRITES_CONFIG = {
+            restartIcon: "url(imagens_jogo/Stuff/restart_button.png)"};
 
         // SPRITES DO PEPPINO
         const PLAYER_IDLE_SPRITE = "url(imagens_jogo/P_sprites/Peppino_idle.gif)";
@@ -582,6 +496,7 @@
         const PLAYER_RUN_SPRITE = "url(imagens_jogo/P_sprites/Peppino_run.gif)";
         const PLAYER_JUMP_SPRITE = "url(imagens_jogo/P_sprites/Peppino_jump.gif)";
         const PLAYER_WALL_SLIDE_SPRITE = "url(imagens_jogo/P_sprites/Peppino_wall.gif)";
+        const PLAYER_WALL_FALL_SPRITE = "url(imagens_jogo/P_sprites/Peppino_wallfall.gif)";
         const PLAYER_HURT_SPRITE = "url(imagens_jogo/P_sprites/Peppino_hurt.gif)";
         const PLAYER_STUN_SPRITE = "url(imagens_jogo/P_sprites/Peppino_fireass.gif)";
         const PEPPINO_PARRY_SPRITE = "url(imagens_jogo/P_sprites/Peppino_parry.gif)";
@@ -590,13 +505,32 @@
         const PEPPINO_WIN_TIME_SPRITE = "url(imagens_jogo/P_sprites/Peppino_win.gif)";
         const PEPPINO_LOSE_NOISE_SPRITE = "url(imagens_jogo/P_sprites/Peppino_lose.gif)";
         const PEPPINO_ROCK_HURT_SPRITE = "url(imagens_jogo/P_sprites/Peppino_stun.gif)";
+        const PLAYER_GRAB_SPRITE = "url(imagens_jogo/P_sprites/Peppino_grab.gif)";
+        const PLAYER_DANCE_SPRITE = "url(imagens_jogo/P_sprites/Peppino_dance.gif)";
+        const PARRY_SPRITES = [
+            "url(imagens_jogo/P_sprites/Peppino_parry.png)",
+            "url(imagens_jogo/P_sprites/Peppino_parry2.png)",
+            "url(imagens_jogo/P_sprites/Peppino_parry3.png)"];
+        const TAUNT_SPRITES = [
+            "url(imagens_jogo/P_sprites/taunt1.png)", "url(imagens_jogo/P_sprites/taunt2.png)", 
+            "url(imagens_jogo/P_sprites/taunt3.png)", "url(imagens_jogo/P_sprites/taunt4.png)", 
+            "url(imagens_jogo/P_sprites/taunt5.png)", "url(imagens_jogo/P_sprites/taunt6.png)", 
+            "url(imagens_jogo/P_sprites/taunt7.png)", "url(imagens_jogo/P_sprites/taunt8.png)", 
+            "url(imagens_jogo/P_sprites/taunt9.png)", "url(imagens_jogo/P_sprites/taunt10.png)"];
 
         // SPRITES DO FAKE PEPPINO
         const FAKER_IDLE_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_idle.gif)";
         const FAKER_WALK_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_walk.gif)";
         const FAKER_RUN_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_run.gif)";
         const FAKER_JUMP_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_jump.gif)";
+        const FAKER_DOUBLE_JUMP_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_doublejump.gif)";
         const FAKE_PEPPINO_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_idle.gif)";
+        const FAKER_DASH_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_grab.gif)";
+        const FAKER_AIR_DASH_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_grabmidair.gif)";
+        const FAKER_STUN_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_stun.gif)";
+        const FAKER_HURT_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_hurt.gif)";
+        const FAKER_WIN_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_win.gif)"
+        const FAKER_LOSE_SPRITE = "url(imagens_jogo/FP_Sprites/Fake_Pep_lose.gif)"
 
         //SPRITES DO THE NOISE
         const NOISE_WALK_SPRITE = "url(imagens_jogo/N_sprites/Noise_walk.gif)";
@@ -662,6 +596,9 @@
         const STATIC_PEPPINO_SPRITE = "url(imagens_jogo/D_sprites/Peddito.png)"; 
         const STATIC_NOISE_SPRITE = "url(imagens_jogo/D_sprites/Doise_dance.gif)"; 
         const STATIC_DOISE_SPRITE = "url(imagens_jogo/P_sprites/Peppino_and_Noise.gif)"; 
+        const JUKEBOX_SPRITE = "url(imagens_jogo/Stuff/Jukebox.gif)";
+        const FAKER_LIFE_ICON = "url(imagens_jogo/Stuff/Fake_Pep_hat.gif)";
+        const FAKER_EMPTY_LIFE_ICON = "url(imagens_jogo/Stuff/Fake_Pep_hat_damaged.gif)";
 
         // LÓGICA DO JOGO
         let currentToppingChance = 1.0;
@@ -671,6 +608,7 @@
         let platformColor = '#f8e080';
         let platformBorder = '#d88818';
         const BASE_OFFSET_PEPPINO = -10;
+        const BASE_OFFSET_PEPPINO_FAKER = 15;
         const BASE_OFFSET_NOISE = -10;
         const BASE_OFFSET_FAKER = -15;
         const BASE_OFFSET_PEDDITO = 120;
@@ -693,9 +631,11 @@
         const STATIC_PEPPINO = document.getElementById('static-peppino');
         const STATIC_NOISE = document.getElementById('static-noise');
         const STATIC_DOISE = document.getElementById('static-doise');
+        const JUKEBOX = document.getElementById('jukebox');
         const COMING_SOON_TEXT = document.getElementById('coming-soon');
         const SCORE_DISPLAY = document.getElementById('score');
         const HEALTH_DISPLAY = document.getElementById('health');
+        const FAKER_HEALTH_CONTAINER = document.getElementById('faker-health-container');
         const TIMER_DISPLAY = document.getElementById('timer');
         const STATUS_DISPLAY = document.getElementById('status');
         const RANK_IMAGE_CONTAINER = document.getElementById('rank-image-container');
@@ -703,8 +643,9 @@
         const DESKTOP_FULLSCREEN_BUTTON = document.getElementById('desktop-fullscreen-button');
         const PAUSE_SCREEN = document.getElementById('pause-screen');
         const BTN_BACK_BATTLE = document.getElementById('btn-back-battle');
-        const BASE_FAKER_WIDTH = 150;
-        const BASE_FAKER_HEIGHT = 195;
+        const BTN_CHANCE = document.getElementById('btn-chance');
+        const BASE_FAKER_WIDTH = 110;
+        const BASE_FAKER_HEIGHT = 140;        
         const BASE_NOISE_WIDTH = 75;
         const BASE_NOISE_HEIGHT = 100;
         let pauseManager = {
@@ -717,26 +658,22 @@
                     callback: callback,
                     startTime: Date.now(),
                     duration: duration,
-                    id: id
-                };
+                    id: id};
                 this.timeouts[id] = setTimeout(() => {
                     callback();
                     delete this.timeouts[id];
                     delete this.savedTimes[id];
-                }, duration);
-            },
+                }, duration);},
             pauseAll: function () {
                 for (let key in this.savedTimes) {
                     clearTimeout(this.timeouts[key]);
                     let elapsed = Date.now() - this.savedTimes[key].startTime;
-                    this.savedTimes[key].remaining = Math.max(0, this.savedTimes[key].duration - elapsed);
-                }
+                    this.savedTimes[key].remaining = Math.max(0, this.savedTimes[key].duration - elapsed);}
                 clearInterval(timerInterval);
                 clearInterval(gameLoopInterval);
                 clearInterval(spawnInterval);
                 clearInterval(rockSpawnInterval);
-                clearInterval(bombSpawnInterval);
-            },
+                clearInterval(bombSpawnInterval);},
             resumeAll: function () {
                 for (let key in this.savedTimes) {
                     let item = this.savedTimes[key];
@@ -749,83 +686,61 @@
                             delete this.savedTimes[key];
                         }, item.remaining);
                     } else {
-                        item.callback();
-                    }
-                }
+                        item.callback();}}
                 if(!isFakerMode) {
                    startTimer();
-                   spawnInterval = setInterval(spawnTopping, currentSpawnInterval);
-                }
-                gameLoopInterval = setInterval(gameLoop, 1000 / 60);
-                
+                   spawnInterval = setInterval(spawnTopping, currentSpawnInterval);}
+                gameLoopInterval = setInterval(gameLoop, 1000 / 60);                
                 if (isDoiseMode) {
                     rockSpawnInterval = setInterval(() => {
                         if (!isGameOver && !isPaused && Math.random() < 0.20) spawnRock();
                     }, 1000);
                     bombSpawnInterval = setInterval(() => {
                         if (!isGameOver && !isPaused && Math.random() < 0.05) spawnBomb();
-                    }, 800);
-                }
-            }
-        };
+                    }, 800);}}};
 
         // FUNÇÕES DE NAVEGAÇÃO DE MENU
         function goToModeSelection() {
             START_SCREEN.style.display = 'none';
-            MODE_SCREEN.style.display = 'flex';
-        }
+            MODE_SCREEN.style.display = 'flex';}
         function selectMode(mode) {
             MODE_SCREEN.style.display = 'none';
             if (mode === 'normal') {
                 startLoadingSequence('normal');
             } else if (mode === 'doise') {
-                startLoadingSequence('doise');
-            }
-        }
+                startLoadingSequence('doise');}}
         function startFakerMode() {
             MODE_SCREEN.style.display = 'none';
-            startLoadingSequence('faker');
-        }
+            startLoadingSequence('faker');}
         function startLoadingSequence(targetMode) {
             LOADING_SCREEN.style.display = 'flex';
             playBGM(START_BGM_AUDIO);
             if (targetMode === 'doise') {
                 LOADING_SCREEN.style.backgroundImage = LOADING_SCREEN_DOISE;
             } else {
-                LOADING_SCREEN.style.backgroundImage = LOADING_SCREEN_NOISE;
-            }
+                LOADING_SCREEN.style.backgroundImage = LOADING_SCREEN_NOISE;}
             preloadGameAssets(() => {
                 LOADING_SCREEN.style.display = 'none';
-                hideStartScreen();
                 if (targetMode === 'normal') {
                     startNormalGame();
                 } else if (targetMode === 'doise') {
                     startDoiseMode();
                 } else if (targetMode === 'faker') {
-                    startFakerGame();
-                }
-            });
-        }
+                    startFakerGame();}});}
         function toggleDesktopFullscreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
-                    console.error(`Erro ao tentar ativar tela cheia: ${err.message}`);
-                });
+                    console.error(`Erro ao tentar ativar tela cheia: ${err.message}`);});
             } else {
                 if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
+                    document.exitFullscreen();}}}
         function updateDesktopFullscreenIcon() {
             if (document.fullscreenElement) {
                 DESKTOP_FULLSCREEN_BUTTON.classList.remove('icon-fullscreen-enter');
                 DESKTOP_FULLSCREEN_BUTTON.classList.add('icon-fullscreen-exit');
             } else {
                 DESKTOP_FULLSCREEN_BUTTON.classList.remove('icon-fullscreen-exit');
-                DESKTOP_FULLSCREEN_BUTTON.classList.add('icon-fullscreen-enter');
-            }
-        }
+                DESKTOP_FULLSCREEN_BUTTON.classList.add('icon-fullscreen-enter');}}
         document.addEventListener('fullscreenchange', updateDesktopFullscreenIcon);
         function toggleMute() {
             isMuted = !isMuted;
@@ -834,9 +749,7 @@
             if (isMuted) {
                 MUTE_BUTTON.classList.replace('icon-unmute', 'icon-mute');
             } else {
-                MUTE_BUTTON.classList.replace('icon-mute', 'icon-unmute');
-            }
-        }
+                MUTE_BUTTON.classList.replace('icon-mute', 'icon-unmute');}}
         const UNMUTE_ICON_SPRITE = "imagens_jogo/Stuff/unmute_button";
         const MUTE_ICON_SPRITE = "imagens_jogo/Stuff/mute_button";
         const FULLSCREEN_ENTER_ICON_SPRITE = "imagens_jogo/Stuff/fullscreen_on";
@@ -850,28 +763,25 @@
             if (isDoiseMode) {
                 startLoadingSequence('normal');
             } else {
-                startLoadingSequence('doise');
-            }
-        }
+                startLoadingSequence('doise');}}
 
         // PRELOAD
         const ALL_ASSETS = [
-            PLAYER_IDLE_SPRITE, PLAYER_WALK_SPRITE, PLAYER_RUN_SPRITE, PLAYER_JUMP_SPRITE, PLAYER_WALL_SLIDE_SPRITE, PLAYER_HURT_SPRITE, PLAYER_STUN_SPRITE, PEPPINO_PARRY_SPRITE, PEPPER_SPRITE, PLAYER_TIRED_SPRITE, PEPPINO_WIN_TIME_SPRITE, PEPPINO_LOSE_NOISE_SPRITE, PEPPINO_ROCK_HURT_SPRITE,
+            PLAYER_IDLE_SPRITE, PLAYER_WALK_SPRITE, PLAYER_RUN_SPRITE, PLAYER_JUMP_SPRITE, PLAYER_WALL_SLIDE_SPRITE, PLAYER_WALL_FALL_SPRITE, PLAYER_HURT_SPRITE, PLAYER_STUN_SPRITE, PEPPINO_PARRY_SPRITE, PEPPER_SPRITE, PLAYER_TIRED_SPRITE, PEPPINO_WIN_TIME_SPRITE, PEPPINO_LOSE_NOISE_SPRITE, PEPPINO_ROCK_HURT_SPRITE, PLAYER_GRAB_SPRITE, PLAYER_DANCE_SPRITE, JUKEBOX_SPRITE, FAKER_DASH_SPRITE, FAKER_AIR_DASH_SPRITE, FAKER_STUN_SPRITE, FAKER_HURT_SPRITE, FAKER_WIN_SPRITE, FAKER_LOSE_SPRITE,
+            ...TAUNT_SPRITES, ...PARRY_SPRITES,
             NOISE_WALK_SPRITE, NOISE_JUMP_SPRITE, NOISE_DOUBLE_JUMP_SPRITE, NOISE_SCARED_SPRITE, NOISE_HAPPY_SPRITE, NOISE_POWERED_SPRITE, STUNNED_SPRITE, NOISE_IDLE_SPRITE_NEW, NOISE_TIRED_SPRITE, NOISE_PEPPER_STUN_SPRITE, NOISE_POWERUP_PARRY_SPRITE, NOISE_LOSE_SPRITE, NOISE_WIN_SPRITE, NOISE_JOKE_SPRITE, F_NOISE_IDLE, F_NOISE_DROP, F_NOISE_SCARED, F_NOISE_HAPPY, F_NOISE_PANIC, F_NOISE_THUMBS, F_NOISE_WIN, F_NOISE_LOSE, F_NOISE_RAGE,
             DOISE_WALK_SPRITE, DOISE_JUMP_SPRITE, DOISE_STUNNED_SPRITE, DOISE_POWERED_SPRITE, DOISE_IDLE_SPRITE_NEW, DOISE_DOUBLE_JUMP_SPRITE, DOISE_SCARED_SPRITE, DOISE_HAPPY_SPRITE, DOISE_TIRED_SPRITE, DOISE_PEPPER_STUN_SPRITE, DOISE_POWERUP_PARRY_SPRITE, DOISE_LOSE_SPRITE, DOISE_WIN_SPRITE, DOISE_JOKE_SPRITE,
             GUSTAVO_IDLE_SPRITE, GUSTAVO_NOISE_HIT_SPRITE, GUSTAVO_DROP_SPRITE, GUSTAVO_PEPPINO_HIT_SPRITE, GUSTAVO_PEPPER_PEPPINO_SPRITE, GUSTAVO_PEPPER_NOISE_SPRITE, GUSTAVO_WIN_SPRITE, GUSTAVO_LOSE_SPRITE,
-            FAKER_IDLE_SPRITE, FAKER_WALK_SPRITE, FAKER_RUN_SPRITE, FAKER_JUMP_SPRITE,
+            FAKER_IDLE_SPRITE, FAKER_WALK_SPRITE, FAKER_RUN_SPRITE, FAKER_JUMP_SPRITE, FAKER_DOUBLE_JUMP_SPRITE,
             "url(imagens_jogo/Toppings/Mushroom.gif)", "url(imagens_jogo/Toppings/Cheese.gif)", "url(imagens_jogo/Toppings/Tomato.gif)", "url(imagens_jogo/Toppings/Weiner.gif)", "url(imagens_jogo/Toppings/Pineapple.gif)", "url(imagens_jogo/Toppings/Gerome.gif)", "url(imagens_jogo/Toppings/Life_hat.png)", "url(imagens_jogo/Toppings/Pepper_Pizza.gif)",
             DOISE_BACKGROUND, NORMAL_BACKGROUND, FAKER_BACKGROUND, "url(imagens_jogo/Stuff/Title_screen.png)", "url(imagens_jogo/Stuff/Mode%20screen.jpg)",
-            "url(imagens_jogo/Ranks/P-Rank.png)", "url(imagens_jogo/Ranks/S-Rank.png)", "url(imagens_jogo/Ranks/A-Rank.png)", "url(imagens_jogo/Ranks/B-Rank.jpg)", "url(imagens_jogo/Ranks/C-Rank.png)", "url(imagens_jogo/Ranks/D-Rank.png)", "url(imagens_jogo/Ranks/F-Rank.png)", "url(imagens_jogo/Ranks/IDK-Rank.png)", "url(imagens_jogo/Ranks/DEAD_Rank.png)", ROCK_SPRITE, DOISE_ROCK_STUN_SPRITE, BOMB_SPRITE, EXPLOSION_SPRITE, FAKE_PEPPINO_SPRITE
-        ];
+            "url(imagens_jogo/Ranks/P-Rank.png)", "url(imagens_jogo/Ranks/S-Rank.png)", "url(imagens_jogo/Ranks/A-Rank.png)", "url(imagens_jogo/Ranks/B-Rank.jpg)", "url(imagens_jogo/Ranks/C-Rank.png)", "url(imagens_jogo/Ranks/D-Rank.png)", "url(imagens_jogo/Ranks/F-Rank.png)", "url(imagens_jogo/Ranks/IDK-Rank.png)", "url(imagens_jogo/Ranks/DEAD_Rank.png)", ROCK_SPRITE, DOISE_ROCK_STUN_SPRITE, BOMB_SPRITE, EXPLOSION_SPRITE, FAKE_PEPPINO_SPRITE];
         function preloadGameAssets(callback) {
             let loadedCount = 0;
             const totalToLoad = ALL_ASSETS.length;
             if (totalToLoad === 0) {
                 callback();
-                return;
-            }
+                return;}
             const minLoadTime = 1000;
             const startTime = Date.now();
             ALL_ASSETS.forEach(srcRaw => {
@@ -879,23 +789,17 @@
                 const img = new Image();
                 img.onload = () => {
                     loadedCount++;
-                    checkDone();
-                };
+                    checkDone();};
                 img.onerror = () => {
                     console.warn("Falha ao carregar imagem: " + src);
                     loadedCount++;
-                    checkDone();
-                };
-                img.src = src;
-            });
+                    checkDone();};
+                img.src = src;});
             function checkDone() {
                 if (loadedCount >= totalToLoad) {
                     const elapsedTime = Date.now() - startTime;
                     const remainingTime = Math.max(0, minLoadTime - elapsedTime);
-                    setTimeout(callback, remainingTime);
-                }
-            }
-        }
+                    setTimeout(callback, remainingTime);}}}
 
         // DETALHES MÍNIMOS
         const BASE_GAME_WIDTH = 900;
@@ -914,8 +818,7 @@
         const BASE_GROUND_HEIGHT = 25; 
         let GAME_SCALE_FACTOR = 1;
         function getScaledValue(baseValue) {
-            return baseValue * GAME_SCALE_FACTOR;
-        }
+            return baseValue * GAME_SCALE_FACTOR;}
         let GAME_WIDTH = BASE_GAME_WIDTH;
         let GAME_HEIGHT = BASE_GAME_HEIGHT;
         let PLAYER_WIDTH = BASE_PLAYER_WIDTH;
@@ -930,32 +833,30 @@
         let SCALED_OFFSET_NOISE = 0;
         let SCALED_OFFSET_FAKER = 0;
         let SCALED_OFFSET_PEDDITO = 0;
-        let SCALED_OFFSET_STATIC_DOISE = 0;
-        
+        let SCALED_OFFSET_STATIC_DOISE = 0;        
         function updateScaledConstants() {
             GAME_WIDTH = GAME_AREA.clientWidth;
             GAME_HEIGHT = GAME_AREA.clientHeight;
             GAME_SCALE_FACTOR = GAME_WIDTH / BASE_GAME_WIDTH;
+            PLAYER_WIDTH = getScaledValue(BASE_PLAYER_WIDTH);
+            PLAYER_HEIGHT = getScaledValue(BASE_PLAYER_HEIGHT);
             if(isFakerMode) {
-                PLAYER_WIDTH = getScaledValue(BASE_FAKER_WIDTH);
-                PLAYER_HEIGHT = getScaledValue(BASE_FAKER_HEIGHT);
+                NOISE_WIDTH = getScaledValue(BASE_FAKER_WIDTH);
+                NOISE_HEIGHT = getScaledValue(BASE_FAKER_HEIGHT);
+                SCALED_OFFSET_PEPPINO = getScaledValue(BASE_OFFSET_PEPPINO_FAKER);
+                SCALED_OFFSET_FAKER = getScaledValue(0);
             } else {
-                PLAYER_WIDTH = getScaledValue(BASE_PLAYER_WIDTH);
-                PLAYER_HEIGHT = getScaledValue(BASE_PLAYER_HEIGHT);
-            }
-
-            NOISE_WIDTH = getScaledValue(BASE_NOISE_WIDTH);
-            NOISE_HEIGHT = getScaledValue(BASE_NOISE_HEIGHT);
+                NOISE_WIDTH = getScaledValue(BASE_NOISE_WIDTH);
+                NOISE_HEIGHT = getScaledValue(BASE_NOISE_HEIGHT);
+                SCALED_OFFSET_PEPPINO = getScaledValue(BASE_OFFSET_PEPPINO);
+                SCALED_OFFSET_FAKER = getScaledValue(BASE_OFFSET_FAKER);}
             TOPPING_SIZE = getScaledValue(BASE_TOPPING_SIZE);
             NOISE_START_X = getScaledValue(BASE_NOISE_START_X_POS);
             SCALED_WALL_MARGIN = getScaledValue(BASE_WALL_MARGIN);
-            SCALED_GROUND_HEIGHT = getScaledValue(BASE_GROUND_HEIGHT);
-            SCALED_OFFSET_PEPPINO = getScaledValue(BASE_OFFSET_PEPPINO);
+            SCALED_GROUND_HEIGHT = getScaledValue(BASE_GROUND_HEIGHT);            
             SCALED_OFFSET_NOISE = getScaledValue(BASE_OFFSET_NOISE);
-            SCALED_OFFSET_FAKER = getScaledValue(BASE_OFFSET_FAKER);
             SCALED_OFFSET_PEDDITO = getScaledValue(BASE_OFFSET_PEDDITO);
             SCALED_OFFSET_STATIC_DOISE = getScaledValue(BASE_OFFSET_STATIC_DOISE);
-
             PLAYER.style.width = PLAYER_WIDTH + 'px';
             PLAYER.style.height = PLAYER_HEIGHT + 'px';
             NOISE.style.width = NOISE_WIDTH + 'px';
@@ -969,21 +870,16 @@
             GUSTAVO.style.left = GUSTAVO_X + 'px';
             GUSTAVO.style.bottom = GUSTAVO_Y + 'px';
             GUSTAVO.style.transform = '';
-
             if (GAME_SCALE_FACTOR !== 0) {
                 playerX = getScaledValue(playerX / (GAME_SCALE_FACTOR === 1 ? 1 : GAME_WIDTH / GAME_AREA.clientWidth));
                 playerY = getScaledValue(playerY / (GAME_SCALE_FACTOR === 1 ? 1 : GAME_WIDTH / GAME_AREA.clientWidth));
                 noiseX = getScaledValue(noiseX / (GAME_SCALE_FACTOR === 1 ? 1 : GAME_WIDTH / GAME_AREA.clientWidth));
-                noiseY = getScaledValue(noiseY / (GAME_SCALE_FACTOR === 1 ? 1 : GAME_WIDTH / GAME_AREA.clientWidth));
-            }
+                noiseY = getScaledValue(noiseY / (GAME_SCALE_FACTOR === 1 ? 1 : GAME_WIDTH / GAME_AREA.clientWidth));}
             if (!isGameOver) {
                 createPlatforms();
-                updateItemsPosition();
-            }
-        }
+                updateItemsPosition();}}
         window.addEventListener('resize', () => {
-            updateScaledConstants();
-        });
+            updateScaledConstants();});
         const GRAVITY = 0.5;
         const JUMP_STRENGTH = 15;
         const HIT_INVINCIBILITY_TIME = 1500;
@@ -1003,6 +899,7 @@
         let time = 60;
         let isGameOver = true;
         let health = MAX_HEALTH;
+        let fakerHealth = MAX_HEALTH;
         let hitsTaken = 0;
         let keys = {};
         let isInvincible = false;
@@ -1013,10 +910,19 @@
         let velocityY = 0;
         let isJumping = false;
         let isWallSliding = false;
+        let isWallFalling = false;
+        let wallSlideStartTime = 0;
         let isMoving = false;
         let playerFacingRight = true;
         let isPeppinoStunned = false;
         let isParrying = false;
+        let isPlayerGrabbing = false;
+        let canGrab = true;
+        let isTaunting = false;
+        let isDancing = false;
+        let currentTauntSprite = "";
+        let fakerIsDashing = false;
+        let canTaunt = true;
         const PEPPINO_MILK_STUN_TIME = 800;
         const PEPPINO_NORMAL_STUN_TIME = 1000;
         const NOISE_STOMP_STUN_TIME = 2500;
@@ -1037,8 +943,7 @@
         const TOPPING_CLASSES = ['topping-1', 'topping-2', 'topping-3', 'topping-4', 'topping-5'];
         let hasGeromeSpawned = false;
         const DEFAULT_PLATFORM_DATA = [
-            { x: (BASE_GAME_WIDTH / 2) - (BASE_PLATFORM_WIDTH / 2), y: BASE_PLATFORM_Y, w: BASE_PLATFORM_WIDTH, h: BASE_PLATFORM_HEIGHT }
-        ];
+            { x: (BASE_GAME_WIDTH / 2) - (BASE_PLATFORM_WIDTH / 2), y: BASE_PLATFORM_Y, w: BASE_PLATFORM_WIDTH, h: BASE_PLATFORM_HEIGHT }];
         let platformBaseData = [...DEFAULT_PLATFORM_DATA];
         let timerInterval;
         let gameLoopInterval;
@@ -1050,6 +955,8 @@
         let noisePowerupTimer;
         let noiseStunTimer;
         let parryTimer;
+        let tauntTimeout;
+        let danceTimer;
         let gustavoState = 'idle';
         let gustavoStateTimer;
         const GUSTAVO_ANIM_DURATION = 500;
@@ -1065,9 +972,7 @@
                 platform.style.height = getScaledValue(data.h) + 'px';
                 platform.style.backgroundColor = platformColor;
                 platform.style.borderColor = platformBorder;
-                GAME_AREA.appendChild(platform);
-            });
-        }
+                GAME_AREA.appendChild(platform);});}
         function updateItemsPosition() {
             platformBaseData.forEach((data, index) => {
                 const platform = document.getElementById(`platform-${index}`);
@@ -1075,37 +980,40 @@
                     platform.style.left = getScaledValue(data.x) + 'px';
                     platform.style.bottom = getScaledValue(data.y) + 'px';
                     platform.style.width = getScaledValue(data.w) + 'px';
-                    platform.style.height = getScaledValue(data.h) + 'px';
-                }
-            });
+                    platform.style.height = getScaledValue(data.h) + 'px';}});
             document.querySelectorAll('.topping, .power-up, .rock-entity, .bomb-entity').forEach(item => {
                 if (!item.classList.contains('rock-entity') && !item.classList.contains('bomb-entity')) {
                     item.style.width = TOPPING_SIZE + 'px';
-                    item.style.height = TOPPING_SIZE + 'px';
-                } else { }
-            });
-            if (isFakerMode) {
-                const PEDDITO_SIZE = getScaledValue(50);
-                STATIC_PEPPINO.style.width = PEDDITO_SIZE + 'px';
-                STATIC_PEPPINO.style.height = (PEDDITO_SIZE * 1.33) + 'px';
-                STATIC_PEPPINO.style.left = getScaledValue(50) + 'px';
-                STATIC_PEPPINO.style.bottom = (SCALED_GROUND_HEIGHT + SCALED_OFFSET_PEDDITO) + 'px';
-                STATIC_PEPPINO.classList.add('floating-anim');
-            }
-        }
+                    item.style.height = TOPPING_SIZE + 'px';}});
+            if (isDancing) {
+                const jSize = getScaledValue(50);
+                JUKEBOX.style.width = jSize + 'px';
+                JUKEBOX.style.height = jSize + 'px';}}
         function updateHealthDisplay() {
             HEALTH_DISPLAY.innerHTML = 'Hits: ';
             for (let i = 0; i < health; i++) {
                 const heart = document.createElement('span');
-                heart.id = 'heart-icon';
-                HEALTH_DISPLAY.appendChild(heart);
-            }
+                heart.className = 'health-icon';
+                heart.style.backgroundImage = "url(imagens_jogo/Stuff/Peppino_hat.png)";
+                HEALTH_DISPLAY.appendChild(heart);}
             for (let i = 0; i < MAX_HEALTH - health; i++) {
                 const emptyHeart = document.createElement('span');
-                emptyHeart.id = 'empty-heart-icon';
-                HEALTH_DISPLAY.appendChild(emptyHeart);
-            }
-        }
+                emptyHeart.className = 'health-icon';
+                emptyHeart.style.backgroundImage = "url(imagens_jogo/Stuff/Peppino_hat_damaged.png)";
+                HEALTH_DISPLAY.appendChild(emptyHeart);}}
+        function updateFakerHealthDisplay() {
+            if(!isFakerMode) return;
+            FAKER_HEALTH_CONTAINER.innerHTML = 'Faker: ';
+            for (let i = 0; i < fakerHealth; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'health-icon';
+                heart.style.backgroundImage = FAKER_LIFE_ICON;
+                FAKER_HEALTH_CONTAINER.appendChild(heart);}
+            for (let i = 0; i < MAX_HEALTH - fakerHealth; i++) {
+                const emptyHeart = document.createElement('span');
+                emptyHeart.className = 'health-icon';
+                emptyHeart.style.backgroundImage = FAKER_EMPTY_LIFE_ICON;
+                FAKER_HEALTH_CONTAINER.appendChild(emptyHeart);}}
         const BGM_AUDIO = document.getElementById('bgm-audio');
         const START_BGM_AUDIO = document.getElementById('start-bgm-audio');
         const PEPPER_PEPPINO_AUDIO = document.getElementById('pepper-peppino-audio');
@@ -1120,53 +1028,39 @@
             START_BGM_AUDIO.pause();
             START_SCREEN.style.display = 'none';
             GAME_AREA.style.display = 'block';
-            if(!isFakerMode) {
-                document.getElementById('ui-bar').style.display = 'flex';
-            } else {
-                document.getElementById('ui-bar').style.display = 'none';
-            }
-
+            document.getElementById('ui-bar').style.display = 'flex';
             STATUS_DISPLAY.className = 'message';
-            STATUS_DISPLAY.style.color = 'white';
-        }
+            STATUS_DISPLAY.style.color = 'white';}
         function showStartScreen() {
             if (!isMuted) {
-                playBGM(START_BGM_AUDIO);
-            }
+                playBGM(START_BGM_AUDIO);}
             START_SCREEN.style.display = 'flex';
             MODE_SCREEN.style.display = 'none';
             GAME_AREA.style.display = 'none';
             document.getElementById('ui-bar').style.display = 'none';
-            STATUS_DISPLAY.textContent = 'Controls: [A/D] to move, [W] to jump, [SHIFT] to run and [P] to pause.';
+            STATUS_DISPLAY.textContent = 'Controls: Arrows to move, [Z] = Jump, [SHIFT] = Run, [X] = Grab, [C] = Taunt.';
             STATUS_DISPLAY.className = 'message2';
-            STATUS_DISPLAY.style.color = 'black';
-        }
+            STATUS_DISPLAY.style.color = 'black';}
         function playSFX(soundPath, volume = sfxVolume) {
             if (isMuted) return;
             const sfx = new Audio(soundPath);
             sfx.volume = volume;
-            sfx.play().catch(e => console.log("SFX Play Error: ", e));
-        }
+            sfx.play().catch(e => console.log("SFX Play Error: ", e));}
         function playBGM(musicElement) {
             [BGM_AUDIO, START_BGM_AUDIO, PEPPER_PEPPINO_AUDIO, PEPPER_NOISE_AUDIO, DOISE_BGM, PEPPER_DOISE_AUDIO, FAKER_BGM].forEach(audio => {
                 if (audio !== musicElement) {
                     audio.pause();
-                    audio.currentTime = 0;
-                }
-            });
+                    audio.currentTime = 0;}});
             musicElement.muted = isMuted;
             musicElement.volume = bgmVolume;
-            musicElement.play().catch(e => console.log("BGM Play Error: ", e));
-        }
+            musicElement.play().catch(e => console.log("BGM Play Error: ", e));}
         function stopBGM() {
             ALL_AUDIO_ELEMENTS.forEach(audio => {
                 audio.pause();
-                audio.currentTime = 0;
-            });
+                audio.currentTime = 0;});
             DOISE_BGM.pause();
             PEPPER_DOISE_AUDIO.pause();
-            FAKER_BGM.pause();
-        }
+            FAKER_BGM.pause();}
 
         // SOUNDTRACK
         const SOUNDS = {
@@ -1183,6 +1077,7 @@
             WinPeppino: "soundtrack_jogo/Peppino_win.mp3",
             WinNoise: "soundtrack_jogo/Noise_win.mp3",
             WinDoise: "soundtrack_jogo/Doise_win.mp3",
+            WinFaker: "soundtrack_jogo/Fake_Pep_win.mp3",
             PepperSpawn: "soundtrack_jogo/Pepper_spawn.wav",
             ToppingCollect: "soundtrack_jogo/Topping_collect.wav",
             PepperCollect: "soundtrack_jogo/Pepper_collect.wav",
@@ -1197,110 +1092,111 @@
             RockFall: "soundtrack_jogo/Rock.wav",
             BombFall: "soundtrack_jogo/Bomb.wav",
             Explosion: "soundtrack_jogo/Explosion.wav",
-            FakerWalk: "soundtrack_jogo/Fake_Pep_walk.wav",
-            FakerJump: "soundtrack_jogo/Fake_Pep_jump.wav"
-        };
+            PlayerGrabSound: "soundtrack_jogo/Peppino_grab.wav",
+            PlayerTauntSound: "soundtrack_jogo/Taunt.wav",
+            PlayerParrySound: "soundtrack_jogo/Parry.wav",
+            FakerHurtSound: "soundtrack_jogo/Fake_Pep_hurt.wav",
+            FakerStunSound: "soundtrack_jogo/Fake_Pep_stun.wav",
+            FakerDashSound: "soundtrack_jogo/Fake_Pep_dash.wav",
+            FakerJumpSound: "soundtrack_jogo/Fake_Pep_jump.wav",
+            FakerDoubleJumpSound: "soundtrack_jogo/Fake_Pep_doublejump.wav",
+            FakerWalkSound: "soundtrack_jogo/Fake_Pep_step.wav"};
         function updateGustavoSprite() {
             GUSTAVO.classList.remove('facing-left', 'gustavo-idle-sprite', 'gustavo-noise-hit-sprite', 'gustavo-drop-sprite', 'gustavo-peppino-hit-sprite', 'gustavo-pepper-peppino-sprite', 'gustavo-pepper-noise-sprite', 'gustavo-win-sprite', 'gustavo-lose-sprite');
             const GUSTAVO_CENTER_X = GUSTAVO.offsetLeft + (GUSTAVO.offsetWidth / 2);
             if (playerX + (PLAYER_WIDTH / 2) < GUSTAVO_CENTER_X) {
-                GUSTAVO.classList.add('facing-left');
-            }
+                GUSTAVO.classList.add('facing-left');}
             if (isGameOver) {
                 if (health <= 0) {
                     GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_LOSE : GUSTAVO_LOSE_SPRITE;
                 } else {
-                    GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_WIN : GUSTAVO_WIN_SPRITE;
-                }
-                return;
-            }
+                    GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_WIN : GUSTAVO_WIN_SPRITE;}
+                return;}
             const isBombAiming = activeBombs.some(b => b.state === 'aiming');
             if (isBombAiming) {
                 GUSTAVO.style.backgroundImage = F_NOISE_RAGE;
-                return;
-            }
+                return;}
             if (gustavoState === 'drop') {
                 GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_DROP : GUSTAVO_DROP_SPRITE;
-                return;
-            }
+                return;}
             if (gustavoState === 'noise_hit') {
                 GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_HAPPY : GUSTAVO_NOISE_HIT_SPRITE;
-                return;
-            }
+                return;}
             if (gustavoState === 'peppino_hit') {
                 GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_SCARED : GUSTAVO_PEPPINO_HIT_SPRITE;
-                return;
-            }
+                return;}
             if (isPowerupInvincible) {
                 GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_THUMBS : GUSTAVO_PEPPER_PEPPINO_SPRITE;
-                return;
-            }
+                return;}
             if (noiseIsPoweredUp) {
                 GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_PANIC : GUSTAVO_PEPPER_NOISE_SPRITE;
-                return;
-            }
-            GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_IDLE : GUSTAVO_IDLE_SPRITE;
-        }
+                return;}
+            GUSTAVO.style.backgroundImage = isDoiseMode ? F_NOISE_IDLE : GUSTAVO_IDLE_SPRITE;}
         function setGustavoState(state, duration = GUSTAVO_ANIM_DURATION) {
             clearTimeout(gustavoStateTimer);
             gustavoState = state;
             gustavoStateTimer = setTimeout(() => {
                 gustavoState = 'idle';
-            }, duration);
-        }
+            }, duration);}
         function updatePeppinoSprite() {
             const onPlatform = checkPlatformCollision();
             const isGrounded = playerY === SCALED_GROUND_HEIGHT || onPlatform;
-            const movingHorizontally = keys['arrowright'] || keys['d'] || keys['arrowleft'] || keys['a'];
+            const movingHorizontally = keys['arrowright'] || keys['arrowleft'];
             isMoving = movingHorizontally;
-            const idleSprite = isFakerMode ? FAKER_IDLE_SPRITE : PLAYER_IDLE_SPRITE;
-            const walkSprite = isFakerMode ? FAKER_WALK_SPRITE : PLAYER_WALK_SPRITE;
-            const runSprite = isFakerMode ? FAKER_RUN_SPRITE : PLAYER_RUN_SPRITE;
-            const jumpSprite = isFakerMode ? FAKER_JUMP_SPRITE : PLAYER_JUMP_SPRITE;
-            if (isGrounded && isMoving) {
+            const idleSprite = PLAYER_IDLE_SPRITE;
+            const walkSprite = PLAYER_WALK_SPRITE;
+            const runSprite = PLAYER_RUN_SPRITE;
+            const jumpSprite = PLAYER_JUMP_SPRITE;
+            if (isDancing) {
+                PLAYER.style.backgroundImage = PLAYER_DANCE_SPRITE;
+                return;}
+            if (isTaunting && !isParrying) {
+                PLAYER.style.backgroundImage = currentTauntSprite;
+                return;}
+            if (isPlayerGrabbing) {
+                PLAYER.style.backgroundImage = PLAYER_GRAB_SPRITE;
+                return;}
+            if (isGrounded && isMoving && !isWallSliding && !isWallFalling) {
                 if (WALK_AUDIO.paused && !isMuted && !isPeppinoStunned && !PLAYER.classList.contains('peppino-tired-sprite')) {
                     WALK_AUDIO.volume = 0.3;
                     WALK_AUDIO.loop = true;
-                    WALK_AUDIO.play().catch(e => console.log("Walk Audio Play Error: ", e));
-                }
+                    WALK_AUDIO.play().catch(e => console.log("Walk Audio Play Error: ", e));}
             } else {
                 WALK_AUDIO.pause();
-                WALK_AUDIO.currentTime = 0;
-            }
+                WALK_AUDIO.currentTime = 0;}
             PLAYER.classList.remove('moving-sprite', 'running-sprite', 'stomp-mode', 'peppino-hurt-sprite', 'peppino-stun-sprite', 'wall-slide-sprite', 'peppino-parry-sprite');
             if (isPowerupInvincible) {
                 if (isParrying) {
                     PLAYER.style.backgroundImage = PEPPINO_PARRY_SPRITE;
                     PLAYER.classList.add('peppino-parry-sprite');
                     PLAYER.classList.remove('is-stunned', 'peppino-tired-sprite', 'invincible');
-                    return;
-                }
+                    return;}
                 PLAYER.style.backgroundImage = PEPPER_SPRITE;
                 PLAYER.classList.remove('is-stunned', 'peppino-tired-sprite');
-                return;
-            }
+                return;}
             if (PLAYER.classList.contains('peppino-tired-sprite')) {
                 PLAYER.style.backgroundImage = PLAYER_TIRED_SPRITE;
                 PLAYER.classList.add('is-stunned');
-                return;
-            }
-            if (isInvincible) {
+                return;}
+            if (isInvincible && !isParrying) {
                 if (isPeppinoStunned) {
                     if (PLAYER.style.backgroundImage === PEPPINO_ROCK_HURT_SPRITE) {
                         PLAYER.classList.add('is-stunned');
-                        return;
-                    }
+                        return;}
                     PLAYER.style.backgroundImage = PLAYER_STUN_SPRITE;
                     PLAYER.classList.add('is-stunned');
                 } else {
                     PLAYER.style.backgroundImage = PLAYER_HURT_SPRITE;
                     PLAYER.classList.add('peppino-hurt-sprite');
-                    PLAYER.classList.remove('is-stunned');
-                }
-                return;
-            }
+                    PLAYER.classList.remove('is-stunned');}
+                return;}
+            if(isParrying) {
+                PLAYER.classList.add('peppino-parry-sprite');
+                return;}
             PLAYER.classList.remove('is-stunned');
-            if (isWallSliding) {
+            if(isWallFalling) {
+                PLAYER.style.backgroundImage = PLAYER_WALL_FALL_SPRITE;
+            } else if (isWallSliding) {
                 PLAYER.style.backgroundImage = PLAYER_WALL_SLIDE_SPRITE;
                 PLAYER.classList.add('wall-slide-sprite');
             } else if (playerY > SCALED_GROUND_HEIGHT && !isGrounded) {
@@ -1312,60 +1208,55 @@
                         PLAYER.classList.add('running-sprite');
                     } else {
                         PLAYER.style.backgroundImage = walkSprite;
-                        PLAYER.classList.add('moving-sprite');
-                    }
+                        PLAYER.classList.add('moving-sprite');}
                 } else {
-                    PLAYER.style.backgroundImage = idleSprite;
-                }
-            }
-            if (keys['arrowright'] || keys['d']) {
+                    PLAYER.style.backgroundImage = idleSprite;}}
+            if (keys['arrowright']) {
                 playerFacingRight = true;
-            } else if (keys['arrowleft'] || keys['a']) {
-                playerFacingRight = false;
-            }
+            } else if (keys['arrowleft']) {
+                playerFacingRight = false;}
             if (playerFacingRight) {
                 PLAYER.classList.remove('facing-left');
             } else {
-                PLAYER.classList.add('facing-left');
-            }
-        }
+                PLAYER.classList.add('facing-left');}}
         function updateNoiseSprite() {
-            if(isFakerMode) return;
-            const walkSprite = isDoiseMode ? DOISE_WALK_SPRITE : NOISE_WALK_SPRITE;
-            const jumpSprite = isDoiseMode ? DOISE_JUMP_SPRITE : NOISE_JUMP_SPRITE;
-            const doubleJumpSprite = isDoiseMode ? DOISE_DOUBLE_JUMP_SPRITE : NOISE_DOUBLE_JUMP_SPRITE;
-            const stunnedSprite = isDoiseMode ? DOISE_STUNNED_SPRITE : STUNNED_SPRITE;
+            const walkSprite = isFakerMode ? FAKER_WALK_SPRITE : (isDoiseMode ? DOISE_WALK_SPRITE : NOISE_WALK_SPRITE);
+            const jumpSprite = isFakerMode ? FAKER_JUMP_SPRITE : (isDoiseMode ? DOISE_JUMP_SPRITE : NOISE_JUMP_SPRITE);
+            const doubleJumpSprite = isFakerMode ? FAKER_DOUBLE_JUMP_SPRITE : (isDoiseMode ? DOISE_DOUBLE_JUMP_SPRITE : NOISE_DOUBLE_JUMP_SPRITE);
+            const stunnedSprite = isFakerMode ? FAKER_HURT_SPRITE : (isDoiseMode ? DOISE_STUNNED_SPRITE : STUNNED_SPRITE);
             const poweredSprite = isDoiseMode ? DOISE_POWERED_SPRITE : NOISE_POWERED_SPRITE;
             const jokeSprite = isDoiseMode ? DOISE_JOKE_SPRITE : NOISE_JOKE_SPRITE;
             const parrySprite = isDoiseMode ? DOISE_POWERUP_PARRY_SPRITE : NOISE_POWERUP_PARRY_SPRITE;
-            const pepperStunSprite = isDoiseMode ? DOISE_PEPPER_STUN_SPRITE : NOISE_PEPPER_STUN_SPRITE;
+            const pepperStunSprite = isFakerMode ? FAKER_STUN_SPRITE : (isDoiseMode ? DOISE_PEPPER_STUN_SPRITE : NOISE_PEPPER_STUN_SPRITE);
             const tiredSprite = isDoiseMode ? DOISE_TIRED_SPRITE : NOISE_TIRED_SPRITE;
             const scaredSprite = isDoiseMode ? DOISE_SCARED_SPRITE : NOISE_SCARED_SPRITE;
             const happySprite = isDoiseMode ? DOISE_HAPPY_SPRITE : NOISE_HAPPY_SPRITE;
-            const idleSprite = isDoiseMode ? DOISE_IDLE_SPRITE_NEW : NOISE_IDLE_SPRITE_NEW;
-            const rockStunSprite = isDoiseMode ? DOISE_ROCK_STUN_SPRITE : stunnedSprite;
+            const idleSprite = isFakerMode ? FAKER_IDLE_SPRITE : (isDoiseMode ? DOISE_IDLE_SPRITE_NEW : NOISE_IDLE_SPRITE_NEW);
+            const rockStunSprite = isFakerMode ? FAKER_STUN_SPRITE : (isDoiseMode ? DOISE_ROCK_STUN_SPRITE : stunnedSprite);
+            const dashSprite = isFakerMode ? FAKER_DASH_SPRITE : walkSprite;
+            const airDashSprite = isFakerMode ? FAKER_AIR_DASH_SPRITE : jumpSprite;
+            if(fakerIsDashing) {
+                const onPlatform = checkNoisePlatformCollision();
+                const isGrounded = noiseY === SCALED_GROUND_HEIGHT || onPlatform;
+                NOISE.style.backgroundImage = isGrounded ? dashSprite : airDashSprite;
+                return;}
             if (noiseIsStunned || noiseIsJoking) {
                 NOISE.classList.remove('noise-disabled');
                 if (noiseIsJoking) {
                     NOISE.style.backgroundImage = jokeSprite;
                     NOISE.classList.add('noise-joke-mode');
-                    return;
-                }
+                    return;}
                 if (NOISE.style.backgroundImage === parrySprite) {
                     NOISE.style.backgroundImage = parrySprite;
-                    return;
-                }
+                    return;}
                 if (NOISE.style.backgroundImage === pepperStunSprite) {
                     NOISE.style.backgroundImage = pepperStunSprite;
-                    return;
-                }
+                    return;}
                 if (NOISE.style.backgroundImage === rockStunSprite) {
                     NOISE.style.backgroundImage = rockStunSprite;
-                    return;
-                }
+                    return;}
                 NOISE.style.backgroundImage = NOISE.classList.contains('noise-tired-sprite') ? tiredSprite : stunnedSprite;
-                return;
-            }
+                return;}
             NOISE.classList.remove('is-stunned', 'invincible', 'noise-happy', 'noise-scared', 'noise-jumping', 'noise-double-jump', 'noise-powered-up', 'noise-idle-sprite', 'noise-tired-sprite', 'noise-joke-mode');
             const onPlatform = checkNoisePlatformCollision();
             const isGrounded = noiseY === SCALED_GROUND_HEIGHT || onPlatform;
@@ -1373,10 +1264,10 @@
                 NOISE.style.backgroundImage = poweredSprite;
             } else if (noiseIsPoweredUp) {
                 NOISE.style.backgroundImage = poweredSprite;
-            } else if (isPowerupInvincible) {
+            } else if (isPowerupInvincible && !isFakerMode) {
                 NOISE.style.backgroundImage = scaredSprite;
                 NOISE.classList.add('noise-scared');
-            } else if (activePowerupElement) {
+            } else if (activePowerupElement && !isFakerMode) {
                 NOISE.style.backgroundImage = happySprite;
                 NOISE.classList.add('noise-happy');
             } else {
@@ -1386,25 +1277,19 @@
                         NOISE.classList.add('noise-double-jump');
                     } else {
                         NOISE.style.backgroundImage = jumpSprite;
-                        NOISE.classList.add('noise-jumping');
-                    }
+                        NOISE.classList.add('noise-jumping');}
                 } else if (isGrounded) {
                     const isStationary = Math.abs(noiseVY) < getScaledValue(0.1) && Math.abs(noiseX + noiseDirection * currentNoiseSpeed - noiseX) < getScaledValue(1);
-                    if (isStationary && !isDoiseMode) {
+                    if (isStationary && !isDoiseMode && !isFakerMode) {
                         NOISE.style.backgroundImage = idleSprite;
                         NOISE.classList.add('noise-idle-sprite');
                     } else {
-                        NOISE.style.backgroundImage = walkSprite;
-                    }
-                }
-            }
+                        NOISE.style.backgroundImage = walkSprite;}}}
             let noiseFacingRight = noiseDirection === 1;
             if (noiseFacingRight) {
                 NOISE.classList.remove('facing-left');
             } else {
-                NOISE.classList.add('facing-left');
-            }
-        }
+                NOISE.classList.add('facing-left');}}
         function checkPlatformCollision() {
             let onPlatform = false;
             document.querySelectorAll('.platform').forEach(platformElement => {
@@ -1426,12 +1311,8 @@
                         playerY = getScaledValue(basePlatformTop);
                         velocityY = 0;
                         isJumping = false;
-                        onPlatform = true;
-                    }
-                }
-            });
-            return onPlatform;
-        }
+                        onPlatform = true;}}});
+            return onPlatform;}
         function checkNoisePlatformCollision() {
             let onPlatform = false;
             document.querySelectorAll('.platform').forEach(platformElement => {
@@ -1440,7 +1321,7 @@
                 const basePlatformW = parseFloat(platformElement.style.width) / GAME_SCALE_FACTOR;
                 const basePlatformH = parseFloat(platformElement.style.height) / GAME_SCALE_FACTOR;
                 const baseNoiseX = noiseX / GAME_SCALE_FACTOR;
-                const baseNoiseW = BASE_NOISE_WIDTH;
+                const baseNoiseW = isFakerMode ? BASE_FAKER_WIDTH : BASE_NOISE_WIDTH;
                 const baseHorizontalOverlap = baseNoiseX < basePlatformX + basePlatformW && baseNoiseX + baseNoiseW > basePlatformX;
                 if (baseHorizontalOverlap) {
                     const isFalling = noiseVY <= 0;
@@ -1452,22 +1333,22 @@
                         noiseY = getScaledValue(basePlatformTop);
                         noiseVY = 0;
                         noiseJumpsUsed = 0;
-                        onPlatform = true;
-                    }
-                }
-            });
-            return onPlatform;
-        }
+                        onPlatform = true;}}});
+            return onPlatform;}
         function updatePlayerPosition() {
             const SCALED_WALK_SPEED = getScaledValue(WALK_SPEED / BASE_GAME_WIDTH * GAME_WIDTH);
             const SCALED_RUN_SPEED = getScaledValue(RUN_SPEED / BASE_GAME_WIDTH * GAME_WIDTH);
-            const SCALED_CURRENT_SPEED = currentSpeed === WALK_SPEED ? SCALED_WALK_SPEED : SCALED_RUN_SPEED;
+            let SCALED_CURRENT_SPEED = currentSpeed === WALK_SPEED ? SCALED_WALK_SPEED : SCALED_RUN_SPEED;
+            if(isPlayerGrabbing) SCALED_CURRENT_SPEED *= 2.5;
+            if(isDancing || isTaunting) SCALED_CURRENT_SPEED = 0;
             const SCALED_GRAVITY = getScaledValue(GRAVITY);
             const SCALED_WALL_SLIDE_SPEED = getScaledValue(WALL_SLIDE_SPEED);
-            const SCALED_WALL_JUMP_HORIZONTAL_PUSH = getScaledValue(WALL_JUMP_HORIZONTAL_PUSH);
-            const currentOffset = isFakerMode ? SCALED_OFFSET_FAKER : SCALED_OFFSET_PEPPINO;
-
-            if (isPeppinoStunned) {
+            const currentOffset = SCALED_OFFSET_PEPPINO;
+            if (isTaunting && !isParrying) {
+                PLAYER.style.left = playerX + 'px';
+                PLAYER.style.bottom = (playerY + currentOffset) + 'px';
+                return;}
+            if (isPeppinoStunned || isParrying) {
                 let onPlatform = checkPlatformCollision();
                 if (!onPlatform) { velocityY -= SCALED_GRAVITY; }
                 playerY += velocityY;
@@ -1475,94 +1356,163 @@
                 playerX = Math.max(SCALED_WALL_MARGIN, Math.min(GAME_WIDTH - PLAYER_WIDTH - SCALED_WALL_MARGIN, playerX));
                 PLAYER.style.left = playerX + 'px';
                 PLAYER.style.bottom = (playerY + currentOffset) + 'px';
-                return;
-            }
-            if (isParrying) {
-                let onPlatform = checkPlatformCollision();
-                if (!onPlatform) { velocityY -= SCALED_GRAVITY; }
-                playerY += velocityY;
-                if (playerY <= SCALED_GROUND_HEIGHT) { playerY = SCALED_GROUND_HEIGHT; velocityY = 0; isJumping = false; }
-                playerX = Math.max(SCALED_WALL_MARGIN, Math.min(GAME_WIDTH - PLAYER_WIDTH - SCALED_WALL_MARGIN, playerX));
-                PLAYER.style.left = playerX + 'px';
-                PLAYER.style.bottom = (playerY + currentOffset) + 'px';
-                return;
-            }
+                return;}
             let onPlatform = checkPlatformCollision();
             let isGrounded = playerY === SCALED_GROUND_HEIGHT || onPlatform;
             const onLeftWall = playerX <= SCALED_WALL_MARGIN;
             const onRightWall = playerX >= GAME_WIDTH - PLAYER_WIDTH - SCALED_WALL_MARGIN;
-            if (!isFakerMode && !isGrounded && ((onLeftWall && (keys['ArrowLeft'] || keys['a'])) || (onRightWall && (keys['ArrowRight'] || keys['d'])))) {
-                isWallSliding = true;
-                if (velocityY < -SCALED_WALL_SLIDE_SPEED) { velocityY = -SCALED_WALL_SLIDE_SPEED; }
+            if (!isGrounded && ((onLeftWall && keys['arrowleft']) || (onRightWall && keys['arrowright']))) {
+                if(!isWallSliding && !isWallFalling) {
+                    isWallSliding = true;
+                    wallSlideStartTime = Date.now();
+                } else if(isWallSliding) {
+                    if(Date.now() - wallSlideStartTime > 2500) {
+                        isWallSliding = false;
+                        isWallFalling = true;}}
+                if (isWallSliding) {
+                    if (velocityY < -SCALED_WALL_SLIDE_SPEED) { velocityY = -SCALED_WALL_SLIDE_SPEED; }}
             } else {
                 isWallSliding = false;
-            }
-            if (keys['arrowright'] || keys['d']) { playerX += SCALED_CURRENT_SPEED; }
-            if (keys['arrowleft'] || keys['a']) { playerX -= SCALED_CURRENT_SPEED; }
+                if(isGrounded) isWallFalling = false;}
+            if(isPlayerGrabbing) {
+                let dir = playerFacingRight ? 1 : -1;
+                playerX += dir * SCALED_CURRENT_SPEED;
+            } else if (!isDancing && !isTaunting) {
+                if (keys['arrowright']) { playerX += SCALED_CURRENT_SPEED; }
+                if (keys['arrowleft']) { playerX -= SCALED_CURRENT_SPEED; }}
             if (!isWallSliding && !onPlatform) { velocityY -= SCALED_GRAVITY; }
             playerY += velocityY;
             if (playerY >= GAME_HEIGHT - PLAYER_HEIGHT) { playerY = GAME_HEIGHT - PLAYER_HEIGHT; if (velocityY > 0) { velocityY = 0; } }
-            if (playerY <= SCALED_GROUND_HEIGHT) { playerY = SCALED_GROUND_HEIGHT; velocityY = 0; isJumping = false; }
+            if (playerY <= SCALED_GROUND_HEIGHT) { playerY = SCALED_GROUND_HEIGHT; velocityY = 0; isJumping = false; isWallFalling = false; }
             playerX = Math.max(SCALED_WALL_MARGIN, Math.min(GAME_WIDTH - PLAYER_WIDTH - SCALED_WALL_MARGIN, playerX));
             PLAYER.style.left = playerX + 'px';
-            PLAYER.style.bottom = (playerY + currentOffset) + 'px';
-        }
+            PLAYER.style.bottom = (playerY + currentOffset) + 'px';}
         function playerJump() {
             const SCALED_JUMP_STRENGTH = getScaledValue(JUMP_STRENGTH);
             const SCALED_WALL_JUMP_HORIZONTAL_PUSH = getScaledValue(WALL_JUMP_HORIZONTAL_PUSH);
-            if (isGameOver || isPeppinoStunned || isParrying) return;
+            if (isGameOver || isPeppinoStunned || isParrying || isDancing || isTaunting) return;
             WALK_AUDIO.pause();
             WALK_AUDIO.currentTime = 0;
             if (playerY === SCALED_GROUND_HEIGHT || checkPlatformCollision()) {
                 velocityY = SCALED_JUMP_STRENGTH;
                 isJumping = true;
-                playSFX(isFakerMode ? SOUNDS.FakerJump : SOUNDS.JumpPeppino);
+                playSFX(SOUNDS.JumpPeppino);
             } else if (isWallSliding) {
                 velocityY = SCALED_JUMP_STRENGTH;
                 isJumping = true;
                 isWallSliding = false;
-                playSFX(isFakerMode ? SOUNDS.FakerJump : SOUNDS.JumpPeppino);
+                playSFX(SOUNDS.JumpPeppino);
                 const onLeftWall = playerX <= SCALED_WALL_MARGIN;
-                if (onLeftWall) { playerX += SCALED_WALL_JUMP_HORIZONTAL_PUSH; } else { playerX -= SCALED_WALL_JUMP_HORIZONTAL_PUSH; }
-            }
-        }
+                if (onLeftWall) { playerX += SCALED_WALL_JUMP_HORIZONTAL_PUSH; } else { playerX -= SCALED_WALL_JUMP_HORIZONTAL_PUSH; }}}
+        function executePlayerGrab() {
+            isPlayerGrabbing = true;
+            canGrab = false;
+            playSFX(SOUNDS.PlayerGrabSound);
+            pauseManager.registerTimeout('grab_pep_' + Date.now(), () => {
+                isPlayerGrabbing = false;
+                setTimeout(() => { canGrab = true; }, 400);
+            }, 400);}
+        function startTaunt() {
+            if (!canTaunt) return;
+            canTaunt = false;
+            setTimeout(() => { canTaunt = true; }, 800);            
+            isTaunting = true;
+            velocityY = 0;
+            currentTauntSprite = TAUNT_SPRITES[Math.floor(Math.random() * TAUNT_SPRITES.length)];
+            playSFX(SOUNDS.PlayerTauntSound);
+            
+            tauntTimeout = setTimeout(() => {
+                if(keys['c']) {
+                    isDancing = true;
+                    isTaunting = false;
+                    showJukebox();
+                } else {
+                    stopTaunt();}
+            }, 700);}
+        function stopTaunt() {
+            clearTimeout(tauntTimeout);
+            if(isDancing) {
+                isDancing = false;
+                hideJukebox();}
+            isTaunting = false;
+            updatePeppinoSprite();}
+        function showJukebox() {
+            JUKEBOX.style.backgroundImage = JUKEBOX_SPRITE;
+            const jSize = getScaledValue(50);
+            JUKEBOX.style.width = jSize + 'px';
+            JUKEBOX.style.height = jSize + 'px';
+            JUKEBOX.style.left = (playerX + (playerFacingRight ? -jSize : PLAYER_WIDTH)) + 'px';
+            JUKEBOX.style.bottom = playerY + 'px';
+            JUKEBOX.style.display = 'block';}
+        function hideJukebox() {
+            JUKEBOX.style.display = 'none';}
+        function triggerParry(attacker) {
+            isTaunting = false;
+            isParrying = true;
+            playSFX(SOUNDS.PlayerParrySound);
+            PLAYER.style.backgroundImage = PARRY_SPRITES[Math.floor(Math.random() * PARRY_SPRITES.length)];
+            isInvincible = true;
+            pauseManager.registerTimeout('parry_iframes_' + Date.now(), () => {
+                isInvincible = false;
+            }, 5000);
+            pauseManager.registerTimeout('parry_anim_' + Date.now(), () => {
+                isParrying = false;
+                updatePeppinoSprite();
+            }, 500);
+            stunEnemy(attacker, 5000);}
+        function stunEnemy(attacker, duration) {
+            noiseIsStunned = true;
+            NOISE.classList.add('noise-disabled');
+            let stunSFX = isFakerMode ? SOUNDS.FakerStunSound : (isDoiseMode ? SOUNDS.HurtDoise : SOUNDS.HurtNoise);
+            playSFX(stunSFX);
+            NOISE.style.backgroundImage = isFakerMode ? FAKER_STUN_SPRITE : (isDoiseMode ? DOISE_STUNNED_SPRITE : STUNNED_SPRITE);
+            STATUS_DISPLAY.textContent = "The dumbass was Parried!";
+            clearTimeout(noiseStunTimer);
+            pauseManager.registerTimeout('enemy_parry_stun_' + Date.now(), () => {
+                noiseIsStunned = false;
+                NOISE.classList.remove('noise-disabled');
+                updateNoiseSprite();
+            }, duration);}
         function updateNoisePosition() {
-            if(isFakerMode) return;
+            let BASE_CURR_WIDTH = isFakerMode ? BASE_FAKER_WIDTH : BASE_NOISE_WIDTH;
+            let BASE_CURR_HEIGHT = isFakerMode ? BASE_FAKER_HEIGHT : BASE_NOISE_HEIGHT;
             const SCALED_NOISE_SPEED = getScaledValue(NOISE_SPEED / BASE_GAME_WIDTH * GAME_WIDTH);
             const SCALED_NOISE_POWERED_SPEED = getScaledValue(NOISE_POWERED_SPEED / BASE_GAME_WIDTH * GAME_WIDTH);
             const SCALED_GRAVITY = getScaledValue(GRAVITY);
+            let offset = isFakerMode ? SCALED_OFFSET_FAKER : SCALED_OFFSET_NOISE;
             if (noiseIsStunned || noiseIsJoking) {
                 noiseVY = 0;
                 if (noiseY <= SCALED_GROUND_HEIGHT) {
-                    noiseY = SCALED_GROUND_HEIGHT;
-                }
-                NOISE.style.bottom = (noiseY + SCALED_OFFSET_NOISE) + 'px';
+                    noiseY = SCALED_GROUND_HEIGHT;}
+                NOISE.style.bottom = (noiseY + offset) + 'px';
                 if (NOISE.classList.contains('invincible') && !NOISE.classList.contains('is-stunned')) {
-                    NOISE.classList.remove('invincible');
-                }
-                return;
-            }
+                    NOISE.classList.remove('invincible');}
+                return;}
+            if(fakerIsDashing) {
+                let onPlatform = checkNoisePlatformCollision();
+                if (!onPlatform) { noiseVY -= SCALED_GRAVITY; }
+                noiseY += noiseVY;
+                if (noiseY <= SCALED_GROUND_HEIGHT) { noiseY = SCALED_GROUND_HEIGHT; noiseVY = 0; }
+                NOISE.style.left = noiseX + 'px';
+                NOISE.style.bottom = (noiseY + offset) + 'px';
+                return;}
             let onPlatform = checkNoisePlatformCollision();
             let targetX;
             currentNoiseSpeed = SCALED_NOISE_SPEED;
             const isGrounded = noiseY === SCALED_GROUND_HEIGHT || onPlatform;
             const canJump = isGrounded;
-            if (isPowerupInvincible && noiseIsPoweredUp) {
+            if (isPowerupInvincible && noiseIsPoweredUp && !isFakerMode) {
                 targetX = noiseX + noiseDirection * SCALED_NOISE_SPEED;
                 currentNoiseSpeed = SCALED_NOISE_SPEED;
-            } else if (noiseIsPoweredUp) {
+            } else if (noiseIsPoweredUp && !isFakerMode) {
                 targetX = playerX;
                 currentNoiseSpeed = SCALED_NOISE_POWERED_SPEED;
-            } else if (isPowerupInvincible) {
+            } else if (isPowerupInvincible && !isFakerMode) {
                 const distanceToPeppino = noiseX - playerX;
                 targetX = noiseX + (distanceToPeppino > 0 ? currentNoiseSpeed : -currentNoiseSpeed) * 10;
                 currentNoiseSpeed = SCALED_NOISE_POWERED_SPEED * 0.8;
-                if (distanceToPeppino > 0) {
-                    noiseDirection = 1;
-                } else {
-                    noiseDirection = -1;
-                }
-            } else if (activePowerupElement) {
+                if (distanceToPeppino > 0) { noiseDirection = 1; } else { noiseDirection = -1; }
+            } else if (activePowerupElement && !isFakerMode) {
                 const powerupRect = activePowerupElement.getBoundingClientRect();
                 const gameAreaRect = GAME_AREA.getBoundingClientRect();
                 const powerupXGame = powerupRect.left - gameAreaRect.left;
@@ -1575,78 +1525,74 @@
                     if (canJump && horizontalDistance < NOISE_WIDTH * 2) {
                         jumpNoise();
                     } else if (!canJump && noiseJumpsUsed < MAX_NOISE_JUMPS) {
-                        jumpNoise();
-                    }
+                        jumpNoise();}
                 } else if (canJump && Math.random() < NOISE_JUMP_CHANCE) {
-                    jumpNoise();
-                }
+                    jumpNoise();}
             } else {
                 targetX = noiseX + noiseDirection * SCALED_NOISE_SPEED;
                 currentNoiseSpeed = SCALED_NOISE_SPEED;
                 if (canJump && Math.random() < NOISE_JUMP_CHANCE) {
                     jumpNoise();
                 } else if (noiseJumpsUsed === 1 && Math.random() < NOISE_JUMP_CHANCE / 2) {
-                    jumpNoise();
-                }
-            }
+                    jumpNoise();}}
+            if(isFakerMode && !fakerIsDashing && !noiseIsStunned) {
+                let inFront = (noiseDirection === 1 && playerX > noiseX) || (noiseDirection === -1 && playerX < noiseX);
+                let dist = Math.abs(playerX - noiseX);
+                if (inFront && dist < getScaledValue(400) && Math.random() < 0.02) { 
+                    executeFakerDash();}}
             if (!isPowerupInvincible && !noiseIsPoweredUp) {
-                if (targetX < noiseX) {
-                    noiseDirection = -1;
-                } else if (targetX > noiseX) {
-                    noiseDirection = 1;
-                }
-            } else if (isPowerupInvincible && noiseIsPoweredUp) {
+                if (targetX < noiseX) { noiseDirection = -1; } else if (targetX > noiseX) { noiseDirection = 1; }
+            } else if (isPowerupInvincible && noiseIsPoweredUp && !isFakerMode) {
                 if (noiseX <= SCALED_WALL_MARGIN) { noiseDirection = 1; }
                 else if (noiseX >= GAME_WIDTH - NOISE_WIDTH - SCALED_WALL_MARGIN) { noiseDirection = -1; }
-            } else if (noiseIsPoweredUp) {
-                if (noiseX < playerX) {
-                    noiseDirection = 1;
-                } else if (noiseX > playerX) {
-                    noiseDirection = -1;
-                }
-            } else if (isPowerupInvincible) {
-                if (targetX < noiseX) {
-                    noiseDirection = -1;
-                } else if (targetX > noiseX) {
-                    noiseDirection = 1;
-                }
-            }
+            } else if (noiseIsPoweredUp && !isFakerMode) {
+                if (noiseX < playerX) { noiseDirection = 1; } else if (noiseX > playerX) { noiseDirection = -1; }
+            } else if (isPowerupInvincible && !isFakerMode) {
+                if (targetX < noiseX) { noiseDirection = -1; } else if (targetX > noiseX) { noiseDirection = 1; }}
             noiseX += noiseDirection * currentNoiseSpeed;
-            if (!noiseIsPoweredUp) {
+            if (!noiseIsPoweredUp || isFakerMode) {
                 if (noiseX <= SCALED_WALL_MARGIN || noiseX >= GAME_WIDTH - NOISE_WIDTH - SCALED_WALL_MARGIN) {
                     if (!isPowerupInvincible && !activePowerupElement) {
-                        noiseDirection *= -1;
-                    }
-                    noiseX = Math.max(SCALED_WALL_MARGIN, Math.min(GAME_WIDTH - NOISE_WIDTH - SCALED_WALL_MARGIN, noiseX));
-                }
-            }
-            if (noiseIsPoweredUp && isNoiseFacingTarget(targetX)) {
+                        noiseDirection *= -1;}
+                    noiseX = Math.max(SCALED_WALL_MARGIN, Math.min(GAME_WIDTH - NOISE_WIDTH - SCALED_WALL_MARGIN, noiseX));}}
+            if (noiseIsPoweredUp && isNoiseFacingTarget(targetX) && !isFakerMode) {
                 if (canJump || (noiseJumpsUsed === 1 && Math.random() < 0.5)) {
-                    jumpNoise();
-                }
-            }
+                    jumpNoise();}}
             if (!onPlatform) { noiseVY -= SCALED_GRAVITY; }
             noiseY += noiseVY;
             if (noiseY >= GAME_HEIGHT - NOISE_HEIGHT) { noiseY = GAME_HEIGHT - NOISE_HEIGHT; if (noiseVY > 0) { noiseVY = 0; } }
             if (noiseY <= SCALED_GROUND_HEIGHT) {
                 noiseY = SCALED_GROUND_HEIGHT;
                 noiseVY = 0;
-                noiseJumpsUsed = 0;
-            }
+                noiseJumpsUsed = 0;}
             NOISE.style.left = noiseX + 'px';
-            NOISE.style.bottom = (noiseY + SCALED_OFFSET_NOISE) + 'px';
-        }
+            NOISE.style.bottom = (noiseY + offset) + 'px';}
+        function executeFakerDash() {
+            fakerIsDashing = true;
+            playSFX(SOUNDS.FakerDashSound);
+            let dashDir = noiseDirection;
+            let startDashTime = Date.now();
+            let dashInterval = setInterval(() => {
+                if(isGameOver || isPaused || noiseIsStunned) {
+                    clearInterval(dashInterval);
+                    fakerIsDashing = false;
+                    return;}
+                noiseX += dashDir * getScaledValue(NOISE_SPEED * 2.5);
+                noiseX = Math.max(SCALED_WALL_MARGIN, Math.min(GAME_WIDTH - NOISE_WIDTH - SCALED_WALL_MARGIN, noiseX));
+                if(Date.now() - startDashTime > 400) {
+                    clearInterval(dashInterval);
+                    fakerIsDashing = false;}
+            }, 1000/60);}
         function isNoiseFacingTarget(targetX) {
             if (targetX > noiseX) { return noiseDirection === 1; }
             if (targetX < noiseX) { return noiseDirection === -1; }
-            return false;
-        }
+            return false;}
         function jumpNoise() {
             const SCALED_NOISE_JUMP_STRENGTH = getScaledValue(NOISE_JUMP_STRENGTH);
             const currentTime = Date.now();
             const isGrounded = noiseY === SCALED_GROUND_HEIGHT || checkNoisePlatformCollision();
-            const jumpSound = isDoiseMode ? SOUNDS.DoiseJump : SOUNDS.JumpNoise;
-            const doubleJumpSound = isDoiseMode ? SOUNDS.DoiseDoubleJump : SOUNDS.DoubleJumpNoise;
+            const jumpSound = isFakerMode ? SOUNDS.FakerJumpSound : (isDoiseMode ? SOUNDS.DoiseJump : SOUNDS.JumpNoise);
+            const doubleJumpSound = isFakerMode ? SOUNDS.FakerDoubleJumpSound : (isDoiseMode ? SOUNDS.DoiseDoubleJump : SOUNDS.DoubleJumpNoise);
             if (isGrounded) {
                 noiseVY = SCALED_NOISE_JUMP_STRENGTH;
                 noiseJumpsUsed = 1;
@@ -1655,9 +1601,7 @@
             } else if (noiseJumpsUsed === 1 && (currentTime - noiseLastJumpTime) >= NOISE_DOUBLE_JUMP_COOLDOWN) {
                 noiseVY = SCALED_NOISE_JUMP_STRENGTH;
                 noiseJumpsUsed++;
-                playSFX(doubleJumpSound);
-            }
-        }
+                playSFX(doubleJumpSound);}}
         function checkCollision() {
             const playerRect = PLAYER.getBoundingClientRect();
             const noiseRect = NOISE.getBoundingClientRect();
@@ -1672,43 +1616,48 @@
                     } else if (item.classList.contains('topping-life')) {
                         collectLifeMushroom(item);
                     } else {
-                        collectTopping(item);
-                    }
-                }
-            });
-            if(isFakerMode) return;
-
-            items.forEach(item => {
-                const itemRect = item.getBoundingClientRect();
-                if (isColliding(noiseRect, itemRect) && item.classList.contains('power-up') && !noiseIsPoweredUp) {
-                    collectNoisePowerup(item);
-                }
-            });
+                        collectTopping(item);}}});
+            if(!isFakerMode) {
+                items.forEach(item => {
+                    const itemRect = item.getBoundingClientRect();
+                    if (isColliding(noiseRect, itemRect) && item.classList.contains('power-up') && !noiseIsPoweredUp) {
+                        collectNoisePowerup(item);}});}
             if (isColliding(playerRect, noiseRect) && !noiseIsStunned && !noiseIsJoking) {
+                if (isTaunting) {
+                    triggerParry('enemy');
+                    return;}
+                if (isFakerMode) {
+                    if (isPlayerGrabbing) {
+                        handleHitFaker();
+                    } else if (!isInvincible && !isPlayerGrabbing) {
+                        handleNoiseHit(1);}
+                    return;}
                 if (isPowerupInvincible && noiseIsPoweredUp) {
                     handleNoisePowerupConflict();
-                    return;
-                }
+                    return;}
                 if (isPowerupInvincible) {
                     handleNoisePepperHit();
-                    return;
-                }
+                    return;}
                 if (noiseIsPoweredUp && !isInvincible) {
                     handlePepperNoiseHitPeppino();
-                    return;
-                }
+                    return;}
                 const isStomping = (velocityY < 0) && (playerY > noiseY + NOISE_HEIGHT - getScaledValue(10));
                 if (isStomping) {
                     handleNoiseStomp();
                 } else if (!isInvincible) {
-                    handleNoiseHit(1);
-                }
-            }
-        }
+                    handleNoiseHit(1);}}}
+        function handleHitFaker() {
+            if(noiseIsStunned) return;
+            fakerHealth -= 1;
+            updateFakerHealthDisplay();
+            playSFX(SOUNDS.FakerHurtSound);
+            stunEnemy('faker', 2500);
+            if(fakerHealth <= 0) {
+                score += 5000;
+                endGame(true);}}
         function isColliding(rect1, rect2) {
             return (rect1.left < rect2.right && rect1.right > rect2.left &&
-                rect1.bottom > rect2.top && rect1.top < rect2.bottom);
-        }
+                rect1.bottom > rect2.top && rect1.top < rect2.bottom);}
         let activeRocks = [];
         const ROCK_WARNING_TIME = 3000;
         const ROCK_GROUND_TIME = 1750;
@@ -1733,18 +1682,15 @@
                 x: startX,
                 y: startY,
                 state: 'warning',
-                vy: 0
-            };
+                vy: 0};
             activeRocks.push(rockData);
             pauseManager.registerTimeout('rock_' + Date.now(), () => {
                 if (!isGameOver && rockData.state === 'warning') {
                     rock.classList.remove('rock-warning');
                     rockData.state = 'falling';
                     rockData.vy = -getScaledValue(ROCK_SPEED);
-                    playSFX(SOUNDS.RockFall);
-                }
-            }, ROCK_WARNING_TIME);
-        }
+                    playSFX(SOUNDS.RockFall);}
+            }, ROCK_WARNING_TIME);}
         let activeBombs = [];
         const BOMB_WARNING_TIME = 3000;
         const BOMB_SPEED = 10;
@@ -1767,17 +1713,14 @@
                 x: startX,
                 y: startY,
                 state: 'aiming',
-                vy: 0
-            };
+                vy: 0};
             activeBombs.push(bombData);
             pauseManager.registerTimeout('bomb_' + Date.now(), () => {
                 if (!isGameOver && bombData.state === 'aiming') {
                     bomb.classList.remove('bomb-warning');
                     bombData.state = 'falling';
-                    bombData.vy = -getScaledValue(BOMB_SPEED);
-                }
-            }, BOMB_WARNING_TIME);
-        }
+                    bombData.vy = -getScaledValue(BOMB_SPEED);}
+            }, BOMB_WARNING_TIME);}
         function createExplosion(x, y) {
             const explosion = document.createElement('div');
             explosion.classList.add('explosion-entity');
@@ -1792,19 +1735,16 @@
             checkExplosionDamage(explosion);
             pauseManager.registerTimeout('explosion_' + Date.now(), () => {
                 explosion.remove();
-            }, 1800);
-        }
+            }, 1800);}
         function checkExplosionDamage(explosion) {
             const explosionRect = explosion.getBoundingClientRect();
             const playerRect = PLAYER.getBoundingClientRect();
             const doiseRect = NOISE.getBoundingClientRect();
             if (isColliding(explosionRect, playerRect)) {
-                handleRockHitPeppino('bomb');
-            }
+                if (isTaunting) triggerParry('bomb');
+                else handleRockHitPeppino('bomb');}
             if (!isFakerMode && isColliding(explosionRect, doiseRect) && !noiseIsStunned) {
-                handleBombHitDoise();
-            }
-        }
+                handleBombHitDoise();}}
         function updateRocks() {
             if (!isDoiseMode) return;
             for (let i = activeRocks.length - 1; i >= 0; i--) {
@@ -1815,16 +1755,15 @@
                     const rockRect = rock.element.getBoundingClientRect();
                     const playerRect = PLAYER.getBoundingClientRect();
                     if (isColliding(rockRect, playerRect)) {
+                        if (isTaunting) { triggerParry('rock'); breakRock(rock, i); continue; }
                         handleRockHitPeppino('rock');
                         breakRock(rock, i);
-                        continue;
-                    }
+                        continue;}
                     const doiseRect = NOISE.getBoundingClientRect();
                     if (isColliding(rockRect, doiseRect) && !noiseIsStunned) {
                         handleRockHitDoise();
                         breakRock(rock, i);
-                        continue;
-                    }
+                        continue;}
                     if (rock.y <= SCALED_GROUND_HEIGHT) {
                         rock.y = SCALED_GROUND_HEIGHT;
                         rock.element.style.bottom = rock.y + 'px';
@@ -1834,12 +1773,8 @@
                         pauseManager.registerTimeout('rock_ground_' + Date.now(), () => {
                             if (rock.state === 'ground' && !isGameOver) {
                                 checkGroundRockDamage(rock);
-                                breakRock(rock, i, true);
-                            }
-                        }, ROCK_GROUND_TIME);
-                    }
-                }
-            }
+                                breakRock(rock, i, true);}
+                        }, ROCK_GROUND_TIME);}}}
             for (let i = activeBombs.length - 1; i >= 0; i--) {
                 const bomb = activeBombs[i];
                 if (bomb.state === 'aiming') {
@@ -1859,43 +1794,32 @@
                         exploded = true;
                     } else if (bomb.y <= SCALED_GROUND_HEIGHT) {
                         createExplosion(bomb.x, SCALED_GROUND_HEIGHT);
-                        exploded = true;
-                    }
+                        exploded = true;}
                     if (exploded) {
                         bomb.element.remove();
-                        activeBombs.splice(i, 1);
-                    }
-                }
-            }
-        }
+                        activeBombs.splice(i, 1);}}}}
         function checkGroundRockDamage(rock) {
             const rockRect = rock.element.getBoundingClientRect();
             const playerRect = PLAYER.getBoundingClientRect();
             const doiseRect = NOISE.getBoundingClientRect();
             if (isColliding(rockRect, playerRect)) {
                 if (Math.random() < 0.10) {
-                    handleRockHitPeppino('rock');
-                }
-            }
+                    if (isTaunting) triggerParry('rock');
+                    else handleRockHitPeppino('rock');}}
             if (isColliding(rockRect, doiseRect) && !noiseIsStunned) {
                 if (Math.random() < 0.50) {
-                    handleRockHitDoise();
-                }
-            }
-        }
+                    handleRockHitDoise();}}}
         function breakRock(rock, index, fromArray = false) {
             if (!fromArray) {
                 const idx = activeRocks.indexOf(rock);
                 if (idx > -1) activeRocks.splice(idx, 1);
             } else {
                 const idx = activeRocks.indexOf(rock);
-                if (idx > -1) activeRocks.splice(idx, 1);
-            }
+                if (idx > -1) activeRocks.splice(idx, 1);}
             rock.element.classList.add('rock-breaking');
             pauseManager.registerTimeout('break_' + Date.now(), () => {
                 rock.element.remove();
-            }, 200);
-        }
+            }, 200);}
         function handleRockHitPeppino(source) {
             if (isInvincible || isPowerupInvincible || isGameOver) return;
             health -= 1;
@@ -1911,8 +1835,7 @@
                 isPeppinoStunned = false;
                 PLAYER.classList.remove('is-stunned', 'invincible');
                 updatePeppinoSprite();
-            }, 2500);
-        }
+            }, 2500);}
         function handleRockHitDoise() {
             if (noiseIsStunned || isGameOver) return;
             noiseIsStunned = true;
@@ -1925,8 +1848,7 @@
                 noiseIsStunned = false;
                 NOISE.classList.remove('noise-disabled');
                 updateNoiseSprite();
-            }, 2500);
-        }
+            }, 2500);}
         function handleBombHitDoise() {
             if (noiseIsStunned || isGameOver) return;
             noiseIsStunned = true;
@@ -1939,8 +1861,7 @@
                 noiseIsStunned = false;
                 NOISE.classList.remove('noise-disabled');
                 updateNoiseSprite();
-            }, 2500);
-        }
+            }, 2500);}
 
         // FUNÇÕES DE DANO
         function handleNoiseHit(damage = 1) {
@@ -1950,8 +1871,7 @@
             updateHealthDisplay();
             if (health <= 0) {
                 endGame();
-                return;
-            }
+                return;}
             playSFX(SOUNDS.HurtPeppino);
             setGustavoState('peppino_hit');
             isInvincible = true;
@@ -1964,8 +1884,7 @@
                 isInvincible = false;
                 PLAYER.classList.remove('invincible', 'peppino-hurt-sprite');
                 STATUS_DISPLAY.textContent = 'Get the Toppings!';
-            }, HIT_INVINCIBILITY_TIME);
-        }
+            }, HIT_INVINCIBILITY_TIME);}
         function handlePepperNoiseHitPeppino() {
             if (isInvincible) return;
             clearTimeout(noisePowerupTimer);
@@ -1976,8 +1895,7 @@
             updateHealthDisplay();
             if (health <= 0) {
                 endGame();
-                return;
-            }
+                return;}
             playSFX(SOUNDS.ScreamPeppino);
             setGustavoState('peppino_hit');
             isInvincible = true;
@@ -2006,8 +1924,7 @@
                 noiseIsJoking = false;
                 NOISE.classList.remove('noise-joke-mode');
                 updateNoiseSprite();
-            }, NOISE_JOKE_DURATION);
-        }
+            }, NOISE_JOKE_DURATION);}
         function attemptGustavoDrop(x, y) {
             if (Math.random() < currentGustavoChance) {
                 const lifeTopping = document.createElement('div');
@@ -2022,20 +1939,16 @@
                 if (isDoiseMode) {
                     playSFX(SOUNDS.FriendlyDrop);
                 } else {
-                    playSFX(SOUNDS.GustavoDrop);
-                }
+                    playSFX(SOUNDS.GustavoDrop);}
                 setGustavoState('drop', 1000);
                 let name = isDoiseMode ? "The Noise" : "Gustavo";
                 STATUS_DISPLAY.textContent = `${name} dropped some HP!`;
                 setTimeout(() => {
                     if (STATUS_DISPLAY.textContent.includes("+1 Hit!")) {
-                        STATUS_DISPLAY.textContent = 'Keep going for a Better Rank!';
-                    }
+                        STATUS_DISPLAY.textContent = 'Keep going for a Better Rank!';}
                 }, 1500);
-                return true;
-            }
-            return false;
-        }
+                return true;}
+            return false;}
         function handleNoiseStomp() {
             const SCALED_JUMP_STRENGTH_HALF = getScaledValue(JUMP_STRENGTH / 2);
             velocityY = SCALED_JUMP_STRENGTH_HALF;
@@ -2043,26 +1956,22 @@
             if (!isPowerupInvincible) {
                 isInvincible = true;
                 PLAYER.classList.remove('peppino-hurt-sprite');
-                PLAYER.classList.add('invincible', 'stomp-mode');
-            }
+                PLAYER.classList.add('invincible', 'stomp-mode');}
             if (noiseIsPoweredUp) {
-                endNoisePowerup();
-            }
+                endNoisePowerup();}
             clearTimeout(noiseStunTimer);
             noiseIsStunned = true;
             NOISE.classList.add('noise-disabled');
             if (isDoiseMode) {
                 playSFX(SOUNDS.HurtDoise);
             } else {
-                playSFX(SOUNDS.HurtNoise);
-            }
+                playSFX(SOUNDS.HurtNoise);}
             NOISE.style.backgroundImage = isDoiseMode ? DOISE_STUNNED_SPRITE : STUNNED_SPRITE;
             WALK_AUDIO.pause();
             WALK_AUDIO.currentTime = 0;
             STATUS_DISPLAY.textContent = isDoiseMode ? "The Doise was stomped!" : "The Noise was stomped!";
             if (!attemptGustavoDrop(noiseX, noiseY)) {
-                setGustavoState('noise_hit');
-            }
+                setGustavoState('noise_hit');}
             pauseManager.registerTimeout('stomp_inv_' + Date.now(), () => {
                 if (!wasInvincible && !isPowerupInvincible) {
                     isInvincible = false;
@@ -2074,8 +1983,7 @@
                 noiseIsStunned = false;
                 NOISE.classList.remove('noise-disabled');
                 updateNoiseSprite();
-            }, NOISE_STOMP_STUN_TIME);
-        }
+            }, NOISE_STOMP_STUN_TIME);}
         function collectNoisePowerup(powerupElement) {
             if (isGameOver || noiseIsPoweredUp) return;
             clearTimeout(noisePowerupTimer);
@@ -2091,12 +1999,10 @@
                 STATUS_DISPLAY.textContent = "The Doise got the Pepper Pizza! WHERE'S PEDDITO?";
             } else {
                 playBGM(PEPPER_NOISE_AUDIO);
-                STATUS_DISPLAY.textContent = "The Noise got the Pepper Pizza! RUN FOR YOUR LIFE!";
-            }
+                STATUS_DISPLAY.textContent = "The Noise got the Pepper Pizza! RUN FOR YOUR LIFE!";}
             pauseManager.registerTimeout('noise_power_' + Date.now(), () => {
                 endNoisePowerup();
-            }, POWERUP_INVINCIBILITY_TIME);
-        }
+            }, POWERUP_INVINCIBILITY_TIME);}
         function endNoisePowerup() {
             clearTimeout(noisePowerupTimer);
             noiseIsPoweredUp = false;
@@ -2109,8 +2015,7 @@
             if (isDoiseMode) {
                 playBGM(DOISE_BGM);
             } else {
-                playBGM(BGM_AUDIO);
-            }
+                playBGM(BGM_AUDIO);}
             STATUS_DISPLAY.textContent = 'The dumbass calmed down!';
             clearTimeout(noiseStunTimer);
             gustavoState = 'idle';
@@ -2124,8 +2029,7 @@
                 noiseIsStunned = false;
                 NOISE.classList.remove('noise-disabled');
                 updateNoiseSprite();
-            }, POWERUP_INVINCIBILITY_TIME + NOISE_MILK_TIME);
-        }
+            }, POWERUP_INVINCIBILITY_TIME + NOISE_MILK_TIME);}
         function handleNoisePepperHit() {
             noiseIsJoking = false;
             noiseIsStunned = true;
@@ -2139,19 +2043,16 @@
             if (isDoiseMode) {
                 playSFX(SOUNDS.HurtDoise);
             } else {
-                playSFX(SOUNDS.HurtNoise);
-            }
+                playSFX(SOUNDS.HurtNoise);}
             if (!attemptGustavoDrop(noiseX, noiseY)) {
-                setGustavoState('noise_hit');
-            }
+                setGustavoState('noise_hit');}
             clearTimeout(noiseStunTimer);
             pauseManager.registerTimeout('noise_stun_pep_' + Date.now(), () => {
                 noiseIsStunned = false;
                 NOISE.classList.remove('noise-disabled', 'is-stunned', 'invincible');
                 updateNoiseSprite();
                 STATUS_DISPLAY.textContent = 'Get the Toppings!';
-            }, NOISE_PEPPER_STUN_TIME);
-        }
+            }, NOISE_PEPPER_STUN_TIME);}
         function handleNoisePowerupConflict() {
             playSFX(SOUNDS.PowerupConflict, 1.0);
             STATUS_DISPLAY.textContent = `I'm not gonna SUGARCOAT IT!`;
@@ -2164,8 +2065,7 @@
                 playerFacingRight = true;
             } else {
                 PLAYER.classList.add('facing-left');
-                playerFacingRight = false;
-            }
+                playerFacingRight = false;}
             noiseIsStunned = true;
             NOISE.classList.add('noise-disabled');
             const parrySprite = isDoiseMode ? DOISE_POWERUP_PARRY_SPRITE : NOISE_POWERUP_PARRY_SPRITE;
@@ -2183,23 +2083,20 @@
                 NOISE.classList.remove('noise-disabled');
                 updateNoiseSprite();
                 STATUS_DISPLAY.textContent = 'Get the Toppings!';
-            }, PARITY_SPRITE_DURATION);
-        }
+            }, PARITY_SPRITE_DURATION);}
         function collectTopping(toppingElement) {
             if (isGameOver) return;
             score += 100;
             SCORE_DISPLAY.textContent = `Score: ${score}`;
             toppingElement.remove();
-            playSFX(SOUNDS.ToppingCollect);
-        }
+            playSFX(SOUNDS.ToppingCollect);}
         function collectGerome(geromeElement) {
             if (isGameOver) return;
             score += 500;
             SCORE_DISPLAY.textContent = `Score: ${score}`;
             geromeElement.remove();
             playSFX(SOUNDS.GeromeCollect);
-            STATUS_DISPLAY.textContent = "You found Gerome! +500 Points!";
-        }
+            STATUS_DISPLAY.textContent = "You found Gerome! +500 Points!";}
         function collectLifeMushroom(lifeElement) {
             if (isGameOver) return;
             lifeElement.remove();
@@ -2211,9 +2108,7 @@
             } else {
                 score += 100;
                 SCORE_DISPLAY.textContent = `Score: ${score}`;
-                STATUS_DISPLAY.textContent = "Max health! +100 Bonus Points!";
-            }
-        }
+                STATUS_DISPLAY.textContent = "Max health! +100 Bonus Points!";}}
         function collectPowerup(powerupElement) {
             if (isGameOver) return;
             clearTimeout(playerPowerupTimer);
@@ -2239,8 +2134,7 @@
                 } else if (isFakerMode) {
                     playBGM(FAKER_BGM);
                 } else {
-                    playBGM(BGM_AUDIO);
-                }
+                    playBGM(BGM_AUDIO);}
                 STATUS_DISPLAY.textContent = 'Hey, italian man! Have some milk.';
                 isPeppinoStunned = true;
                 PLAYER.classList.add('is-stunned');
@@ -2250,15 +2144,13 @@
                     PLAYER.classList.remove('is-stunned');
                     updatePeppinoSprite();
                 }, PEPPINO_MILK_STUN_TIME);
-            }, POWERUP_INVINCIBILITY_TIME);
-        }
+            }, POWERUP_INVINCIBILITY_TIME);}
         function getRandomSpawnPosition() {
             const spawnYPoints = [SCALED_GROUND_HEIGHT];
             document.querySelectorAll('.platform').forEach(p => {
                 const pY = parseFloat(p.style.bottom);
                 const pH = parseFloat(p.style.height);
-                spawnYPoints.push(pY + pH);
-            });
+                spawnYPoints.push(pY + pH);});
             const selectedY = spawnYPoints[Math.floor(Math.random() * spawnYPoints.length)];
             const scaledToppingSize = TOPPING_SIZE;
             const groundMinX = SCALED_WALL_MARGIN;
@@ -2266,26 +2158,19 @@
             if (selectedY === SCALED_GROUND_HEIGHT) {
                 return {
                     x: groundMinX + Math.random() * (groundMaxX - groundMinX),
-                    y: selectedY + getScaledValue(5)
-                };
+                    y: selectedY + getScaledValue(5)};
             } else {
                 let platformElement = Array.from(document.querySelectorAll('.platform')).find(p => parseFloat(p.style.bottom) + parseFloat(p.style.height) === selectedY);
                 if (platformElement) {
                     const minX = parseFloat(platformElement.style.left);
                     const maxX = minX + parseFloat(platformElement.style.width) - scaledToppingSize;
                     return {
-                        x: minX + Math.random() * (maxX - minX),
-                        y: selectedY
-                    };
-                }
+                        x: minX + Math.random() * (maxX - minX),y: selectedY};}
                 return {
                     x: groundMinX + Math.random() * (groundMaxX - groundMinX),
-                    y: SCALED_GROUND_HEIGHT
-                };
-            }
-        }
+                    y: SCALED_GROUND_HEIGHT};}}
         function spawnTopping() {
-            if (isGameOver || isPaused) return;
+            if (isGameOver || isPaused || isFakerMode) return;
             if (Math.random() < currentPepperChance && !activePowerupElement) {
                 const powerup = document.createElement('div');
                 powerup.classList.add('power-up', 'invincibility-powerup');
@@ -2302,10 +2187,8 @@
                     if (powerup.parentNode === GAME_AREA) {
                         powerup.remove();
                         activePowerupElement = null;
-                        updateNoiseSprite();
-                    }
-                }, POWERUP_INVINCIBILITY_TIME);
-            }
+                        updateNoiseSprite();}
+                }, POWERUP_INVINCIBILITY_TIME);}
             if (document.querySelectorAll('.topping').length < 10) {
                 if (Math.random() < currentToppingChance) {
                     const topping = document.createElement('div');
@@ -2316,27 +2199,21 @@
                         hasGeromeSpawned = true;
                         playSFX(SOUNDS.GeromeSpawn);
                     } else {
-                        randomToppingClass = TOPPING_CLASSES[Math.floor(Math.random() * TOPPING_CLASSES.length)];
-                    }
+                        randomToppingClass = TOPPING_CLASSES[Math.floor(Math.random() * TOPPING_CLASSES.length)];}
                     topping.classList.add('topping', randomToppingClass);
                     const { x, y } = getRandomSpawnPosition();
                     topping.style.left = x + 'px';
                     topping.style.bottom = y + 'px';
                     topping.style.width = TOPPING_SIZE + 'px';
                     topping.style.height = TOPPING_SIZE + 'px';
-                    GAME_AREA.appendChild(topping);
-                }
-            }
-        }
+                    GAME_AREA.appendChild(topping);}}}
         function calculateRank(hits, finalScore) {
             if (health <= 0) {
                 return {
                     rank: 'DEAD',
                     rankClass: 'rank-DEAD-image',
                     message: 'YOU DIED!',
-                    color: '#d0b8b8'
-                };
-            }
+                    color: '#d0b8b8'};}
             let rank = 'F-RANK';
             let rankClass = 'rank-F-image';
             let rankMessage = '';
@@ -2374,10 +2251,8 @@
             } else {
                 rankMessage = `YOU SUCK!`;
                 rankClass = 'rank-F-image';
-                rankColor = 'gray';
-            }
-            return { rank, rankClass, message: rankMessage, color: rankColor };
-        }
+                rankColor = 'gray';}
+            return { rank, rankClass, message: rankMessage, color: rankColor };}
         function gameLoop() {
             if (isPaused) return;
             updatePeppinoSprite();
@@ -2387,8 +2262,7 @@
             updateNoisePosition();
             updateRocks();
             checkCollision();
-            score = Math.max(0, score);
-        }
+            score = Math.max(0, score);}
         function startTimer() {
             timerInterval = setInterval(() => {
                 if (!isPaused) {
@@ -2396,11 +2270,8 @@
                     TIMER_DISPLAY.textContent = `Time: ${time}`;
                     if (time <= 0) {
                         clearInterval(timerInterval);
-                        endGame(true);
-                    }
-                }
-            }, 1000);
-        }
+                        endGame(true);}}
+            }, 1000);}
         function endGame(timeUp = false) {
             isGameOver = true;
             isPaused = false;
@@ -2414,6 +2285,8 @@
             clearTimeout(noisePowerupTimer);
             clearTimeout(noiseStunTimer);
             clearTimeout(parryTimer);
+            clearTimeout(tauntTimeout);
+            clearTimeout(danceTimer);
             clearTimeout(gustavoStateTimer);
             activeRocks = [];
             activeBombs = [];
@@ -2427,6 +2300,11 @@
             noiseIsJoking = false;
             isPeppinoStunned = false;
             isParrying = false;
+            isDancing = false;
+            isTaunting = false;
+            isPlayerGrabbing = false;
+            fakerIsDashing = false;
+            hideJukebox();
             PLAYER.classList.remove('moving-sprite', 'running-sprite', 'stomp-mode', 'invincible', 'peppino-tired-sprite', 'peppino-hurt-sprite', 'peppino-stun-sprite', 'is-stunned', 'wall-slide-sprite', 'peppino-parry-sprite');
             PLAYER.style.backgroundImage = PLAYER_IDLE_SPRITE;
             NOISE.classList.remove('noise-disabled', 'noise-jumping', 'noise-double-jump', 'noise-happy', 'noise-scared', 'noise-powered-up', 'noise-idle-sprite', 'noise-tired-sprite', 'noise-joke-mode', 'is-stunned', 'invincible');
@@ -2437,41 +2315,46 @@
             STATIC_DOISE.style.display = 'none';
             COMING_SOON_TEXT.style.display = 'none';
 
-            // VITÓRIA DO NOISE/DOISE
+            // VITÓRIA DO NOISE/DOISE/FAKER
             if (health <= 0) {
                 STATUS_DISPLAY.textContent = `F-RANK! ${rankData.message} Points: ${score}.`;
                 STATUS_DISPLAY.style.color = rankData.color;
                 PLAYER.style.backgroundImage = PEPPINO_LOSE_NOISE_SPRITE;
-                if (isDoiseMode) {
+                if(isFakerMode) {
+                    playSFX(SOUNDS.WinFaker);
+                    NOISE.style.backgroundImage = FAKER_WIN_SPRITE;
+                } else if (isDoiseMode) {
                     playSFX(SOUNDS.WinDoise);
                     NOISE.style.backgroundImage = DOISE_WIN_SPRITE;
                 } else {
                     playSFX(SOUNDS.WinNoise);
-                    NOISE.style.backgroundImage = NOISE_WIN_SPRITE;
-                }
+                    NOISE.style.backgroundImage = NOISE_WIN_SPRITE;}
                 NOISE.classList.remove('facing-left');
                 RANK_IMAGE_CONTAINER.style.display = 'block';
                 RANK_IMAGE_CONTAINER.className = `final-rank-image ${rankData.rankClass}`;
 
-                // VITÓRIA DO PEPPINO
-            } else if (timeUp) {
+            // VITÓRIA DO PEPPINO
+            } else if (timeUp || (isFakerMode && fakerHealth <= 0)) {
                 playSFX(SOUNDS.WinPeppino);
                 STATUS_DISPLAY.textContent = `${rankData.rank}! ${rankData.message} Points: ${score}.`;
                 STATUS_DISPLAY.style.color = rankData.color;
                 RANK_IMAGE_CONTAINER.style.display = 'block';
                 RANK_IMAGE_CONTAINER.className = `final-rank-image ${rankData.rankClass}`;
                 PLAYER.style.backgroundImage = PEPPINO_WIN_TIME_SPRITE;
-                if (isDoiseMode) {
+                if(isFakerMode) {
+                    NOISE.style.backgroundImage = FAKER_LOSE_SPRITE;
+                    setTimeout(() => {
+                        if (isGameOver && fakerHealth <= 0) {
+                            NOISE.style.display = 'none';}
+                    }, 2000); 
+                } else if (isDoiseMode) {
                     NOISE.style.backgroundImage = DOISE_LOSE_SPRITE;
                 } else {
-                    NOISE.style.backgroundImage = NOISE_LOSE_SPRITE;
-                }
-                NOISE.classList.remove('facing-left');
-            }
+                    NOISE.style.backgroundImage = NOISE_LOSE_SPRITE;}
+                NOISE.classList.remove('facing-left');}
             STATUS_DISPLAY.style.display = 'block';
             GUSTAVO.style.bottom = (SCALED_GROUND_HEIGHT + SCALED_OFFSET_PEPPINO) + 'px';
-            updateGustavoSprite();
-        }
+            updateGustavoSprite();}
 
         // LÓGICA DO PAUSE
         function togglePause() {
@@ -2479,73 +2362,66 @@
             isPaused = !isPaused;
             if (isPaused) {
                 PAUSE_SCREEN.style.display = 'flex';
-                
-                // LÓGICA DO MENU DO FAKER ATTACK
                 if (isFakerMode) {
-                    document.getElementById('btn-chance').style.display = 'none';
+                    BTN_CHANCE.style.display = 'none';
                     document.getElementById('btn-restart').style.display = 'none';
                 } else {
-                    document.getElementById('btn-chance').style.display = 'block';
-                    document.getElementById('btn-restart').style.display = 'block';
-                }
-
+                    BTN_CHANCE.style.display = 'block';
+                    document.getElementById('btn-restart').style.display = 'block';}
                 [BGM_AUDIO, START_BGM_AUDIO, PEPPER_PEPPINO_AUDIO, PEPPER_NOISE_AUDIO, DOISE_BGM, PEPPER_DOISE_AUDIO, FAKER_BGM].forEach(audio => {
                     if (!audio.paused) {
                         audio.pause();
                         audio.dataset.wasPlaying = "true";
                     } else {
-                        audio.dataset.wasPlaying = "false";
-                    }
-                });
+                        audio.dataset.wasPlaying = "false";}});
                 if (!isMuted) PAUSE_AUDIO.play();
                 pauseManager.pauseAll();
                 if (isDoiseMode) {
-                    BTN_BACK_BATTLE.style.backgroundColor = '#2c6ebf';
-                    BTN_BACK_BATTLE.style.borderColor = '#d868a0';
-                    BTN_BACK_BATTLE.style.color = '#c08038';
+                    BTN_CHANCE.style.backgroundColor = '#2c6ebf';
+                    BTN_CHANCE.style.borderColor = '#d868a0';
+                    BTN_CHANCE.style.color = 'white';
                 } else if (isFakerMode) {
-                    BTN_BACK_BATTLE.style.backgroundColor = '#b0b0b0';
-                    BTN_BACK_BATTLE.style.borderColor = '#000';
-                    BTN_BACK_BATTLE.style.color = '#000';
+                    BTN_CHANCE.style.backgroundColor = '#b0b0b0';
+                    BTN_CHANCE.style.borderColor = '#000';
+                    BTN_CHANCE.style.color = '#000';
                 } else {
-                    BTN_BACK_BATTLE.style.backgroundColor = '#f8e080';
-                    BTN_BACK_BATTLE.style.borderColor = '#d88818';
-                    BTN_BACK_BATTLE.style.color = '#dc0000';
-                }
+                    BTN_CHANCE.style.backgroundColor = '#f8e080';
+                    BTN_CHANCE.style.borderColor = '#d88818';
+                    BTN_CHANCE.style.color = '#54260d';}
             } else {
                 PAUSE_SCREEN.style.display = 'none';
                 PAUSE_AUDIO.pause();
                 PAUSE_AUDIO.currentTime = 0;
                 [BGM_AUDIO, START_BGM_AUDIO, PEPPER_PEPPINO_AUDIO, PEPPER_NOISE_AUDIO, DOISE_BGM, PEPPER_DOISE_AUDIO, FAKER_BGM].forEach(audio => {
-                    if (audio.dataset.wasPlaying === "true" && !isMuted) audio.play();
-                });
-                pauseManager.resumeAll();
-            }
-        }
+                    if (audio.dataset.wasPlaying === "true" && !isMuted) audio.play();});
+                pauseManager.resumeAll();}}
 
         // CONTROLES DO TECLADO
         document.addEventListener('keydown', (e) => {
             const key = e.key.toLowerCase();
             if (key === 'p') {
                 togglePause();
-                return;
-            }
+                return;}
             if (isGameOver || isPeppinoStunned || isParrying || isPaused) return;
             keys[key] = true;
-            if (key === ' ' || key === 'w') {
-                playerJump();
-            }
+            if (key === 'z') {
+                playerJump();}
             if (key === 'shift' && currentSpeed === WALK_SPEED) {
-                currentSpeed = RUN_SPEED;
-            }
-        });
+                currentSpeed = RUN_SPEED;}
+            if (key === 'x' && isFakerMode && !isPlayerGrabbing && canGrab) {
+                executePlayerGrab();}
+            if (key === 'c' && !isDancing && !isTaunting) {
+                startTaunt();}});
         document.addEventListener('keyup', (e) => {
             const key = e.key.toLowerCase();
             keys[key] = false;
             if (key === 'shift') {
-                currentSpeed = WALK_SPEED;
-            }
-        });
+                currentSpeed = WALK_SPEED;}
+            if (key === 'c') {
+                if(isDancing) {
+                    stopTaunt();
+                }
+            }});
 
         // INICIALIZAÇÃO
         function startNormalGame() {
@@ -2560,8 +2436,7 @@
             platformColor = '#f8e080';
             platformBorder = '#d88818';
             WALK_AUDIO.src = "soundtrack_jogo/Peppino_step.wav";
-            startGame();
-        }
+            startGame();}
         function startDoiseMode() {
             platformBaseData = [...DEFAULT_PLATFORM_DATA];
             GUSTAVO.style.display = 'block';
@@ -2574,8 +2449,7 @@
             platformColor = '#2c6ebf';
             platformBorder = '#d868a0';
             WALK_AUDIO.src = "soundtrack_jogo/Peppino_step.wav";
-            startGame();
-        }
+            startGame();}
         function startFakerGame() {
             platformBaseData = []; 
             GUSTAVO.style.display = 'none';
@@ -2589,17 +2463,25 @@
             currentSpawnInterval = 0;
             platformColor = '#4a4a4a';
             platformBorder = '#000000';
-            WALK_AUDIO.src = SOUNDS.FakerWalk;
-            startGame();
-        }
+            WALK_AUDIO.src = "soundtrack_jogo/Peppino_step.wav";
+            startGame();}
         function startGame() {
-            updateScaledConstants();
             if (!isGameOver) { endGame(); }
-            if (START_SCREEN.style.display !== 'none') {
-                hideStartScreen();
-            }
+            START_SCREEN.style.display = 'none';
+            MODE_SCREEN.style.display = 'none';
+            LOADING_SCREEN.style.display = 'none';
+            GAME_AREA.style.display = 'block';
+            document.getElementById('ui-bar').style.display = 'flex';
+            STATUS_DISPLAY.className = 'message';
+            STATUS_DISPLAY.style.color = 'white';
+            if(isFakerMode) {
+                FAKER_HEALTH_CONTAINER.style.display = 'flex';
+            } else {
+                FAKER_HEALTH_CONTAINER.style.display = 'none';}
+            updateScaledConstants();
             score = 0;
             health = MAX_HEALTH;
+            fakerHealth = MAX_HEALTH;
             hitsTaken = 0;
             isGameOver = false;
             isPaused = false;
@@ -2610,10 +2492,18 @@
             noiseIsPoweredUp = false;
             activePowerupElement = null;
             isWallSliding = false;
+            isWallFalling = false;
+            wallSlideStartTime = 0;
             noiseIsStunned = false;
             noiseIsJoking = false;
             isPeppinoStunned = false;
             isParrying = false;
+            isDancing = false;
+            isTaunting = false;
+            isPlayerGrabbing = false;
+            canGrab = true;
+            fakerIsDashing = false;
+            hideJukebox();
             playerFacingRight = true;
             hasGeromeSpawned = false;
             activeRocks = [];
@@ -2624,15 +2514,18 @@
             clearTimeout(noisePowerupTimer);
             clearTimeout(noiseStunTimer);
             clearTimeout(parryTimer);
+            clearTimeout(tauntTimeout);
+            clearTimeout(danceTimer);
             clearTimeout(gustavoStateTimer);
             gustavoState = 'idle';
             velocityY = 0;
             noiseVY = 0;
             noiseLastJumpTime = 0;
             PLAYER.classList.remove('invincible', 'stomp-mode', 'facing-left', 'running-sprite', 'moving-sprite', 'peppino-tired-sprite', 'peppino-hurt-sprite', 'peppino-stun-sprite', 'is-stunned', 'wall-slide-sprite', 'peppino-parry-sprite');
-            PLAYER.style.backgroundImage = isFakerMode ? FAKER_IDLE_SPRITE : PLAYER_IDLE_SPRITE;
+            PLAYER.style.backgroundImage = PLAYER_IDLE_SPRITE;
+            NOISE.style.display = 'block';
             NOISE.classList.remove('noise-disabled', 'facing-left', 'noise-jumping', 'noise-double-jump', 'noise-happy', 'noise-scared', 'noise-powered-up', 'noise-idle-sprite', 'noise-tired-sprite', 'noise-joke-mode', 'is-stunned', 'invincible');
-            NOISE.style.backgroundImage = NOISE_WALK_SPRITE;
+            NOISE.style.backgroundImage = isFakerMode ? FAKER_IDLE_SPRITE : NOISE_WALK_SPRITE;
             updateGustavoSprite();
             RANK_IMAGE_CONTAINER.style.display = 'none';
             clearInterval(timerInterval);
@@ -2643,11 +2536,11 @@
             document.querySelectorAll('.topping, .power-up, .rock-entity, .bomb-entity, .explosion-entity').forEach(t => t.remove());
             SCORE_DISPLAY.textContent = 'Score: 0';
             updateHealthDisplay();
+            updateFakerHealthDisplay();
             STATUS_DISPLAY.textContent = 'Use the platforms to get the Toppings!';
             STATUS_DISPLAY.className = 'message';
             STATUS_DISPLAY.style.color = 'white';
             STATUS_DISPLAY.style.display = 'block';
-
             if (isDoiseMode) {
                 time = 90;
                 playBGM(DOISE_BGM);
@@ -2657,13 +2550,11 @@
                 noiseX = getScaledValue(50 + SCALED_WALL_MARGIN);
                 rockSpawnInterval = setInterval(() => {
                     if (isDoiseMode && !isGameOver && !isPaused && Math.random() < 0.20) {
-                        spawnRock();
-                    }
+                        spawnRock();}
                 }, 1000);
                 bombSpawnInterval = setInterval(() => {
                     if (isDoiseMode && !isGameOver && !isPaused && Math.random() < 0.05) {
-                        spawnBomb();
-                    }
+                        spawnBomb();}
                 }, 800);
                 NOISE.style.display = 'block';
                 STATIC_PEPPINO.style.display = 'none';
@@ -2671,16 +2562,17 @@
                 STATIC_DOISE.style.display = 'none';
                 startTimer();
                 spawnInterval = setInterval(spawnTopping, currentSpawnInterval);
-
             } else if (isFakerMode) {
                 time = 60;
                 playBGM(FAKER_BGM);
                 GAME_AREA.style.backgroundImage = FAKER_BACKGROUND;
                 playerX = (GAME_WIDTH / 2) - (PLAYER_WIDTH / 2);
-                NOISE.style.display = 'none';
-                STATIC_PEPPINO.style.display = 'block';
-                STATIC_PEPPINO.style.backgroundImage = STATIC_PEPPINO_SPRITE;
-                COMING_SOON_TEXT.style.display = 'block';
+                noiseX = getScaledValue(50 + SCALED_WALL_MARGIN);
+                NOISE.style.display = 'block';
+                STATIC_PEPPINO.style.display = 'none';
+                COMING_SOON_TEXT.style.display = 'none';
+                STATUS_DISPLAY.textContent = 'Survive the FAKER ATTACK!';
+                startTimer();
             } else {
                 time = 60;
                 playBGM(BGM_AUDIO);
@@ -2703,37 +2595,30 @@
                     topping.style.bottom = y + 'px';
                     topping.style.width = TOPPING_SIZE + 'px';
                     topping.style.height = TOPPING_SIZE + 'px';
-                    GAME_AREA.appendChild(topping);
-                }
-            }
+                    GAME_AREA.appendChild(topping);}}
             TIMER_DISPLAY.textContent = `Time: ${time}`;
             playerY = SCALED_GROUND_HEIGHT;
             noiseY = SCALED_GROUND_HEIGHT;
             PLAYER.style.left = playerX + 'px';
             PLAYER.style.bottom = (playerY + SCALED_OFFSET_PEPPINO) + 'px'; 
             NOISE.style.left = noiseX + 'px';
-            NOISE.style.bottom = (noiseY + SCALED_OFFSET_NOISE) + 'px'; 
+            NOISE.style.bottom = (noiseY + (isFakerMode ? SCALED_OFFSET_FAKER : SCALED_OFFSET_NOISE)) + 'px'; 
             createPlatforms();
             updateItemsPosition();
-            gameLoopInterval = setInterval(gameLoop, 1000 / 60);
-        }
+            gameLoopInterval = setInterval(gameLoop, 1000 / 60);}
         window.onload = () => {
             updateScaledConstants();
             isGameOver = true;
             updateHealthDisplay();
-            playBGM(START_BGM_AUDIO);
-            
+            playBGM(START_BGM_AUDIO);            
             const unlockAudio = () => {
                 if(START_BGM_AUDIO.paused && !isMuted) {
-                    playBGM(START_BGM_AUDIO);
-                }
+                    playBGM(START_BGM_AUDIO);}
                 document.removeEventListener('click', unlockAudio);
-                document.removeEventListener('keydown', unlockAudio);
-            };
+                document.removeEventListener('keydown', unlockAudio);};
             document.addEventListener('click', unlockAudio);
             document.addEventListener('keydown', unlockAudio);
-            MUTE_BUTTON.classList.add('icon-unmute');
-        };
+            MUTE_BUTTON.classList.add('icon-unmute');};
     </script>
 </body>
 </html>
