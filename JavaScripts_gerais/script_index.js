@@ -37,11 +37,9 @@ else if (genero == 'F') {
     document.getElementById("saudações").innerText = `Seja bem-vinda ao Site do Lucas ${nomeExibicao}, minha amada amiga!`
     document.getElementById("saudações2").innerText = `Fique a vontade, minha linda!`} 
 else if (genero != 'M' && genero != 'F' && genero != null) {
-    document.getElementById("saudações2").innerText = `Gênero neutro?`
-}
+    document.getElementById("saudações2").innerText = `Gênero neutro?`}
 
 // EASTER EGGS
-
 if (idadepessoal == 67) {
     document.getElementById("Idade").innerText = `O meme '67' já está ultrapassado, ${nomepessoal}! Você deveria cometer suicídio!`}
 if (nomepessoal == 'Taynan' && idadepessoal == 36 && genero == 'F') {
@@ -102,15 +100,6 @@ if (nomepessoal == 'Lucas' && idadepessoal == 15 && genero == 'M') {
     document.getElementById("saudações2").innerText = `E#spero que você tenha uma ótima vida, """Lucinhas"""!`}
 
 // Mudança das estrelas
-var imagemOriginal1 = true;
-
-function mudarestrela1(elemento) {
-    if (imagemOriginal1) {
-        elemento.style.backgroundImage = "url('imagens/taunt.gif')";
-        imagemOriginal1 = false;
-    } else {
-        window.location.href = "Jogo.html";}}
-
 var imagemOriginal2 = true;
 
 function mudarestrela2(elemento) {

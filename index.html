@@ -1,124 +1,123 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<title>Site Principal</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="estilo.css">
-	<link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-	<style type="text/css" class="menu">
-		body {	
-			background-image: url(imagens/Fundo2.jpeg);
-			background-repeat: no-repeat;
-			background-position: left top;
-			background-size: cover;
-			font-family: Index;}
-	</style>
+	<!doctype html>
+	<html lang="pt-br">
+	<head>
+		<title>Site Principal</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="estilo.css">
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style type="text/css" class="menu">
+			body {	
+				background-image: url(imagens/Fundo2.jpeg);
+				background-repeat: no-repeat;
+				background-position: left top;
+				background-size: cover;
+				font-family: Index;}
+		</style>
 
-	<link rel="icon" href="imagens/favicons/favicon_principal.png" type="image/png">
-    <link rel="apple-touch-icon" href="imagens/favicons/favicon_principal_apple_touch.png">
+		<link rel="icon" href="imagens/favicons/favicon_principal.png" type="image/png">
+		<link rel="apple-touch-icon" href="imagens/favicons/favicon_principal_apple_touch.png">
 
-  </head>
-<body onscroll="console.log('Scrollamento detectado!')" class="t20px centralizar menu">
-	<!-- <> -->
+	</head>
+	<body onscroll="console.log('Scrollamento detectado!')" class="t20px centralizar menu">
+		<!-- <> -->
 
-	<ul class="sticky-top">
-		<li><a href="contato.html" class="line menu1">Contatos!ﾠ</a></li>
-		<li><a href="Site do Lucas.html" class="line menu2">Meu site!ﾠ</a></li>
-		<li><a href="foto.html" class="line menu3">Veja o designer!ﾠ</a></li>
-	</ul><br>
-	<h2 class="Borda line branco backgroundblack" style="border: 5px solid gray; border-radius: 5px;">Página principal</h2>
-	<h3 class="centralizar branco">Feliz aniversário para mim!</h3>
-	<br>
-	<div class="borda-texto">
-	<p class="text-secondary" id="saudações"></p>
-	<p class="text-secondary" id="Idade"></p>
-	<div class="Versão_do_Site">V2.0_Beta1</div>	
-	<p class="text-secondary" id="saudações2"></p>
-	<p class="text-primary">Feedbacks sempre são bem vindos!</p>
-	</div>
-	<br>
-	<br>
-	<br>
-	<h2 id="sombraP">Sua opinião! (WIP)</h2>
+		<ul class="sticky-top">
+			<li><a href="contato.html" class="line menu1">Contatos!ﾠ</a></li>
+			<li><a href="Site do Lucas.html" class="line menu2">Meu site!ﾠ</a></li>
+			<li><a href="foto.html" class="line menu3">Veja o designer!ﾠ</a></li>
+		</ul><br>
+		<h2 class="Borda line branco backgroundblack" style="border: 5px solid gray; border-radius: 5px;">Página principal</h2>
+		<br>
+		<div class="borda-texto">
+		<p class="text-secondary" id="saudações"></p>
+		<p class="text-secondary" id="Idade"></p>
+		<div class="Versão_do_Site">V2.0_Beta3</div>	
+		<p class="text-secondary" id="saudações2"></p>
+		<p class="text-primary">Feedbacks sempre são bem vindos!</p>
+		</div>
+		<br>
+		<br>
+		<br>
+		<h2 id="sombraP">Sua opinião! (WIP)</h2>
 
-	<form class="textnoselect branco borda-texto">
+		<form class="textnoselect branco borda-texto">
 
-		<fieldset>
-			<legend class="esquerda">Informações:</legend>
+			<fieldset>
+				<legend class="esquerda">Informações:</legend>
 
-			<div class="form-group">
-				<label style="font-family: Index;" for="nome" class="esquerda text-info">Nome:ﾠ</label><br>
-				<input style="font-family: Index;" onfocus="console.log('Insira seu nome')" type="text" name="nome" id="nome" placeholder="Insira seu nome!" class="this nome form-control-lg centralizar" required autofocus>
-			</div>
-				<label for="Email" class="email centralizar align text-info">Email:</label><br>
-			<div class="input-group">			
-				<input onclick="console.log('Insira seu email')" class="email direita form-control" type="text" placeholder="Insira seu email!" required>
-				<div>
-					<span class="input-group-text">@gmail.com</span>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label style="font-family: Index;" for="Senha" class="esquerda align text-info">Senha:</label>
-				<input style="font-family: Index;" onfocus="console.log('Insira sua senha')" type="password" name="nome" id="Senha" placeholder="Insira sua senha!" class="this senha form-control centralizar" required>
-			</div>
-
-			<div class="form-group">
-				<label style="font-family: Index;" for="data" class="esquerda text-info"><Data></Data>Que dia você nasceu?</label>
-				<input style="font-family: Index;" onfocus="console.log('Insira sua data de nascimento')" type="date" name="Data" id="Data" placeholder="Que dia é hoje?!" class="this calendario form-control centralizar" required>
-			</div>
-
-			<div class="form-group text-info textnoselect branco centralizar">
-				<label style="font-family: Index;" class="centralizar" for="arquivo">Envie uma foto linda!</label>
-				<input style="font-family: Index;" class="form-control-file centralizar" type="file" id="arquivo" required>
-			</div>
-		</fieldset>
-
-		<fieldset>
-				<div>
-					<span onclick="console.log('Insira seu comentário')" class="text-info centralizar input-group-text">Comentários 💬</span>
-				</div>
-			<div class="input-group">
-				<textarea class="form-control" id="Comentários" rows="4"></textarea>
-			</div>
-		</fieldset>
-
-		<fieldset>
-			<div class="form-group">
-				<label style="font-family: Index;" for="Lembrar" class="text-info">Lembrar de mim?</label required>
-				<select class="form-control centralizar" id="Lembrar" name="Lembrar">
-					<option style="font-family: Index;" class="text-dark">...</option>
-					<option style="font-family: Index;" class="text-success">Sim!</option>
-					<option style="font-family: Index;" class="text-danger">Não...</option>
-				</select>
-			</div>
-
-			<div class="text-info">Esse site é bem feito?</div>
 				<div class="form-group">
-					<label class="text-success" style="font-family: Index;" id="range">Satisfação de 0-10</label><br>
-					
-					<div class="range-wrap">
-						<input style="cursor: move;" class="text-info custom-range" type="range" min="0" max="10" value="5" id="myRange">
-						<span class="range-value" id="rangeValue">5</span>
+					<label style="font-family: Index;" for="nome" class="esquerda text-info">Nome:ﾠ</label><br>
+					<input style="font-family: Index;" onfocus="console.log('Insira seu nome')" type="text" name="nome" id="nome" placeholder="Insira seu nome!" class="this nome form-control-lg centralizar" required autofocus>
+				</div>
+					<label for="Email" class="email centralizar align text-info">Email:</label><br>
+				<div class="input-group">			
+				<input onclick="console.log('Insira seu email')" class="email centralizar form-control" type="text" placeholder="Insira seu email!" style="text-indent: 140px;" required>
+					<div>
+						<span class="input-group-text">@gmail.com</span>
 					</div>
 				</div>
-		</fieldset>
-		<input style="cursor: help;" class="submit BIGSHOT btn btn-lg" type="submit" value="Enviar" id="transicaolink">
-	</form>
-	<br>
 
-		<div onmouseover="console.log('Peppino Spaghetti')" class="estrela1" ondblclick="mudarestrela1(this)"></div>
+				<div class="form-group">
+					<label style="font-family: Index;" for="Senha" class="esquerda align text-info">Senha:</label>
+					<input style="font-family: Index;" onfocus="console.log('Insira sua senha')" type="password" name="nome" id="Senha" placeholder="Insira sua senha!" class="this senha form-control centralizar" required>
+				</div>
 
-		<div class="estrela2" ondblclick="mudarestrela2(this)"></div>
+				<div class="form-group">
+					<label style="font-family: Index;" for="data" class="esquerda text-info"><Data></Data>Que dia você nasceu?</label>
+					<input style="font-family: Index;" onfocus="console.log('Insira sua data de nascimento')" type="date" name="Data" id="Data" placeholder="Que dia é hoje?!" class="this calendario form-control centralizar" required>
+				</div>
 
-		<div onmouseover="console.log('Jogo da Velha')" class="estrela3" ondblclick="mudarestrela3(this)"></div>
-	
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="JavaScripts_gerais/script_index.js"></script>
-	<script src="JavaScripts_gerais/script_geral.js"></script>
-  </body>
-</html>
+				<div class="form-group text-info textnoselect branco centralizar">
+					<label style="font-family: Index;" class="centralizar" for="arquivo">Envie uma foto linda!</label>
+					<input style="font-family: Index;" class="form-control-file centralizar" type="file" id="arquivo" required>
+				</div>
+			</fieldset>
+
+			<fieldset>
+					<div>
+						<span onclick="console.log('Insira seu comentário')" class="text-info centralizar input-group-text">Comentários 💬</span>
+					</div>
+				<div class="input-group">
+					<textarea class="form-control" id="Comentários" rows="4"></textarea>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<div class="form-group">
+					<label style="font-family: Index;" for="Lembrar" class="text-info">Lembrar de mim?</label required>
+					<select class="form-control centralizar" id="Lembrar" name="Lembrar">
+						<option style="font-family: Index;" class="text-dark">...</option>
+						<option style="font-family: Index;" class="text-success">Sim!</option>
+						<option style="font-family: Index;" class="text-danger">Não...</option>
+					</select>
+				</div>
+
+				<div class="text-info">Esse site é bem feito?</div>
+					<div class="form-group">
+						<label class="text-success" style="font-family: Index;" id="range">Satisfação de 0-10</label><br>
+						
+						<div class="range-wrap">
+							<input style="cursor: move;" class="text-info custom-range" type="range" min="0" max="10" value="5" id="myRange">
+							<span class="range-value" id="rangeValue">5</span>
+						</div>
+					</div>
+			</fieldset>
+			<input style="cursor: help;" class="submit BIGSHOT btn btn-lg" type="submit" value="Enviar" id="transicaolink">
+		</form>
+		<br>
+
+			<div class="estrela1"></div>
+
+			<div class="estrela2" ondblclick="mudarestrela2(this)"></div>
+
+			<div onmouseover="console.log('Jogo da Velha')" class="estrela3" ondblclick="mudarestrela3(this)"></div>
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="JavaScripts_gerais/script_index.js"></script>
+		<script src="JavaScripts_gerais/script_geral.js"></script>
+	</body>
+	</html>

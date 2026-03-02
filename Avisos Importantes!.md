@@ -10,6 +10,7 @@ pobs = 'Pequena observação.'
 JVDC = 'Jogo da velha desnecessáriamente complicado.'
 JVG = 'Jogo da velha genérico.'
 JS = Javascript.
+SPE: Site procurador de endereços.
 
 Atualizações abaixo:
 
@@ -275,13 +276,15 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 9.10.4- Site do Lucas V1.9.10.4: update de aviversário (+ND 4)
 1) Foi alterado o número da idade no site 'Site do Lucas!'.
 2) Foi adicionado um subtítulo em algumas páginas.
-ND: Ontem (dia 15/02/2010), eu fiz 16 anos, e quando eu começei a programar em HTML, não achei que ia tão longe. Mas cá estou eu, começando a aprender MySQL e um monte de outras coisas. Sou grato enernamente a Fit Gestão Empresarial por me dar essa oportunidade incrível! 
+ND: Ontem (dia 15/02/2010), eu fiz 16 anos, e quando eu começei a programar em HTML, não achei que ia tão longe. Mas cá estou eu, começando a aprender MySQL e um monte de outras coisas. Sou grato enernamente a Fit Gestão Empresarial por me dar essa oportunidade incrível!
+(4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
 9.10.4.1: Site do Lucas V1.9.10.4.1: UQV 14 + UD 14 + ND 5 + URM 9.
 1) Foi mudados alguns delathes no README.
 2) Foi mudado o texto do contador de versão da página inicial.
 3) Foi adicionado 3 arquivos PHP e 1 imagem nova.
 ND: Eu tentyei implementar um banco de dados (para que seja possível fazer login/se cadastrar no meu site), mas eu ainda não consegui, pois isso precisa de um backend externo, e eu ainda não sei usar um backend externo.
+(4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
 2.0_beta: Site do Lucas V2.0 - BETA 1: Versão experimental da versão 2.0 + Atualização GAMER 11 + ND 5.
 1) Foi finalmente adicionado o modo 'Faker Attack'.
@@ -289,6 +292,21 @@ ND: Eu tentyei implementar um banco de dados (para que seja possível fazer logi
 3) O Peppino pode dar um Grab Attack também. 
 4) Os botões de controle foram modificados para ser igual o do jogo original (Pizza Tower).
 ND: Essa versão é experimental. Espere muitas mudanças no futuro!
+(4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
+
+2.0_beta2: Site do Lucas V2.0 - BETA 2: Mudanças drásicas + ND 6.
+1) Tudo relacionado a games foi removido com a intenção de deixar o site mais profissional.
+2) Alguns erros ainda podem ocorrer, então o site está sujeito a mudanças.
+ND: Recentemente eu conversei com meus supervisores e eu tomei bronca por causa dos conteúdos de conteúdos relacionados à jogos no meu site, então fui obrigado a remover tudo que tem esse tema, podendo manter apenas pequenos detalhes.
+
+2.0_beta3: Site do Lucas V2.0 - BETA 3: Novas adições + UQV 15 + Update GAMER 12 + ND 7
+1) Foi adicionado uma nova palavra ao dicionário.
+2) Foi adicioado o SPE na seção "outros sites feitos pelo Lucas".
+3) Foi alrerado alguns textos da seção "outros sites feitos pelo Lucas" na página "Site do Lucas!".
+4) Foi adicionado uma pequena imagem no canto inferior direito na página "Site do Lucas".
+5) Pequenos detalhes irrelevantes foram adicionados/mudados.
+ND: Eu fico feliz em anunciar que o PTWE está oficialmente de volta! Após muito tempo de conversa/bronca/negociações, eu consegui colocar o jogo de volta, mas apenas se for de uma forma "escondida". Os espertos vão entender como acessar o jogo, mas eu não posso mencionar como aqui, pois se eu falar como, meu chefe vai ficar uma fera. Além disso, apenas iremos sair da beta da versão 2.0 apenas quando eu finalizar tudo o que eu tenho em mente para os meus projetos.
+pobs: Eu estou muito feliz.
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 14. / UD: 14. / Atualização GAMER: 11. / ND: 5. / URM: 9.
+Informações: UQV: 15. / UD: 14. / Atualização GAMER: 12. / ND: 7. / URM: 9.

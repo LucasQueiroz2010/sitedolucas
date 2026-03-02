@@ -242,48 +242,21 @@ input.submit {
 	background-attachment: fixed;}
 
 .caixa1 {
-	background-image: url(imagens/imagem.png);}
+	background-image: url(imagens/imagem_temporaria.jfif);}
 
 .caixa2 {
-	background-image: url(imagens/imagem2.png);}
+	background-image: url(imagens/imagem_temporaria.jfif);}
 
 .caixa3 {
-	background-image: url(imagens/imagem3.png);}
+	background-image: url(imagens/imagem_temporaria.jfif);}
 
 .caixa4 {
-	background-image: url(imagens/imagem4.png);}
+	background-image: url(imagens/imagem_temporaria.jfif);}
 
 .conteudo {
 	text-align: justify;
 	padding: 50px 80px;
 	background: #54260d;}
-
-.fatal_error {
-	position: relative;
-	top: 0px;
-	bottom: 1000px;
-	left: 75px;
-	right: 0px;
-	text-align: right;
-	color: #54260d;
-	text-decoration: none;
-
-a {
-	color: #54260d;
-	cursor: help;}}
-
-.fatal_error:hover{
-	cursor: wait;
-
-a{
-	color: darkred;
-	text-decoration: none;}}
-
-.fatal_error:active{
-	color: darkred;
-
-a{
-	color: darkred;}}
 
 .overflow {
 	overflow-x: hidden;}
@@ -313,16 +286,6 @@ a{
 
 .nodots{
 	text-decoration: none;}
-
-#pizzabois{
-	height: 200px;
-	display: flex;
-	justify-content: center;}
-
-.bois{
-	border: 3px solid white;
-	background-color: #54260d;
-	background-size: 100px;}
 		
 footer{
 	text-align: center;}
@@ -339,10 +302,6 @@ padding: 3px;}
 @font-face {
 	font-family: "Index";
 	src: url("fontes/Index.woff");}
-
-@font-face {
-	font-family: "PzzTwr";
-	src: url("fontes/PzzTwr.woff");}
 
 @font-face {
 	font-family: "contatos";
@@ -384,7 +343,7 @@ padding: 3px;}
     background-size: contain;
     background-repeat: no-repeat;
     transition: background-image 0.8s ease-in;
-    cursor: crosshair;
+    cursor: not-allowed;
 	user-select: none;}
 
 .textnoselect{
@@ -649,3 +608,40 @@ cursor: move;}
 .border-radius {
 	border-radius: 10px;
 	margin: 10px;}
+
+	.link_SPE{
+		border: 5px  groove #54260d;
+		background-color: black;
+		text-decoration: none;
+		color: white;
+		padding: 3px;}
+
+	.link_SPE:hover{
+		border: 5px  groove #54260d;
+		background-color: black;
+		text-decoration: none;
+		color: gray;
+		cursor: pointer;
+		padding: 3px;}
+
+	.link_SPE:active{
+		border: 5px  groove #54260d;
+		background-color: gray;
+		text-decoration: none;
+		color: black;
+		cursor: pointer;
+		padding: 3px;}
+
+.noise {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    z-index: 100;
+    cursor: help;
+    opacity: 0.7;
+    transition: all 0.3s ease;}
+
+.noise:hover {
+    opacity: 1;
+    transform: scale(1.1);}

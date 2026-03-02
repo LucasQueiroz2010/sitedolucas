@@ -1,0 +1,112 @@
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>SPE</title>
+		<link rel="stylesheet" href="estilo.css">
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<style>
+    .CSS1 {
+        background-color: rgba(0, 0, 0, 0.6); 
+        color: white; 
+        padding: 10px 20px; 
+        border-radius: 5px;
+		font-size: 50px;
+		text-align: center;}
+
+	.not_allowed{
+		cursor: not-allowed;
+		user-select: none;
+		text-align: center;}
+		
+	.not_allowed:hover{
+		background-color: darkred; 
+		color: white;
+		text-align: center;}
+
+	.allowed{
+		cursor: alias;
+		text-align: center;}
+		
+	.allowed:hover{
+		background-color: lightgreen;
+		color: black;
+		text-align: center;}
+</style>
+
+		<script>
+function getDadosEnderecoPorCEP(cep) {
+// Faz com que apenas números possam ser usados.
+    let cepApenasNumeros = cep.replace(/\D/g, '');
+
+// Se tiver menos de 8 números, usa o alert de erro.
+    if (cepApenasNumeros.length !== 8) {
+        alert("CEP inválido! Digite 8 números.");return;}
+
+// API do ViaCEP.
+    let url = 'https://viacep.com.br/ws/' + cepApenasNumeros + '/json/';
+
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open('GET', url);
+
+// A requisição é enviada e o onreadystatechange monitora o progresso.
+    xmlHttp.onreadystatechange = () => {
+        if(xmlHttp.readyState == 4) {
+            if(xmlHttp.status == 200) {
+                let dadosJSONObj = JSON.parse(xmlHttp.responseText);
+
+// Caso de algum erro, solta dois alerts de erro, onde um é de caso de erro e outro é de CEP não encontrado.
+                if (dadosJSONObj.erro) {
+                    alert("CEP não encontrado!");
+                    return;}					
+                document.getElementById('endereco').value = dadosJSONObj.logradouro;
+                document.getElementById('bairro').value = dadosJSONObj.bairro;
+                document.getElementById('cidade').value = dadosJSONObj.localidade;
+                document.getElementById('uf').value = dadosJSONObj.uf;
+				document.getElementById('numero').focus();
+            } else {
+                alert("Erro ao buscar o CEP. Tente novamente.");}}}
+
+    xmlHttp.send();}
+		</script>
+	</head>
+	<body style="background-image: url(imagens/background_SPE.jpg); background-size: cover;">		
+<a class="link_SPE" href="index.html">Página Principal</a>
+		<nav>
+			<div class="container">
+<br><br>
+		<h3 class="CSS1">Site Pesquisador de Endereços.</h3>
+			</div>
+		</nav>
+<br><br><br><br><br>
+		<div class="container">
+			<div class="row form-group">
+				<div class="col-sm-3">
+					<input style="border: 2px solid black; color: black;" type="text" class="form-control allowed" placeholder="CEP" onblur="getDadosEnderecoPorCEP(this.value)"/>
+				</div>
+				<div class="col-sm-7">
+					<input style="border: 2px solid black;" type="text" class="form-control not_allowed" placeholder="Endereço" readonly id="endereco" />
+				</div>
+				<div class="col-sm-2">
+					<input style="border: 2px solid black;" type="text" class="form-control allowed" placeholder="Número" id="numero" />
+				</div>
+			</div>
+<br>
+			<div class="row form-group">
+				<div class="col-sm-6">
+					<input style="border: 2px solid black;" type="text" class="form-control not_allowed" placeholder="Bairro" readonly id="bairro" />
+				</div>
+				<div class="col-sm-4">
+					<input style="border: 2px solid black;" type="text" class="form-control not_allowed" placeholder="Cidade" readonly id="cidade" />
+				</div>
+
+				<div class="col-sm-2">
+					<input style="border: 2px solid black;" type="text" class="form-control not_allowed" placeholder="UF" readonly id="uf" />
+				</div>
+			</div>
+		</div>
+<script src="JavaScripts_gerais/script_geral.js"></script>
+
+	</body>
+</html>
