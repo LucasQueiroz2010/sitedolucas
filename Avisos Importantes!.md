@@ -5,12 +5,12 @@ URM = 'Update README, ou seja, um update que apensa mudou o README.'
 UQV = 'Update de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.'
 PTWE = 'Pizza Tower Web Edition.'
 ND = 'Nota do desenvolvedor.'
-README = 'Avisos importantes!'.
+README = 'Quando eu me reviro ao README, me reviro a esse documento que armazena todos os uptades que meu site deve ao decorrer do tempo.'
 pobs = 'Pequena observação.'
 JVDC = 'Jogo da velha desnecessáriamente complicado.'
 JVG = 'Jogo da velha genérico.'
-JS = Javascript.
-SPE: Site procurador de endereços.
+JS = 'Javascript.'
+SPE: 'Site procurador de endereços.'
 
 Atualizações abaixo:
 
@@ -298,6 +298,8 @@ ND: Essa versão é experimental. Espere muitas mudanças no futuro!
 1) Tudo relacionado a games foi removido com a intenção de deixar o site mais profissional.
 2) Alguns erros ainda podem ocorrer, então o site está sujeito a mudanças.
 ND: Recentemente eu conversei com meus supervisores e eu tomei bronca por causa dos conteúdos de conteúdos relacionados à jogos no meu site, então fui obrigado a remover tudo que tem esse tema, podendo manter apenas pequenos detalhes.
+(4)!' Trying to remove subject 'fatal_error' ... task successfully conclued! .. uninstalling subject "anti_errors" ... task successfully conclued" '!(4)
+
 
 2.0_beta3: Site do Lucas V2.0 - BETA 3: Novas adições + UQV 15 + Update GAMER 12 + ND 7
 1) Foi adicionado uma nova palavra ao dicionário.
@@ -308,5 +310,10 @@ ND: Recentemente eu conversei com meus supervisores e eu tomei bronca por causa 
 ND: Eu fico feliz em anunciar que o PTWE está oficialmente de volta! Após muito tempo de conversa/bronca/negociações, eu consegui colocar o jogo de volta, mas apenas se for de uma forma "escondida". Os espertos vão entender como acessar o jogo, mas eu não posso mencionar como aqui, pois se eu falar como, meu chefe vai ficar uma fera. Além disso, apenas iremos sair da beta da versão 2.0 apenas quando eu finalizar tudo o que eu tenho em mente para os meus projetos.
 pobs: Eu estou muito feliz.
 
+2.0_beta3.1: Site do Lucas V2.0 - BETA 3.1: URM 10 + UD 15
+1) Foi mudado a imagem temporária da parallax que existe entre os textos na página "Site do Lucas!".
+2) O README foi atualizado.
+3) Uma palavra no dicionário foi alterada.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 15. / UD: 14. / Atualização GAMER: 12. / ND: 7. / URM: 9.
+Informações: UQV: 15. / UD: 15. / Atualização GAMER: 12. / ND: 7. / URM: 10.
