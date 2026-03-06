@@ -343,7 +343,7 @@ padding: 3px;}
     background-size: contain;
     background-repeat: no-repeat;
     transition: background-image 0.8s ease-in;
-    cursor: not-allowed;
+    cursor: help;
 	user-select: none;}
 
 .textnoselect{

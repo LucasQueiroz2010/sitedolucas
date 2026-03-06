@@ -97,9 +97,19 @@ if (nomepessoal == 'Gabriel' && idadepessoal == 18 && genero == 'M') {
 if (nomepessoal == 'Lucas' && idadepessoal == 15 && genero == 'M') {
     document.getElementById("saudações").innerText = `Oi, Lucas. Feliz aniversário!!`
     document.getElementById("Idade").innerText = `${idadepessoal} anos? Você já tem 16, rapá!`
-    document.getElementById("saudações2").innerText = `E#spero que você tenha uma ótima vida, """Lucinhas"""!`}
+    document.getElementById("saudações2").innerText = `Espero que você tenha uma ótima vida, """Lucinhas"""!`}
 
 // Mudança das estrelas
+var imagemOriginal1 = true;
+
+function mudarestrela1(elemento) {
+    if (imagemOriginal1) {
+        elemento.style.backgroundImage = "url('imagens/pep.gif')";
+        imagemOriginal1 = false;
+    } else {
+        elemento.style.backgroundImage = "url('imagens/estrela_basica.png')";
+        imagemOriginal1 = true;}}
+
 var imagemOriginal2 = true;
 
 function mudarestrela2(elemento) {
