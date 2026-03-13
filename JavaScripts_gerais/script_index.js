@@ -94,10 +94,10 @@ if (nomepessoal == 'Gabriel' && idadepessoal == 18 && genero == 'M') {
     document.getElementById("saudações").innerText = `Oi, Biel, seja bem vindo ao meu site!`
     document.getElementById("Idade").innerText = `${idadepessoal} anos? Mesmo tendo essa idade, você é o melhor do mundo!`
     document.getElementById("saudações2").innerText = `Eu te amo! Obrigado por aguentar minhas loucuras e por ser um primo incrível para mim!`}
-if (nomepessoal == 'Lucas' && idadepessoal == 15 && genero == 'M') {
-    document.getElementById("saudações").innerText = `Oi, Lucas. Feliz aniversário!!`
-    document.getElementById("Idade").innerText = `${idadepessoal} anos? Você já tem 16, rapá!`
-    document.getElementById("saudações2").innerText = `Espero que você tenha uma ótima vida, """Lucinhas"""!`}
+if (nomepessoal == 'Murilo' && idadepessoal == 16 && genero == 'M') {
+    document.getElementById("saudações").innerText = `Hi, obesity 2.0! Welcome to this website.`
+    document.getElementById("Idade").innerText = `Wanna do something foolish? *Tries to rocket jump IRL*`
+    document.getElementById("saudações2").innerText = `Either 100% TBOI or 101% Pizza Tower or NO BALLS!`}
 
 // Mudança das estrelas
 var imagemOriginal1 = true;

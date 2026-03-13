@@ -320,5 +320,10 @@ pobs: Eu estou muito feliz.
 2) Uma nova interação foi adicionada com a estrela marrom à esquerda na 'Página Inicial'.
 3) Outros erros/bugs insiqnificantes foram corrigidos/removidos.
 
+2.0_beta4: SIte do Lucas V2.0 - BETA 4: UQV 16
+1) Foi substítuido a imagem temporária no Site do Lucas
+2) Foi adicionado um novo Easter Egg.
+3) Outros erros/bugs insiqnificantes foram corrigidos/removidos.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 16. / UD: 15. / Atualização GAMER: 12. / ND: 7. / URM: 10.
+Informações: UQV: 17. / UD: 15. / Atualização GAMER: 12. / ND: 7. / URM: 10.

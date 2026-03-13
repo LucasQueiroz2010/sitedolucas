@@ -242,16 +242,16 @@ input.submit {
 	background-attachment: fixed;}
 
 .caixa1 {
-	background-image: url(imagens/imagem_temporaria.jfif);}
+	background-image: url(imagens/imagem_temporaria.png);}
 
 .caixa2 {
-	background-image: url(imagens/imagem_temporaria.jfif);}
+	background-image: url(imagens/imagem_temporaria.png);}
 
 .caixa3 {
-	background-image: url(imagens/imagem_temporaria.jfif);}
+	background-image: url(imagens/imagem_temporaria.png);}
 
 .caixa4 {
-	background-image: url(imagens/imagem_temporaria.jfif);}
+	background-image: url(imagens/imagem_temporaria.png);}
 
 .conteudo {
 	text-align: justify;
@@ -356,21 +356,7 @@ padding: 3px;}
 	background-size: cover;
 	background-position: center;
 	position: relative;}
-
-.PTWE{
-	text-decoration: none;
-	color: yellow;}
-
-.PTWE:hover{
-	text-decoration: none;
-	color: darkorange;
-	cursor: crosshair;}
-
-.PTWE:active {
-	color: darkred;
-	text-decoration: none;
-	cursor: crosshair;}
-
+	
 .AUTISMO:hover{
 	color: #ed9404;
 	background-color: #EBB866;
@@ -407,29 +393,6 @@ padding: 3px;}
 	width: fit-content;
     display: none;}
 
-.Pizza_Web{
-	text-decoration: none;
-	text-align: center;
-	color: yellow;
-	bottom: -888px;
-	right: 325px;
-	font-size: 250px;
-	position: absolute;
-	opacity: 0;}
-
-.Pizza_Web:hover{
-	text-decoration: none;
-	color: orange;
-	cursor: crosshair;}
-
-.Pizza_Game_Link{
-	text-decoration: none;
-	color: white;}
-
-.Pizza_Game_Link:hover{
-	text-decoration: none;
-	color: gray;}
-
 .depression{
 	bottom: 300px;}
 
@@ -437,9 +400,6 @@ padding: 3px;}
 	background-color: white;
 	border: 3px solid black;
 	color: darkgoldenrod;}
-
-.🕈︎✋︎🏱︎{
-	font-size: 10px;}
 
 .Versão_do_Site {
 	position: fixed;
