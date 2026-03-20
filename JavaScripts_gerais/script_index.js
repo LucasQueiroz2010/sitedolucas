@@ -95,9 +95,9 @@ if (nomepessoal == 'Gabriel' && idadepessoal == 18 && genero == 'M') {
     document.getElementById("Idade").innerText = `${idadepessoal} anos? Mesmo tendo essa idade, você é o melhor do mundo!`
     document.getElementById("saudações2").innerText = `Eu te amo! Obrigado por aguentar minhas loucuras e por ser um primo incrível para mim!`}
 if (nomepessoal == 'Murilo' && idadepessoal == 16 && genero == 'M') {
-    document.getElementById("saudações").innerText = `Hi, obesity 2.0! Welcome to this website.`
-    document.getElementById("Idade").innerText = `Wanna do something foolish? *Tries to rocket jump IRL*`
-    document.getElementById("saudações2").innerText = `Either 100% TBOI or 101% Pizza Tower or NO BALLS!`}
+    document.getElementById("saudações").innerText = `Hello, Cracktorio enjoyer! Welcome to Lucas' website.`
+    document.getElementById("Idade").innerText = `IDK how you tolerate me, but thanks anyway! I apreciate you pacience!`
+    document.getElementById("saudações2").innerText = `Your saying you got NO BALLS? Hold up... *replaces your balls*`}
 
 // Mudança das estrelas
 var imagemOriginal1 = true;
