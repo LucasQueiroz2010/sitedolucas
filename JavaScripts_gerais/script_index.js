@@ -104,10 +104,10 @@ var imagemOriginal1 = true;
 
 function mudarestrela1(elemento) {
     if (imagemOriginal1) {
-        elemento.style.backgroundImage = "url('imagens/pep.gif')";
+        elemento.style.backgroundImage = "url('imagens/scout.gif')";
         imagemOriginal1 = false;
     } else {
-        elemento.style.backgroundImage = "url('imagens/estrela_basica.png')";
+        elemento.style.backgroundImage = "url('imagens/estrela_basica_marrom.png')";
         imagemOriginal1 = true;}}
 
 var imagemOriginal2 = true;

@@ -325,8 +325,11 @@ pobs: Eu estou muito feliz.
 2) Foi adicionado um novo Easter Egg.
 3) Outros erros/bugs insiqnificantes foram corrigidos/removidos.
 
-2.0_beta4.1: Site do Lucas V2.0 - BETA 4: UD 16
+2.0_beta4.1: Site do Lucas V2.0 - BETA 4.1: UD 16
 1) Um dos easter eggs foi alterado.
 
+2.0_beta4.2: Site do Lucas V2.0 - BETA 4.2: UQV 18 + UD 17
+1) Foi mudado a imagem de quando você dá double click na estrela dourada da esquerda.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 17. / UD: 16. / Atualização GAMER: 12. / ND: 7. / URM: 10.
+Informações: UQV: 18. / UD: 17. / Atualização GAMER: 12. / ND: 7. / URM: 10.
