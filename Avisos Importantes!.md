@@ -332,5 +332,8 @@ pobs: Eu estou muito feliz.
 1) Foi mudado a imagem de quando você dá double click na estrela marrom da esquerda.
 2) O bug de quando você dá double click na estrela marrom da esquerda, e após isso dá double click novamente e a estrela voltava dourada foi consertado.
 
+2.0_beta4.3: Site do Lucas V2.0 - BETA 4.2: UD 18 + URM 11
+1) Foi alterado o número que mostra a versão do site na página principal.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 18. / UD: 17. / Atualização GAMER: 12. / ND: 7. / URM: 10.
+Informações: UQV: 18. / UD: 18. / Atualização GAMER: 12. / ND: 7. / URM: 11.
