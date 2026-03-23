@@ -329,7 +329,8 @@ pobs: Eu estou muito feliz.
 1) Um dos easter eggs foi alterado.
 
 2.0_beta4.2: Site do Lucas V2.0 - BETA 4.2: UQV 18 + UD 17
-1) Foi mudado a imagem de quando você dá double click na estrela dourada da esquerda.
+1) Foi mudado a imagem de quando você dá double click na estrela marrom da esquerda.
+2) O bug de quando você dá double click na estrela marrom da esquerda, e após isso dá double click novamente e a estrela voltava dourada foi consertado.
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: UQV: 18. / UD: 17. / Atualização GAMER: 12. / ND: 7. / URM: 10.
