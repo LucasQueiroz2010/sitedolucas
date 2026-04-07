@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <title>Feedbacks dos Usuários</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        body { 
+            font-family: 'Index', sans-serif; 
+            background-image: url('image_fab10b.png'); 
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: white; padding: 20px; margin: 0;}
+
+        .container { background-color: rgba(0, 0, 0, 0.9); padding: 20px; border-radius: 10px; border: 3px solid gray; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #111; }
+        th, td { border: 1px solid #444; padding: 12px; text-align: left; }
+        th { background-color: #54260d; color: gold; }
+        tr:nth-child(even) { background-color: #1a1a1a; }
+        .btn-limpar { background: red; color: white; border: none; padding: 10px; cursor: pointer; margin-top: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Feedbacks e Comentários</h1>
+        <button onclick="window.location.href='admin.html'" style="padding: 10px; background: white; color: black; border: none; border-radius: 5px; cursor: pointer;">Voltar ao Painel ADM</button>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Nota</th>
+                    <th>Comentário</th>
+                    <th>Data/Hora</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-feedbacks">
+                </tbody>
+        </table>
+        
+        <button class="btn-limpar" onclick="limparFeedbacks()">Apagar Todos os Comentários</button>
+    </div>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem('usuarioAtual'));
+        if (!user || user.cargo !== 'admin') window.location.href = 'index.html';
+
+        function carregarFeedbacks() {
+            const feedbacks = JSON.parse(localStorage.getItem('feedbacksDB')) || [];
+            const tbody = document.getElementById('tabela-feedbacks');
+            tbody.innerHTML = "";
+
+            feedbacks.reverse().forEach(f => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="color: cyan;">${f.usuario}</td>
+                    <td style="color: yellow; text-align: center;">${f.nota}</td>
+                    <td>${f.comentario}</td>
+                    <td style="font-size: 12px; color: gray;">${f.data}</td>
+                `;
+                tbody.appendChild(tr);});}
+
+        function limparFeedbacks() {
+            if (confirm("Tem certeza que deseja apagar todos os comentários?")) {
+                localStorage.removeItem('feedbacksDB');
+                carregarFeedbacks();}}
+        carregarFeedbacks();
+    </script>
+</body>
+</html>

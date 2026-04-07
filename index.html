@@ -7,21 +7,16 @@
 		<link rel="stylesheet" href="estilo.css">
 		<link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<style type="text/css" class="menu">
-			body {	
-				background-image: url(imagens/Fundo2.jpeg);
-				background-repeat: no-repeat;
-				background-position: left top;
-				background-size: cover;
-				font-family: Index;}
-		</style>
 
 		<link rel="icon" href="imagens/favicons/favicon_principal.png" type="image/png">
 		<link rel="apple-touch-icon" href="imagens/favicons/favicon_principal_apple_touch.png">
 
 	</head>
-	<body onscroll="console.log('Scrollamento detectado!')" class="t20px centralizar menu">
-		<!-- <> -->
+	<body onscroll="console.log('Scrollamento detectado!')" class="t20px centralizar menu style_index">
+<div id="perfil-widget" class="borda-texto" style="position: fixed; top: 10px; right: 20px; display: none; cursor: pointer; z-index: 1001; padding: 5px 15px; background-color: rgba(0,0,0,0.8);">
+    <span id="nome-usuario-logado" style="color: white; font-family: Index; font-size: 20px; margin-right: 10px; vertical-align: middle;"></span>
+    <img id="foto-usuario-logado" src="imagens/usuario_padrao.png" alt="Perfil" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; vertical-align: middle; object-fit: cover;">
+</div>
 
 		<ul class="sticky-top">
 			<li><a href="contato.html" class="line menu1">Contatos!ﾠ</a></li>
@@ -33,81 +28,39 @@
 		<div class="borda-texto">
 		<p class="text-secondary" id="saudações"></p>
 		<p class="text-secondary" id="Idade"></p>
-		<div class="Versão_do_Site">V2.0_Beta4.3</div>	
+		<div class="Versão_do_Site">V2.0_Beta5</div>	
 		<p class="text-secondary" id="saudações2"></p>
-		<p class="text-primary">Feedbacks sempre são bem vindos!</p>
 		</div>
 		<br>
 		<br>
 		<br>
-		<h2 id="sombraP">Sua opinião! (WIP)</h2>
+		<h2 id="sombraP">Sua opinião sempre importa!</h2>
+		<p class="text-primary">Feedbacks sempre são bem vindos!</p>
 
-		<form class="textnoselect branco borda-texto">
-
-			<fieldset>
-				<legend class="esquerda">Informações:</legend>
-
-				<div class="form-group">
-					<label style="font-family: Index;" for="nome" class="esquerda text-info">Nome:ﾠ</label><br>
-					<input style="font-family: Index;" onfocus="console.log('Insira seu nome')" type="text" name="nome" id="nome" placeholder="Insira seu nome!" class="this nome form-control-lg centralizar" required autofocus>
-				</div>
-					<label for="Email" class="email centralizar align text-info">Email:</label><br>
-				<div class="input-group">			
-				<input onclick="console.log('Insira seu email')" class="email centralizar form-control" type="text" placeholder="Insira seu email!" required>
-				</div>
-
-				<div class="form-group">
-					<label style="font-family: Index;" for="Senha" class="esquerda align text-info">Senha:</label>
-					<input style="font-family: Index;" onfocus="console.log('Insira sua senha')" type="password" name="nome" id="Senha" placeholder="Insira sua senha!" class="this senha form-control centralizar" required>
-				</div>
-
-				<div class="form-group">
-					<label style="font-family: Index;" for="data" class="esquerda text-info"><Data></Data>Que dia você nasceu?</label>
-					<input style="font-family: Index;" onfocus="console.log('Insira sua data de nascimento')" type="date" name="Data" id="Data" placeholder="Que dia é hoje?!" class="this calendario form-control centralizar" required>
-				</div>
-
-				<div class="form-group text-info textnoselect branco centralizar">
-					<label style="font-family: Index;" class="centralizar" for="arquivo">Envie uma foto linda!</label>
-					<input style="font-family: Index;" class="form-control-file centralizar" type="file" id="arquivo" required>
-				</div>
-			</fieldset>
-
-			<fieldset>
-					<div>
-						<span onclick="console.log('Insira seu comentário')" class="text-info centralizar input-group-text">Comentários 💬</span>
-					</div>
-				<div class="input-group">
-					<textarea class="form-control" id="Comentários" rows="4"></textarea>
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<div class="form-group">
-					<label style="font-family: Index;" for="Lembrar" class="text-info">Lembrar de mim?</label required>
-					<select class="form-control centralizar" id="Lembrar" name="Lembrar">
-						<option style="font-family: Index;" class="text-dark">...</option>
-						<option style="font-family: Index;" class="text-success">Sim!</option>
-						<option style="font-family: Index;" class="text-danger">Não...</option>
-					</select>
-				</div>
-
-				<div class="text-info">Esse site é bem feito?</div>
-					<div class="form-group">
-						<label class="text-success" style="font-family: Index;" id="range">Satisfação de 0-10</label><br>
-						
-						<div class="range-wrap">
-							<input style="cursor: move;" class="text-info custom-range" type="range" min="0" max="10" value="5" id="myRange">
-							<span class="range-value" id="rangeValue">5</span>
-						</div>
-					</div>
-			</fieldset>
-			<input style="cursor: help;" class="submit BIGSHOT btn btn-lg" type="submit" value="Enviar" id="transicaolink">
+<fieldset class="Borda line branco backgroundblack borda_comentarios">
+    <legend class="Borda line branco backgroundblack" style="border: 5px solid gray; border-radius: 5px;">Feedback</legend>
+    <h2 class="text-info">O que você achou do site?</h2>
+    <div class="form-group">
+<br>
+    </div>
+    <div class="form-group" style="margin-top: 15px;">
+		<h4 class="text-info" style="font-family: Index;">Comentários/Feedbacks</h4>
+        <textarea 	class="texto_comentario" style="font-family: Index;" id="texto-comentario" placeholder="Insira seu comentário!"></textarea>
+    </div>
+        <label class="text-success" style="font-family: Index;" id="range">Satisfação de 0-10</label><br>
+        
+        <div class="range-wrap">
+            <input style="cursor: move;" class="text-info custom-range" type="range" min="0" max="10" value="5" id="myRange">
+            <span class="range-value" id="rangeValue">5</span>
+        </div>	
+	<input style="cursor: help;" class="submit BIGSHOT btn btn-lg" type="submit" value="Enviar" id="transicaolink">
+</fieldset>
 		</form>
 		<br>
 
-			<div onmouseover="console.log('Peppino')" class="estrela1" ondblclick="mudarestrela1(this)"></div>
+			<div onmouseover="console.log('That Scout is a bloody Spy!')" class="estrela1" ondblclick="mudarestrela1(this)"></div>
 
-			<div class="estrela2" ondblclick="mudarestrela2(this)"></div>
+			<div onmouseover="console.log('Star #1!')" " class="estrela2" ondblclick="mudarestrela2(this)"></div>
 
 			<div onmouseover="console.log('Jogo da Velha')" class="estrela3" ondblclick="mudarestrela3(this)"></div>
 		

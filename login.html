@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body { 
+            font-family: 'Index', sans-serif; 
+            background-image: url(imagens/background_login.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0; 
+        }
+        .caixa-login { background-color: rgba(0, 0, 0, 0.85); border: 5px solid gray; border-radius: 10px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0px 0px 15px black;}
+        input, select { width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #54260d; background-color: #222; color: white; }
+        input[type="file"] { padding: 5px; background-color: #111; cursor: pointer; }
+        button { width: 100%; padding: 10px; background-color: #54260d; color: white; border: none; border-radius: 5px; cursor: pointer; font-family: 'Index'; font-size: 18px; margin-bottom: 10px;}
+        button:hover { background-color: #7a3813; }
+    </style>
+</head>
+<body class="style_login">
+
+    <div class="caixa-login centralizar">
+        <h2 id="titulo-form">Entrar</h2>
+        <form id="form-login">
+            <input type="text" id="login-usuario" placeholder="Nome de Usuário" required>
+            <input type="password" id="login-senha" placeholder="Senha" required>
+            
+            <div id="campos-registro" style="display: none;">
+                <input type="email" id="reg-email" placeholder="E-mail">
+                <input type="date" id="reg-data">
+                <select id="reg-genero">
+                    <option value="M">Masculino (M)</option>
+                    <option value="F">Feminino (F)</option>
+                    <option value="Outro">Prefiro não mencionar</option>
+                </select>
+                <label for="reg-foto" style="font-size: 14px; color: lightgray;">Foto de Perfil (Opcional):</label>
+                <input type="file" id="reg-foto" accept="image/*">
+            </div>
+
+            <button type="submit" id="btn-acao">Entrar no Site</button>
+        </form>
+        <p style="cursor: pointer; color: #17a2b8;" id="toggle-modo">Não tem conta? Cadastre-se</p>
+    </div>
+
+    <script>
+        let modoLogin = true;
+        let usuariosDB = JSON.parse(localStorage.getItem('usuariosDB')) || [];
+
+        if (!usuariosDB.find(u => u.nome === 'ADM')) {
+            usuariosDB.push({ nome: 'ADM', senha: 'admin1502', cargo: 'admin', banido: false, foto: 'imagens/usuario_padrao.png' });
+            localStorage.setItem('usuariosDB', JSON.stringify(usuariosDB));
+        }
+
+        document.getElementById('toggle-modo').addEventListener('click', () => {
+            modoLogin = !modoLogin;
+            document.getElementById('titulo-form').innerText = modoLogin ? "Entrar" : "Cadastrar";
+            document.getElementById('btn-acao').innerText = modoLogin ? "Entrar no Site" : "Criar Conta";
+            document.getElementById('campos-registro').style.display = modoLogin ? "none" : "block";
+            document.getElementById('toggle-modo').innerText = modoLogin ? "Não tem conta? Cadastre-se" : "Já tem conta? Entre aqui";
+        });
+
+        document.getElementById('form-login').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nome = document.getElementById('login-usuario').value;
+            const senha = document.getElementById('login-senha').value;
+
+            if (modoLogin) {
+                const usuarioEncontrado = usuariosDB.find(u => u.nome === nome && u.senha === senha);
+                if (usuarioEncontrado) {
+                    if (usuarioEncontrado.banido) {
+                        alert("Sua conta foi banida temporariamente.");
+                        return;
+                    }
+                    localStorage.setItem('usuarioAtual', JSON.stringify(usuarioEncontrado));
+                    window.location.href = 'index.html';
+                } else {
+                    alert("Usuário ou senha incorretos!");
+                }
+            } else {
+                if (usuariosDB.find(u => u.nome === nome)) {
+                    alert("Este nome de usuário já existe!");
+                    return;
+                }
+
+                const email = document.getElementById('reg-email').value;
+                const data = document.getElementById('reg-data').value;
+                const genero = document.getElementById('reg-genero').value;
+                const fotoInput = document.getElementById('reg-foto');
+
+                // Lê a imagem do computador e transforma em Base64
+                if (fotoInput.files.length > 0) {
+                    const leitor = new FileReader();
+                    leitor.onload = function(evento) {
+                        finalizarCadastro(nome, senha, email, data, genero, evento.target.result);
+                    };
+                    leitor.readAsDataURL(fotoInput.files[0]);
+                } else {
+                    finalizarCadastro(nome, senha, email, data, genero, 'imagens/usuario_padrao.png');
+                }
+            }
+        });
+
+        function finalizarCadastro(nome, senha, email, data, genero, fotoBase64) {
+            const novoUsuario = { nome, senha, email, dataNascimento: data, genero, foto: fotoBase64, cargo: 'user', banido: false };
+            usuariosDB.push(novoUsuario);
+            localStorage.setItem('usuariosDB', JSON.stringify(usuariosDB));
+            alert("Conta criada com sucesso! Faça login.");
+            document.getElementById('toggle-modo').click(); 
+        }
+    </script>
+</body>
+</html>

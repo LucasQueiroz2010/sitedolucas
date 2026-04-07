@@ -335,5 +335,15 @@ pobs: Eu estou muito feliz.
 2.0_beta4.3: Site do Lucas V2.0 - BETA 4.2: UD 18 + URM 11
 1) Foi alterado o número que mostra a versão do site na página principal.
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 18. / UD: 18. / Atualização GAMER: 12. / ND: 7. / URM: 11.
+2.0_beta5: Site do Lucas V2.0 - BETA 5: Update dos usuários+ Update do CSS + UQV 19 + ND 8 + URM.
+1) Foi adicionado um sistema de login/logoff no site.
+2) Foi mudado o CSS, agora sendo mais cheio e retirando o style separado dos sites e implementando-os no CSS bruto.
+3) A página principal sofreu mudanças severas.
+4) Foi adicionado uma página HTML para login, uma para logoff, uma para personalização de usuários e uma para ADM.
+5) Foi adicionado um suporte para SASS.
+6) Foi adicionada uma API local.
+7) FOi mudado alguns pontos do README.
+ND: Esse é um dos maiores updates que eu já fiz a muito tempo, mas eu finalmente consegui! Agora a seção de feedbacks está oficialmente funcionando, mas eu ainda preciso testar tudo. Mesmo assim, eu estou muito perto de lançar a versão 2.0 oficialmente! Meu plano é fazer um suporte SASS melhor, além de implementar um sistema de ranking no PTWE e no jogo da velha (talvez até um sistema que você tenha que jogar um modo de jogo para poder liberar outro modo de jogo).
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Informações: UQV: 19. / ND: 8. / Atualização GAMER: 12. / UD: 18. / URM: 12.
