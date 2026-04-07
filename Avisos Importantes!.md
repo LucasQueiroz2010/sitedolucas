@@ -351,5 +351,8 @@ ND: Esse é um dos maiores updates que eu já fiz a muito tempo, mas eu finalmen
 3) Foi implementado um sistema de desbloqueamento de modos, que varia dependendo do usuário.
 4) O autoloader do PTWE foi melhorado.
 
+2.0_beta5.1.1: Site do Lucas V2.0 - BETA 5.1.1: UD 20.
+1) Foi adicionado um Easter Egg.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 19. / ND: 8. / Atualização GAMER: 13. / UD: 19. / URM: 12.
+Informações: UQV: 19. / ND: 8. / Atualização GAMER: 13. / UD: 20. / URM: 12.

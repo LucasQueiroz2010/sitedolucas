@@ -67,6 +67,11 @@ if (!usuarioLogado) {
     if (idadepessoal == 67) {
         document.getElementById("Idade").innerText = `O meme '67' já está ultrapassado, ${nomepessoal}! Você deveria cometer suicídio!`;
     }
+    if (nomepessoal == 'Lucas' && idadepessoal == 16 && genero == 'M') {
+        document.getElementById("saudações").innerText = `Olhem! É o Lucas, o dono do site!`;
+        document.getElementById("Idade").innerText = `${idadepessoal} anos? E ainda não é confiavel?`;
+        document.getElementById("saudações2").innerText = `Fique a vontade!`;
+    }
     if (nomepessoal == 'Taynan' && idadepessoal == 36 && genero == 'F') {
         document.getElementById("saudações").innerText = `Oi, mãe! Seja bem-vinda ao meu site!`;
         document.getElementById("Idade").innerText = `Minha mãe tem ${idadepessoal} anos? Tá novinha ainda!`;
