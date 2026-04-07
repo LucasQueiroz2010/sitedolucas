@@ -425,7 +425,20 @@
     <link rel="icon" href="imagens_jogo/Stuff/favicon_jogo.png" type="image/png">
     <link rel="apple-touch-icon" href="imagens_jogo/Stuff/favicon_jogo_apple_touch.png">
 </head>
-<body>   
+<body>
+<div id="hud-jogador" style="position: fixed; top: 10px; left: 10px; z-index: 1001; display: none; flex-direction: column; gap: 10px; font-family: 'PzzTwr', sans-serif;">
+    
+    <div style="background-color: rgba(0,0,0,0.85); border: 3px solid #ffaa00; border-radius: 10px; padding: 10px; display: flex; align-items: center; gap: 15px; box-shadow: 0px 0px 10px black;">
+        <img id="hud-foto-perfil" src="imagens/usuario_padrao.png" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid white; object-fit: cover;">
+        <span id="hud-nome-perfil" style="color: white; font-size: 24px; text-shadow: 2px 2px 0 #000;">Jogador</span>
+    </div>
+
+    <div style="background-color: rgba(0,0,0,0.85); border: 3px solid white; border-radius: 10px; padding: 10px; color: white; text-shadow: 1px 1px 0 #000; box-shadow: 0px 0px 10px black;">
+        <div style="color: #ffaa00; margin-bottom: 5px; text-align: center; font-size: 20px;">SEUS RANKS</div>
+        <div id="hud-lista-ranks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; font-size: 18px;">
+            </div>
+    </div>
+</div>
     <div id="top-right-menu">
         <button id="desktop-fullscreen-button" class="menu-btn icon-fullscreen-enter" onclick="toggleDesktopFullscreen()" title="Modo Tela Cheia"></button>
         <button id="restart-round-button" class="menu-btn icon-restart" onclick="if(document.getElementById('start-screen').style.display === 'none') startGame();" title="Reiniciar Round"></button>
@@ -457,11 +470,12 @@
         <div id="start-screen" class="text-center">
             <button class="depression" onclick="goToModeSelection();">Start Game!</button>
         </div>
-        <div id="mode-screen">
-            <button id="btn-noise-mode" class="mode-select-btn" onclick="selectMode('normal')">Noise Mode</button>
-            <button id="btn-doise-mode" class="mode-select-btn" onclick="selectMode('doise')">Doise Overlay</button>
-            <button id="btn-faker-mode" class="mode-select-btn" onclick="startFakerMode()">Faker Attack</button>
-        </div>
+<div id="botoes-menu" style="display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 20px;">    
+    <button class="menu-btn" onclick="startGame(false, false, false)" style="padding: 15px 30px; font-size: 24px; cursor: pointer; background: white; border: 4px solid black;">START GAME!</button>    
+    <button class="menu-btn" onclick="startGame(true, false, false)" style="padding: 15px 30px; font-size: 24px; cursor: pointer; background: #ffaa00; border: 4px solid black;">NOISE MODE</button>    
+    <button class="menu-btn" id="btn-doise" onclick="startGame(true, false, true)" style="padding: 15px 30px; font-size: 24px; cursor: pointer; background: gray; border: 4px solid black;">DOISE OVERLAY</button>    
+    <button class="menu-btn" id="btn-faker" onclick="startGame(false, true, false)" style="padding: 15px 30px; font-size: 24px; cursor: pointer; background: gray; border: 4px solid black;">FAKER ATTACK</button>
+</div>
         <div id="loading-screen">
             Loading...
         </div>
@@ -474,7 +488,6 @@
         </div>        
         <div id="game-area">
             <div id="faker-health-container" style="display:none; position:absolute; top:10px; left:10px; z-index:100; background-color:#54260d; padding:5px 15px; border:2px solid black; color:white; border-radius:5px; min-width:250px; justify-content:space-around; flex-direction:row; align-items:center;">Faker: </div>
-            <div id="coming-soon">COMING SOON!</div>
             <div id="player"></div>
             <div id="the-noise"></div>
             <div id="gustavo"></div>
@@ -2608,19 +2621,78 @@
             createPlatforms();
             updateItemsPosition();
             gameLoopInterval = setInterval(gameLoop, 1000 / 60);}
-        window.onload = () => {
-            updateScaledConstants();
-            isGameOver = true;
-            updateHealthDisplay();
-            playBGM(START_BGM_AUDIO);            
-            const unlockAudio = () => {
-                if(START_BGM_AUDIO.paused && !isMuted) {
-                    playBGM(START_BGM_AUDIO);}
-                document.removeEventListener('click', unlockAudio);
-                document.removeEventListener('keydown', unlockAudio);};
-            document.addEventListener('click', unlockAudio);
-            document.addEventListener('keydown', unlockAudio);
-            MUTE_BUTTON.classList.add('icon-unmute');};
+
+const assetsParaCarregar = [
+    'peppino_idle.gif', 'peppino_run.gif', 'peppino_jump.gif', 'peppino_fall.gif',
+    'noise_idle.gif', 'noise_run.gif', 'faker_idle.gif', 'faker_run.gif',
+    'pizza.gif', 'toppin_tomato.gif', 'toppin_cheese.gif', 'toppin_sausage.gif', 'toppin_pineapple.gif', 'toppin_mushroom.gif',
+    'bg.png', 'platform.png',
+    'image_510045.png', 'image_510069.png', 'image_5100a2.png', 'image_5100e3.png', 
+    'image_510120.png', 'image_510405.png', 'image_510424.png',
+    'bgm_start.mp3', 'bgm_game.mp3', 'bgm_escape.mp3', 'bgm_faker.mp3', 'bgm_faker_escape.mp3',
+    'sfx_jump.wav', 'sfx_collect.wav', 'sfx_hurt.wav', 'sfx_taunt.wav'];
+
+const telaLoading = document.createElement('div');
+telaLoading.id = 'tela-loading';
+telaLoading.style.cssText = 'position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #000; z-index: 999999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-family: "PzzTwr", sans-serif;';
+
+telaLoading.innerHTML = `
+    <h1 style="font-size: 40px; margin-bottom: 20px;">CARREGANDO A TORRE...</h1>
+    <div style="width: 400px; height: 30px; border: 4px solid white; border-radius: 5px; overflow: hidden; background: #222;">
+        <div id="barra-loading" style="width: 0%; height: 100%; background-color: #ffaa00; transition: width 0.1s linear;"></div>
+    </div>
+    <p id="texto-loading" style="margin-top: 15px; font-size: 24px;">0%</p>
+    <button id="btn-jogar" style="display: none; margin-top: 30px; padding: 15px 40px; font-family: PzzTwr, sans-serif; font-size: 30px; cursor: pointer; background: #ffaa00; color: black; border: 4px solid white; border-radius: 10px;">JOGAR!</button>`;
+
+document.documentElement.appendChild(telaLoading);
+
+let arquivosCarregados = 0;
+
+function iniciarPreload() {
+    const barraLoading = document.getElementById('barra-loading');
+    const textoLoading = document.getElementById('texto-loading');
+    const btnJogar = document.getElementById('btn-jogar');
+
+    if (assetsParaCarregar.length === 0) {
+        liberarJogo(btnJogar, textoLoading);
+        return;}
+
+    assetsParaCarregar.forEach(src => {
+        if (src.endsWith('.mp3') || src.endsWith('.wav')) {
+            const audio = new Audio();
+            audio.oncanplaythrough = () => registrarCarregamento(barraLoading, textoLoading, btnJogar);
+            audio.onerror = () => registrarCarregamento(barraLoading, textoLoading, btnJogar);
+            audio.src = src;
+        } else {
+            const img = new Image();
+            img.onload = () => registrarCarregamento(barraLoading, textoLoading, btnJogar);
+            img.onerror = () => registrarCarregamento(barraLoading, textoLoading, btnJogar);
+            img.src = src;}});}
+
+function registrarCarregamento(barra, texto, btn) {
+    arquivosCarregados++;
+    const porcentagem = Math.floor((arquivosCarregados / assetsParaCarregar.length) * 100);
+    barra.style.width = porcentagem + '%';
+    texto.innerText = porcentagem + '%';
+
+    if (arquivosCarregados === assetsParaCarregar.length) {
+        liberarJogo(btn, texto);}}
+
+function liberarJogo(btnJogar, textoLoading) {
+    textoLoading.innerText = "TUDO PRONTO!";
+    btnJogar.style.display = "block";
+    
+    btnJogar.onclick = () => {
+        telaLoading.style.display = "none";
+        iniciarJogoReal();};}
+
+function iniciarJogoReal() {
+    if (typeof updateScaledConstants === 'function') updateScaledConstants();
+    if (typeof isGameOver !== 'undefined') isGameOver = true;
+    if (typeof updateHealthDisplay === 'function') updateHealthDisplay();
+    if (typeof START_BGM_AUDIO !== 'undefined' && typeof playBGM === 'function') {
+        playBGM(START_BGM_AUDIO);}}
+window.onload = iniciarPreload;
     </script>
 </body>
 </html>

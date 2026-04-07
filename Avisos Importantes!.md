@@ -345,5 +345,11 @@ pobs: Eu estou muito feliz.
 7) FOi mudado alguns pontos do README.
 ND: Esse é um dos maiores updates que eu já fiz a muito tempo, mas eu finalmente consegui! Agora a seção de feedbacks está oficialmente funcionando, mas eu ainda preciso testar tudo. Mesmo assim, eu estou muito perto de lançar a versão 2.0 oficialmente! Meu plano é fazer um suporte SASS melhor, além de implementar um sistema de ranking no PTWE e no jogo da velha (talvez até um sistema que você tenha que jogar um modo de jogo para poder liberar outro modo de jogo).
 
+2.0_beta5.1: Site do Lucas V2.0 - BETA 5.1: Update GAMER 13 + UD 19.
+1) Na página de comentários, foi adicionado uma imagem de background.
+2) Foi implementado um sistema de ranks e desbloqueamento de modos no PTWE, que depende do usuário.
+3) Foi implementado um sistema de desbloqueamento de modos, que varia dependendo do usuário.
+4) O autoloader do PTWE foi melhorado.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 19. / ND: 8. / Atualização GAMER: 12. / UD: 18. / URM: 12.
+Informações: UQV: 19. / ND: 8. / Atualização GAMER: 13. / UD: 19. / URM: 12.
