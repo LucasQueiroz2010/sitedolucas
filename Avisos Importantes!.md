@@ -354,5 +354,17 @@ ND: Esse é um dos maiores updates que eu já fiz a muito tempo, mas eu finalmen
 2.0_beta5.1.1: Site do Lucas V2.0 - BETA 5.1.1: UD 20.
 1) Foi adicionado um Easter Egg.
 
+2.0_beta6: Site do Lucas V2.0 - BETA 6: Update GAMER 14 + ND 9 + UQV 20.
+1) Foi adicionado um novo sistema de desbloqueio (isso é um WIP).
+2) O sistema de autoload foi completamente refeito.
+3) Foi adicionado uma nova forma de selecionar e jogar os modos do jogo do PTWE
+4) Foi adicionado uma nova forma de salvar suas informações (isso é um WIP).
+5) Foi adicionado a opção de mudar seu nome e foto de perfil no PTWE (isso é um WIP).
+6) Foi adicionad um botão para fazer a edição do seu nome de usuário e foto de perfil.
+7) Foi adicionado um botão que exclui seus dados.
+8) Foi mudado a organização de arquivos, tanto do PTWE quanto do site em geral.
+9) Um monte de micro-updates (sendo alguns desses micro-updates: mudanças de código, melhor organização nos códigos, etc.) foram feitos.
+ND: Os modos de jogo ainda não estão implementados, pois eles estão extremamente bugados devido as alterações feitas no site, ou seja, eu vou ter que refaze-los do zero.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Informações: UQV: 19. / ND: 8. / Atualização GAMER: 13. / UD: 20. / URM: 12.
+Informações: UQV: 20. / ND: 9. / Atualização GAMER: 14. / UD: 20. / URM: 12.

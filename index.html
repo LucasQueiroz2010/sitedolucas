@@ -2,9 +2,10 @@
 	<html lang="pt-br">
 	<head>
 		<title>Site Principal</title>
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="estilo.css">
 		<link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -12,46 +13,46 @@
 		<link rel="apple-touch-icon" href="imagens/favicons/favicon_principal_apple_touch.png">
 
 	</head>
-	<body onscroll="console.log('Scrollamento detectado!')" class="t20px centralizar menu style_index">
-<div id="perfil-widget" class="borda-texto" style="position: fixed; top: 10px; right: 20px; display: none; cursor: pointer; z-index: 1001; padding: 5px 15px; background-color: rgba(0,0,0,0.8);">
-    <span id="nome-usuario-logado" style="color: white; font-family: Index; font-size: 20px; margin-right: 10px; vertical-align: middle;"></span>
-    <img id="foto-usuario-logado" src="imagens/usuario_padrao.png" alt="Perfil" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; vertical-align: middle; object-fit: cover;">
+	<body onscroll="console.log('Scrollamento detectado!')" class="t20px centralizar menu style_index class="aniversario"">
+<div class="menu_index borda-texto" id="perfil-widget" class="borda-texto">
+    <span class="nome_usuario" id="nome-usuario-logado"></span>
+    <img class="img_usuario" id="foto-usuario-logado" src="imagens/usuario_padrao.png" alt="Perfil">	
 </div>
 
 		<ul class="sticky-top">
-			<li><a href="contato.html" class="line menu1">Contatos!ﾠ</a></li>
-			<li><a href="Site do Lucas.html" class="line menu2">Meu site!ﾠ</a></li>
-			<li><a href="foto.html" class="line menu3">Veja o designer!ﾠ</a></li>
+			<li><a href="contato.html" class="line menu1" id="aniversario">Contatos!ﾠ</a></li>
+			<li><a href="Site do Lucas.html" class="line menu2" id="aniversario">Meu site!ﾠ</a></li>
+			<li><a href="foto.html" class="line menu3" id="aniversario">Veja o designer!ﾠ</a></li>
 		</ul><br>
-		<h2 class="Borda line branco backgroundblack" style="border: 5px solid gray; border-radius: 5px;">Página principal</h2>
+		<h2 id="aniversario" class="Borda line branco backgroundblack">Página principal</h2>
 		<br>
 		<div class="borda-texto">
 		<p class="text-secondary" id="saudações"></p>
 		<p class="text-secondary" id="Idade"></p>
-		<div class="Versão_do_Site">V2.0_Beta5.1.1</div>	
+		<div id="aniversario" class="Versão_do_Site">V2.0_Beta6</div>	
 		<p class="text-secondary" id="saudações2"></p>
 		</div>
 		<br>
 		<br>
 		<br>
-		<h2 id="sombraP">Sua opinião sempre importa!</h2>
-		<p class="text-primary">Feedbacks sempre são bem vindos!</p>
+		<h2 class="Borda line branco backgroundblack borda-texto" id="aniversario">Sua opinião sempre importa!</h2><br>
+		<p class="text-primary Borda line branco backgroundblack" id="aniversario">Feedbacks sempre são bem vindos!</p><br>
 
-<fieldset class="Borda line branco backgroundblack borda_comentarios">
-    <legend class="Borda line branco backgroundblack" style="border: 5px solid gray; border-radius: 5px;">Feedback</legend>
-    <h2 class="text-info">O que você achou do site?</h2>
+<fieldset class="Borda line branco backgroundblack borda-texto"">
+    <h1 class="Borda line branco backgroundblack" style="border: 5px solid gray; border-radius: 5px;" id="aniversario">Feedback</h1>
+    <h2 class="text-info" id="aniversario">O que você achou do site?</h2>
     <div class="form-group">
 <br>
     </div>
     <div class="form-group" style="margin-top: 15px;">
-		<h4 class="text-info" style="font-family: Index;">Comentários/Feedbacks</h4>
-        <textarea 	class="texto_comentario" style="font-family: Index;" id="texto-comentario" placeholder="Insira seu comentário!"></textarea>
+		<h4 class="text-info" style="font-family: Index;" id="aniversario">Comentários/Feedbacks</h4>
+        <textarea class="texto_comentario" style="font-family: Index;" id="texto-comentario" placeholder="Insira seu comentário!"></textarea>
     </div>
-        <label class="text-success" style="font-family: Index;" id="range">Satisfação de 0-10</label><br>
+        <label class="text-success" style="font-family: Index;" id="aniversario">Satisfação de 0-10</label><br>
         
         <div class="range-wrap">
             <input style="cursor: move;" class="text-info custom-range" type="range" min="0" max="10" value="5" id="myRange">
-            <span class="range-value" id="rangeValue">5</span>
+            <span class="range-value" id="rangeValue"></span>
         </div>	
 	<input style="cursor: help;" class="submit BIGSHOT btn btn-lg" type="submit" value="Enviar" id="transicaolink">
 </fieldset>
