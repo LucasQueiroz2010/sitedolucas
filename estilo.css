@@ -125,7 +125,7 @@
   background: black;
 }
 .hover a:active {
-  color: #b55c2c;
+  color: #6d2802;
 }
 
 .menu ul {
@@ -714,7 +714,7 @@ footer {
 .noise {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   width: 80px;
   z-index: 100;
   cursor: help;

@@ -23,72 +23,99 @@
         }
         .caixa-login { background-color: rgba(0, 0, 0, 0.85); border: 5px solid gray; border-radius: 10px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0px 0px 15px black;}
         input, select { width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #54260d; background-color: #222; color: white; }
-        input[type="file"] { padding: 5px; background-color: #111; cursor: pointer; }
-        button { width: 100%; padding: 10px; background-color: #54260d; color: white; border: none; border-radius: 5px; cursor: pointer; font-family: 'Index'; font-size: 18px; margin-bottom: 10px;}
-        button:hover { background-color: #7a3813; }
+        .btn-login { width: 100%; padding: 10px; background-color: #54260d; color: white; border: 2px solid white; border-radius: 5px; cursor: pointer; font-size: 18px; font-family: 'Index';}
+        .btn-login:hover { background-color: #703816; }
+        .toggle-btn { margin-top: 15px; text-align: center; cursor: pointer; color: cyan; text-decoration: underline; font-size: 14px; }
+        .foto-preview { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid white; display: none; margin: 0 auto 10px; }
     </style>
 </head>
-<body class="style_login">
+<body>
+    <div class="caixa-login" id="tela-login">
+        <h2 style="text-align: center; color: gold;">Entrar</h2>
+        <input type="text" id="login-nome" placeholder="Nome de Usuário">
+        <input type="password" id="login-senha" placeholder="Senha">
+        <button class="btn-login" onclick="fazerLogin()">Acessar</button>
+        <div class="toggle-btn" id="toggle-modo">Não tem uma conta? Cadastre-se</div>
+    </div>
 
-    <div class="caixa-login centralizar">
-        <h2 id="titulo-form">Entrar</h2>
-        <form id="form-login">
-            <input type="text" id="login-usuario" placeholder="Nome de Usuário" required>
-            <input type="password" id="login-senha" placeholder="Senha" required>
-            
-            <div id="campos-registro" style="display: none;">
-                <input type="email" id="reg-email" placeholder="E-mail">
-                <input type="date" id="reg-data">
-                <select id="reg-genero">
-                    <option value="M">Masculino (M)</option>
-                    <option value="F">Feminino (F)</option>
-                    <option value="Outro">Prefiro não mencionar</option>
-                </select>
-                <label for="reg-foto" style="font-size: 14px; color: lightgray;">Foto de Perfil (Opcional):</label>
-                <input type="file" id="reg-foto" accept="image/*">
-            </div>
-
-            <button type="submit" id="btn-acao">Entrar no Site</button>
-        </form>
-        <p style="cursor: pointer; color: #17a2b8;" id="toggle-modo">Não tem conta? Cadastre-se</p>
+    <div class="caixa-login" id="tela-cadastro" style="display: none;">
+        <h2 style="text-align: center; color: lightgreen;">Cadastro</h2>
+        <div style="text-align: center;">
+            <img id="preview-img" class="foto-preview">
+            <input type="file" id="reg-foto" accept="image/*" style="font-size: 12px; margin-bottom: 10px;" onchange="mostrarPreview(this)">
+        </div>
+        <input type="text" id="reg-nome" placeholder="Nome de Usuário (Obrigatório)">
+        <input type="password" id="reg-senha" placeholder="Senha (Obrigatória)">
+        <input type="email" id="reg-email" placeholder="E-mail (Opcional)">
+        <input type="date" id="reg-data" title="Data de Nascimento (Opcional)">
+        <select id="reg-genero">
+            <option value="">Gênero (Opcional)</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+        </select>
+        <button class="btn-login" id="btn-cadastrar">Criar Conta</button>
+        <div class="toggle-btn" id="toggle-modo2">Já tem conta? Faça Login</div>
     </div>
 
     <script>
-        let modoLogin = true;
-        let usuariosDB = JSON.parse(localStorage.getItem('usuariosDB')) || [];
+        const btnToggle1 = document.getElementById('toggle-modo');
+        const btnToggle2 = document.getElementById('toggle-modo2');
+        const telaLogin = document.getElementById('tela-login');
+        const telaCadastro = document.getElementById('tela-cadastro');
 
-        if (!usuariosDB.find(u => u.nome === 'ADM')) {
-            usuariosDB.push({ nome: 'ADM', senha: 'admin1502', cargo: 'admin', banido: false, foto: 'imagens/usuario_padrao.png' });
+        btnToggle1.addEventListener('click', () => { telaLogin.style.display = 'none'; telaCadastro.style.display = 'block'; });
+        btnToggle2.addEventListener('click', () => { telaCadastro.style.display = 'none'; telaLogin.style.display = 'block'; });
+
+        function mostrarPreview(input) {
+            const preview = document.getElementById('preview-img');
+            if (input.files && input.files[0]) {
+                const leitor = new FileReader();
+                leitor.onload = function(e) { preview.src = e.target.result; preview.style.display = 'block'; };
+                leitor.readAsDataURL(input.files[0]);
+            }
+        }
+
+        const usuariosDB = JSON.parse(localStorage.getItem('usuariosDB')) || [];
+        const admExiste = usuariosDB.find(u => u.nome === 'ADM');
+        if (!admExiste) {
+            usuariosDB.push({ nome: 'ADM', senha: '123', email: '', dataNascimento: '', genero: '', foto: 'imagens/usuario_padrao.png', cargo: 'admin', banido: false });
             localStorage.setItem('usuariosDB', JSON.stringify(usuariosDB));
         }
 
-        document.getElementById('toggle-modo').addEventListener('click', () => {
-            modoLogin = !modoLogin;
-            document.getElementById('titulo-form').innerText = modoLogin ? "Entrar" : "Cadastrar";
-            document.getElementById('btn-acao').innerText = modoLogin ? "Entrar no Site" : "Criar Conta";
-            document.getElementById('campos-registro').style.display = modoLogin ? "none" : "block";
-            document.getElementById('toggle-modo').innerText = modoLogin ? "Não tem conta? Cadastre-se" : "Já tem conta? Entre aqui";
-        });
-
-        document.getElementById('form-login').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const nome = document.getElementById('login-usuario').value;
+        function fazerLogin() {
+            const nome = document.getElementById('login-nome').value.trim();
             const senha = document.getElementById('login-senha').value;
 
-            if (modoLogin) {
-                const usuarioEncontrado = usuariosDB.find(u => u.nome === nome && u.senha === senha);
-                if (usuarioEncontrado) {
-                    if (usuarioEncontrado.banido) {
-                        alert("Sua conta foi banida temporariamente.");
-                        return;
-                    }
-                    localStorage.setItem('usuarioAtual', JSON.stringify(usuarioEncontrado));
-                    window.location.href = 'index.html';
-                } else {
-                    alert("Usuário ou senha incorretos!");
+            if (nome === '' || senha === '') {
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            const db = JSON.parse(localStorage.getItem('usuariosDB')) || [];
+            const usuario = db.find(u => u.nome === nome && u.senha === senha);
+
+            if (usuario) {
+                if (usuario.banido) {
+                    alert("Sua conta foi banida pelo Administrador!");
+                    return;
                 }
+                localStorage.setItem('usuarioAtual', JSON.stringify(usuario));
+                window.location.href = 'index.html';
             } else {
-                if (usuariosDB.find(u => u.nome === nome)) {
+                alert("Usuário ou senha incorretos!");
+            }
+        }
+
+        document.getElementById('btn-cadastrar').addEventListener('click', function() {
+            const nome = document.getElementById('reg-nome').value.trim();
+            const senha = document.getElementById('reg-senha').value;
+
+            if (nome === '' || senha === '') {
+                alert("Nome e senha são obrigatórios!");
+            } else {
+                const existe = usuariosDB.find(u => u.nome === nome);
+                if (existe) {
                     alert("Este nome de usuário já existe!");
                     return;
                 }
@@ -98,7 +125,6 @@
                 const genero = document.getElementById('reg-genero').value;
                 const fotoInput = document.getElementById('reg-foto');
 
-                // Lê a imagem do computador e transforma em Base64
                 if (fotoInput.files.length > 0) {
                     const leitor = new FileReader();
                     leitor.onload = function(evento) {

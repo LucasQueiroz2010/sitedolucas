@@ -18,6 +18,11 @@
             padding-top: 50px; 
             margin: 0;
         }
+        .caixa_usuario { background-color: rgba(0, 0, 0, 0.85); padding: 30px; border-radius: 10px; border: 5px solid gray; box-shadow: 0px 0px 20px black; width: 400px; text-align: center; }
+        input, select { width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #54260d; background-color: #222; color: white; }
+        .btn-salvar { background-color: green; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; border-radius: 5px; font-family: 'Index'; font-size: 18px; margin-bottom: 10px;}
+        .btn-voltar { background-color: gray; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; border-radius: 5px; font-family: 'Index'; margin-bottom: 10px;}
+        .btn-sair { background-color: red; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; border-radius: 5px; font-family: 'Index';}
     </style>
 </head>
 <body>
@@ -29,33 +34,34 @@
         <input type="email" id="edit-email" placeholder="E-mail">
         <input type="date" id="edit-data">
         <select id="edit-genero">
-            <option value="M">Masculino (M)</option>
-            <option value="F">Feminino (F)</option>
+            <option value="">Selecione o Gênero</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
             <option value="Outro">Outro</option>
         </select>
         
-        <label for="edit-foto" style="display: block; text-align: left; margin-left: 5%; font-size: 14px; color: lightgray;">Mudar Foto:</label>
-        <input type="file" id="edit-foto" accept="image/*">
+        <label style="display:block; margin-bottom: 5px;">Mudar Foto de Perfil:</label>
+        <input type="file" id="edit-foto" accept="image/*" style="font-size: 12px; margin-bottom: 20px;">
         
-        <button onclick="processarAlteracoes()">Salvar Alterações</button>
-        <br><br>
-        <button onclick="voltar()" style="background-color: gray;">Voltar ao Site</button>
-        <button onclick="sair()" style="background-color: darkred;">Sair da Conta</button>
+        <button class="btn-salvar" onclick="processarEdicao()">Salvar Alterações</button>
+        <button class="btn-voltar" onclick="voltar()">Voltar ao Site</button>
+        <button class="btn-sair" onclick="sair()">Sair da Conta</button>
     </div>
 
     <script>
         const usuarioLogado = JSON.parse(localStorage.getItem('usuarioAtual'));
-        if (!usuarioLogado || usuarioLogado.cargo === 'admin') window.location.href = 'index.html';
+        if (!usuarioLogado) {
+            window.location.href = 'login.html';
+        } else {
+            document.getElementById('edit-nome').value = usuarioLogado.nome;
+            document.getElementById('edit-email').value = usuarioLogado.email || '';
+            document.getElementById('edit-data').value = usuarioLogado.dataNascimento || '';
+            document.getElementById('edit-genero').value = usuarioLogado.genero || '';
+            document.getElementById('preview-foto').src = usuarioLogado.foto || 'imagens/usuario_padrao.png';
+        }
 
-        document.getElementById('edit-nome').value = usuarioLogado.nome;
-        document.getElementById('edit-email').value = usuarioLogado.email || '';
-        document.getElementById('edit-data').value = usuarioLogado.dataNascimento || '';
-        document.getElementById('edit-genero').value = usuarioLogado.genero || 'M';
-        document.getElementById('preview-foto').src = usuarioLogado.foto || 'imagens/usuario_padrao.png';
-
-        function processarAlteracoes() {
+        function processarEdicao() {
             const fotoInput = document.getElementById('edit-foto');
-            
             if (fotoInput.files.length > 0) {
                 const leitor = new FileReader();
                 leitor.onload = function(evento) {
@@ -63,7 +69,7 @@
                 };
                 leitor.readAsDataURL(fotoInput.files[0]);
             } else {
-                salvarDados(usuarioLogado.foto); // Mantém a foto antiga se não enviar uma nova
+                salvarDados(usuarioLogado.foto); 
             }
         }
 

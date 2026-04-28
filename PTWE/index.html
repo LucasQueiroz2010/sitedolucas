@@ -9,67 +9,89 @@
 <body>
 
     <div id="perfil-ptwe" onclick="abrirEstatisticas()">
-        <img id="foto-perfil-ptwe" src="imagens_jogo/profile_pictures/generic.png" alt="Perfil">
-        <span id="nome-perfil-ptwe">Player</span>
+        <img id="foto-perfil-ptwe" src="imagens/usuario_padrao.png" alt="Perfil">
+        <span id="nome-perfil-ptwe">Jogador</span>
     </div>
 
     <div id="stats-screen" style="display: none;">
         <h2>ESTATÍSTICAS DO JOGADOR</h2>
         <div id="stats-content" class="stats-box"></div>
         <div class="botoes-container">
-            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="abrirEdicaoPerfil()">EDITAR PERFIL</button>
+            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="abrirEdicaoPerfil()">EDIT PROFILE</button>
             <button class="btn-start" style="font-size: 25px; padding: 10px 20px; background: #ff3333; border-color: #aa0000; color: white; text-shadow: 2px 2px 0px black; box-shadow: 0px 8px 0px #880000;" onclick="apagarDados()">ERASE DATA</button>
-            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="fecharEstatisticas()">VOLTAR</button>
+            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="localStorage.removeItem('usuarioAtual'); window.location.href='../login.html'">LOGOUT</button>
+            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="fecharEstatisticas()">BACK</button>
         </div>
     </div>
 
     <div id="edit-profile-screen" style="display: none;">
-        <h2>EDITAR PERFIL</h2>
-        <div class="stats-box" style="display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: flex-start;">
-            <label for="input-novo-nome" style="color: #48a0f8; font-size: 20px;">NOME DE USUÁRIO:</label>
-            <input type="text" id="input-novo-nome" style="font-size: 20px; padding: 10px; width: 90%; background: #111; color: white; border: 2px solid #54260d; border-radius: 5px;">
-            
-            <label style="color: #48a0f8; font-size: 20px; margin-top: 15px;">ESCOLHA SEU AVATAR:</label>
-            <div id="grid-avatares"></div>
+        <h2>EDIT PROFILE</h2>
+        <div class="stats-box" style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <input type="text" id="input-novo-nome" placeholder="Seu nome">
+            <div id="grid-avatares" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; max-height: 200px; overflow-y: auto; padding: 10px;"></div>
         </div>
         <div class="botoes-container">
-            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="salvarEdicaoPerfil()">SALVAR</button>
-            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="fecharEdicaoPerfil()">CANCELAR</button>
+            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="salvarEdicaoPerfil()">SAVE</button>
+            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="fecharEdicaoPerfil()">CANCEL</button>
         </div>
     </div>
 
     <div id="game-container">
-        <div id="hud">
+        <div id="hud" style="display: none;">
             <div id="scoreDisplay">SCORE: 0</div>
             <div id="timerDisplay">TIME: 60</div>
             <div id="healthDisplay">HP: 6</div>
         </div>
 
         <div id="game-area">
-            <div id="loading-screen">
+            <div id="loading-screen" style="display: none;">
                 <h1>Loading...</h1>
                 <div class="loader-bar-container">
                     <div id="barra-loading"></div>
                 </div>
             </div>
 
-            <div id="start-screen">
+            <div id="start-screen" style="display: none;">
                 <button class="btn-start" onclick="irParaModos()">START GAME</button>
             </div>
 
-            <div id="mode-screen">
+            <div id="mode-screen" style="display: none;">
                 <div class="modos-container">
-                    <button class="btn-modo" id="btn-noise" onclick="selecionarModo('noise')">NOISE MODE</button>
-                    <button class="btn-modo" id="btn-doise" onclick="selecionarModo('doise')" disabled>DOISE OVERLAY</button>
-                    <button class="btn-modo" id="btn-faker" onclick="selecionarModo('faker')" disabled>FAKER ATTACK</button>
+                    <button class="btn-modo btn-noise" id="btn-noise" onclick="selecionarModo('noise')">NOISE MODE</button>
+                    <button class="btn-modo btn-doise" id="btn-doise" onclick="selecionarModo('doise')" disabled>DOISE OVERLAY</button>
+                    <button class="btn-modo btn-faker" id="btn-faker" onclick="selecionarModo('faker')" disabled>FAKER ATTACK</button>
                 </div>
                 <button id="btn-start-battle" onclick="clicarStartBattle()">START BATTLE!</button>
             </div>
 
-            <div id="player" style="position: absolute; width: 50px; height: 50px; display: none;"></div>
-            <div id="noise" style="position: absolute; width: 50px; height: 50px; display: none;"></div>
+            <div id="pause-screen" style="display: none;">
+                <h2>PAUSED</h2>
+                <div class="botoes-container-pause">
+                    <button class="btn-start" onclick="alternarPause()">Back to Battle!</button>
+                    <button class="btn-start" onclick="abrirTrocaModoPause()">Change modes</button>
+                    <button class="btn-start" onclick="reiniciarPartida()">Restart</button>
+                    <button class="btn-start" onclick="voltarParaTitulo()">Go back to Title Screen</button>
+                </div>
+            </div>
+
+            <div id="change-mode-pause-screen" style="display: none;">
+                <h2>SELECT MODE</h2>
+                <div id="lista-modos-pause" class="modos-container"></div>
+                <button class="btn-start" style="margin-top: 20px;" onclick="fecharTrocaModoPause()">Go back</button>
+            </div>
+
+            <div id="plataforma1" class="plataforma-fisica" style="display: none;"></div>
+            <div id="plataforma2" class="plataforma-fisica" style="display: none;"></div>
+            
+            <div id="player" style="display: none;">
+                <div id="taunt-effect"></div>
+            </div>
+            
+            <div id="noise" style="display: none;"></div>
         </div>
     </div>
+
+    <audio id="musica-batalha" src="soundtrack_jogo/Stuff/batalha.mp3" loop></audio>
 
     <script src="script_geral.js"></script>
 </body>

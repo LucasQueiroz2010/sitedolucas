@@ -26,21 +26,20 @@
         th, td { border: 1px solid gray; padding: 10px; text-align: left; }
         th { background-color: #54260d; }
         button { cursor: pointer; padding: 5px 10px; font-family: 'Index';}
-        .btn-banir { background-color: red; color: white; border: none; }
-        .btn-desbanir { background-color: green; color: white; border: none; }
+        .btn-banir { background-color: red; color: white; border: none; border-radius: 3px;}
+        .btn-desbanir { background-color: green; color: white; border: none; border-radius: 3px;}
+        .btn-voltar { background-color: gray; color: white; padding: 10px; margin-top: 20px; border: none; cursor: pointer; font-family: 'Index';}
     </style>
 </head>
 <body>
     <div class="painel-container">
-        <h1>Painel de Controle - ADM</h1>
-        <button onclick="window.location.href='index.html'" style="padding: 10px; background: white; color: black; border: none; border-radius: 5px;">Voltar ao Site</button>
-        <button onclick="window.location.href='comentarios.html'" style="padding: 10px; background: #17a2b8; color: white; border: none; border-radius: 5px; margin-left: 10px;">Ver Feedbacks/Comentários</button>
-        <button onclick="sair()" style="padding: 10px; background: darkred; color: white; border: none; border-radius: 5px;">Sair da Conta</button>
+        <h1 style="color: gold;">PAINEL DO ADMINISTRADOR</h1>
+        <h2>Gerenciamento de Usuários</h2>
 
         <table>
             <thead>
                 <tr>
-                    <th>Usuário</th>
+                    <th>Nome de Usuário</th>
                     <th>E-mail</th>
                     <th>Cargo</th>
                     <th>Status</th>
@@ -48,13 +47,16 @@
                 </tr>
             </thead>
             <tbody id="tabela-usuarios">
-                </tbody>
+            </tbody>
         </table>
+
+        <button class="btn-voltar" onclick="window.location.href='index.html'">Voltar ao Site</button>
+        <button class="btn-voltar" style="background-color: red;" onclick="sair()">Sair da Conta</button>
     </div>
 
     <script>
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioAtual'));
-        if (!usuarioLogado || usuarioLogado.cargo !== 'admin') {
+        const user = JSON.parse(localStorage.getItem('usuarioAtual'));
+        if (!user || user.cargo !== 'admin') {
             window.location.href = 'index.html';
         }
 
