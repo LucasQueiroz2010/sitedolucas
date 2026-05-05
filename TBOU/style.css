@@ -1,0 +1,255 @@
+:root {
+    --bg-color: #1a1a1a;
+    --panel-bg: #2b2b2b;
+    --text-color: #e0e0e0;
+    --border-color: #4a4a4a;
+    --accent-color: #b33939;
+    --completed-opacity: 0.4;
+}
+
+body.tainted-mode {
+    --bg-color: #050000;
+    --panel-bg: #1a0505;
+    --border-color: #4a1515;
+    --accent-color: #8b0000;
+    --text-color: #c4c4c4;
+    --completed-opacity: 0.2;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    font-size: 12px;
+    line-height: 1.5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+    text-align: center;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 0px #000;
+    transition: color 0.3s;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+    position: relative;
+}
+
+select {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--panel-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.secret-btn {
+    font-family: 'Press Start 2P', cursive;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px dashed var(--border-color);
+    padding: 5px 10px;
+    font-size: 8px;
+    cursor: pointer;
+    opacity: 0.05;
+    transition: opacity 0.3s;
+    position: absolute;
+    right: 0;
+}
+
+.secret-btn:hover {
+    opacity: 0.4;
+}
+
+.character-info-panel {
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+}
+
+.char-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1 1 250px;
+}
+
+.char-image-container {
+    min-width: 64px;
+    height: 64px;
+    background-color: #111;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px;
+    flex-shrink: 0; 
+}
+
+.char-img {
+    height: 48px; 
+    width: auto;
+    image-rendering: pixelated;
+    object-fit: contain;
+}
+
+.char-details h2 {
+    margin: 0 0 5px 0;
+    color: var(--accent-color);
+}
+
+.char-details p {
+    margin: 0;
+    font-size: 9px;
+    color: #aaa;
+}
+
+.char-stats {
+    flex: 1 1 150px;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.char-starting-items {
+    flex: 1 1 250px;
+}
+
+.char-starting-items h3 {
+    margin-top: 0;
+    font-size: 10px;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Coloca os itens em uma lista vertical */
+    gap: 8px;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: row; /* Coloca a imagem exatamente ao lado do texto */
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.item-img {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.item-name-tag {
+    font-size: 10px;
+    color: var(--text-color);
+}
+
+.item-locked {
+    filter: grayscale(1) opacity(0.3);
+}
+
+.item-unlock-condition {
+    font-size: 8px;
+    color: #e74c3c;
+    text-decoration: none !important;
+}
+
+.unlock-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.unlock-card {
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+}
+
+.unlock-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.unlock-card.completed {
+    opacity: var(--completed-opacity);
+    text-decoration: line-through;
+    border-color: #111;
+    box-shadow: none;
+}
+
+.boss-img {
+    width: 64px;
+    height: 64px;
+    margin: 10px 0;
+    image-rendering: pixelated;
+    object-fit: contain;
+    display: none;
+}
+
+.boss-name {
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    font-size: 10px;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.difficulty {
+    font-size: 9px;
+    color: #f1c40f;
+}
+
+.hard-mode { 
+    color: #e74c3c; 
+}
+
+#progress-container {
+    text-align: center;
+    margin-bottom: 20px;
+}

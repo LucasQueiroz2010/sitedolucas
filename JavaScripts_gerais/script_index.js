@@ -164,10 +164,10 @@ function mudarestrela2(elemento) {
 var imagemOriginal3 = true;
 function mudarestrela3(elemento) {
     if (imagemOriginal3) {
-        elemento.style.backgroundImage = "url('imagens/velha.png')";
+        elemento.style.backgroundImage = "url('imagens/lost.png')";
         imagemOriginal3 = false;
     } else {
-        window.location.href = "jogodavelha.html";}}
+        window.location.href = "TBOU/index.html";}}
 
 const range = document.getElementById('myRange');
 const rangeV = document.getElementById('rangeValue');

@@ -1,5 +1,5 @@
 Dicionário do Lucas:
-WIP = 'Work In Progress, ou seja, trabalho em progresso. Algo quenão está 100% pronto e pode sofrer atualizações.'
+WIP = 'Work In Progress', ou seja, trabalho em progresso. Algo quenão está 100% pronto e pode sofrer atualizações.
 UD = 'Update 'desnecessário', ou seja, um update que aconteceu somente porque eu esqueci de adicionar/atualizar um ponto pequeno/específico e/ou porque eu atualizai algo sem testar e/ou porque eu sem querer atualizai o site com coisas inconpletas.'
 URM = 'Update README, ou seja, um update que apensa mudou o README.'
 UQV = 'Update de Qualidade de vida, ou seja, um update que aconteceu somente porque eu quis adicionar/atualizar um ponto pequeno/específico do site para deixa-lo um pouco melhor.'
@@ -11,6 +11,8 @@ JVDC = 'Jogo da velha desnecessáriamente complicado.'
 JVG = 'Jogo da velha genérico.'
 JS = 'Javascript.'
 SPE: 'Site procurador de endereços.'
+TBOI: 'The Binding of Isaac'.
+TBOU: 'The Binding of Unlocks'.
 
 Atualizações abaixo:
 
@@ -374,6 +376,10 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 
 2.0_beta7.1: Site do Lucas V2.0 - 7.1: URM 13.
 
+2.0_beta8: Site do Lucas V2.0 - BETA 8: Atualização GAMER 16 + TBOU 1
+1) Foi adicionado um site para ajudar os jogadores de TBOI a deixarem as suas idéias organizadas sobre os desbloqueios de itens por personagem.
+2) O site é organizado entre personagens e desbloqueios por personagens.
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 20. / ND: 9. / Atualização GAMER: 15. / UD: 20. / URM: 13.
+UQV: 20. / ND: 9. / Atualização GAMER: 16. / UD: 20. / URM: 13. / TBOU: 1

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Binding of Unlocks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-title">The Binding of Unlocks</h1>
+        
+        <div class="controls">
+            <select id="character-select"></select>
+            <button id="swap-btn" class="secret-btn" title="Secret Swap">Swap</button>
+        </div>
+
+        <div class="character-info-panel" id="char-info">
+            <div class="char-header">
+                <div class="char-image-container" id="char-image-container">
+                </div>
+                <div class="char-details">
+                    <h2 id="char-name"></h2>
+                    <p id="char-desc"></p>
+                </div>
+            </div>
+            <div class="char-stats" id="char-stats"></div>
+            <div class="char-starting-items">
+                <h3>Starting Items</h3>
+                <ul class="item-list" id="starting-items-list"></ul>
+            </div>
+        </div>
+
+        <div id="progress-container">
+            Progress: <span id="progress-text">0/0</span>
+        </div>
+
+        <div class="unlock-grid" id="unlock-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
