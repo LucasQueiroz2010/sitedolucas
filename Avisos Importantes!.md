@@ -366,16 +366,14 @@ ND: Esse é um dos maiores updates que eu já fiz a muito tempo, mas eu finalmen
 9) Um monte de micro-updates (sendo alguns desses micro-updates: mudanças de código, melhor organização nos códigos, etc.) foram feitos.
 ND: Os modos de jogo ainda não estão implementados, pois eles estão extremamente bugados devido as alterações feitas no site, ou seja, eu vou ter que refaze-los do zero.
 
-2.0: Site do Lucas V2.0 - BETA 7: Atualização GAMER 15
+2.0_beta7: Site do Lucas V2.0 - BETA 7: Atualização GAMER 15
 1) O 'Noise Mode' foi re-implementado.
 2) Algumas novas mecanicas foram adicionadas, como um ataque de skate do Noise.
 3) Alguns backgrounds foram mudados, como por exemplo a tela de carregamento, a tela de início e a tela de seleção de modos.
 4) O 'Noise Mode' ainda está cheio de bugs, por isso ele ainda está em beta.
 
-_____________________________________________________________________________
+2.0_beta7.1: Site do Lucas V2.0 - 7.1: URM 13.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 20. 
-ND: 9. 
-Atualização GAMER: 15. 
-UD: 20. 
-URM: 12.
+UQV: 20. / ND: 9. / Atualização GAMER: 15. / UD: 20. / URM: 13.
