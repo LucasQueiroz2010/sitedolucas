@@ -69,6 +69,13 @@ body {
     color: white;
 }
 
+#stats-screen h2 {
+    font-size: 56px;
+    color: #fff0a6;
+    text-shadow: 4px 4px 0 #000, 0 0 14px #ff7a00;
+    margin-bottom: 4px;
+}
+
 #pause-screen, #change-mode-pause-screen {
     position: absolute;
     top: 0; 
@@ -85,13 +92,111 @@ body {
 }
 
 .stats-box {
-    background: #222;
+    background: rgba(20, 20, 20, 0.96);
     border: 4px solid #d08416;
-    padding: 20px;
-    width: 400px;
-    border-radius: 10px;
+    padding: 22px;
+    width: 680px;
+    max-width: 88vw;
+    border-radius: 8px;
     margin: 20px 0;
+    text-align: left;
+    box-shadow: 0 0 0 4px #1b0c00, 0 12px 0 rgba(0, 0, 0, 0.45);
+}
+
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.stats-panel {
+    background: #2b241f;
+    border: 3px solid #fff1b0;
+    border-radius: 8px;
+    padding: 12px;
     text-align: center;
+}
+
+.stats-label {
+    color: #ffd36b;
+    font-size: 18px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.stats-number {
+    display: block;
+    margin-top: 4px;
+    color: white;
+    font-size: 34px;
+    text-shadow: 3px 3px 0 #000;
+}
+
+.stats-section-title {
+    margin: 14px 0 8px;
+    color: #fff0a6;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 3px 3px 0 #000;
+}
+
+.stats-mode-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stats-mode {
+    min-height: 92px;
+    background: #1a1a1a;
+    border: 3px solid #5f4c38;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+}
+
+.stats-mode h3 {
+    color: white;
+    font-size: 21px;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.stats-mode p {
+    color: #ffd36b;
+    font-size: 18px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.rank-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+}
+
+.rank-stat {
+    background: #111;
+    border: 3px solid #d08416;
+    border-radius: 8px;
+    padding: 8px 6px;
+    text-align: center;
+}
+
+.rank-stat img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.rank-stat span {
+    display: block;
+    color: white;
+    font-size: 26px;
+    line-height: 1;
+    text-shadow: 2px 2px 0 #000;
 }
 
 .botoes-container { 
@@ -99,11 +204,52 @@ body {
     gap: 15px; 
 }
 
+#stats-screen .botoes-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 720px;
+}
+
 .botoes-container-pause { 
     display: flex; 
     flex-direction: column; 
-    gap: 10px; 
-    width: 400px; 
+    gap: 14px; 
+    width: 420px; 
+    max-width: 86%;
+}
+
+#pause-screen h2, #change-mode-pause-screen h2 {
+    font-size: 64px;
+    margin-bottom: 28px;
+    color: #fff4b8;
+    text-shadow: 4px 4px 0 #000, 0 0 16px #ff5c1a;
+}
+
+#pause-screen .btn-start,
+#change-mode-pause-screen .btn-start {
+    width: 100%;
+    min-height: 62px;
+    padding: 12px 24px;
+    font-size: 28px;
+    color: #241000;
+    background: #ffd24a;
+    border: 4px solid #fff7cf;
+    border-radius: 8px;
+    text-shadow: 2px 2px 0 #fff2a0;
+    box-shadow: 0 7px 0 #9b3c00, 0 0 0 3px #2b1200;
+    transition: transform 0.08s, filter 0.12s, box-shadow 0.08s;
+}
+
+#pause-screen .btn-start:hover,
+#change-mode-pause-screen .btn-start:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
+
+#pause-screen .btn-start:active,
+#change-mode-pause-screen .btn-start:active {
+    transform: translateY(5px);
+    box-shadow: 0 2px 0 #9b3c00, 0 0 0 3px #2b1200;
 }
 
 #game-container { 
@@ -152,6 +298,16 @@ body {
     z-index: 200;
 }
 
+#loading-screen {
+    background: url('imagens_jogo/Stuff/loading_screen.png') center / cover no-repeat;
+}
+
+#loading-screen h1 {
+    color: white;
+    font-size: 54px;
+    text-shadow: 4px 4px 0 #000;
+}
+
 #mode-screen { 
     background: url('imagens_jogo/Stuff/Mode_Screen.png'); 
     background-size: cover; 
@@ -175,6 +331,13 @@ body {
     height: 100%; 
     background: #00ff00; 
     transition: width 0.1s; 
+}
+
+.plataforma-fisica {
+    background-image: url('imagens_jogo/Stuff/platform.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .btn-start {
@@ -275,9 +438,18 @@ body {
     height: 100px;
     position: absolute; 
     z-index: 60;
+}
+
+#noise, #peppino-sprite {
     background-size: contain; 
     background-repeat: no-repeat; 
     background-position: bottom center;
+}
+
+#peppino-sprite {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 .avatar-option { 
@@ -304,6 +476,29 @@ body {
     background-size: 100% 100%; 
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1; 
+    z-index: 0; 
     display: none; 
+    pointer-events: none;
 }
+
+#healthDisplay { display: flex; gap: 4px; align-items: center; }
+.hat-icon { width: 32px; height: 32px; image-rendering: pixelated; }
+
+@keyframes iframeBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+.blinking { animation: iframeBlink 0.15s infinite; }
+
+#gustavo { width: 100px; height: 100px; position: absolute; z-index: 55;
+  background-size: contain; background-repeat: no-repeat; background-position: bottom center;
+  left: 400px;}
+
+  #topping-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; }
+.topping { width: 40px; height: 40px; position: absolute; background-size: contain; background-repeat: no-repeat; }
+
+.pepper-ativo { filter: drop-shadow(0 0 8px orange) drop-shadow(0 0 16px red); }
+
+#result-screen { position: absolute; width: 100%; height: 100%; z-index: 300;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  background: rgba(0,0,0,0.9); color: white; font-size: 48px; }
+#result-rank { text-shadow: 4px 4px 0 black; }
+#result-rank img { width: 260px; max-width: 80%; image-rendering: pixelated; }
+#result-prompt { font-size: 28px; margin-top: 30px; animation: iframeBlink 0.5s infinite; }

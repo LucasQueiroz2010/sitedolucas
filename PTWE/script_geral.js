@@ -38,7 +38,7 @@ const assetsParaCarregar = [
     'imagens_jogo/P_sprites/Peppino_idle.gif', 'imagens_jogo/P_sprites/Peppino_jump.gif',
     'imagens_jogo/P_sprites/Peppino_lose.gif', 'imagens_jogo/P_sprites/Peppino_milk.gif',
     'imagens_jogo/P_sprites/Peppino_run.gif', 'imagens_jogo/P_sprites/Peppino_stomp.gif',
-    'imagens_jogo/P_sprites/Peppino_Peppino_stun.gif', 'imagens_jogo/P_sprites/Peppino_walk.gif',
+    'imagens_jogo/P_sprites/Peppino_stun.gif', 'imagens_jogo/P_sprites/Peppino_walk.gif',
     'imagens_jogo/P_sprites/Peppino_wall.gif', 'imagens_jogo/P_sprites/Peppino_wallfall.gif',
     'imagens_jogo/P_sprites/Peppino_win.gif',
     'imagens_jogo/P_sprites/taunt1.png', 'imagens_jogo/P_sprites/taunt2.png', 'imagens_jogo/P_sprites/taunt3.png',
@@ -46,7 +46,7 @@ const assetsParaCarregar = [
     'imagens_jogo/P_sprites/taunt7.png', 'imagens_jogo/P_sprites/taunt8.png', 'imagens_jogo/P_sprites/taunt9.png',
     'imagens_jogo/P_sprites/taunt10.png',
     'imagens_jogo/N_sprites/Noise_charge.gif', 'imagens_jogo/N_sprites/Noise_D_hit.gif',
-    'imagens_jogo/N_sprites/Noise_D_win.gif', 'imagens_jogo/N_sprites/Noise_doublejump.gif',
+    'imagens_jogo/N_sprites/Noise_D_win.png', 'imagens_jogo/N_sprites/Noise_doublejump.gif',
     'imagens_jogo/N_sprites/Noise_drop.gif', 'imagens_jogo/N_sprites/Noise_fireass.gif',
     'imagens_jogo/N_sprites/Noise_happy.gif', 'imagens_jogo/N_sprites/Noise_hurt.gif',
     'imagens_jogo/N_sprites/Noise_idle_D.gif', 'imagens_jogo/N_sprites/Noise_joke.png',
@@ -55,21 +55,44 @@ const assetsParaCarregar = [
     'imagens_jogo/N_sprites/Noise_milk.gif', 'imagens_jogo/N_sprites/Noise_P_hit.gif',
     'imagens_jogo/N_sprites/Noise_P_win.gif', 'imagens_jogo/N_sprites/Noise_parry.gif',
     'imagens_jogo/N_sprites/Noise_PD.gif', 'imagens_jogo/N_sprites/Noise_PP.gif',
-    'imagens_jogo/N_sprites/Noise_scared.gif', 'imagens_jogo/N_sprites/Noise_walk.gif',
-    'imagens_jogo/N_sprites/Noise_wallhit.gif', 'imagens_jogo/N_sprites/Noise_win.gif',
+    'imagens_jogo/N_sprites/Noise_scaried.gif', 'imagens_jogo/N_sprites/Noise_walk.gif',
+    'imagens_jogo/N_sprites/Noise_wallhit.gif', 'imagens_jogo/N_sprites/Noise_warn.gif',
+    'imagens_jogo/N_sprites/Noise_win.gif',
     'imagens_jogo/N_sprites/Pepper_Pizza_Noise.gif',
     'imagens_jogo/G_sprites/Gustavo_drop.gif', 'imagens_jogo/G_sprites/Gustavo_idle.gif',
     'imagens_jogo/G_sprites/Gustavo_N_hit.gif', 'imagens_jogo/G_sprites/Gustavo_N_win.gif',
     'imagens_jogo/G_sprites/Gustavo_P_hit.gif', 'imagens_jogo/G_sprites/Gustavo_P_win.gif',
     'imagens_jogo/G_sprites/Gustavo_PN.gif', 'imagens_jogo/G_sprites/Gustavo_PP.gif',
+    'imagens_jogo/Stuff/Peppino_hat.gif', 'imagens_jogo/Stuff/Peppino_hat_damaged.png',
+    'imagens_jogo/Toppings/Cheese.gif', 'imagens_jogo/Toppings/Mushroom.gif',
+    'imagens_jogo/Toppings/Pineapple.gif', 'imagens_jogo/Toppings/Tomato.gif',
+    'imagens_jogo/Toppings/Weiner.gif', 'imagens_jogo/Toppings/Gerome.gif',
+    'imagens_jogo/Toppings/Life_hat.gif', 'imagens_jogo/Toppings/Pepper_Pizza.gif',
     'imagens_jogo/Stuff/platform.png',
-    'imagens_jogo/Stuff/backwoag.png', 'imagens_jogo/Stuff/loading_screen.png',
+    'imagens_jogo/Stuff/backwoag.png', 'imagens_jogo/Stuff/backwong.png',
+    'imagens_jogo/Stuff/dnuorgkcab.png', 'imagens_jogo/Stuff/loading_screen.png',
     'imagens_jogo/Stuff/Mode_Screen.png', 'imagens_jogo/Stuff/Title_Screen.png',
+    'imagens_jogo/Ranks/P-Rank.png', 'imagens_jogo/Ranks/S-Rank.png',
+    'imagens_jogo/Ranks/A-Rank.png', 'imagens_jogo/Ranks/B-Rank.png',
+    'imagens_jogo/Ranks/C-Rank.png', 'imagens_jogo/Ranks/D-Rank.png',
+    'imagens_jogo/Ranks/DEAD-Rank.png',
     'soundtrack_jogo/Peppino/Peppino_grab.wav', 'soundtrack_jogo/Peppino/Peppino_hurt.wav',
     'soundtrack_jogo/Peppino/Peppino_jump.wav', 'soundtrack_jogo/Peppino/Peppino_run.wav',
-    'soundtrack_jogo/Peppino/Peppino_step.wav', 'soundtrack_jogo/Stuff/Noise_music.mp3',
-    'soundtrack_jogo/Stuff/Parry.wav', 'soundtrack_jogo/Stuff/Start_music.mp3',
+    'soundtrack_jogo/Peppino/Peppino_step.wav', 'soundtrack_jogo/Stuff/Noise_Music.mp3',
+    'soundtrack_jogo/Stuff/Doise_Music.mp3', 'soundtrack_jogo/Stuff/Faker_Music.mp3',
+    'soundtrack_jogo/Stuff/Parry.wav', 'soundtrack_jogo/Stuff/Start_Music.mp3',
     'soundtrack_jogo/Stuff/Taunt.wav', 'soundtrack_jogo/Stuff/Pause_music.mp3',
+    'soundtrack_jogo/Gustavo/Gustavo_drop.mp3', 'soundtrack_jogo/Noise/Noise_jump.wav',
+    'soundtrack_jogo/Noise/Noise_double_jump.wav', 'soundtrack_jogo/Noise/Noise_hurt.wav',
+    'soundtrack_jogo/Noise/Noise_mach1.wav', 'soundtrack_jogo/Noise/Noise_mach2.wav',
+    'soundtrack_jogo/Noise/Noise_wallhit.wav', 'soundtrack_jogo/Noise/woag.wav',
+    'soundtrack_jogo/Peppino/Peppino_scream.wav',
+    'soundtrack_jogo/Stuff/Topping_collect.wav', 'soundtrack_jogo/Stuff/Gerome_spawn.wav',
+    'soundtrack_jogo/Stuff/Gerome_collect.wav', 'soundtrack_jogo/Stuff/Pepper_spawn.wav',
+    'soundtrack_jogo/Stuff/Pepper_collect.wav', 'soundtrack_jogo/Stuff/Hat_collect.wav',
+    'soundtrack_jogo/Stuff/round_over.wav',
+    'soundtrack_jogo/Peppino/Pepper_Pizza_Peppino.mp3',
+    'soundtrack_jogo/Noise/Pepper_Pizza_Noise.mp3',
     'imagens_jogo/Stuff/taunt_effect.png'
 ];
 
@@ -79,12 +102,40 @@ let jogoRodando = false;
 let jogoPausado = false;
 let gameLoopId;
 
-const musicaPrincipal = new Audio('soundtrack_jogo/Stuff/Start_music.mp3'); 
+const musicaPrincipal = new Audio('soundtrack_jogo/Stuff/Start_Music.mp3'); 
 musicaPrincipal.loop = true;
 const musicaBatalha = new Audio(); 
 musicaBatalha.loop = true;
 const musicaPause = new Audio('soundtrack_jogo/Stuff/Pause_music.mp3');
 musicaPause.loop = true;
+
+const MUSICAS_MODO = {
+    noise: 'soundtrack_jogo/Stuff/Noise_Music.mp3',
+    doise: 'soundtrack_jogo/Stuff/Doise_Music.mp3',
+    faker: 'soundtrack_jogo/Stuff/Faker_Music.mp3'
+};
+
+const MUSICA_PEPPER_PEPPINO = 'soundtrack_jogo/Peppino/Pepper_Pizza_Peppino.mp3';
+const MUSICA_PEPPER_NOISE = 'soundtrack_jogo/Noise/Pepper_Pizza_Noise.mp3';
+
+function trocarMusicaBatalha(caminho) {
+    const srcAtual = decodeURIComponent(musicaBatalha.src || '');
+    if (!srcAtual.endsWith(caminho)) {
+        musicaBatalha.pause();
+        musicaBatalha.currentTime = 0;
+        musicaBatalha.src = caminho;
+        musicaBatalha.loop = true;
+    }
+    if (jogoRodando && !jogoPausado) musicaBatalha.play().catch(e => {});
+}
+
+function atualizarMusicaPepper() {
+    if (pepperMusicaDono === 'peppino' && peppino.pepperTimer > 0) trocarMusicaBatalha(MUSICA_PEPPER_PEPPINO);
+    else if (pepperMusicaDono === 'noise' && inimigo.pepperTimer > 0) trocarMusicaBatalha(MUSICA_PEPPER_NOISE);
+    else if (peppino.pepperTimer > 0) trocarMusicaBatalha(MUSICA_PEPPER_PEPPINO);
+    else if (inimigo.pepperTimer > 0) trocarMusicaBatalha(MUSICA_PEPPER_NOISE);
+    else trocarMusicaBatalha(MUSICAS_MODO[modoAtualDaPartida]);
+}
 
 const audiosAtivos = {};
 function tocarSom(caminho, loop = false, idCanais = null) {
@@ -98,21 +149,42 @@ function tocarSom(caminho, loop = false, idCanais = null) {
     return audio;
 }
 
+function pararSom(idCanais) {
+    if (!audiosAtivos[idCanais]) return;
+    audiosAtivos[idCanais].pause();
+    audiosAtivos[idCanais].currentTime = 0;
+    delete audiosAtivos[idCanais];
+}
+
 let modoSelecionadoNoMenu = 'noise';
 let modoAtualDaPartida = 'noise';
 
 const GRAVIDADE = 0.6;
-const CHAO_Y = 440; 
+const CHAO_Y = 500; 
 const LARGURA_TELA = 900;
+const FPS = 60;
+const TEMPO_ROUND_PADRAO = 60;
+const TEMPO_ROUND_POR_MODO = { noise: 60, doise: 90, faker: 60 };
+const VIDA_MAXIMA_PEPPINO = 6;
+const PEPPER_DURACAO = Math.round(7.5 * FPS);
+const STUN_NOISE_PADRAO = 3 * FPS;
+const STUN_NOISE_POS_PEPPER = 10 * FPS;
+const JOKE_NOISE_POS_HIT = Math.round(1.5 * FPS);
+const SKATE_COOLDOWN = 15 * FPS;
+const DELAY_TELA_RANK = 10 * FPS;
 
 const arenaPlataformas = [
-    { x: 200, y: 320, largura: 500, altura: 60 },
-    { x: 350, y: 180, largura: 200, altura: 40 }
+    { x: 200, y: 380, largura: 500, altura: 60 },
+    { x: 350, y: 240, largura: 200, altura: 40 }
 ];
 
 const controles = { esquerda: false, direita: false, baixo: false, shift: false, z: false, x: false, c: false, z_press: false, x_press: false, c_press: false };
 
 document.addEventListener('keydown', (e) => {
+    if (rankPronto && e.key.toLowerCase() === 'z') {
+        voltarParaTitulo();
+        return;
+    }
     if (e.key.toLowerCase() === 'p') {
         if (jogoRodando) alternarPause();
         return;
@@ -142,13 +214,33 @@ const peppino = {
     x: 0, y: 0, vx: 0, vy: 0, largura: 100, altura: 100, noChao: false,
     estado: 'idle', direcao: 1, 
     wallTimer: 0, tauntTimer: 0, tauntCooldown: 0, grabTimer: 0, hurtTimer: 0, dropTimer: 0,
-    tauntId: 1, parryId: 1
+    tauntId: 1, parryId: 1, vida: VIDA_MAXIMA_PEPPINO, invencivelTimer: 0, pepperTimer: 0
 };
 
-const inimigo = { x: 750, y: 0, vx: 0, vy: 0, largura: 100, altura: 100, noChao: false, estado: 'idle', stunTimer: 0 };
+const inimigo = {
+    x: 750, y: 0, vx: -4, vy: 0, largura: 100, altura: 100, noChao: false,
+    estado: 'walk', stunTimer: 0, direcao: -1, jumpTimer: 0, doubleJumpDisponivel: true,
+    contatoCooldown: 0, pepperTimer: 0, skateCooldown: SKATE_COOLDOWN,
+    skateTimer: 0, skateDirecao: -1, somSkateTocou: false, dropTimer: 0
+};
+const gustavo = { x: 400, y: CHAO_Y - 100, estado: 'idle', timer: 0 };
+let toppings = [];
+let toppingIdSeq = 0;
+let toppingSpawnTimer = 120;
+let geromeSpawnado = false;
+let geromeSpawnTimer = 0;
+let roundFramesRestantes = TEMPO_ROUND_PADRAO * FPS;
+let score = 0;
+let roundFinalizado = false;
+let rankPronto = false;
+let rankDelayTimer = 0;
+let vencedorRound = null;
+let roundRankRegistrado = false;
 let somMovimentoAtual = 'none';
+let pepperMusicaDono = 'none';
 
 function iniciarPreloader() {
+    document.getElementById('loading-screen').style.display = 'flex';
     if (assetsParaCarregar.length === 0) { finalizarCarregamento(); return; }
     assetsParaCarregar.forEach(src => {
         if (src.endsWith('.mp3') || src.endsWith('.wav')) {
@@ -224,19 +316,35 @@ function prepararArena(modo) {
 
     if (modo === 'noise') {
         gameArea.style.backgroundImage = "url('imagens_jogo/Stuff/backwoag.png')";
-        musicaBatalha.src = "soundtrack_jogo/Stuff/Noise_music.mp3";
     } else if (modo === 'doise') {
         gameArea.style.backgroundImage = "url('imagens_jogo/Stuff/backwong.png')";
-        musicaBatalha.src = "soundtrack_jogo/Stuff/Doise_Music.mp3";
     } else if (modo === 'faker') {
         gameArea.style.backgroundImage = "url('imagens_jogo/Stuff/dnuorgkcab.png')";
-        musicaBatalha.src = "soundtrack_jogo/Stuff/Faker_Music.mp3";
     }
 
-    musicaBatalha.play().catch(e => {});
-
-    peppino.x = 50; peppino.y = CHAO_Y - peppino.altura; peppino.vy = 0; peppino.estado = 'idle';
-    inimigo.x = 750; inimigo.y = CHAO_Y - inimigo.altura; inimigo.vy = 0; inimigo.estado = 'idle';
+    peppino.x = 50; peppino.y = CHAO_Y - peppino.altura; peppino.vx = 0; peppino.vy = 0; peppino.estado = 'idle';
+    peppino.vida = VIDA_MAXIMA_PEPPINO; peppino.invencivelTimer = 0; peppino.pepperTimer = 0;
+    inimigo.x = 750; inimigo.y = CHAO_Y - inimigo.altura; inimigo.vx = -4; inimigo.vy = 0; inimigo.estado = 'walk';
+    inimigo.direcao = -1; inimigo.stunTimer = 0; inimigo.pepperTimer = 0; inimigo.contatoCooldown = 0;
+    inimigo.skateCooldown = SKATE_COOLDOWN; inimigo.skateTimer = 0; inimigo.somSkateTocou = false;
+    pararSonsSkate();
+    gustavo.x = 400; gustavo.y = CHAO_Y - 100; gustavo.estado = 'idle'; gustavo.timer = 0;
+    roundFramesRestantes = (TEMPO_ROUND_POR_MODO[modo] || TEMPO_ROUND_PADRAO) * FPS;
+    score = 0;
+    roundFinalizado = false;
+    rankPronto = false;
+    rankDelayTimer = 0;
+    vencedorRound = null;
+    roundRankRegistrado = false;
+    geromeSpawnado = false;
+    toppingSpawnTimer = 45;
+    geromeSpawnTimer = 8 * FPS;
+    pepperMusicaDono = 'none';
+    limparToppings();
+    document.getElementById('hud').style.display = 'flex';
+    document.getElementById('gustavo').style.display = 'block';
+    document.getElementById('result-screen').style.display = 'none';
+    atualizarHUD();
 
     arenaPlataformas.forEach((plat, index) => {
         let div = document.getElementById('plataforma' + (index + 1));
@@ -247,8 +355,8 @@ function prepararArena(modo) {
             div.style.width = plat.largura + 'px';
             div.style.height = plat.altura + 'px';
             div.style.backgroundImage = "url('imagens_jogo/Stuff/platform.png')";
-            div.style.backgroundSize = "100% 30px";
-            div.style.backgroundPosition = "top";
+            div.style.backgroundSize = "100% 100%";
+            div.style.backgroundPosition = "center";
             div.style.backgroundRepeat = "no-repeat";
             div.style.position = "absolute";
             div.style.zIndex = "50";
@@ -257,6 +365,8 @@ function prepararArena(modo) {
 
     jogoRodando = true;
     jogoPausado = false;
+    atualizarMusicaPepper();
+    renderizarObjetos();
     cancelAnimationFrame(gameLoopId);
     gameLoopId = requestAnimationFrame(loopDoJogo);
 }
@@ -293,8 +403,15 @@ function voltarParaTitulo() {
     document.getElementById('pause-screen').style.display = 'none';
     document.getElementById('player').style.display = 'none';
     document.getElementById('noise').style.display = 'none';
+    document.getElementById('gustavo').style.display = 'none';
     document.getElementById('plataforma1').style.display = 'none';
     document.getElementById('plataforma2').style.display = 'none';
+    document.getElementById('hud').style.display = 'none';
+    document.getElementById('result-screen').style.display = 'none';
+    limparToppings();
+    pararSonsSkate();
+    rankPronto = false;
+    rankDelayTimer = 0;
     musicaBatalha.pause();
     musicaPause.pause();
     musicaPause.currentTime = 0;
@@ -347,8 +464,21 @@ function fecharTrocaModoPause() {
 function loopDoJogo() {
     if (!jogoRodando || jogoPausado) return;
 
+    if (roundFinalizado) {
+        atualizarDelayRank();
+        renderizarObjetos();
+        gameLoopId = requestAnimationFrame(loopDoJogo);
+        return;
+    }
+
+    atualizarRound();
     atualizarPeppino();
-    atualizarInimigoStub();
+    atualizarInimigoNoise();
+    atualizarGustavo();
+    atualizarToppings();
+    checarColetas();
+    checarContatoNoisePeppino();
+    atualizarHUD();
     
     controles.z_press = false; controles.x_press = false; controles.c_press = false;
 
@@ -376,8 +506,7 @@ function atualizarPeppino() {
         let hitX = Math.abs(peppino.x - inimigo.x) < 80;
         let hitY = Math.abs(peppino.y - inimigo.y) < 80;
         if (hitX && hitY && inimigo.estado !== 'stunned') {
-            inimigo.estado = 'stunned';
-            inimigo.stunTimer = 420;
+            acertarNoise('grab');
         }
 
         animacaoTravada = true;
@@ -436,8 +565,7 @@ function atualizarPeppino() {
                 peppino.parryId = Math.floor(Math.random() * 3) + 1;
                 peppino.tauntTimer = 30;
                 tocarSom('soundtrack_jogo/Stuff/Parry.wav');
-                inimigo.estado = 'stunned';
-                inimigo.stunTimer = 420; 
+                acertarNoise('parry');
             } else { 
                 peppino.estado = 'taunt';
                 peppino.tauntId = Math.floor(Math.random() * 10) + 1;
@@ -456,6 +584,7 @@ function atualizarPeppino() {
 
     peppino.x += peppino.vx;
     peppino.y += peppino.vy;
+    atualizarDirecaoPorVelocidade(peppino);
 
     let bateuNaParede = false;
     if (peppino.x <= 0) { peppino.x = 0; bateuNaParede = true; } 
@@ -483,8 +612,7 @@ function atualizarPeppino() {
                 if (peppino.vy > 0 && hitboxInimigoX && hitboxInimigoTop && inimigo.estado !== 'stunned') {
                     peppino.estado = 'stomp';
                     peppino.vy = -10;
-                    inimigo.estado = 'stunned';
-                    inimigo.stunTimer = 180;
+                    acertarNoise('stomp');
                 } else if (peppino.estado !== 'stomp') {
                     peppino.estado = 'jump';
                 }
@@ -493,6 +621,14 @@ function atualizarPeppino() {
     }
 
     checarColisoesBasicas(peppino);
+    if (peppino.invencivelTimer > 0) peppino.invencivelTimer--;
+    if (peppino.pepperTimer > 0) {
+        peppino.pepperTimer--;
+        if (peppino.pepperTimer === 0) {
+            document.getElementById('player').classList.remove('pepper-ativo');
+            atualizarMusicaPepper();
+        }
+    }
     gerenciarAudioMovimento();
 }
 
@@ -542,23 +678,435 @@ function checarColisoesBasicas(obj) {
     }
 }
 
-function atualizarInimigoStub() {
-    inimigo.vy += GRAVIDADE;
-    inimigo.y += inimigo.vy;
-    checarColisoesBasicas(inimigo);
-    
-    if (inimigo.stunTimer > 0) {
-        inimigo.stunTimer--;
-        if (inimigo.stunTimer === 0) inimigo.estado = 'idle';
+function atualizarRound() {
+    if (roundFinalizado) return;
+    roundFramesRestantes--;
+    if (roundFramesRestantes <= 0) encerrarRound('peppino');
+}
+
+function atualizarHUD() {
+    document.getElementById('scoreDisplay').innerText = 'SCORE: ' + score;
+    document.getElementById('timerDisplay').innerText = 'TIME: ' + Math.max(0, Math.ceil(roundFramesRestantes / FPS));
+    const healthDisplay = document.getElementById('healthDisplay');
+    healthDisplay.innerHTML = '';
+    for (let i = 0; i < VIDA_MAXIMA_PEPPINO; i++) {
+        const img = document.createElement('img');
+        img.className = 'hat-icon';
+        img.src = i < peppino.vida ? 'imagens_jogo/Stuff/Peppino_hat.gif' : 'imagens_jogo/Stuff/Peppino_hat_damaged.png';
+        img.alt = i < peppino.vida ? 'Vida cheia' : 'Vida vazia';
+        healthDisplay.appendChild(img);
     }
+}
+
+function retangulosColidem(a, b) {
+    return a.x < b.x + b.largura && a.x + a.largura > b.x && a.y < b.y + b.altura && a.y + a.altura > b.y;
+}
+
+function setGustavo(estado, timer = 50) {
+    gustavo.estado = estado;
+    gustavo.timer = timer;
+}
+
+function atualizarGustavo() {
+    if (gustavo.timer > 0) {
+        gustavo.timer--;
+        if (gustavo.timer === 0) gustavo.estado = 'idle';
+    }
+}
+
+function acertarNoise(tipo) {
+    if (inimigo.estado === 'stunned') return;
+    if (inimigo.estado.startsWith('skate')) pararSonsSkate();
+    inimigo.estado = 'stunned';
+    inimigo.stunTimer = tipo === 'stomp' ? STUN_NOISE_PADRAO : STUN_NOISE_PADRAO;
+    inimigo.vx = 0;
+    inimigo.vy = 0;
+    tocarSom('soundtrack_jogo/Noise/Noise_hurt.wav');
+    setGustavo('noise-hit');
+    if (Math.random() < 0.5) {
+        spawnTopping('vida', gustavo.x + 30, CHAO_Y - 70);
+        setGustavo('drop', 55);
+        tocarSom('soundtrack_jogo/Gustavo/Gustavo_drop.mp3');
+    }
+}
+
+function pararSonsSkate() {
+    pararSom('noise-skate-mach1');
+    pararSom('noise-skate-mach2');
+    pararSom('noise-skate-wallhit');
+}
+
+function aplicarDanoPeppino(qtd = 1) {
+    if (peppino.invencivelTimer > 0 || peppino.grabTimer > 0 || peppino.pepperTimer > 0 || roundFinalizado) return false;
+    peppino.vida = Math.max(0, peppino.vida - qtd);
+    peppino.invencivelTimer = 80;
+    peppino.hurtTimer = 35;
+    peppino.estado = 'hurt';
+    peppino.vx = inimigo.x < peppino.x ? 7 : -7;
+    peppino.direcao = peppino.vx < 0 ? -1 : 1;
+    peppino.vy = -7;
+    tocarSom('soundtrack_jogo/Peppino/Peppino_hurt.wav');
+    setGustavo('peppino-hit');
+    if (peppino.vida <= 0) encerrarRound('noise');
+    return true;
+}
+
+function ativarPepper(usuario) {
+    if (usuario === peppino) {
+        pepperMusicaDono = 'peppino';
+        peppino.pepperTimer = PEPPER_DURACAO;
+        document.getElementById('player').classList.add('pepper-ativo');
+        setGustavo('pepper-peppino', 90);
+    } else {
+        if (inimigo.estado.startsWith('skate')) pararSonsSkate();
+        pepperMusicaDono = 'noise';
+        inimigo.pepperTimer = PEPPER_DURACAO;
+        inimigo.estado = 'pepper';
+        document.getElementById('noise').classList.add('pepper-ativo');
+        setGustavo('pepper-noise', 90);
+    }
+    atualizarMusicaPepper();
+}
+
+function atualizarInimigoNoise() {
+    if (inimigo.contatoCooldown > 0) inimigo.contatoCooldown--;
+    if (inimigo.skateCooldown > 0) inimigo.skateCooldown--;
+    if (inimigo.pepperTimer > 0) {
+        inimigo.pepperTimer--;
+        if (inimigo.pepperTimer === 0) {
+            document.getElementById('noise').classList.remove('pepper-ativo');
+            inimigo.estado = 'stunned';
+            inimigo.stunTimer = STUN_NOISE_POS_PEPPER;
+            inimigo.vx = 0;
+            inimigo.vy = 0;
+            atualizarMusicaPepper();
+            return;
+        }
+    }
+
+    if (inimigo.estado === 'joke') {
+        inimigo.stunTimer--;
+        inimigo.vx = 0;
+        inimigo.vy = 0;
+        if (inimigo.stunTimer <= 0) inimigo.estado = inimigo.pepperTimer > 0 ? 'pepper' : 'walk';
+        return;
+    }
+
+    if (inimigo.estado === 'stunned') {
+        inimigo.stunTimer--;
+        inimigo.vx = 0;
+        inimigo.vy = 0;
+        if (inimigo.stunTimer <= 0) inimigo.estado = 'walk';
+        return;
+    }
+
+    if (atualizarSkateboard()) return;
+
+    const pepper = toppings.find(t => t.tipo === 'pepper');
+    if (inimigo.pepperTimer > 0) {
+        perseguirAlvo(peppino.x, peppino.y, 6.5);
+        inimigo.estado = 'pepper';
+    } else if (pepper) {
+        perseguirAlvo(pepper.x, pepper.y, 6);
+        inimigo.estado = 'happy';
+    } else if (peppino.pepperTimer > 0) {
+        fugirDoPeppino();
+        inimigo.estado = 'scared';
+    } else {
+        andarLinear();
+        tentarPuloAleatorio();
+        if (inimigo.skateCooldown <= 0 && Math.random() < 0.2 / FPS) iniciarSkateboard();
+    }
+
+    inimigo.vy += GRAVIDADE;
+    inimigo.x += inimigo.vx;
+    inimigo.y += inimigo.vy;
+    limitarInimigoNaArena();
+    checarColisoesBasicas(inimigo);
+}
+
+function andarLinear() {
+    inimigo.estado = 'walk';
+    if (inimigo.vx === 0) inimigo.vx = 4 * inimigo.direcao;
+    inimigo.vx = 4 * inimigo.direcao;
+    atualizarDirecaoPorVelocidade(inimigo);
+}
+
+function perseguirAlvo(x, y, velocidade) {
+    inimigo.direcao = x < inimigo.x ? -1 : 1;
+    inimigo.vx = velocidade * inimigo.direcao;
+    if ((y + 30 < inimigo.y || Math.abs(x - inimigo.x) < 80) && inimigo.noChao) pularNoise(false);
+}
+
+function fugirDoPeppino() {
+    inimigo.direcao = peppino.x < inimigo.x ? 1 : -1;
+    inimigo.vx = 5.5 * inimigo.direcao;
+    if ((inimigo.x <= 5 || inimigo.x + inimigo.largura >= LARGURA_TELA - 5) && inimigo.noChao) pularNoise(false);
+}
+
+function tentarPuloAleatorio() {
+    if (Math.random() < 0.2 / FPS) pularNoise(!inimigo.noChao);
+}
+
+function pularNoise(duplo) {
+    if (inimigo.noChao) {
+        inimigo.vy = -13;
+        inimigo.noChao = false;
+        inimigo.doubleJumpDisponivel = true;
+        inimigo.estado = 'jump';
+        tocarSom('soundtrack_jogo/Noise/Noise_jump.wav');
+    } else if (duplo && inimigo.doubleJumpDisponivel) {
+        inimigo.vy = -11;
+        inimigo.doubleJumpDisponivel = false;
+        inimigo.estado = 'doublejump';
+        tocarSom('soundtrack_jogo/Noise/Noise_double_jump.wav');
+    }
+}
+
+function iniciarSkateboard() {
+    inimigo.estado = 'skate-corner';
+    inimigo.skateTimer = 0;
+    inimigo.skateDirecao = Math.random() < 0.5 ? 1 : -1;
+    inimigo.direcao = inimigo.skateDirecao;
+    inimigo.somSkateTocou = false;
+}
+
+function atualizarSkateboard() {
+    if (!inimigo.estado.startsWith('skate')) return false;
+    if (inimigo.estado === 'skate-corner') {
+        if (!inimigo.somSkateTocou) {
+            tocarSom('soundtrack_jogo/Noise/Noise_mach1.wav', false, 'noise-skate-mach1');
+            inimigo.somSkateTocou = true;
+        }
+        const alvoX = inimigo.skateDirecao === 1 ? 0 : LARGURA_TELA - inimigo.largura;
+        inimigo.vx = alvoX > inimigo.x ? 8 : -8;
+        atualizarDirecaoPorVelocidade(inimigo);
+        inimigo.x += inimigo.vx;
+        if (Math.abs(inimigo.x - alvoX) < 10) {
+            inimigo.x = alvoX;
+            inimigo.estado = 'skate-charge';
+            inimigo.skateTimer = 48;
+            inimigo.somSkateTocou = false;
+            inimigo.direcao = inimigo.x < LARGURA_TELA / 2 ? 1 : -1;
+            pararSom('noise-skate-mach1');
+        }
+    } else if (inimigo.estado === 'skate-charge') {
+        inimigo.vx = 0;
+        inimigo.skateTimer--;
+        if (inimigo.skateTimer <= 0) {
+            inimigo.estado = 'skate-attack';
+            inimigo.somSkateTocou = false;
+            inimigo.skateDirecao = inimigo.x < LARGURA_TELA / 2 ? 1 : -1;
+            inimigo.direcao = inimigo.skateDirecao;
+        }
+    } else if (inimigo.estado === 'skate-attack') {
+        if (!inimigo.somSkateTocou) {
+            tocarSom('soundtrack_jogo/Noise/Noise_mach2.wav', false, 'noise-skate-mach2');
+            inimigo.somSkateTocou = true;
+        }
+        inimigo.vx = 24 * inimigo.skateDirecao;
+        atualizarDirecaoPorVelocidade(inimigo);
+        inimigo.x += inimigo.vx;
+        if (inimigo.x <= 0 || inimigo.x + inimigo.largura >= LARGURA_TELA) {
+            inimigo.x = Math.max(0, Math.min(LARGURA_TELA - inimigo.largura, inimigo.x));
+            inimigo.estado = 'skate-wallhit';
+            inimigo.skateTimer = 48;
+            pararSom('noise-skate-mach2');
+            tocarSom('soundtrack_jogo/Noise/Noise_wallhit.wav', false, 'noise-skate-wallhit');
+        }
+    } else if (inimigo.estado === 'skate-wallhit') {
+        inimigo.vx = 0;
+        inimigo.skateTimer--;
+        if (inimigo.skateTimer <= 0) {
+            inimigo.estado = 'walk';
+            inimigo.skateCooldown = SKATE_COOLDOWN;
+            pararSom('noise-skate-wallhit');
+        }
+    }
+    checarColisoesBasicas(inimigo);
+    return true;
+}
+
+function limitarInimigoNaArena() {
+    if (inimigo.x <= 0) {
+        inimigo.x = 0;
+        inimigo.direcao = 1;
+        inimigo.vx = Math.abs(inimigo.vx);
+    } else if (inimigo.x + inimigo.largura >= LARGURA_TELA) {
+        inimigo.x = LARGURA_TELA - inimigo.largura;
+        inimigo.direcao = -1;
+        inimigo.vx = -Math.abs(inimigo.vx);
+    }
+}
+
+function checarContatoNoisePeppino() {
+    if (inimigo.estado === 'stunned' || inimigo.contatoCooldown > 0 || !retangulosColidem(peppino, inimigo)) return;
+    const acertouPeppino = aplicarDanoPeppino(inimigo.pepperTimer > 0 ? 2 : 1);
+    if (acertouPeppino && inimigo.pepperTimer > 0) {
+        inimigo.estado = 'joke';
+        inimigo.stunTimer = JOKE_NOISE_POS_HIT;
+        inimigo.vx = 0;
+        inimigo.vy = 0;
+    }
+    inimigo.contatoCooldown = 70;
+}
+
+function atualizarDirecaoPorVelocidade(obj) {
+    if (obj.vx < -0.1) obj.direcao = -1;
+    else if (obj.vx > 0.1) obj.direcao = 1;
+}
+
+function limparToppings() {
+    toppings = [];
+    const container = document.getElementById('topping-container');
+    if (container) container.innerHTML = '';
+}
+
+function atualizarToppings() {
+    if (!geromeSpawnado) {
+        geromeSpawnTimer--;
+        if (geromeSpawnTimer <= 0) spawnTopping('gerome');
+    }
+
+    toppingSpawnTimer--;
+    if (toppingSpawnTimer <= 0) {
+        spawnTopping(sortearTipoTopping());
+        if (Math.random() < 0.18) spawnTopping('pepper');
+        toppingSpawnTimer = 55 + Math.floor(Math.random() * 70);
+    }
+}
+
+function sortearTipoTopping() {
+    if (Math.random() < 0.1) return 'vida';
+    const normais = ['cheese', 'mushroom', 'pineapple', 'tomato', 'weiner'];
+    return normais[Math.floor(Math.random() * normais.length)];
+}
+
+function escolherPosicaoTopping() {
+    const pontos = [
+        { x: 180 + Math.random() * 500, y: CHAO_Y - 45 },
+        { x: arenaPlataformas[0].x + 30 + Math.random() * (arenaPlataformas[0].largura - 80), y: arenaPlataformas[0].y - 45 },
+        { x: arenaPlataformas[1].x + 30 + Math.random() * (arenaPlataformas[1].largura - 80), y: arenaPlataformas[1].y - 45 }
+    ];
+    let ponto = pontos[Math.floor(Math.random() * pontos.length)];
+    if (ponto.y === CHAO_Y - 45) {
+        while (ponto.x < 140 || ponto.x > 660) ponto.x = 180 + Math.random() * 500;
+    }
+    return ponto;
+}
+
+function spawnTopping(tipo, x = null, y = null) {
+    if (tipo === 'gerome' && geromeSpawnado) return;
+    if (tipo === 'gerome') geromeSpawnado = true;
+    const pos = x === null ? escolherPosicaoTopping() : { x, y };
+    const topping = { id: toppingIdSeq++, tipo, x: pos.x, y: pos.y, largura: 40, altura: 40 };
+    toppings.push(topping);
+    const el = document.createElement('div');
+    el.className = 'topping topping-' + tipo;
+    el.id = 'topping-' + topping.id;
+    el.style.left = topping.x + 'px';
+    el.style.top = topping.y + 'px';
+    el.style.backgroundImage = `url('${spriteTopping(tipo)}')`;
+    document.getElementById('topping-container').appendChild(el);
+    if (tipo === 'gerome') tocarSom('soundtrack_jogo/Stuff/Gerome_spawn.wav');
+    else if (tipo === 'pepper') tocarSom('soundtrack_jogo/Stuff/Pepper_spawn.wav');
+}
+
+function spriteTopping(tipo) {
+    const sprites = {
+        cheese: 'imagens_jogo/Toppings/Cheese.gif',
+        mushroom: 'imagens_jogo/Toppings/Mushroom.gif',
+        pineapple: 'imagens_jogo/Toppings/Pineapple.gif',
+        tomato: 'imagens_jogo/Toppings/Tomato.gif',
+        weiner: 'imagens_jogo/Toppings/Weiner.gif',
+        gerome: 'imagens_jogo/Toppings/Gerome.gif',
+        pepper: 'imagens_jogo/Toppings/Pepper_Pizza.gif',
+        vida: 'imagens_jogo/Stuff/Peppino_hat.gif'
+    };
+    return sprites[tipo] || sprites.cheese;
+}
+
+function checarColetas() {
+    toppings.slice().forEach(topping => {
+        if (retangulosColidem(peppino, topping)) coletarTopping(topping, peppino);
+        else if (retangulosColidem(inimigo, topping)) coletarTopping(topping, inimigo);
+    });
+}
+
+function coletarTopping(topping, coletor) {
+    toppings = toppings.filter(t => t.id !== topping.id);
+    const el = document.getElementById('topping-' + topping.id);
+    if (el) el.remove();
+
+    if (topping.tipo === 'pepper') {
+        tocarSom('soundtrack_jogo/Stuff/Pepper_collect.wav');
+        ativarPepper(coletor);
+    } else if (topping.tipo === 'vida') {
+        tocarSom('soundtrack_jogo/Stuff/Hat_collect.wav');
+        if (coletor === peppino) {
+            if (peppino.vida >= VIDA_MAXIMA_PEPPINO) score += 50;
+            else peppino.vida = Math.min(VIDA_MAXIMA_PEPPINO, peppino.vida + 1);
+        }
+    } else if (topping.tipo === 'gerome') {
+        tocarSom('soundtrack_jogo/Stuff/Gerome_collect.wav');
+        if (coletor === peppino) score += 500;
+    } else {
+        tocarSom('soundtrack_jogo/Stuff/Topping_collect.wav');
+        if (coletor === peppino) score += 100;
+    }
+}
+
+function encerrarRound(vencedor) {
+    if (roundFinalizado) return;
+    roundFinalizado = true;
+    rankPronto = false;
+    rankDelayTimer = DELAY_TELA_RANK;
+    vencedorRound = vencedor;
+    musicaBatalha.pause();
+    if (audiosAtivos['passos']) audiosAtivos['passos'].pause();
+    pararSonsSkate();
+    setGustavo(vencedor === 'peppino' ? 'peppino-win' : 'noise-win', 9999);
+    renderizarObjetos();
+}
+
+function atualizarDelayRank() {
+    if (rankPronto) return;
+    rankDelayTimer--;
+    if (rankDelayTimer <= 0) mostrarTelaRank(vencedorRound);
+}
+
+function mostrarTelaRank(vencedor) {
+    rankPronto = true;
+    jogoRodando = false;
+    tocarSom('soundtrack_jogo/Stuff/round_over.wav');
+    const resultScreen = document.getElementById('result-screen');
+    const rank = vencedor === 'peppino' ? calcularRank() : 'DEAD';
+    registrarRankDaPartida(rank);
+    document.getElementById('result-rank').innerHTML = `<img src="imagens_jogo/Ranks/${rank}-Rank.png" alt="${rank}-Rank">`;
+    document.getElementById('result-prompt').style.display = 'block';
+    resultScreen.style.display = 'flex';
+}
+
+function calcularRank() {
+    if (score >= 5500 && peppino.vida === VIDA_MAXIMA_PEPPINO) return 'P';
+    if (score >= 4500) return 'S';
+    if (score >= 3500) return 'A';
+    if (score >= 2500) return 'B';
+    if (score >= 1500) return 'C';
+    return 'D';
 }
 
 function renderizarObjetos() {
     const pDiv = document.getElementById('player');
+    const pSprite = document.getElementById('peppino-sprite');
+    const tauntEffect = document.getElementById('taunt-effect');
     const nDiv = document.getElementById('noise');
+    const gDiv = document.getElementById('gustavo');
+
 
     let img = 'imagens_jogo/P_sprites/Peppino_idle.gif';
-    if (peppino.estado === 'walk') img = 'imagens_jogo/P_sprites/Peppino_walk.gif';
+    if (peppino.pepperTimer > 0) img = 'imagens_jogo/P_sprites/Pepper_Pizza_Peppino.gif';
+    else if (peppino.estado === 'walk') img = 'imagens_jogo/P_sprites/Peppino_walk.gif';
     else if (peppino.estado === 'run') img = 'imagens_jogo/P_sprites/Peppino_run.gif';
     else if (peppino.estado === 'jump') img = 'imagens_jogo/P_sprites/Peppino_jump.gif';
     else if (peppino.estado === 'wall') img = 'imagens_jogo/P_sprites/Peppino_wall.gif';
@@ -569,23 +1117,139 @@ function renderizarObjetos() {
     else if (peppino.estado === 'taunt') img = `imagens_jogo/P_sprites/taunt${peppino.tauntId}.png`;
     else if (peppino.estado === 'parry') img = `imagens_jogo/P_sprites/Parry${peppino.parryId}.gif`;
 
-    pDiv.style.backgroundImage = `url('${img}')`;
+    pDiv.style.backgroundImage = 'none';
+    pSprite.style.backgroundImage = `url('${img}')`;
     pDiv.style.transform = `scaleX(${peppino.direcao})`;
     pDiv.style.left = peppino.x + 'px';
     pDiv.style.top = peppino.y + 'px';
+    pDiv.classList.toggle('blinking', peppino.invencivelTimer > 0 && peppino.pepperTimer <= 0);
+    tauntEffect.style.display = (peppino.estado === 'taunt' || peppino.estado === 'parry') && peppino.tauntTimer > 0 ? 'block' : 'none';
 
     let nImg = 'imagens_jogo/N_sprites/Noise_idle_D.gif';
-    if (inimigo.estado === 'stunned') nImg = 'imagens_jogo/N_sprites/Noise_hurt.gif';
+    if (inimigo.pepperTimer > 0 && inimigo.estado !== 'joke') nImg = 'imagens_jogo/N_sprites/Pepper_Pizza_Noise.gif';
+    else if (inimigo.estado === 'joke') nImg = 'imagens_jogo/N_sprites/Noise_joke.png';
+    else if (!inimigo.noChao && inimigo.estado === 'doublejump') nImg = 'imagens_jogo/N_sprites/Noise_doublejump.gif';
+    else if (!inimigo.noChao) nImg = 'imagens_jogo/N_sprites/Noise_jump.png';
+    else if (inimigo.estado === 'walk') nImg = 'imagens_jogo/N_sprites/Noise_walk.gif';
+    else if (inimigo.estado === 'jump') nImg = 'imagens_jogo/N_sprites/Noise_jump.png';
+    else if (inimigo.estado === 'doublejump') nImg = 'imagens_jogo/N_sprites/Noise_doublejump.gif';
+    else if (inimigo.estado === 'stunned') nImg = 'imagens_jogo/N_sprites/Noise_hurt.gif';
+    else if (inimigo.estado === 'happy') nImg = 'imagens_jogo/N_sprites/Noise_happy.gif';
+    else if (inimigo.estado === 'scared') nImg = 'imagens_jogo/N_sprites/Noise_scaried.gif';
+    else if (inimigo.estado === 'pepper') nImg = 'imagens_jogo/N_sprites/Pepper_Pizza_Noise.gif';
+    else if (inimigo.estado === 'skate-corner') nImg = 'imagens_jogo/N_sprites/Noise_mach1.gif';
+    else if (inimigo.estado === 'skate-charge') nImg = 'imagens_jogo/N_sprites/Noise_charge.gif';
+    else if (inimigo.estado === 'skate-attack') nImg = 'imagens_jogo/N_sprites/Noise_mach2.gif';
+    else if (inimigo.estado === 'skate-wallhit') nImg = 'imagens_jogo/N_sprites/Noise_wallhit.gif';
     nDiv.style.backgroundImage = `url('${nImg}')`;
     nDiv.style.left = inimigo.x + 'px';
     nDiv.style.top = inimigo.y + 'px';
+    nDiv.style.transform = `scaleX(${inimigo.direcao})`;
+    nDiv.classList.toggle('blinking', inimigo.estado === 'stunned');
+
+    let gImg = 'imagens_jogo/G_sprites/Gustavo_idle.gif';
+    if (gustavo.estado === 'peppino-hit') gImg = 'imagens_jogo/G_sprites/Gustavo_P_hit.gif';
+    else if (gustavo.estado === 'noise-hit') gImg = 'imagens_jogo/G_sprites/Gustavo_N_hit.gif';
+    else if (gustavo.estado === 'drop') gImg = 'imagens_jogo/G_sprites/Gustavo_drop.gif';
+    else if (gustavo.estado === 'noise-win') gImg = 'imagens_jogo/G_sprites/Gustavo_N_win.gif';
+    else if (gustavo.estado === 'peppino-win') gImg = 'imagens_jogo/G_sprites/Gustavo_P_win.gif';
+    else if (gustavo.estado === 'pepper-noise') gImg = 'imagens_jogo/G_sprites/Gustavo_PN.gif';
+    else if (gustavo.estado === 'pepper-peppino') gImg = 'imagens_jogo/G_sprites/Gustavo_PP.gif';
+    gDiv.style.backgroundImage = `url('${gImg}')`;
+    gDiv.style.left = gustavo.x + 'px';
+    gDiv.style.top = gustavo.y + 'px';
+}
+
+function garantirEstruturaRanks() {
+    if (!usuarioLogado || !usuarioLogado.progressoPTWE) return;
+    const p = usuarioLogado.progressoPTWE;
+    const modos = ['noise', 'doise', 'faker'];
+    const ranks = ['P', 'S', 'A', 'B', 'C', 'D'];
+
+    if (!p.ranks) p.ranks = {};
+    modos.forEach(modo => {
+        if (!p.ranks[modo]) p.ranks[modo] = {};
+        ranks.forEach(rank => {
+            if (typeof p.ranks[modo][rank] !== 'number') p.ranks[modo][rank] = 0;
+        });
+    });
+
+    if (!p.partidasJogadas) p.partidasJogadas = { noise: 0, doise: 0, faker: 0 };
+    modos.forEach(modo => {
+        if (typeof p.partidasJogadas[modo] !== 'number') p.partidasJogadas[modo] = 0;
+    });
+}
+
+function registrarRankDaPartida(rank) {
+    if (roundRankRegistrado || rank === 'DEAD' || !usuarioLogado || !usuarioLogado.progressoPTWE) return;
+    garantirEstruturaRanks();
+    usuarioLogado.progressoPTWE.ranks[modoAtualDaPartida][rank]++;
+    roundRankRegistrado = true;
+    atualizarBancoDeDados(usuarioLogado);
+}
+
+function somarRanksGerais() {
+    garantirEstruturaRanks();
+    const totais = { P: 0, S: 0, A: 0, B: 0, C: 0, D: 0 };
+    Object.values(usuarioLogado.progressoPTWE.ranks).forEach(ranksDoModo => {
+        Object.keys(totais).forEach(rank => {
+            totais[rank] += ranksDoModo[rank] || 0;
+        });
+    });
+    return totais;
 }
 
 function abrirEstatisticas() {
     const statsScreen = document.getElementById('stats-screen'), statsContent = document.getElementById('stats-content');
     if (!usuarioLogado || !usuarioLogado.progressoPTWE) return;
+    garantirEstruturaRanks();
     const p = usuarioLogado.progressoPTWE;
-    statsContent.innerHTML = `<h3>NOISE MODE</h3><p>Vezes jogadas: ${p.partidasJogadas.noise}</p><hr><h3>DOISE OVERLAY</h3><p>Vezes jogadas: ${p.partidasJogadas.doise}</p><hr><h3>FAKER ATTACK</h3><p>Vezes jogadas: ${p.partidasJogadas.faker}</p>`;
+    const ranksTotais = somarRanksGerais();
+    const totalPartidas = p.partidasJogadas.noise + p.partidasJogadas.doise + p.partidasJogadas.faker;
+    const totalRanks = Object.values(ranksTotais).reduce((total, qtd) => total + qtd, 0);
+    const rankCards = ['P', 'S', 'A', 'B', 'C', 'D'].map(rank => `
+        <div class="rank-stat">
+            <img src="imagens_jogo/Ranks/${rank}-Rank.png" alt="${rank}-Rank">
+            <span>${ranksTotais[rank]}</span>
+        </div>
+    `).join('');
+
+    statsContent.innerHTML = `
+        <div class="stats-summary">
+            <div class="stats-panel">
+                <div class="stats-label">PARTIDAS</div>
+                <span class="stats-number">${totalPartidas}</span>
+            </div>
+            <div class="stats-panel">
+                <div class="stats-label">RANKS</div>
+                <span class="stats-number">${totalRanks}</span>
+            </div>
+            <div class="stats-panel">
+                <div class="stats-label">MELHOR</div>
+                <span class="stats-number">${ranksTotais.P > 0 ? 'P' : ranksTotais.S > 0 ? 'S' : ranksTotais.A > 0 ? 'A' : ranksTotais.B > 0 ? 'B' : ranksTotais.C > 0 ? 'C' : ranksTotais.D > 0 ? 'D' : '-'}</span>
+            </div>
+        </div>
+
+        <div class="stats-section-title">MODOS</div>
+        <div class="stats-mode-list">
+            <div class="stats-mode">
+                <h3>NOISE MODE</h3>
+                <p>Vezes jogadas: ${p.partidasJogadas.noise}</p>
+            </div>
+            <div class="stats-mode">
+                <h3>DOISE OVERLAY</h3>
+                <p>Vezes jogadas: ${p.partidasJogadas.doise}</p>
+            </div>
+            <div class="stats-mode">
+                <h3>FAKER ATTACK</h3>
+                <p>Vezes jogadas: ${p.partidasJogadas.faker}</p>
+            </div>
+        </div>
+
+        <div class="stats-section-title">RANKS CONQUISTADOS</div>
+        <div class="rank-grid">${rankCards}</div>
+    `;
+    atualizarBancoDeDados(usuarioLogado);
     statsScreen.style.display = 'flex';
 }
 

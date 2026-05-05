@@ -10,11 +10,11 @@
 
     <div id="perfil-ptwe" onclick="abrirEstatisticas()">
         <img id="foto-perfil-ptwe" src="imagens/usuario_padrao.png" alt="Perfil">
-        <span id="nome-perfil-ptwe">Jogador</span>
+        <span id="nome-perfil-ptwe">Player</span>
     </div>
 
     <div id="stats-screen" style="display: none;">
-        <h2>ESTATÍSTICAS DO JOGADOR</h2>
+        <h2>PLAYER STATUS</h2>
         <div id="stats-content" class="stats-box"></div>
         <div class="botoes-container">
             <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="abrirEdicaoPerfil()">EDIT PROFILE</button>
@@ -40,7 +40,15 @@
         <div id="hud" style="display: none;">
             <div id="scoreDisplay">SCORE: 0</div>
             <div id="timerDisplay">TIME: 60</div>
-            <div id="healthDisplay">HP: 6</div>
+            <div id="healthDisplay">
+  <img class="hat-icon" src="imagens_jogo/Stuff/Peppino_hat.gif">
+  <img class="hat-icon" src="imagens_jogo/Stuff/Peppino_hat.gif">
+  <img class="hat-icon" src="imagens_jogo/Stuff/Peppino_hat.gif">
+  <img class="hat-icon" src="imagens_jogo/Stuff/Peppino_hat.gif">
+  <img class="hat-icon" src="imagens_jogo/Stuff/Peppino_hat.gif">
+  <img class="hat-icon" src="imagens_jogo/Stuff/Peppino_hat.gif">
+</div>
+
         </div>
 
         <div id="game-area">
@@ -85,13 +93,20 @@
             
             <div id="player" style="display: none;">
                 <div id="taunt-effect"></div>
+                <div id="peppino-sprite"></div>
             </div>
             
-            <div id="noise" style="display: none;"></div>
+            <div id="noise" style="display: none;"></div>   
+            <div id="gustavo" style="display: none;"></div>
+            <div id="topping-container"></div>
+            <div id="result-screen" style="display: none;">
+            <div id="result-rank"></div>
+            <div id="result-prompt" style="display: none;">Press [Z] to continue!</div>
+            </div>
+
+
         </div>
     </div>
-
-    <audio id="musica-batalha" src="soundtrack_jogo/Stuff/batalha.mp3" loop></audio>
 
     <script src="script_geral.js"></script>
 </body>
