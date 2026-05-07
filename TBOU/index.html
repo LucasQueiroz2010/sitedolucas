@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Binding of Unlocks</title>
+    
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,6 +26,7 @@
                 <div class="char-details">
                     <h2 id="char-name"></h2>
                     <p id="char-desc"></p>
+                    <div id="char-effects" class="char-effects"></div>
                 </div>
             </div>
             <div class="char-stats" id="char-stats"></div>
@@ -38,7 +42,13 @@
 
         <div class="unlock-grid" id="unlock-grid"></div>
     </div>
+<audio id="bg-music" loop>
+    <source id="music-source" src="Soundtrack/Normal_Music.mp3" type="audio/mpeg">
+</audio>
 
+<audio id="sfx-mark-complete" src="Soundtrack/Mark_complete.wav"></audio>
+<audio id="sfx-mark-incomplete" src="Soundtrack/Mark_incomplete.wav"></audio>
+<audio id="sfx-all-complete" src="Soundtrack/All_complete.wav"></audio>
     <script src="script.js"></script>
 </body>
 </html>

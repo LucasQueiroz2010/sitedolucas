@@ -164,7 +164,7 @@ function mudarestrela2(elemento) {
 var imagemOriginal3 = true;
 function mudarestrela3(elemento) {
     if (imagemOriginal3) {
-        elemento.style.backgroundImage = "url('imagens/lost.png')";
+        elemento.style.backgroundImage = "url('imagens/Isaac.gif')";
         imagemOriginal3 = false;
     } else {
         window.location.href = "TBOU/index.html";}}

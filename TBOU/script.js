@@ -1,8 +1,10 @@
 const bossImagesMap = {
     "Mom's Heart": "Mom_Heart.png",
     "Isaac": "Isaac.png",
+    "Isaac Moriah": "Isaac.png",
     "Satan": "Satan.png",
     "Blue Baby": "Blue_Baby.png",
+    "???": "Blue_Baby.png",
     "The Lamb": "The_Lamb.png",
     "Mega Satan": "Mega_Satan.png",
     "Hush": "Hush.png",
@@ -11,778 +13,954 @@ const bossImagesMap = {
     "The Beast": "The_Beast.png",
     "Boss Rush": "Boss_Rush.png",
     "Greed Mode": "Ultra_Greed.png",
-    "Greedier Mode": "Ultra_Greedier.png"
+    "Greedier Mode": "Ultra_Greedier.png",
+    "All Hard Mode Marks": "All_Marks.png",
+    "Isaac, ???, Satan & The Lamb": "four_bosses_at_once.png",
+    "Isaac Moriah, ???, Satan & The Lamb": "four_bosses_at_once.png",
+    "Boss Rush & Hush": "boss_rush_and_hush.png"
+};
+
+const effectTooltips = {
+    "Red_Heart.png": "Can have Red Health",
+    "Soul_Heart.png": "Can only have Soul/Black Hearts",
+    "Black_Heart.png": "Can only have Soul/Black Hearts",
+    "Double_Penny.png": "Have pennies as health",
+    "Golden_Penny.png": "Enemies drops temporary coins on death",
+    "Blended_Heart.png": "Can use Soul/Black Hearts as active item charges"
 };
 
 const gameData = {
-    "Isaac": {
-        name: "Isaac", image: "img/Characters/Normal/Isaac.png", description: "The crying child with gamble problems. Well-balanced stats.",
+"Isaac": {
+        name: "Isaac", image: "img/Characters/Normal/Isaac.png", description: "The starting character. Starts with the D6 to reroll items. D6 goes brrr until you get Kamikaze.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png"],
         startingItems: [
-            { name: "1 Bomb", img: "Bomb.png", condition: null },
+            { name: "1 Bomb", img: "Bomb.png", isEffectImg: true, tooltip: "Starts with a Bomb", condition: null },
             { name: "The D6", img: "D6.png", condition: "bluebaby_2", conditionText: "Beat Isaac as Blue Baby" }
         ],
         unlocks: [
-            { id: "isaac_1", boss: "Mom's Heart", item: "Lost Baby", diff: "Hard" },
-            { id: "isaac_2", boss: "Isaac", item: "Mom's Knife", diff: "Normal/Hard" },
-            { id: "isaac_3", boss: "Satan", item: "Mom's Perfume", diff: "Normal/Hard" },
-            { id: "isaac_4", boss: "Blue Baby", item: "D20", diff: "Normal/Hard" },
-            { id: "isaac_5", boss: "The Lamb", item: "Missing Poster", diff: "Normal/Hard" },
-            { id: "isaac_6", boss: "Mega Satan", item: "Cry Baby", diff: "Normal/Hard" },
-            { id: "isaac_7", boss: "Boss Rush", item: "Isaac's Head", diff: "Normal/Hard" },
-            { id: "isaac_8", boss: "Hush", item: "Fart Baby", diff: "Normal/Hard" },
-            { id: "isaac_9", boss: "Delirium", item: "D Infinity", diff: "Normal/Hard" },
-            { id: "isaac_10", boss: "Mother", item: "Guppy's Eye", diff: "Normal/Hard" },
-            { id: "isaac_11", boss: "The Beast", item: "Options?", diff: "Normal/Hard" },
-            { id: "isaac_12", boss: "Greed Mode", item: "Lil Chest", diff: "Normal" },
-            { id: "isaac_13", boss: "Greedier Mode", item: "D1", diff: "Hard" }
+            { id: "isaac_1", boss: "Boss Rush", item: "Isaac's Head", diff: "Normal/Hard" },
+            { id: "isaac_2", boss: "Mom's Heart", item: "Lost Baby", diff: "Hard" },
+            { id: "isaac_3", boss: "Satan", item: "Mom's Knife", diff: "Normal/Hard" },
+            { id: "isaac_4", boss: "Isaac", item: "Isaac's Tears", diff: "Normal/Hard" },
+            { id: "isaac_5", boss: "The Lamb", item: "Missing poster", diff: "Normal/Hard" },
+            { id: "isaac_6", boss: "Blue Baby", item: "D20", diff: "Normal/Hard" },
+            { id: "isaac_7", boss: "Greed Mode", item: "Little Chest", diff: "Normal/Hard" },
+            { id: "isaac_8", boss: "Greedier Mode", item: "D1", diff: "Hard" },
+            { id: "isaac_9", boss: "Hush", item: "Fart Baby", diff: "Normal/Hard" },
+            { id: "isaac_10", boss: "Delirium", item: "D Infinity", diff: "Normal/Hard" },
+            { id: "isaac_11", boss: "Mother", item: "Meat Cleaver", diff: "Normal/Hard" },
+            { id: "isaac_12", boss: "The Beast", item: "Options?", diff: "Normal/Hard" },
+            { id: "isaac_13", boss: "Mega Satan", item: "Cry Baby", diff: "Normal/Hard" },
+            { id: "isaac_14", boss: "All Hard Mode Marks", item: "Buddy Baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
     "Magdalene": {
-        name: "Magdalene", image: "img/Characters/Normal/Magdalene.png", description: "The tanky girl. Slow but starts with extra health.",
+        name: "Magdalene", image: "img/Characters/Normal/Magdalene.png", description: "The tanky girl. Starts with high health and Yum Heart for healing. A Speed Down pill disguised as a character.",
         stats: "HP: 4 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 0.85",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Yum Heart", img: "Yum_Heart.png", condition: null },
-            { name: "Full Health Pill", img: "Full_Health_Pill.png", condition: "chal_32", conditionText: "April's Fool Challenge" }
+            { name: "Full Health Pill", img: "Pill.png", isEffectImg: true, tooltip: "Starts with a pill", condition: "chal_32", conditionText: "April's Fool Challenge" }
         ],
         unlocks: [
-            { id: "mag_1", boss: "Mom's Heart", item: "Cute Baby", diff: "Hard" },
-            { id: "mag_2", boss: "Isaac", item: "Celtic Cross", diff: "Normal/Hard" },
+            { id: "mag_1", boss: "Boss Rush", item: "The Relic", diff: "Normal/Hard" },
+            { id: "mag_2", boss: "Mom's Heart", item: "Cute Baby", diff: "Hard" },
             { id: "mag_3", boss: "Satan", item: "Guardian Angel", diff: "Normal/Hard" },
-            { id: "mag_4", boss: "Blue Baby", item: "Maggy's Faith", diff: "Normal/Hard" },
-            { id: "mag_5", boss: "The Lamb", item: "Maggy's Bow", diff: "Normal/Hard" },
-            { id: "mag_6", boss: "Mega Satan", item: "Red Baby", diff: "Normal/Hard" },
-            { id: "mag_7", boss: "Boss Rush", item: "The Relic", diff: "Normal/Hard" },
-            { id: "mag_8", boss: "Hush", item: "Purity", diff: "Normal/Hard" },
-            { id: "mag_9", boss: "Delirium", item: "Eucharist", diff: "Normal/Hard" },
-            { id: "mag_10", boss: "Mother", item: "Yuck Heart", diff: "Normal/Hard" },
-            { id: "mag_11", boss: "The Beast", item: "Candies", diff: "Normal/Hard" },
-            { id: "mag_12", boss: "Greed Mode", item: "Censer", diff: "Normal" },
-            { id: "mag_13", boss: "Greedier Mode", item: "Glyph of Balance", diff: "Hard" }
+            { id: "mag_4", boss: "Isaac", item: "A Cross", diff: "Normal/Hard" },
+            { id: "mag_5", boss: "The Lamb", item: "Maggy's Faith", diff: "Normal/Hard" },
+            { id: "mag_6", boss: "Blue Baby", item: "Celtic Cross", diff: "Normal/Hard" },
+            { id: "mag_7", boss: "Greed Mode", item: "Censer", diff: "Normal/Hard" },
+            { id: "mag_8", boss: "Greedier Mode", item: "Glyph of Balance", diff: "Hard" },
+            { id: "mag_9", boss: "Hush", item: "Purity", diff: "Normal/Hard" },
+            { id: "mag_10", boss: "Delirium", item: "Eucharist", diff: "Normal/Hard" },
+            { id: "mag_11", boss: "Mother", item: "Yuck Heart", diff: "Normal/Hard" },
+            { id: "mag_12", boss: "The Beast", item: "Candy Heart", diff: "Normal/Hard" },
+            { id: "mag_13", boss: "Mega Satan", item: "Red Baby", diff: "Normal/Hard" },
+            { id: "mag_14", boss: "All Hard Mode Marks", item: "Colorful Baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
     "Cain": {
-        name: "Cain", image: "img/Characters/Normal/Cain.png", description: "The real gambler! Fast and lucky, but only shoots from one eye.",
+        name: "Cain", image: "img/Characters/Normal/Cain.png", description: "The lucky thief. Starts with high speed, Lucky Foot, only gets good pills, but shoots with one eye. Paperclip carries the entire run.",
         stats: "HP: 2 Red<br>DMG: 4.20<br>Tears: 2.73<br>Speed: 1.30",
+        effects: ["Red_Heart.png"],
         startingItems: [
+            { name: "1 Key", img: "Key.png", isEffectImg: true, tooltip: "Starts with a key", condition: null },
             { name: "Lucky Foot", img: "Lucky_Foot.png", condition: null },
             { name: "Paper Clip", img: "Paper_Clip.png", condition: "greed_68", conditionText: "Donate 68c to Greed Machine" }
         ],
         unlocks: [
-            { id: "cain_1", boss: "Mom's Heart", item: "Glass Baby", diff: "Hard" },
-            { id: "cain_2", boss: "Isaac", item: "Bag of Pennies", diff: "Normal/Hard" },
-            { id: "cain_3", boss: "Satan", item: "Bomb Bag", diff: "Normal/Hard" },
-            { id: "cain_4", boss: "Blue Baby", item: "Cain's Eye", diff: "Normal/Hard" },
+            { id: "cain_1", boss: "Boss Rush", item: "Cain's Other Eye", diff: "Normal/Hard" },
+            { id: "cain_2", boss: "Mom's Heart", item: "Glass baby", diff: "Hard" },
+            { id: "cain_3", boss: "Satan", item: "A Bag of Bombs", diff: "Normal/Hard" },
+            { id: "cain_4", boss: "Isaac", item: "A Sack of Pennies", diff: "Normal/Hard" },
             { id: "cain_5", boss: "The Lamb", item: "Abel", diff: "Normal/Hard" },
-            { id: "cain_6", boss: "Mega Satan", item: "Green Baby", diff: "Normal/Hard" },
-            { id: "cain_7", boss: "Boss Rush", item: "Guppy's Hairball", diff: "Normal/Hard" },
-            { id: "cain_8", boss: "Hush", item: "D12", diff: "Normal/Hard" },
-            { id: "cain_9", boss: "Delirium", item: "Silver Dollar", diff: "Normal/Hard" },
-            { id: "cain_10", boss: "Mother", item: "Guppy's Eye", diff: "Normal/Hard" },
-            { id: "cain_11", boss: "The Beast", item: "Pound of Flesh", diff: "Normal/Hard" },
-            { id: "cain_12", boss: "Greed Mode", item: "Evil Eye", diff: "Normal" },
-            { id: "cain_13", boss: "Greedier Mode", item: "Sack of Sacks", diff: "Hard" }
+            { id: "cain_6", boss: "Blue Baby", item: "Cain' Eye", diff: "Normal/Hard" },
+            { id: "cain_7", boss: "Greed Mode", item: "Evil Eye", diff: "Normal/Hard" },
+            { id: "cain_8", boss: "Greedier Mode", item: "Sack of Sacks", diff: "Hard" },
+            { id: "cain_9", boss: "Hush", item: "D12", diff: "Normal/Hard" },
+            { id: "cain_10", boss: "Delirium", item: "Silver Dollar", diff: "Normal/Hard" },
+            { id: "cain_11", boss: "Mother", item: "Guppy's Eye", diff: "Normal/Hard" },
+            { id: "cain_12", boss: "The Beast", item: "A Pound of Flesh", diff: "Normal/Hard" },
+            { id: "cain_13", boss: "Mega Satan", item: "Green baby", diff: "Normal/Hard" },
+            { id: "cain_14", boss: "All Hard Mode Marks", item: "Picky baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
     "Judas": {
-        name: "Judas", image: "img/Characters/Normal/Judas.png", description: "The strongest weakness. High damage, low health.",
+        name: "Judas", image: "img/Characters/Normal/Judas.png", description: "The glass cannon. Starts with 1 Heart and Book of Belial for temporary damage buff. First floor spider: 'Allow me to introduce myself'.",
         stats: "HP: 1 Red<br>DMG: 4.72<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png"],
         startingItems: [
-            { name: "The Book of Belial", img: "Book_of_Belial.png", condition: null },
-            { name: "3 Pennies", img: "Penny.png", condition: null }
+            { name: "The Book of Belial", img: "The_Book_of_Belial.png", condition: null },
+            { name: "3 Pennies", img: "Penny.png", isEffectImg: true, tooltip: "Starts with 3 pennies", condition: null }
         ],
         unlocks: [
-            { id: "judas_1", boss: "Mom's Heart", item: "Shadow Baby", diff: "Hard" },
-            { id: "judas_2", boss: "Isaac", item: "Guillotine", diff: "Normal/Hard" },
+            { id: "judas_1", boss: "Boss Rush", item: "Judas' Shadow", diff: "Normal/Hard" },
+            { id: "judas_2", boss: "Mom's Heart", item: "Shadow baby", diff: "Hard" },
             { id: "judas_3", boss: "Satan", item: "Judas' Tongue", diff: "Normal/Hard" },
-            { id: "judas_4", boss: "Blue Baby", item: "Curved Horn", diff: "Normal/Hard" },
-            { id: "judas_5", boss: "The Lamb", item: "Demon Baby", diff: "Normal/Hard" },
-            { id: "judas_6", boss: "Mega Satan", item: "Brown Baby", diff: "Normal/Hard" },
-            { id: "judas_7", boss: "Boss Rush", item: "Judas' Shadow", diff: "Normal/Hard" },
-            { id: "judas_8", boss: "Hush", item: "Betrayal", diff: "Normal/Hard" },
-            { id: "judas_9", boss: "Delirium", item: "Shade", diff: "Normal/Hard" },
-            { id: "judas_10", boss: "Mother", item: "Akeldama", diff: "Normal/Hard" },
-            { id: "judas_11", boss: "The Beast", item: "RC Remote", diff: "Normal/Hard" },
-            { id: "judas_12", boss: "Greed Mode", item: "My Shadow", diff: "Normal" },
-            { id: "judas_13", boss: "Greedier Mode", item: "Eye of Belial", diff: "Hard" }
+            { id: "judas_4", boss: "Isaac", item: "Guillotine", diff: "Normal/Hard" },
+            { id: "judas_5", boss: "The Lamb", item: "Curved Horn", diff: "Normal/Hard" },
+            { id: "judas_6", boss: "Blue Baby", item: "The Left Hand", diff: "Normal/Hard" },
+            { id: "judas_7", boss: "Greed Mode", item: "My Shadow", diff: "Normal/Hard" },
+            { id: "judas_8", boss: "Greedier Mode", item: "Eye of Belial", diff: "Hard" },
+            { id: "judas_9", boss: "Hush", item: "Betrayal", diff: "Normal/Hard" },
+            { id: "judas_10", boss: "Delirium", item: "Shade", diff: "Normal/Hard" },
+            { id: "judas_11", boss: "Mother", item: "Akeldama", diff: "Normal/Hard" },
+            { id: "judas_12", boss: "The Beast", item: "Redemption", diff: "Normal/Hard" },
+            { id: "judas_13", boss: "Mega Satan", item: "Brown baby", diff: "Normal/Hard" },
+            { id: "judas_14", boss: "All Hard Mode Marks", item: "Belial baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
     "Blue Baby": {
-        name: "Blue Baby", image: "img/Characters/Normal/Blue_Baby.png", description: "The cadaver. Only uses Soul Hearts as health.",
+        name: "Blue Baby", image: "img/Characters/Normal/Blue_Baby.png", description: "The dead boy. Can only have Soul/Black hearts and starts with The Poop. Destroying poops spawn blue flies. Literally a piece of shit of a character.",
         stats: "HP: 3 Soul<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.05",
+        effects: ["Soul_Heart.png"],
         startingItems: [
             { name: "The Poop", img: "The_Poop.png", condition: null }
         ],
         unlocks: [
-            { id: "bluebaby_1", boss: "Mom's Heart", item: "Fate Baby", diff: "Hard" },
-            { id: "bluebaby_2", boss: "Isaac", item: "The D6", diff: "Normal/Hard" },
+            { id: "bluebaby_1", boss: "Boss Rush", item: "???'s Only Friend", diff: "Normal/Hard" },
+            { id: "bluebaby_2", boss: "Mom's Heart", item: "Dead baby", diff: "Hard" },
             { id: "bluebaby_3", boss: "Satan", item: "Forget Me Now", diff: "Normal/Hard" },
-            { id: "bluebaby_4", boss: "Blue Baby", item: "Fate", diff: "Normal/Hard" },
-            { id: "bluebaby_5", boss: "The Lamb", item: "???'s Only Friend", diff: "Normal/Hard" },
-            { id: "bluebaby_6", boss: "Mega Satan", item: "Blue Baby (Co-op)", diff: "Normal/Hard" },
-            { id: "bluebaby_7", boss: "Boss Rush", item: "Mysterious Paper", diff: "Normal/Hard" },
-            { id: "bluebaby_8", boss: "Hush", item: "Sworn Protector", diff: "Normal/Hard" },
-            { id: "bluebaby_9", boss: "Delirium", item: "Meconium", diff: "Normal/Hard" },
-            { id: "bluebaby_10", boss: "Mother", item: "Eternal D6", diff: "Normal/Hard" },
-            { id: "bluebaby_11", boss: "The Beast", item: "The Scooper", diff: "Normal/Hard" },
-            { id: "bluebaby_12", boss: "Greed Mode", item: "Cracked Dice", diff: "Normal" },
-            { id: "bluebaby_13", boss: "Greedier Mode", item: "Black Hole", diff: "Hard" }
+            { id: "bluebaby_4", boss: "Isaac", item: "D6", diff: "Normal/Hard" },
+            { id: "bluebaby_5", boss: "The Lamb", item: "???'s Soul", diff: "Normal/Hard" },
+            { id: "bluebaby_6", boss: "Blue Baby", item: "Fate", diff: "Normal/Hard" },
+            { id: "bluebaby_7", boss: "Greed Mode", item: "Cracked Dice", diff: "Normal/Hard" },
+            { id: "bluebaby_8", boss: "Greedier Mode", item: "Meconium", diff: "Hard" },
+            { id: "bluebaby_9", boss: "Hush", item: "Fate's Reward", diff: "Normal/Hard" },
+            { id: "bluebaby_10", boss: "Delirium", item: "King Baby", diff: "Normal/Hard" },
+            { id: "bluebaby_11", boss: "Mother", item: "Eternal D6", diff: "Normal/Hard" },
+            { id: "bluebaby_12", boss: "The Beast", item: "Montezuma's Revenge", diff: "Normal/Hard" },
+            { id: "bluebaby_13", boss: "Mega Satan", item: "Blue baby", diff: "Normal/Hard" },
+            { id: "bluebaby_14", boss: "All Hard Mode Marks", item: "Hive baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
     "Eve": {
-        name: "Eve", image: "img/Characters/Normal/Eve.png", description: "The depressed emo. Gets stronger at 1 red heart or less.",
+        name: "Eve", image: "img/Characters/Normal/Eve.png", description: "The edgy kid. Starts weak but triggers the Whore of Babylon effect at 1 Red Heart. The hurt yourself simulador.",
         stats: "HP: 2 Red<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.23",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Whore of Babylon", img: "Whore_of_Babylon.png", condition: null },
             { name: "Dead Bird", img: "Dead_Bird.png", condition: null },
             { name: "Razor Blade", img: "Razor_Blade.png", condition: "greed_439", conditionText: "Donate 439c to Greed Machine" }
         ],
         unlocks: [
-            { id: "eve_1", boss: "Mom's Heart", item: "Crow Baby", diff: "Hard" },
-            { id: "eve_2", boss: "Isaac", item: "Eve's Bird Foot", diff: "Normal/Hard" },
-            { id: "eve_3", boss: "Satan", item: "Eve's Mascara", diff: "Normal/Hard" },
-            { id: "eve_4", boss: "Blue Baby", item: "Razor Blade", diff: "Normal/Hard" },
-            { id: "eve_5", boss: "The Lamb", item: "Sacrificial Dagger", diff: "Normal/Hard" },
-            { id: "eve_6", boss: "Mega Satan", item: "Whore Baby", diff: "Normal/Hard" },
-            { id: "eve_7", boss: "Boss Rush", item: "Black Lipstick", diff: "Normal/Hard" },
-            { id: "eve_8", boss: "Hush", item: "Maw of the Void", diff: "Normal/Hard" },
-            { id: "eve_9", boss: "Delirium", item: "Dull Razor", diff: "Normal/Hard" },
-            { id: "eve_10", boss: "Mother", item: "Sumptorium", diff: "Normal/Hard" },
-            { id: "eve_11", boss: "The Beast", item: "Lil Clot", diff: "Normal/Hard" },
-            { id: "eve_12", boss: "Greed Mode", item: "Black Feather", diff: "Normal" },
-            { id: "eve_13", boss: "Greedier Mode", item: "Crow Heart", diff: "Hard" }
+            { id: "eve_1", boss: "Boss Rush", item: "Eve's Mascara", diff: "Normal/Hard" },
+            { id: "eve_2", boss: "Mom's Heart", item: "Crow baby", diff: "Hard" },
+            { id: "eve_3", boss: "Satan", item: "The Razor", diff: "Normal/Hard" },
+            { id: "eve_4", boss: "Isaac", item: "Eve's Bird Foot", diff: "Normal/Hard" },
+            { id: "eve_5", boss: "The Lamb", item: "Black Lipstick", diff: "Normal/Hard" },
+            { id: "eve_6", boss: "Blue Baby", item: "Sacrificial Dagger", diff: "Normal/Hard" },
+            { id: "eve_7", boss: "Greed Mode", item: "Black Feather", diff: "Normal/Hard" },
+            { id: "eve_8", boss: "Greedier Mode", item: "Crow Heart", diff: "Hard" },
+            { id: "eve_9", boss: "Hush", item: "Athame", diff: "Normal/Hard" },
+            { id: "eve_10", boss: "Delirium", item: "Dull Razor", diff: "Normal/Hard" },
+            { id: "eve_11", boss: "Mother", item: "Bird Cage", diff: "Normal/Hard" },
+            { id: "eve_12", boss: "The Beast", item: "Cracked Orb", diff: "Normal/Hard" },
+            { id: "eve_13", boss: "Mega Satan", item: "Lil' baby", diff: "Normal/Hard" },
+            { id: "eve_14", boss: "All Hard Mode Marks", item: "Whore baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
     "Samson": {
-        name: "Samson", image: "img/Characters/Normal/Samson.png", description: "The skill issue factory. Gains damage when taking damage.",
+        name: "Samson", image: "img/Characters/Normal/Samson.png", description: "The  guy with angry issues. Starts with Bloody Lust, gaining damage when taking damage. Skill issue? No, it's a damage up!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.45<br>Speed: 1.10",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Bloody Lust", img: "Bloody_Lust.png", condition: null },
-            { name: "Child's Heart", img: "Childs_Heart.png", condition: "chal_34", conditionText: "Ultra Hard Challenge" }
+            { name: "Child's Heart", img: "Child_Heart.png", condition: "chal_34", conditionText: "Ultra Hard Challenge" }
         ],
         unlocks: [
-            { id: "samson_1", boss: "Mom's Heart", item: "Fighting Baby", diff: "Hard" },
-            { id: "samson_2", boss: "Isaac", item: "Blood Rights", diff: "Normal/Hard" },
-            { id: "samson_3", boss: "Satan", item: "Bloody Lust", diff: "Normal/Hard" },
-            { id: "samson_4", boss: "Blue Baby", item: "Samson's Lock", diff: "Normal/Hard" },
-            { id: "samson_5", boss: "The Lamb", item: "Samson's Chains", diff: "Normal/Hard" },
-            { id: "samson_6", boss: "Mega Satan", item: "Rage Baby", diff: "Normal/Hard" },
-            { id: "samson_7", boss: "Boss Rush", item: "Blindfolded", diff: "Normal/Hard" },
-            { id: "samson_8", boss: "Hush", item: "Blind Rage", diff: "Normal/Hard" },
-            { id: "samson_9", boss: "Delirium", item: "Stem Cell", diff: "Normal/Hard" },
-            { id: "samson_10", boss: "Mother", item: "Bloody Gust", diff: "Normal/Hard" },
-            { id: "samson_11", boss: "The Beast", item: "Urn of Souls", diff: "Normal/Hard" },
-            { id: "samson_12", boss: "Greed Mode", item: "Lusty Blood", diff: "Normal" },
-            { id: "samson_13", boss: "Greedier Mode", item: "Half a Heart", diff: "Hard" }
+            { id: "samson_1", boss: "Boss Rush", item: "Samson's Chains", diff: "Normal/Hard" },
+            { id: "samson_2", boss: "Mom's Heart", item: "Fighting baby", diff: "Hard" },
+            { id: "samson_3", boss: "Satan", item: "Blood Rights", diff: "Normal/Hard" },
+            { id: "samson_4", boss: "Isaac", item: "Bloody Lust", diff: "Normal/Hard" },
+            { id: "samson_5", boss: "The Lamb", item: "Samson's Lock", diff: "Normal/Hard" },
+            { id: "samson_6", boss: "Blue Baby", item: "Bloody Penny", diff: "Normal/Hard" },
+            { id: "samson_7", boss: "Greed Mode", item: "Lusty Blood", diff: "Normal/Hard" },
+            { id: "samson_8", boss: "Greedier Mode", item: "Stem Cell", diff: "Hard" },
+            { id: "samson_9", boss: "Hush", item: "Blind Rage", diff: "Normal/Hard" },
+            { id: "samson_10", boss: "Delirium", item: "Bloody Crown", diff: "Normal/Hard" },
+            { id: "samson_11", boss: "Mother", item: "Bloody Gust", diff: "Normal/Hard" },
+            { id: "samson_12", boss: "The Beast", item: "Empty Heart", diff: "Normal/Hard" },
+            { id: "samson_13", boss: "Mega Satan", item: "Rage baby", diff: "Normal/Hard" },
+            { id: "samson_14", boss: "All Hard Mode Marks", item: "Revenge baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
     "Azazel": {
-        name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flight and short-range Brimstone.",
+        name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flying and a short-range Brimstone. The 'I just want to unlock things quickly' character.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 0.76<br>Speed: 1.25",
+        effects: ["Black_Heart.png"],
         startingItems: [
-            { name: "0 - The Fool", img: "The_Fool.png", condition: null }
+            { name: "0 - The Fool", img: "Fool_Card.png", isEffectImg: true, tooltip: "Starts with The Fool card", condition: null }
         ],
         unlocks: [
-            { id: "azazel_1", boss: "Mom's Heart", item: "Demon Baby", diff: "Hard" },
-            { id: "azazel_2", boss: "Isaac", item: "Satanic Bible", diff: "Normal/Hard" },
-            { id: "azazel_3", boss: "Satan", item: "Abaddon", diff: "Normal/Hard" },
-            { id: "azazel_4", boss: "Blue Baby", item: "Demon Tail", diff: "Normal/Hard" },
-            { id: "azazel_5", boss: "The Lamb", item: "The Nail", diff: "Normal/Hard" },
-            { id: "azazel_6", boss: "Mega Satan", item: "Black Baby", diff: "Normal/Hard" },
-            { id: "azazel_7", boss: "Boss Rush", item: "The Nail", diff: "Normal/Hard" },
-            { id: "azazel_8", boss: "Hush", item: "Maw of the Void", diff: "Normal/Hard" },
-            { id: "azazel_9", boss: "Delirium", item: "Dark Prince's Crown", diff: "Normal/Hard" },
-            { id: "azazel_10", boss: "Mother", item: "Devil's Crown", diff: "Normal/Hard" },
-            { id: "azazel_11", boss: "The Beast", item: "Azazel's Rage", diff: "Normal/Hard" },
-            { id: "azazel_12", boss: "Greed Mode", item: "Lilith", diff: "Normal" },
-            { id: "azazel_13", boss: "Greedier Mode", item: "Bat Wing", diff: "Hard" }
+            { id: "azazel_1", boss: "Boss Rush", item: "The Nail", diff: "Normal/Hard" },
+            { id: "azazel_2", boss: "Mom's Heart", item: "Begotten baby", diff: "Hard" },
+            { id: "azazel_3", boss: "Satan", item: "Demon's Tail", diff: "Normal/Hard" },
+            { id: "azazel_4", boss: "Isaac", item: "Satanic Bible", diff: "Normal/Hard" },
+            { id: "azazel_5", boss: "The Lamb", item: "Demon baby", diff: "Normal/Hard" },
+            { id: "azazel_6", boss: "Blue Baby", item: "Abaddon", diff: "Normal/Hard" },
+            { id: "azazel_7", boss: "Greed Mode", item: "Lilith", diff: "Normal/Hard" },
+            { id: "azazel_8", boss: "Greedier Mode", item: "Bat Wing", diff: "Hard" },
+            { id: "azazel_9", boss: "Hush", item: "Maw of the Void", diff: "Normal/Hard" },
+            { id: "azazel_10", boss: "Delirium", item: "Dark Prince's Crown", diff: "Normal/Hard" },
+            { id: "azazel_11", boss: "Mother", item: "Devil's Crown", diff: "Normal/Hard" },
+            { id: "azazel_12", boss: "The Beast", item: "Lil' Abaddon", diff: "Normal/Hard" },
+            { id: "azazel_13", boss: "Mega Satan", item: "Black baby", diff: "Normal/Hard" },
+            { id: "azazel_14", boss: "All Hard Mode Marks", item: "Sucky baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
     "Lazarus": {
         name: "Lazarus", 
         image: "img/Characters/Normal/Lazarus.png", 
         image2: "img/Characters/Normal/Lazarus_Risen.png", 
-        description: "The suicidal. Revives once per floor with better stats. On next floor, loses all stats, but keeps +0,5 damage. Loses a heart container on death",
+        description: "The boy who lived twice. Revives with better stats upon his first death. The 'kill yourself' experience",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png"],
         startingItems: [
-            { name: "Random Pill", img: "Random_Pill.png", condition: null },
+            { name: "Random Pill", img: "Pill.png", isEffectImg: true, tooltip: "Starts with a pill", condition: null },
             { name: "Anemic", img: "Anemic.png", condition: "chal_31", conditionText: "Backasswards Challenge" }
         ],
         unlocks: [
-            { id: "laz_1", boss: "Mom's Heart", item: "Long Baby", diff: "Hard" },
-            { id: "laz_2", boss: "Isaac", item: "Lazarus' Rags", diff: "Normal/Hard" },
+            { id: "laz_1", boss: "Boss Rush", item: "Missing No.", diff: "Normal/Hard" },
+            { id: "laz_2", boss: "Mom's Heart", item: "Wrapped baby", diff: "Hard" },
             { id: "laz_3", boss: "Satan", item: "Broken Ankh", diff: "Normal/Hard" },
-            { id: "laz_4", boss: "Blue Baby", item: "Pandora's Box", diff: "Normal/Hard" },
-            { id: "laz_5", boss: "The Lamb", item: "Suicide King", diff: "Normal/Hard" },
-            { id: "laz_6", boss: "Mega Satan", item: "Key Baby", diff: "Normal/Hard" },
-            { id: "laz_7", boss: "Boss Rush", item: "Missing No.", diff: "Normal/Hard" },
-            { id: "laz_8", boss: "Hush", item: "Empty Vessel", diff: "Normal/Hard" },
-            { id: "laz_9", boss: "Delirium", item: "Compound Fracture", diff: "Normal/Hard" },
-            { id: "laz_10", boss: "Mother", item: "Astral Projection", diff: "Normal/Hard" },
-            { id: "laz_11", boss: "The Beast", item: "Brimstone Bombs", diff: "Normal/Hard" },
-            { id: "laz_12", boss: "Greed Mode", item: "Store Key", diff: "Normal" },
-            { id: "laz_13", boss: "Greedier Mode", item: "Plan C", diff: "Hard" }
+            { id: "laz_4", boss: "Isaac", item: "Lazarus' Rags", diff: "Normal/Hard" },
+            { id: "laz_5", boss: "The Lamb", item: "Pandora's Box", diff: "Normal/Hard" },
+            { id: "laz_6", boss: "Blue Baby", item: "Store Credit", diff: "Normal/Hard" },
+            { id: "laz_7", boss: "Greed Mode", item: "Key Bum", diff: "Normal/Hard" },
+            { id: "laz_8", boss: "Greedier Mode", item: "Plan C", diff: "Hard" },
+            { id: "laz_9", boss: "Hush", item: "Empty Vessel", diff: "Normal/Hard" },
+            { id: "laz_10", boss: "Delirium", item: "Compound Fracture", diff: "Normal/Hard" },
+            { id: "laz_11", boss: "Mother", item: "Tinytoma", diff: "Normal/Hard" },
+            { id: "laz_12", boss: "The Beast", item: "Astral Projection", diff: "Normal/Hard" },
+            { id: "laz_13", boss: "Mega Satan", item: "Long baby", diff: "Normal/Hard" },
+            { id: "laz_14", boss: "All Hard Mode Marks", item: "Dripping baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
-    "Eden": {
-        name: "Eden", image: "img/Characters/Normal/Eden.png", description: "The RNG. Random stats and items. Costs 1 Eden Token. You gain 1 Eden Token per Mom's Heart/It Lives! kill.",
+"Eden": {
+        name: "Eden", image: "img/Characters/Normal/Eden.png", description: "The glitchy girl. Starts with completely randomized stats and items. Hold 'R' simulator until you don't start with 1 fire rate and Bob's Brain.",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
+        effects: ["Red_Heart.png"],
         startingItems: [
-            { name: "Random Active", img: "Random_Active.png", condition: null },
-            { name: "Random Passive", img: "Random_Passive.png", condition: null }
+            { name: "Random Active", img: "Random_item.png", condition: null, tooltip: "Starts with a random Active item" },
+            { name: "Random Passive", img: "Random_item.png", condition: null, tooltip: "Starts with a random Passive item" }
         ],
         unlocks: [
-            { id: "eden_1", boss: "Mom's Heart", item: "Glitch Baby", diff: "Hard" },
-            { id: "eden_2", boss: "Isaac", item: "A Blank Page", diff: "Normal/Hard" },
+            { id: "eden_1", boss: "Boss Rush", item: "Undefined", diff: "Normal/Hard" },
+            { id: "eden_2", boss: "Mom's Heart", item: "Glitch baby", diff: "Hard" },
             { id: "eden_3", boss: "Satan", item: "Book of Secrets", diff: "Normal/Hard" },
-            { id: "eden_4", boss: "Blue Baby", item: "Mysterious Words", diff: "Normal/Hard" },
+            { id: "eden_4", boss: "Isaac", item: "Blank Card", diff: "Normal/Hard" },
             { id: "eden_5", boss: "The Lamb", item: "Mystery Sack", diff: "Normal/Hard" },
-            { id: "eden_6", boss: "Mega Satan", item: "Yellow Baby", diff: "Normal/Hard" },
-            { id: "eden_7", boss: "Boss Rush", item: "Undefined", diff: "Normal/Hard" },
-            { id: "eden_8", boss: "Hush", item: "Eden's Blessing", diff: "Normal/Hard" },
-            { id: "eden_9", boss: "Delirium", item: "Eden's Soul", diff: "Normal/Hard" },
-            { id: "eden_10", boss: "Mother", item: "Star of Bethlehem", diff: "Normal/Hard" },
-            { id: "eden_11", boss: "The Beast", item: "Tainted Eden", diff: "Normal/Hard" },
-            { id: "eden_12", boss: "Greed Mode", item: "GB Bug", diff: "Normal" },
-            { id: "eden_13", boss: "Greedier Mode", item: "Metronome", diff: "Hard" }
+            { id: "eden_6", boss: "Blue Baby", item: "Mysterious Paper", diff: "Normal/Hard" },
+            { id: "eden_7", boss: "Greed Mode", item: "GB bug", diff: "Normal/Hard" },
+            { id: "eden_8", boss: "Greedier Mode", item: "Metronome", diff: "Hard" },
+            { id: "eden_9", boss: "Hush", item: "Eden's Blessing", diff: "Normal/Hard" },
+            { id: "eden_10", boss: "Delirium", item: "Eden's Soul", diff: "Normal/Hard" },
+            { id: "eden_11", boss: "Mother", item: "'M", diff: "Normal/Hard" },
+            { id: "eden_12", boss: "The Beast", item: "Everything Jar", diff: "Normal/Hard" },
+            { id: "eden_13", boss: "Mega Satan", item: "Yellow baby", diff: "Normal/Hard" },
+            { id: "eden_14", boss: "All Hard Mode Marks", item: "Cracked baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
-    "The Lost": {
-        name: "The Lost", image: "img/Characters/Normal/The_Lost.png", description: "The glass issue. Dies in one hit if Holy Mantle isn't unlocked. Takes free Devil Deals, but only one of the options!",
+"The Lost": {
+        name: "The Lost", image: "img/Characters/Normal/The_Lost.png", description: "The ghost. Has no health, starts with Holy Mantle and flying. Can take devil deals for free, but only one of the items. The embodiment of skill solution, until a random spider ends your career.",
         stats: "HP: None<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Soul_Heart.png"],
         startingItems: [
             { name: "Eternal D6", img: "Eternal_D6.png", condition: null },
             { name: "Holy Mantle", img: "Holy_Mantle.png", condition: "greed_879", conditionText: "Donate 879c to Greed Machine" }
         ],
         unlocks: [
-            { id: "lost_1", boss: "Mom's Heart", item: "D20", diff: "Normal/Hard" },
-            { id: "lost_2", boss: "Isaac", item: "The Mind", diff: "Normal/Hard" },
-            { id: "lost_3", boss: "Satan", item: "The Pact", diff: "Normal/Hard" },
-            { id: "lost_4", boss: "Blue Baby", item: "The Body", diff: "Normal/Hard" },
+            { id: "lost_1", boss: "Boss Rush", item: "D100", diff: "Normal/Hard" },
+            { id: "lost_2", boss: "Mom's Heart", item: "-0- baby", diff: "Hard" },
+            { id: "lost_3", boss: "Satan", item: "The Mind", diff: "Normal/Hard" },
+            { id: "lost_4", boss: "Isaac", item: "Isaac's Heart", diff: "Normal/Hard" },
             { id: "lost_5", boss: "The Lamb", item: "The Soul", diff: "Normal/Hard" },
-            { id: "lost_6", boss: "Mega Satan", item: "White Baby", diff: "Normal/Hard" },
-            { id: "lost_7", boss: "Boss Rush", item: "D100", diff: "Normal/Hard" },
-            { id: "lost_8", boss: "Hush", item: "Sworn Protector", diff: "Normal/Hard" },
-            { id: "lost_9", boss: "Delirium", item: "Holy Card", diff: "Normal/Hard" },
-            { id: "lost_10", boss: "Mother", item: "Lost Soul", diff: "Normal/Hard" },
-            { id: "lost_11", boss: "The Beast", item: "Hungry Soul", diff: "Normal/Hard" },
-            { id: "lost_12", boss: "Greed Mode", item: "Zodiac", diff: "Normal" },
-            { id: "lost_13", boss: "Greedier Mode", item: "Dad's Lost Coin", diff: "Hard" }
+            { id: "lost_6", boss: "Blue Baby", item: "The Body", diff: "Normal/Hard" },
+            { id: "lost_7", boss: "Greed Mode", item: "Zodiac", diff: "Normal/Hard" },
+            { id: "lost_8", boss: "Greedier Mode", item: "Dad's Lost Coin", diff: "Hard" },
+            { id: "lost_9", boss: "Hush", item: "Sworn Protector", diff: "Normal/Hard" },
+            { id: "lost_10", boss: "Delirium", item: "Holy Card", diff: "Normal/Hard" },
+            { id: "lost_11", boss: "Mother", item: "Lost Soul", diff: "Normal/Hard" },
+            { id: "lost_12", boss: "The Beast", item: "Hungry Soul", diff: "Normal/Hard" },
+            { id: "lost_13", boss: "Mega Satan", item: "White baby", diff: "Normal/Hard" },
+            { id: "lost_14", boss: "All Hard Mode Marks", item: "Godhead", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
-    "Lilith": {
-        name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of the group. Can't fires tears by herself, so it uses familiars to shoot teras for her.",
+"Lilith": {
+        name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of demons. Cannot shoot tears, relies entirely on familiars and on the Box of Friends item. Blindfolded, but still manages to fill the screen with more garbage than the game engine can handle.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png", "Black_Heart.png"],
         startingItems: [
             { name: "Incubus", img: "Incubus.png", condition: null },
             { name: "Cambion Conception", img: "Cambion_Conception.png", condition: null },
             { name: "Box of Friends", img: "Box_of_Friends.png", condition: null }
         ],
         unlocks: [
-            { id: "lilith_1", boss: "Mom's Heart", item: "Rune Bag", diff: "Normal/Hard" },
-            { id: "lilith_2", boss: "Isaac", item: "Immaculate Conception", diff: "Normal/Hard" },
+            { id: "lilith_1", boss: "Boss Rush", item: "Immaculate Conception", diff: "Normal/Hard" },
+            { id: "lilith_2", boss: "Mom's Heart", item: "Goat Head baby", diff: "Hard" },
             { id: "lilith_3", boss: "Satan", item: "Serpent's Kiss", diff: "Normal/Hard" },
-            { id: "lilith_4", boss: "Blue Baby", item: "Incubus", diff: "Normal/Hard" },
+            { id: "lilith_4", boss: "Isaac", item: "Rune Bag", diff: "Normal/Hard" },
             { id: "lilith_5", boss: "The Lamb", item: "Succubus", diff: "Normal/Hard" },
-            { id: "lilith_6", boss: "Mega Satan", item: "Big Baby", diff: "Normal/Hard" },
-            { id: "lilith_7", boss: "Boss Rush", item: "Immaculate Conception", diff: "Normal/Hard" },
-            { id: "lilith_8", boss: "Hush", item: "Rune Bag", diff: "Normal/Hard" },
-            { id: "lilith_9", boss: "Delirium", item: "Duality", diff: "Normal/Hard" },
-            { id: "lilith_10", boss: "Mother", item: "Blood Puppy", diff: "Normal/Hard" },
-            { id: "lilith_11", boss: "The Beast", item: "Cursed Penny", diff: "Normal/Hard" },
-            { id: "lilith_12", boss: "Greed Mode", item: "Box of Friends", diff: "Normal" },
-            { id: "lilith_13", boss: "Greedier Mode", item: "Euthanasia", diff: "Hard" }
+            { id: "lilith_6", boss: "Blue Baby", item: "Cambion Conception", diff: "Normal/Hard" },
+            { id: "lilith_7", boss: "Greed Mode", item: "Box of Friends", diff: "Normal/Hard" },
+            { id: "lilith_8", boss: "Greedier Mode", item: "Duality", diff: "Hard" },
+            { id: "lilith_9", boss: "Hush", item: "Incubus", diff: "Normal/Hard" },
+            { id: "lilith_10", boss: "Delirium", item: "Euthanasia", diff: "Normal/Hard" },
+            { id: "lilith_11", boss: "Mother", item: "Blood Puppy", diff: "Normal/Hard" },
+            { id: "lilith_12", boss: "The Beast", item: "C-Section", diff: "Normal/Hard" },
+            { id: "lilith_13", boss: "Mega Satan", item: "Big baby", diff: "Normal/Hard" },
+            { id: "lilith_14", boss: "All Hard Mode Marks", item: "Dark baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
-    "Keeper": {
-        name: "Keeper", image: "img/Characters/Normal/Keeper.png", description: "The buyer. Health = coins. Picking up coins heals him.",
+"Keeper": {
+        name: "Keeper", image: "img/Characters/Normal/Keeper.png", description: "The greedy corpse. Uses coins as health and shoots triple tears. -99 win streak simulator (Pre-Repentance PTSD).",
         stats: "HP: 2 Coin Hearts<br>DMG: 4.20<br>Tears: 1.20<br>Speed: 0.85",
+        effects: ["Double_Penny.png"],
         startingItems: [
-            { name: "1 Bomb", img: "Bomb.png", condition: null },
-            { name: "Wooden Nickel", img: "Wooden_Nickel.png", condition: "keeper_2", conditionText: "Beat Isaac as Keeper" },
+            { name: "1 Bomb", img: "Bomb.png", isEffectImg: true, tooltip: "Starts with a Bomb", condition: null },
             { name: "Store Key", img: "Store_Key.png", condition: "keeper_3", conditionText: "Beat Satan as Keeper" },
-            { name: "3rd Coin Heart", img: "Coin_Heart.png", condition: "keeper_8", conditionText: "Beat Hush as Keeper" }
+            { name: "Wooden Nickel", img: "Wooden_Nickel.png", condition: "keeper_4", conditionText: "Beat Isaac as Keeper" },
+            { name: "3rd Coin Heart", img: "Coin_Heart.png", condition: "keeper_9", conditionText: "Beat Hush as Keeper" }
         ],
         unlocks: [
-            { id: "keeper_1", boss: "Mom's Heart", item: "Rib of Greed", diff: "Normal/Hard" },
-            { id: "keeper_2", boss: "Isaac", item: "Keeper's Wooden Nickel", diff: "Normal/Hard" },
-            { id: "keeper_3", boss: "Satan", item: "Keeper's Store Key", diff: "Normal/Hard" },
-            { id: "keeper_4", boss: "Blue Baby", item: "Karma", diff: "Normal/Hard" },
-            { id: "keeper_5", boss: "The Lamb", item: "Deep Pockets", diff: "Normal/Hard" },
-            { id: "keeper_6", boss: "Mega Satan", item: "Noose Baby", diff: "Normal/Hard" },
-            { id: "keeper_7", boss: "Boss Rush", item: "Sticky Nickel", diff: "Normal/Hard" },
-            { id: "keeper_8", boss: "Hush", item: "Keeper's Penny", diff: "Normal/Hard" },
-            { id: "keeper_9", boss: "Delirium", item: "Crooked Penny", diff: "Normal/Hard" },
-            { id: "keeper_10", boss: "Mother", item: "Keeper's Sack", diff: "Normal/Hard" },
-            { id: "keeper_11", boss: "The Beast", item: "Penny Tears", diff: "Normal/Hard" },
-            { id: "keeper_12", boss: "Greed Mode", item: "Rib of Greed", diff: "Normal" },
-            { id: "keeper_13", boss: "Greedier Mode", item: "Eye of Greed", diff: "Hard" }
+            { id: "keeper_1", boss: "Boss Rush", item: "Sticky Nickel", diff: "Normal/Hard" },
+            { id: "keeper_2", boss: "Mom's Heart", item: "Super Greed baby", diff: "Hard" },
+            { id: "keeper_3", boss: "Satan", item: "Store Key", diff: "Normal/Hard" },
+            { id: "keeper_4", boss: "Isaac", item: "Wooden Nickel", diff: "Normal/Hard" },
+            { id: "keeper_5", boss: "The Lamb", item: "Karma", diff: "Normal/Hard" },
+            { id: "keeper_6", boss: "Blue Baby", item: "Deep Pockets", diff: "Normal/Hard" },
+            { id: "keeper_7", boss: "Greed Mode", item: "Rib of Greed", diff: "Normal/Hard" },
+            { id: "keeper_8", boss: "Greedier Mode", item: "Eye of Greed", diff: "Hard" },
+            { id: "keeper_9", boss: "Hush", item: "3rd Coin Heart", diff: "Normal/Hard" },
+            { id: "keeper_10", boss: "Delirium", item: "Crooked Penny", diff: "Normal/Hard" },
+            { id: "keeper_11", boss: "Mother", item: "Keeper's Sack", diff: "Normal/Hard" },
+            { id: "keeper_12", boss: "The Beast", item: "Keeper's Box", diff: "Normal/Hard" },
+            { id: "keeper_13", boss: "Mega Satan", item: "Noose baby", diff: "Normal/Hard" },
+            { id: "keeper_14", boss: "All Hard Mode Marks", item: "Sale baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
-    "Apollyon": {
-        name: "Apollyon", image: "img/Characters/Normal/Apollyon.png", description: "The re-user. Absorbs passive items and turn then into stats or active effects for permanent effect using Void.",
+"Apollyon": {
+        name: "Apollyon", image: "img/Characters/Normal/Apollyon.png", description: "The destroyer. Starts with Void to suck up passive items for stats or copy active items. Sucking up a decent item just to get +0.2 shot speed and +0.2 luck.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Void", img: "Void.png", condition: null }
         ],
         unlocks: [
-            { id: "apollyon_1", boss: "Mom's Heart", item: "Smelter", diff: "Normal/Hard" },
-            { id: "apollyon_2", boss: "Isaac", item: "Locust of Light", diff: "Normal/Hard" },
-            { id: "apollyon_3", boss: "Satan", item: "Locust of Death", diff: "Normal/Hard" },
-            { id: "apollyon_4", boss: "Blue Baby", item: "Locust of Famine", diff: "Normal/Hard" },
-            { id: "apollyon_5", boss: "The Lamb", item: "Locust of Pestilence", diff: "Normal/Hard" },
-            { id: "apollyon_6", boss: "Mega Satan", item: "Brown Baby", diff: "Normal/Hard" },
-            { id: "apollyon_7", boss: "Boss Rush", item: "Locust of Wrath", diff: "Normal/Hard" },
-            { id: "apollyon_8", boss: "Hush", item: "Hushy", diff: "Normal/Hard" },
-            { id: "apollyon_9", boss: "Delirium", item: "Void", diff: "Normal/Hard" },
-            { id: "apollyon_10", boss: "Mother", item: "Worm Friend", diff: "Normal/Hard" },
-            { id: "apollyon_11", boss: "The Beast", item: "Plum Flute", diff: "Normal/Hard" },
-            { id: "apollyon_12", boss: "Greed Mode", item: "Brown Crown", diff: "Normal" },
-            { id: "apollyon_13", boss: "Greedier Mode", item: "Black Crown", diff: "Hard" }
+            { id: "apollyon_1", boss: "Boss Rush", item: "Locust of Conquest", diff: "Normal/Hard" },
+            { id: "apollyon_2", boss: "Mom's Heart", item: "Smelter", diff: "Hard" },
+            { id: "apollyon_3", boss: "Satan", item: "Locust of Pestilence", diff: "Normal/Hard" },
+            { id: "apollyon_4", boss: "Isaac", item: "Locust of Wrath", diff: "Normal/Hard" },
+            { id: "apollyon_5", boss: "The Lamb", item: "Locust of Death", diff: "Normal/Hard" },
+            { id: "apollyon_6", boss: "Blue Baby", item: "Locust of Famine", diff: "Normal/Hard" },
+            { id: "apollyon_7", boss: "Greed Mode", item: "Brown Nugget", diff: "Normal/Hard" },
+            { id: "apollyon_8", boss: "Greedier Mode", item: "Blank Rune", diff: "Hard" },
+            { id: "apollyon_9", boss: "Hush", item: "Hushy", diff: "Normal/Hard" },
+            { id: "apollyon_10", boss: "Delirium", item: "Void", diff: "Normal/Hard" },
+            { id: "apollyon_11", boss: "Mother", item: "Lil' Portal", diff: "Normal/Hard" },
+            { id: "apollyon_12", boss: "The Beast", item: "Worm Friend", diff: "Normal/Hard" },
+            { id: "apollyon_13", boss: "Mega Satan", item: "Mort Baby", diff: "Normal/Hard" },
+            { id: "apollyon_14", boss: "All Hard Mode Marks", item: "Apollyon baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
-    "The Forgotten": {
+"The Forgotten": {
         name: "The Forgotten", 
         image: "img/Characters/Normal/The_Forgotten.png", 
-        description: "The bony boi + soul. Two characters in one: Melee skeleton and flying soul. They're chained to each other.",
+        image2: "img/Characters/Normal/The_Soul.png", 
+        description: "Two characters in one: Melee skeleton and flying soul. Bonk simulador.",
         stats: "HP: 2 Bone (Soul has 1 Soul)<br>DMG: 5.25<br>Tears: 1.36<br>Speed: 1.00",
+        effects: ["Soul_Heart.png"],
         startingItems: [
             { name: "Bone Club", img: "Bone_Club.png", condition: null }
         ],
         unlocks: [
-            { id: "forgotten_1", boss: "Mom's Heart", item: "Bone Spurs", diff: "Normal/Hard" },
-            { id: "forgotten_2", boss: "Isaac", item: "Divorce Papers", diff: "Normal/Hard" },
-            { id: "forgotten_3", boss: "Satan", item: "Jaw Bone", diff: "Normal/Hard" },
-            { id: "forgotten_4", boss: "Blue Baby", item: "Brittle Beauty", diff: "Normal/Hard" },
-            { id: "forgotten_5", boss: "The Lamb", item: "Slipped Rib", diff: "Normal/Hard" },
-            { id: "forgotten_6", boss: "Mega Satan", item: "Bone Baby", diff: "Normal/Hard" },
-            { id: "forgotten_7", boss: "Boss Rush", item: "Marrow", diff: "Normal/Hard" },
-            { id: "forgotten_8", boss: "Hush", item: "Pointy Rib", diff: "Normal/Hard" },
-            { id: "forgotten_9", boss: "Delirium", item: "Book of the Dead", diff: "Normal/Hard" },
-            { id: "forgotten_10", boss: "Mother", item: "Spirit Shackles", diff: "Normal/Hard" },
-            { id: "forgotten_11", boss: "The Beast", item: "Hollow Heart", diff: "Normal/Hard" },
-            { id: "forgotten_12", boss: "Greed Mode", item: "Dad's Ring", diff: "Normal" },
-            { id: "forgotten_13", boss: "Greedier Mode", item: "Polydactyly", diff: "Hard" }
+            { id: "forgotten_1", boss: "Boss Rush", item: "Divorce Papers", diff: "Normal/Hard" },
+            { id: "forgotten_2", boss: "Mom's Heart", item: "Marrow", diff: "Hard" },
+            { id: "forgotten_3", boss: "Satan", item: "Pointy Rib", diff: "Normal/Hard" },
+            { id: "forgotten_4", boss: "Isaac", item: "Slipped Rib", diff: "Normal/Hard" },
+            { id: "forgotten_5", boss: "The Lamb", item: "Brittle Bones", diff: "Normal/Hard" },
+            { id: "forgotten_6", boss: "Blue Baby", item: "Jaw Bone", diff: "Normal/Hard" },
+            { id: "forgotten_7", boss: "Greed Mode", item: "Finger Bone", diff: "Normal/Hard" },
+            { id: "forgotten_8", boss: "Greedier Mode", item: "Dad's Ring", diff: "Hard" },
+            { id: "forgotten_9", boss: "Hush", item: "Hallowed Ground", diff: "Normal/Hard" },
+            { id: "forgotten_10", boss: "Delirium", item: "Book of the Dead", diff: "Normal/Hard" },
+            { id: "forgotten_11", boss: "Mother", item: "Bone Spurs", diff: "Normal/Hard" },
+            { id: "forgotten_12", boss: "The Beast", item: "Spirit Shackles", diff: "Normal/Hard" },
+            { id: "forgotten_13", boss: "Mega Satan", item: "Bound Baby", diff: "Normal/Hard" },
+            { id: "forgotten_14", boss: "All Hard Mode Marks", item: "Bone baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
-    "Bethany": {
-        name: "Bethany", image: "img/Characters/Normal/Bethany.png", description: "The cristian. Soul hearts act as charges for her active items, but not for health.",
+"Bethany": {
+        name: "Bethany", image: "img/Characters/Normal/Bethany.png", description: "The faithful. Cannot use Soul Hearts for health, but uses for soul charges. Protect the wisps with your life, only for them to instantly die to a red poop.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png", "Blended_Heart.png"],
         startingItems: [
             { name: "Book of Virtues", img: "Book_of_Virtues.png", condition: null }
         ],
         unlocks: [
-            { id: "bethany_1", boss: "Mom's Heart", item: "Blessed Penny", diff: "Normal/Hard" },
-            { id: "bethany_2", boss: "Isaac", item: "Star of Bethlehem", diff: "Normal/Hard" },
-            { id: "bethany_3", boss: "Satan", item: "Book of Virtues", diff: "Normal/Hard" },
-            { id: "bethany_4", boss: "Blue Baby", item: "Alabaster Box", diff: "Normal/Hard" },
-            { id: "bethany_5", boss: "The Lamb", item: "Urn of Souls", diff: "Normal/Hard" },
-            { id: "bethany_6", boss: "Mega Satan", item: "Buddy in a Box", diff: "Normal/Hard" },
-            { id: "bethany_7", boss: "Boss Rush", item: "Spirit Sword", diff: "Normal/Hard" },
-            { id: "bethany_8", boss: "Hush", item: "Vengeful Spirit", diff: "Normal/Hard" },
-            { id: "bethany_9", boss: "Delirium", item: "Divine Intervention", diff: "Normal/Hard" },
-            { id: "bethany_10", boss: "Mother", item: "Revelation", diff: "Normal/Hard" },
-            { id: "bethany_11", boss: "The Beast", item: "Beth's Faith", diff: "Normal/Hard" },
-            { id: "bethany_12", boss: "Greed Mode", item: "Soul Locket", diff: "Normal" },
-            { id: "bethany_13", boss: "Greedier Mode", item: "Crystal Key", diff: "Hard" }
+            { id: "bethany_1", boss: "Boss Rush", item: "Beth's Faith", diff: "Normal/Hard" },
+            { id: "bethany_2", boss: "Mom's Heart", item: "Wisp Baby", diff: "Hard" },
+            { id: "bethany_3", boss: "Satan", item: "Urn of Souls", diff: "Normal/Hard" },
+            { id: "bethany_4", boss: "Isaac", item: "Book of Virtues", diff: "Normal/Hard" },
+            { id: "bethany_5", boss: "The Lamb", item: "Alabaster Box", diff: "Normal/Hard" },
+            { id: "bethany_6", boss: "Blue Baby", item: "Blessed Penny", diff: "Normal/Hard" },
+            { id: "bethany_7", boss: "Greed Mode", item: "Soul Locket", diff: "Normal/Hard" },
+            { id: "bethany_8", boss: "Greedier Mode", item: "Vade Retro", diff: "Hard" },
+            { id: "bethany_9", boss: "Hush", item: "Divine Intervention", diff: "Normal/Hard" },
+            { id: "bethany_10", boss: "Delirium", item: "Star of Bethlehem", diff: "Normal/Hard" },
+            { id: "bethany_11", boss: "Mother", item: "Revelation", diff: "Normal/Hard" },
+            { id: "bethany_12", boss: "The Beast", item: "Jar of Wisps", diff: "Normal/Hard" },
+            { id: "bethany_13", boss: "Mega Satan", item: "Glowing Baby", diff: "Normal/Hard" },
+            { id: "bethany_14", boss: "All Hard Mode Marks", item: "Hope baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
-    "Jacob & Esau": {
-        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The Jacob and hitbox experience. Control two characters with different stats, passive and active items.",
-        stats: "J: 3 Red | E: 1 Red, 1 Soul<br>J DMG: 2.75 | E DMG: 3.75",
+"Jacob & Esau": {
+        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. The Jacob and Hitbox experience.",
+        stats: "Jacob stats:<br>HP: 3 Red<br>DMG: 2.75<br>Tears: 2.73<br>Speed: 1.00<br><br>Esau stats:<br>HP: 1 Red, 1 Soul<br>DMG: 3.75<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png", "Soul_Heart.png"],
         startingItems: [],
         unlocks: [
-            { id: "jacob_1", boss: "Mom's Heart", item: "Inner Child", diff: "Normal/Hard" },
-            { id: "jacob_2", boss: "Isaac", item: "Damocles", diff: "Normal/Hard" },
+            { id: "jacob_1", boss: "Boss Rush", item: "Rock Bottom", diff: "Normal/Hard" },
+            { id: "jacob_2", boss: "Mom's Heart", item: "Double baby", diff: "Hard" },
             { id: "jacob_3", boss: "Satan", item: "Red Stew", diff: "Normal/Hard" },
-            { id: "jacob_4", boss: "Blue Baby", item: "Suplex!", diff: "Normal/Hard" },
-            { id: "jacob_5", boss: "The Lamb", item: "Magic Skin", diff: "Normal/Hard" },
-            { id: "jacob_6", boss: "Mega Satan", item: "Friend Finder", diff: "Normal/Hard" },
-            { id: "jacob_7", boss: "Boss Rush", item: "Rock Bottom", diff: "Normal/Hard" },
-            { id: "jacob_8", boss: "Hush", item: "Blind Pact", diff: "Normal/Hard" },
-            { id: "jacob_9", boss: "Delirium", item: "Birthright", diff: "Normal/Hard" },
-            { id: "jacob_10", boss: "Mother", item: "Vanishing Twin", diff: "Normal/Hard" },
-            { id: "jacob_11", boss: "The Beast", item: "Esau Jr.", diff: "Normal/Hard" },
-            { id: "jacob_12", boss: "Greed Mode", item: "The Stairway", diff: "Normal" },
-            { id: "jacob_13", boss: "Greedier Mode", item: "Genesis", diff: "Hard" }
+            { id: "jacob_4", boss: "Isaac", item: "The Stairway", diff: "Normal/Hard" },
+            { id: "jacob_5", boss: "The Lamb", item: "Damocles", diff: "Normal/Hard" },
+            { id: "jacob_6", boss: "Blue Baby", item: "Birthright", diff: "Normal/Hard" },
+            { id: "jacob_7", boss: "Greed Mode", item: "Inner Child", diff: "Normal/Hard" },
+            { id: "jacob_8", boss: "Greedier Mode", item: "Genesis", diff: "Hard" },
+            { id: "jacob_9", boss: "Hush", item: "Vanishing Twin", diff: "Normal/Hard" },
+            { id: "jacob_10", boss: "Delirium", item: "Suplex!", diff: "Normal/Hard" },
+            { id: "jacob_11", boss: "Mother", item: "Magic Skin", diff: "Normal/Hard" },
+            { id: "jacob_12", boss: "The Beast", item: "Friend Finder", diff: "Normal/Hard" },
+            { id: "jacob_13", boss: "Mega Satan", item: "Illusion baby", diff: "Normal/Hard" },
+            { id: "jacob_14", boss: "All Hard Mode Marks", item: "Solomon's baby", diff: "Hard" },
+            { id: "global_mega_blast", boss: "Mega Satan", item: "Mega Blast", diff: "Hard" },
+            { id: "global_mega_mush", boss: "All Hard Mode Marks", item: "Mega Mush", diff: "Hard" }
         ]
     },
 
-    "Tainted Isaac": {
-        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Minecraft experience. Can only hold 8 passive items. Items cycle between two choices.",
+"Tainted Isaac": {
+        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. Minecraft full inventory gameplay",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png"],
         startingItems: [
-            { name: "1 Bomb", img: "Bomb.png", condition: null }
+            { name: "1 Bomb", img: "Bomb.png", isEffectImg: true, tooltip: "Starts with a Bomb", condition: null }
         ],
         unlocks: [
-            { id: "t_isaac_1", boss: "Boss Rush", item: "Soul of Isaac", diff: "Hard" },
-            { id: "t_isaac_2", boss: "Isaac", item: "Dice Bag", diff: "Hard" },
+            { id: "t_isaac_1", boss: "Boss Rush & Hush", item: "Soul of Isaac", diff: "Hard" },
+            { id: "t_isaac_2", boss: "Isaac, ???, Satan & The Lamb", item: "Mom's Lock", diff: "Hard" },
             { id: "t_isaac_3", boss: "Mega Satan", item: "Mega Chest", diff: "Hard" },
             { id: "t_isaac_4", boss: "Delirium", item: "Spindown Dice", diff: "Hard" },
-            { id: "t_isaac_5", boss: "Mother", item: "Glitched Crown", diff: "Hard" },
-            { id: "t_isaac_6", boss: "The Beast", item: "Fool's Gold", diff: "Hard" },
-            { id: "t_isaac_7", boss: "Greedier", item: "The Stars?", diff: "Hard" }
+            { id: "t_isaac_5", boss: "Mother", item: "Dice Bag", diff: "Hard" },
+            { id: "t_isaac_6", boss: "The Beast", item: "Glitched Crown", diff: "Hard" },
+            { id: "t_isaac_7", boss: "Greedier Mode", item: "The Stars?", diff: "Hard" }
         ]
     },
-    "Tainted Magdalene": {
-        name: "Tainted Magdalene", image: "img/Characters/Tainted/Tainted_Magdalene.png", description: "The 'fuck, I need to go!' character. Rapidly drains health, but heals by killing enemies with melee hug attack.",
+"Tainted Magdalene": {
+        name: "Tainted Magdalene", image: "img/Characters/Tainted/Tainted_Magdalene.png", description: "The Dauntless. Bleeds out constantly buthugging enemies to death drops temporary half-red hearts. *DOOM music kicks in* TIME TO HUG 'EM ALL!",
         stats: "HP: 4 Red (Empty)<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.20",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Yum Heart", img: "Yum_Heart.png", condition: null }
         ],
         unlocks: [
-            { id: "t_mag_1", boss: "Boss Rush", item: "Soul of Magdalene", diff: "Hard" },
-            { id: "t_mag_2", boss: "Isaac", item: "Candy Heart", diff: "Hard" },
-            { id: "t_mag_3", boss: "Mega Satan", item: "Jelly Belly", diff: "Hard" },
+            { id: "t_mag_1", boss: "Boss Rush & Hush", item: "Soul of Magdalene", diff: "Hard" },
+            { id: "t_mag_2", boss: "Isaac, ???, Satan & The Lamb", item: "Holy Crown", diff: "Hard" },
+            { id: "t_mag_3", boss: "Mega Satan", item: "Queen of Hearts", diff: "Hard" },
             { id: "t_mag_4", boss: "Delirium", item: "Hypercoagulation", diff: "Hard" },
-            { id: "t_mag_5", boss: "Mother", item: "Isaac's Tomb", diff: "Hard" },
-            { id: "t_mag_6", boss: "The Beast", item: "The Lovers?", diff: "Hard" },
-            { id: "t_mag_7", boss: "Greedier", item: "Golden Heart", diff: "Hard" }
+            { id: "t_mag_5", boss: "Mother", item: "Mother's Kiss", diff: "Hard" },
+            { id: "t_mag_6", boss: "The Beast", item: "Belly Jelly", diff: "Hard" },
+            { id: "t_mag_7", boss: "Greedier Mode", item: "The Lovers?", diff: "Hard" }
         ]
     },
-    "Tainted Cain": {
-        name: "Tainted Cain", image: "img/Characters/Tainted/Tainted_Cain.png", description: "The Minecraft experience 2. Cannot pick up items directly. Drops pickups to craft them instead.",
+"Tainted Cain": {
+        name: "Tainted Cain", image: "img/Characters/Tainted/Tainted_Cain.png", description: "The Hoarder. Cannot pick up items directly, and must craft them using pickups in a bag. Items turns into pickups. First we Cry, then we Craft.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.30",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Bag of Crafting", img: "Bag_of_Crafting.png", condition: null }
         ],
         unlocks: [
-            { id: "t_cain_1", boss: "Boss Rush", item: "Soul of Cain", diff: "Hard" },
-            { id: "t_cain_2", boss: "Isaac", item: "Worthless Penny", diff: "Hard" },
-            { id: "t_cain_3", boss: "Mega Satan", item: "Gold Pill", diff: "Hard" },
+            { id: "t_cain_1", boss: "Boss Rush & Hush", item: "Soul of Cain", diff: "Hard" },
+            { id: "t_cain_2", boss: "Isaac, ???, Satan & The Lamb", item: "Gilded Key", diff: "Hard" },
+            { id: "t_cain_3", boss: "Mega Satan", item: "Golden Pill", diff: "Hard" },
             { id: "t_cain_4", boss: "Delirium", item: "Bag of Crafting", diff: "Hard" },
-            { id: "t_cain_5", boss: "Mother", item: "Gilded Key", diff: "Hard" },
-            { id: "t_cain_6", boss: "The Beast", item: "Wheel of Fortune?", diff: "Hard" },
-            { id: "t_cain_7", boss: "Greedier", item: "Golden Battery", diff: "Hard" }
+            { id: "t_cain_5", boss: "Mother", item: "Lucky Sack", diff: "Hard" },
+            { id: "t_cain_6", boss: "The Beast", item: "Blue Key", diff: "Hard" },
+            { id: "t_cain_7", boss: "Greedier Mode", item: "Wheel of Fortune?", diff: "Hard" }
         ]
     },
-    "Tainted Judas": {
-        name: "Tainted Judas", image: "img/Characters/Tainted/Tainted_Judas.png", description: "The sinner. Blaxk/Soul heart only'. Uses Dark Arts to dash through enemies.",
+"Tainted Judas": {
+        name: "Tainted Judas", image: "img/Characters/Tainted/Tainted_Judas.png", description: "The Deceiver. Can only have Soul/Black hearts and starts with Dark Arts to slice through enemies. Omae wa, MOU shindeiru.",
         stats: "HP: 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Black_Heart.png"],
         startingItems: [
             { name: "Dark Arts", img: "Dark_Arts.png", condition: null }
         ],
         unlocks: [
-            { id: "t_judas_1", boss: "Boss Rush", item: "Soul of Judas", diff: "Hard" },
-            { id: "t_judas_2", boss: "Isaac", item: "RC Remote", diff: "Hard" },
+            { id: "t_judas_1", boss: "Boss Rush & Hush", item: "Soul of Judas", diff: "Hard" },
+            { id: "t_judas_2", boss: "Isaac, ???, Satan & The Lamb", item: "Your Soul", diff: "Hard" },
             { id: "t_judas_3", boss: "Mega Satan", item: "Black Sack", diff: "Hard" },
             { id: "t_judas_4", boss: "Delirium", item: "Dark Arts", diff: "Hard" },
-            { id: "t_judas_5", boss: "Mother", item: "Sanguine Bond", diff: "Hard" },
-            { id: "t_judas_6", boss: "The Beast", item: "Death?", diff: "Hard" },
-            { id: "t_judas_7", boss: "Greedier", item: "Golden Pill", diff: "Hard" }
+            { id: "t_judas_5", boss: "Mother", item: "Number Magnet", diff: "Hard" },
+            { id: "t_judas_6", boss: "The Beast", item: "Sanguine Bond", diff: "Hard" },
+            { id: "t_judas_7", boss: "Greedier Mode", item: "The Magician?", diff: "Hard" }
         ]
     },
-    "Tainted Blue Baby": {
-        name: "Tainted Blue Baby", image: "img/Characters/Tainted/Tainted_Blue_Baby.png", description: "The shitty boi. Cannot hold bombs. Replaces them with different types of poop.",
+"Tainted Blue Baby": {
+        name: "Tainted Blue Baby", image: "img/Characters/Tainted/Tainted_Blue_Baby.png", description: "The Enigma. Cannot use bombs, but throws various types of poop instead. Taco Bell aftermath.",
         stats: "HP: 3 Soul<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.05",
+        effects: ["Soul_Heart.png"],
         startingItems: [
             { name: "Hold", img: "Hold.png", condition: null }
         ],
         unlocks: [
-            { id: "t_bluebaby_1", boss: "Boss Rush", item: "Soul of ???", diff: "Hard" },
-            { id: "t_bluebaby_2", boss: "Isaac", item: "Lost Cork", diff: "Hard" },
-            { id: "t_bluebaby_3", boss: "Mega Satan", item: "IBS", diff: "Hard" },
-            { id: "t_bluebaby_4", boss: "Delirium", item: "Hold", diff: "Hard" },
-            { id: "t_bluebaby_5", boss: "Mother", item: "Bowel Movement", diff: "Hard" },
-            { id: "t_bluebaby_6", boss: "The Beast", item: "The Chariot?", diff: "Hard" },
-            { id: "t_bluebaby_7", boss: "Greedier", item: "Golden Bomb", diff: "Hard" }
+            { id: "t_bluebaby_1", boss: "Boss Rush & Hush", item: "Soul of ???", diff: "Hard" },
+            { id: "t_bluebaby_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Dingle Berry", diff: "Hard" },
+            { id: "t_bluebaby_3", boss: "Mega Satan", item: "Charming Poop", diff: "Hard" },
+            { id: "t_bluebaby_4", boss: "Delirium", item: "IBS", diff: "Hard" },
+            { id: "t_bluebaby_5", boss: "Mother", item: "Ring Cap", diff: "Hard" },
+            { id: "t_bluebaby_6", boss: "The Beast", item: "The Swarm", diff: "Hard" },
+            { id: "t_bluebaby_7", boss: "Greedier Mode", item: "The Emperor?", diff: "Hard" }
         ]
     },
-    "Tainted Eve": {
-        name: "Tainted Eve", image: "img/Characters/Tainted/Tainted_Eve.png", description: "The army girl. Low fire rate, but drains health to spawn Blood Clot familiars.",
+"Tainted Eve": {
+        name: "Tainted Eve", image: "img/Characters/Tainted/Tainted_Eve.png", description: "The Curdled. Drains her own health to spawn a army of blood clots. Pikmin, but make it bloody.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 1.20<br>Speed: 1.00",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Sumptorium", img: "Sumptorium.png", condition: null }
         ],
         unlocks: [
-            { id: "t_eve_1", boss: "Boss Rush", item: "Soul of Eve", diff: "Hard" },
-            { id: "t_eve_2", boss: "Isaac", item: "Strange Key", diff: "Hard" },
+            { id: "t_eve_1", boss: "Boss Rush & Hush", item: "Soul of Eve", diff: "Hard" },
+            { id: "t_eve_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Strange Key", diff: "Hard" },
             { id: "t_eve_3", boss: "Mega Satan", item: "Horse Pill", diff: "Hard" },
             { id: "t_eve_4", boss: "Delirium", item: "Sumptorium", diff: "Hard" },
             { id: "t_eve_5", boss: "Mother", item: "Lil Clot", diff: "Hard" },
             { id: "t_eve_6", boss: "The Beast", item: "Heartbreak", diff: "Hard" },
-            { id: "t_eve_7", boss: "Greedier", item: "The Empress?", diff: "Hard" }
+            { id: "t_eve_7", boss: "Greedier Mode", item: "The Empress?", diff: "Hard" }
         ]
     },
-    "Tainted Samson": {
-        name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Berserker. Shooting/killing enemys slowly fills a rage meter, activating Berserk!.",
+"Tainted Samson": {
+        name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Savage. Goes into a doom-slayer berserk rage after dealing/taking damage. *Ultrakill music kicks in* RIP AND TEAR, BABY!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.10",
+        effects: ["Red_Heart.png"],
         startingItems: [],
         unlocks: [
-            { id: "t_samson_1", boss: "Boss Rush", item: "Soul of Samson", diff: "Hard" },
-            { id: "t_samson_2", boss: "Isaac", item: "Temporary Tattoo", diff: "Hard" },
+            { id: "t_samson_1", boss: "Boss Rush & Hush", item: "Soul of Samson", diff: "Hard" },
+            { id: "t_samson_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Temporary Tattoo", diff: "Hard" },
             { id: "t_samson_3", boss: "Mega Satan", item: "Crane Game", diff: "Hard" },
             { id: "t_samson_4", boss: "Delirium", item: "Berserk!", diff: "Hard" },
             { id: "t_samson_5", boss: "Mother", item: "Swallowed M80", diff: "Hard" },
             { id: "t_samson_6", boss: "The Beast", item: "Larynx", diff: "Hard" },
-            { id: "t_samson_7", boss: "Greedier", item: "Strength?", diff: "Hard" }
+            { id: "t_samson_7", boss: "Greedier Mode", item: "Strength?", diff: "Hard" }
         ]
     },
-    "Tainted Azazel": {
-        name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The demon with a fever. Hemoptysis sneeze applies brimstone curse that boosts his thin Brimstone.",
-        stats: "HP: 3 Black<br>DMG: 3.50<br>Tears: 0.91<br>Speed: 1.25",
-        startingItems: [
-            { name: "0 - The Fool", img: "The_Fool.png", condition: null }
-        ],
+"Tainted Azazel": {
+        name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The Benighted. Has a skinny Brimstone and sneezes to push and curse enemies. Bless him.",
+        stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 1.20<br>Speed: 1.25",
+        effects: ["Black_Heart.png"],
+        startingItems: [],
         unlocks: [
-            { id: "t_azazel_1", boss: "Boss Rush", item: "Soul of Azazel", diff: "Hard" },
-            { id: "t_azazel_2", boss: "Isaac", item: "Bat Wing", diff: "Hard" },
-            { id: "t_azazel_3", boss: "Mega Satan", item: "Demon Tail", diff: "Hard" },
+            { id: "t_azazel_1", boss: "Boss Rush & Hush", item: "Soul of Azazel", diff: "Hard" },
+            { id: "t_azazel_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Wicked Crown", diff: "Hard" },
+            { id: "t_azazel_3", boss: "Mega Satan", item: "Hell Game", diff: "Hard" },
             { id: "t_azazel_4", boss: "Delirium", item: "Hemoptysis", diff: "Hard" },
-            { id: "t_azazel_5", boss: "Mother", item: "Azazel's Rage", diff: "Hard" },
-            { id: "t_azazel_6", boss: "The Beast", item: "Abyss", diff: "Hard" },
-            { id: "t_azazel_7", boss: "Greedier", item: "The Devil?", diff: "Hard" }
+            { id: "t_azazel_5", boss: "Mother", item: "Azazel's Stump", diff: "Hard" },
+            { id: "t_azazel_6", boss: "The Beast", item: "Azazel's Rage", diff: "Hard" },
+            { id: "t_azazel_7", boss: "Greedier Mode", item: "The Devil?", diff: "Hard" }
         ]
     },
-    "Tainted Lazarus": {
+"Tainted Lazarus": {
         name: "Tainted Lazarus", 
         image: "img/Characters/Tainted/Tainted_Lazarus.png", 
         image2: "img/Characters/Tainted/Tainted_Lazarus_Dead.png", 
-        description: "The Jacob and hitbox experience 2. Swaps between Alive and Dead Lazarus forms every room. Both Alive and Dead form have different stats, items and health.",
-        stats: "HP: 3 Red (Alive) / 2 Soul (Dead)<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        description: "The Flipped. Swaps between an alive and dead form every time a room is cleared, splitting items between them. Two half-baked runs glued together by a item.",
+        stats: "HP: 3 Red (Alive) / 3 Soul (Dead)<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png", "Soul_Heart.png"],
         startingItems: [
             { name: "Flip", img: "Flip.png", condition: null }
         ],
         unlocks: [
-            { id: "t_laz_1", boss: "Boss Rush", item: "Soul of Lazarus", diff: "Hard" },
-            { id: "t_laz_2", boss: "Isaac", item: "Pollycephalus", diff: "Hard" },
+            { id: "t_laz_1", boss: "Boss Rush & Hush", item: "Soul of Lazarus", diff: "Hard" },
+            { id: "t_laz_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Torn Pocket", diff: "Hard" },
             { id: "t_laz_3", boss: "Mega Satan", item: "Wooden Chest", diff: "Hard" },
             { id: "t_laz_4", boss: "Delirium", item: "Flip", diff: "Hard" },
-            { id: "t_laz_5", boss: "Mother", item: "Astral Projection", diff: "Hard" },
+            { id: "t_laz_5", boss: "Mother", item: "Torn Card", diff: "Hard" },
             { id: "t_laz_6", boss: "The Beast", item: "Salvation", diff: "Hard" },
-            { id: "t_laz_7", boss: "Greedier", item: "Judgement?", diff: "Hard" }
+            { id: "t_laz_7", boss: "Greedier Mode", item: "Judgment?", diff: "Hard" }
         ]
     },
-    "Tainted Eden": {
-        name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The glitchy trash. Rerolls all stats, active and passive items, trinkers and pickups for every damage taked.",
+"Tainted Eden": {
+        name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The Capricious. Rerolls stats, items, and pickups upon taking damage. Oh, you have a broken build? *Gets hit by a fly* Enjoy your Bob's Brain and Cursed Eye run  .",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
-        startingItems: [
-            { name: "Random Active", img: "Random_Active.png", condition: null },
-            { name: "Random Passive", img: "Random_Passive.png", condition: null }
-        ],
+        effects: ["Red_Heart.png"],
+        startingItems: [],
         unlocks: [
-            { id: "t_eden_1", boss: "Boss Rush", item: "Soul of Eden", diff: "Hard" },
-            { id: "t_eden_2", boss: "Isaac", item: "Nuh Uh!", diff: "Hard" },
+            { id: "t_eden_1", boss: "Boss Rush & Hush", item: "Soul of Eden", diff: "Hard" },
+            { id: "t_eden_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Nuh Uh!", diff: "Hard" },
             { id: "t_eden_3", boss: "Mega Satan", item: "Wild Card", diff: "Hard" },
             { id: "t_eden_4", boss: "Delirium", item: "Corrupted Data", diff: "Hard" },
-            { id: "t_eden_5", boss: "Mother", item: "Tainted Eden", diff: "Hard" },
-            { id: "t_eden_6", boss: "The Beast", item: "The World?", diff: "Hard" },
-            { id: "t_eden_7", boss: "Greedier", item: "Missing Poster", diff: "Hard" }
+            { id: "t_eden_5", boss: "Mother", item: "Modeling Clay", diff: "Hard" },
+            { id: "t_eden_6", boss: "The Beast", item: "TMTRAINER", diff: "Hard" },
+            { id: "t_eden_7", boss: "Greedier Mode", item: "The World?", diff: "Hard" }
         ]
     },
-    "Tainted Lost": {
-        name: "Tainted Lost", image: "img/Characters/Tainted/Tainted_Lost.png", description: "The TRUE piece of shitty glass. No Mantle. Cannot find items that gives him HP, flight, spectral tears or on hit effects. Every card have a 10% chacne of being a holy card.",
-        stats: "HP: None<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+"Tainted Lost": {
+        name: "Tainted Lost", image: "img/Characters/Tainted/Tainted_Lost.png", description: "The Baleful. No health, no mantle, better items and no defensive items. Dying to a spiked rock because you couldn't see it under the 50 items you picked up.",
+        stats: "HP: None<br>DMG: 3.50 (x1.3 multiplier)<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Soul_Heart.png"],
         startingItems: [
-            { name: "Holy Card", img: "Holy_Card.png", condition: null }
+            { name: "Holy Card", img: "Holy_Card.png", isEffectImg: true, tooltip: "Starts with a Holy Card", condition: null }
         ],
         unlocks: [
-            { id: "t_lost_1", boss: "Boss Rush", item: "Soul of the Lost", diff: "Hard" },
-            { id: "t_lost_2", boss: "Isaac", item: "Kidney Stone", diff: "Hard" },
-            { id: "t_lost_3", boss: "Mega Satan", item: "Ghost Bombs", diff: "Hard" },
-            { id: "t_lost_4", boss: "Delirium", item: "Sacred Orb", diff: "Hard" },
+            { id: "t_lost_1", boss: "Boss Rush & Hush", item: "Soul of The Lost", diff: "Hard" },
+            { id: "t_lost_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Kid's Drawing", diff: "Hard" },
+            { id: "t_lost_3", boss: "Mega Satan", item: "Haunted Chest", diff: "Hard" },
+            { id: "t_lost_4", boss: "Delirium", item: "Ghost Bombs", diff: "Hard" },
             { id: "t_lost_5", boss: "Mother", item: "Crystal Key", diff: "Hard" },
-            { id: "t_lost_6", boss: "The Beast", item: "The Fool?", diff: "Hard" },
-            { id: "t_lost_7", boss: "Greedier", item: "Haunted Chest", diff: "Hard" }
+            { id: "t_lost_6", boss: "The Beast", item: "Sacred Orb", diff: "Hard" },
+            { id: "t_lost_7", boss: "Greedier Mode", item: "The Fool?", diff: "Hard" }
         ]
     },
-    "Tainted Lilith": {
-        name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The aunt of the group. Lashes out a fetus that automatically shoots tears while extended.",
+"Tainted Lilith": {
+        name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The Harlot. Whips her unborn fetus out to deal massive melee damage. Yeetus the fetus.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
-        startingItems: [
-            { name: "Gello", img: "Gello.png", condition: null }
-        ],
+        effects: ["Red_Heart.png", "Black_Heart.png"],
+        startingItems: [],
         unlocks: [
-            { id: "t_lilith_1", boss: "Boss Rush", item: "Soul of Lilith", diff: "Hard" },
-            { id: "t_lilith_2", boss: "Isaac", item: "Adoption Papers", diff: "Hard" },
+            { id: "t_lilith_1", boss: "Boss Rush & Hush", item: "Soul of Lilith", diff: "Hard" },
+            { id: "t_lilith_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "The Twins", diff: "Hard" },
             { id: "t_lilith_3", boss: "Mega Satan", item: "Fool's Gold", diff: "Hard" },
             { id: "t_lilith_4", boss: "Delirium", item: "Gello", diff: "Hard" },
-            { id: "t_lilith_5", boss: "Mother", item: "Baby-Bender", diff: "Hard" },
+            { id: "t_lilith_5", boss: "Mother", item: "Adoption Papers", diff: "Hard" },
             { id: "t_lilith_6", boss: "The Beast", item: "Twisted Pair", diff: "Hard" },
-            { id: "t_lilith_7", boss: "Greedier", item: "High Priestess?", diff: "Hard" }
+            { id: "t_lilith_7", boss: "Greedier Mode", item: "The High Priestess?", diff: "Hard" }
         ]
     },
-    "Tainted Keeper": {
-        name: "Tainted Keeper", image: "img/Characters/Tainted/Tainted_Keeper.png", description: "The greedy boi. Drops temporal coins on enemy kill. Shops are better, but every item cost money.",
+"Tainted Keeper": {
+        name: "Tainted Keeper", image: "img/Characters/Tainted/Tainted_Keeper.png", description: "The Miser. Enemies drop temporary coins on death, but all items costs money instead of finding them free. Capitalism at its finest.",
         stats: "HP: 2 Coin Hearts<br>DMG: 4.20<br>Tears: 1.20<br>Speed: 0.85",
+        effects: ["Double_Penny.png"],
         startingItems: [
-            { name: "1 Bomb", img: "Bomb.png", condition: null }
+            { name: "1 Bomb", img: "Bomb.png", isEffectImg: true, tooltip: "Starts with a Bomb", condition: null }
         ],
         unlocks: [
-            { id: "t_keeper_1", boss: "Boss Rush", item: "Soul of the Keeper", diff: "Hard" },
-            { id: "t_keeper_2", boss: "Isaac", item: "Keeper's Bargain", diff: "Hard" },
+            { id: "t_keeper_1", boss: "Boss Rush & Hush", item: "Soul of The Keeper", diff: "Hard" },
+            { id: "t_keeper_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Keeper's Bargain", diff: "Hard" },
             { id: "t_keeper_3", boss: "Mega Satan", item: "Golden Penny", diff: "Hard" },
             { id: "t_keeper_4", boss: "Delirium", item: "Keeper's Kin", diff: "Hard" },
-            { id: "t_keeper_5", boss: "Mother", item: "Keeper's Box", diff: "Hard" },
-            { id: "t_keeper_6", boss: "The Beast", item: "Keeper's Sack", diff: "Hard" },
-            { id: "t_keeper_7", boss: "Greedier", item: "The Hermit?", diff: "Hard" }
+            { id: "t_keeper_5", boss: "Mother", item: "Cursed Penny", diff: "Hard" },
+            { id: "t_keeper_6", boss: "The Beast", item: "Strawman", diff: "Hard" },
+            { id: "t_keeper_7", boss: "Greedier Mode", item: "The Hanged Man?", diff: "Hard" }
         ]
     },
-    "Tainted Apollyon": {
-        name: "Tainted Apollyon", image: "img/Characters/Tainted/Tainted_Apollyon.png", description: "The plague. Uses Abyss to turn unwanted active or passive items into permanent locusts. Locusts are attack flyes that youhave controll. Certain items gives especial locusts.",
+"Tainted Apollyon": {
+        name: "Tainted Apollyon", image: "img/Characters/Tainted/Tainted_Apollyon.png", description: "The Empty. Sucks up items to create an army of locusts with Abyss. When in doubt, make a fly.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Abyss", img: "Abyss.png", condition: null }
         ],
         unlocks: [
-            { id: "t_apollyon_1", boss: "Boss Rush", item: "Soul of Apollyon", diff: "Hard" },
-            { id: "t_apollyon_2", boss: "Isaac", item: "Worm Friend", diff: "Hard" },
-            { id: "t_apollyon_3", boss: "Mega Satan", item: "Void", diff: "Hard" },
+            { id: "t_apollyon_1", boss: "Boss Rush & Hush", item: "Soul of Apollyon", diff: "Hard" },
+            { id: "t_apollyon_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Cricket's Leg", diff: "Hard" },
+            { id: "t_apollyon_3", boss: "Mega Satan", item: "Rotten Beggar", diff: "Hard" },
             { id: "t_apollyon_4", boss: "Delirium", item: "Abyss", diff: "Hard" },
-            { id: "t_apollyon_5", boss: "Mother", item: "Echo Chamber", diff: "Hard" },
-            { id: "t_apollyon_6", boss: "The Beast", item: "The Tower?", diff: "Hard" },
-            { id: "t_apollyon_7", boss: "Greedier", item: "Red Chest", diff: "Hard" }
+            { id: "t_apollyon_5", boss: "Mother", item: "Apollyon's Best Friend", diff: "Hard" },
+            { id: "t_apollyon_6", boss: "The Beast", item: "Echo Chamber", diff: "Hard" },
+            { id: "t_apollyon_7", boss: "Greedier Mode", item: "The Tower?", diff: "Hard" }
         ]
     },
-    "Tainted Forgotten": {
+"Tainted Forgotten": {
         name: "Tainted Forgotten", 
         image: "img/Characters/Tainted/Tainted_Forgotten.png", 
-        image2: "img/Characters/Tainted/Tainted_Soul.png", 
-        description: "The hitbox and Esau experience 3. Play as the tainted soul and throw your invincible skeleton body to attack.",
-        stats: "HP: 3 Soul<br>DMG: 5.25<br>Tears: 1.36<br>Speed: 1.00",
+        image2: "img/Characters/Tainted/Tainted_Soul.png",
+        description: "The Fettered. The soul carries the skeleton and literally throws it at enemies. Ludovico special.",
+        stats: "HP: 3 Soul<br>DMG: 3.50 (x1.5 Bone damage)<br>Tears: 1.20<br>Speed: 1.30",
+        effects: ["Soul_Heart.png"],
         startingItems: [],
         unlocks: [
-            { id: "t_forgotten_1", boss: "Boss Rush", item: "Soul of the Forgotten", diff: "Hard" },
-            { id: "t_forgotten_2", boss: "Isaac", item: "Decayed Crown", diff: "Hard" },
-            { id: "t_forgotten_3", boss: "Mega Satan", item: "Hollow Heart", diff: "Hard" },
-            { id: "t_forgotten_4", boss: "Delirium", item: "Spirit Shackles", diff: "Hard" },
-            { id: "t_forgotten_5", boss: "Mother", item: "Slipped Rib", diff: "Hard" },
-            { id: "t_forgotten_6", boss: "The Beast", item: "Polydactyly", diff: "Hard" },
-            { id: "t_forgotten_7", boss: "Greedier", item: "The Hierophant?", diff: "Hard" }
+            { id: "t_forgotten_1", boss: "Boss Rush & Hush", item: "Soul of The Forgotten", diff: "Hard" },
+            { id: "t_forgotten_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Polished Bone", diff: "Hard" },
+            { id: "t_forgotten_3", boss: "Mega Satan", item: "Golden Battery", diff: "Hard" },
+            { id: "t_forgotten_4", boss: "Delirium", item: "Decap Attack", diff: "Hard" },
+            { id: "t_forgotten_5", boss: "Mother", item: "Hollow Heart", diff: "Hard" },
+            { id: "t_forgotten_6", boss: "The Beast", item: "Isaac's Tomb", diff: "Hard" },
+            { id: "t_forgotten_7", boss: "Greedier Mode", item: "Death?", diff: "Hard" }
         ]
     },
-    "Tainted Bethany": {
-        name: "Tainted Bethany", image: "img/Characters/Tainted/Tainted_Bethany.png", description: "The game breaker. Cannot gain Red Health, but uses red hearts to charge items. Uses blood to spawn passive item in form of wisps via Lemegeton.",
-        stats: "HP: 3 Soul<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.00",
+"Tainted Bethany": {
+        name: "Tainted Bethany", image: "img/Characters/Tainted/Tainted_Bethany.png", description: "The Zealot. Uses red charges to spawn random item wisps with Lemegeton. Spawns a The Wiz wisp and immediately regrets everything.",
+        stats: "HP: 3 Soul<br>DMG: 3.50 (x0.75 multiplier)<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Soul_Heart.png"],
         startingItems: [
             { name: "Lemegeton", img: "Lemegeton.png", condition: null }
         ],
         unlocks: [
-            { id: "t_bethany_1", boss: "Boss Rush", item: "Soul of Bethany", diff: "Hard" },
-            { id: "t_bethany_2", boss: "Isaac", item: "Vengeful Spirit", diff: "Hard" },
+            { id: "t_bethany_1", boss: "Boss Rush & Hush", item: "Soul of Bethany", diff: "Hard" },
+            { id: "t_bethany_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Expansion Pack", diff: "Hard" },
             { id: "t_bethany_3", boss: "Mega Satan", item: "Confessional", diff: "Hard" },
             { id: "t_bethany_4", boss: "Delirium", item: "Lemegeton", diff: "Hard" },
             { id: "t_bethany_5", boss: "Mother", item: "Beth's Essence", diff: "Hard" },
-            { id: "t_bethany_6", boss: "The Beast", item: "Star of Bethlehem", diff: "Hard" },
-            { id: "t_bethany_7", boss: "Greedier", item: "The Magician?", diff: "Hard" }
+            { id: "t_bethany_6", boss: "The Beast", item: "Vengeful Spirit", diff: "Hard" },
+            { id: "t_bethany_7", boss: "Greedier Mode", item: "The Hierophant?", diff: "Hard" }
         ]
     },
-    "Tainted Jacob": {
-        name: "Tainted Jacob", 
-        image: "img/Characters/Tainted/Tainted_Jacob.png", 
-        image2: "img/Characters/Tainted/Dark_Esau.png", 
-        description: "The Jacob and hurtbox experience 4. Hunted by Dark Esau. Can chain him by using Anima Sola.",
+"Tainted Jacob": {
+        name: "Tainted Jacob", image: "img/Characters/Tainted/Tainted_Jacob.png", 
+        description: "The Deserter. Chased endlessly by Dark Esau. Touching him turns you into a mantle-less ghost. You thought Jacob & Esau was bad? Now one of them is actively trying to kill you + Tainted Lost experience.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
+        effects: ["Red_Heart.png"],
         startingItems: [
             { name: "Anima Sola", img: "Anima_Sola.png", condition: null }
         ],
         unlocks: [
-            { id: "t_jacob_1", boss: "Boss Rush", item: "Soul of Jacob", diff: "Hard" },
-            { id: "t_jacob_2", boss: "Isaac", item: "Esau Jr.", diff: "Hard" },
-            { id: "t_jacob_3", boss: "Mega Satan", item: "Golden Trinket", diff: "Hard" },
+            { id: "t_jacob_1", boss: "Boss Rush & Hush", item: "Soul of Jacob & Esau", diff: "Hard" },
+            { id: "t_jacob_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "RC Remote", diff: "Hard" },
+            { id: "t_jacob_3", boss: "Mega Satan", item: "Golden Trinkets", diff: "Hard" },
             { id: "t_jacob_4", boss: "Delirium", item: "Anima Sola", diff: "Hard" },
-            { id: "t_jacob_5", boss: "Mother", item: "Vanishing Twin", diff: "Hard" },
-            { id: "t_jacob_6", boss: "The Beast", item: "The Moon?", diff: "Hard" },
-            { id: "t_jacob_7", boss: "Greedier", item: "Golden Troll Bomb", diff: "Hard" }
+            { id: "t_jacob_5", boss: "Mother", item: "Found Soul", diff: "Hard" },
+            { id: "t_jacob_6", boss: "The Beast", item: "Esau JR.", diff: "Hard" },
+            { id: "t_jacob_7", boss: "Greedier Mode", item: "The Sun? & The Moon?", diff: "Hard" }
         ]
-    }
+    },
 };
 
 const select = document.getElementById('character-select');
+const swapBtn = document.getElementById('swap-btn');
+const charInfo = document.getElementById('char-info');
+const charName = document.getElementById('char-name');
+const charDesc = document.getElementById('char-desc');
+const charStats = document.getElementById('char-stats');
+const charEffects = document.getElementById('char-effects');
+const startingItemsList = document.getElementById('starting-items-list');
 const grid = document.getElementById('unlock-grid');
 const progressText = document.getElementById('progress-text');
-const swapBtn = document.getElementById('swap-btn');
+const charImageContainer = document.getElementById('char-image-container');
 
-let userProgress = JSON.parse(localStorage.getItem('tboi_progress')) || {};
 let isTaintedMode = false;
+let userProgress = JSON.parse(localStorage.getItem('isaacUnlocksProgress')) || {};
+
+const soundtrack = {
+    normal: "Soundtrack/Normal_Music.mp3",
+    tainted: "Soundtrack/Tainted_Music.mp3"
+};
+
+const audioPlayer = document.getElementById('bg-music');
+const musicSource = document.getElementById('music-source');
+
+function playMusic(mode) {
+    if (!audioPlayer || !musicSource) return;
+    const newSrc = mode === 'tainted' ? soundtrack.tainted : soundtrack.normal;
+    if (!musicSource.src.includes(newSrc)) {
+        musicSource.src = newSrc;
+        audioPlayer.load();
+        audioPlayer.play().catch(() => {});
+    }
+}
+
+function playSFX(id) {
+    const sfx = document.getElementById(id);
+    if (sfx) {
+        sfx.currentTime = 0;
+        sfx.play().catch(() => {});
+    }
+}
+
+document.addEventListener('click', () => {
+    if (audioPlayer && audioPlayer.paused) {
+        audioPlayer.play().catch(() => {});
+    }
+}, { once: true });
+
+function saveProgress() {
+    localStorage.setItem('isaacUnlocksProgress', JSON.stringify(userProgress));
+}
+
+function updateProgressDisplay() {
+    const char = select.value;
+    const charData = gameData[char];
+    if (!charData) return;
+    
+    const total = charData.unlocks.length;
+    const completed = charData.unlocks.filter(u => userProgress[u.id]).length;
+    if (progressText) progressText.innerText = `${completed}/${total}`;
+}
 
 function populateSelect() {
     select.innerHTML = '';
-    const normalChars = Object.keys(gameData).filter(c => !c.startsWith("Tainted"));
-    const taintedChars = Object.keys(gameData).filter(c => c.startsWith("Tainted"));
-    const currentRoster = isTaintedMode ? taintedChars : normalChars;
+    const chars = Object.keys(gameData).filter(c => {
+        const isTaintedChar = c.startsWith("Tainted");
+        return isTaintedMode ? isTaintedChar : !isTaintedChar;
+    });
 
-    currentRoster.forEach(char => {
-        let option = document.createElement('option');
+    chars.forEach(char => {
+        const option = document.createElement('option');
         option.value = char;
-        option.textContent = char;
+        option.textContent = gameData[char].name;
         select.appendChild(option);
     });
-
-    renderAll();
 }
 
-function toggleMode() {
-    isTaintedMode = !isTaintedMode;
-    document.body.classList.toggle('tainted-mode', isTaintedMode);
-    populateSelect();
-}
+function createSmartImg(baseName, defaultFolder, className, altText, titleText) {
+    const img = document.createElement('img');
+    img.className = className;
+    img.alt = altText || baseName;
+    if (titleText) img.title = titleText;
 
-function init() {
-    populateSelect();
-    select.addEventListener('change', renderAll);
-    swapBtn.addEventListener('click', toggleMode);
-    
-    document.addEventListener('keydown', (event) => {
-        if (event.key.toLowerCase() === 'e') {
-            toggleMode();
+    const folders = [defaultFolder, 'Items', 'Pickups', 'Effects', 'Trinkets', 'UI'];
+    const uniqueFolders = [...new Set(folders)];
+    let idx = 0;
+
+    img.src = `img/${uniqueFolders[idx]}/${baseName}`;
+
+    img.onerror = function() {
+        idx++;
+        if (idx < uniqueFolders.length) {
+            this.src = `img/${uniqueFolders[idx]}/${baseName}`;
+        } else {
+            this.style.display = 'none';
         }
-    });
-}
-
-function saveProgress() {
-    localStorage.setItem('tboi_progress', JSON.stringify(userProgress));
-    updateProgressText();
-}
-
-function updateProgressText() {
-    const char = select.value;
-    if (!gameData[char]) return;
-    const total = gameData[char].unlocks.length;
-    const completed = gameData[char].unlocks.filter(u => userProgress[u.id]).length;
-    progressText.textContent = `${completed}/${total}`;
+    };
+    return img;
 }
 
 function renderCharInfo() {
-    const charName = select.value;
-    const charData = gameData[charName];
+    const char = select.value;
+    const charData = gameData[char];
     if (!charData) return;
 
-    document.getElementById('char-name').textContent = charData.name;
-    document.getElementById('char-desc').textContent = charData.description;
-    document.getElementById('char-stats').innerHTML = charData.stats;
-    
-    const imgContainer = document.getElementById('char-image-container');
-    imgContainer.innerHTML = ''; 
+    charName.textContent = charData.name;
+    charDesc.textContent = charData.description;
+    charStats.innerHTML = charData.stats;
 
-    [charData.image, charData.image2].forEach(src => {
-        if (src) {
-            const img = document.createElement('img');
-            img.src = src;
-            img.className = 'char-img';
-            img.onerror = () => { img.style.display = 'none'; };
-            imgContainer.appendChild(img);
-        }
-    });
-
-    const itemsList = document.getElementById('starting-items-list');
-    itemsList.innerHTML = '';
+    charImageContainer.innerHTML = '';
+    const mainImg = document.createElement('img');
+    mainImg.src = charData.image;
+    mainImg.alt = charData.name;
+    charImageContainer.appendChild(mainImg);
     
-    charData.startingItems.forEach(item => {
-        const container = document.createElement('div');
-        container.className = 'item-container';
-        
-        const isUnlocked = !item.condition || userProgress[item.condition];
-        const imagePath = `img/Items/${item.img}`;
-        
-        container.innerHTML = `
-            <img src="${imagePath}" class="item-img ${!isUnlocked ? 'item-locked' : ''}" title="${item.name}" onerror="this.style.display='none'">
-            <div class="item-name-tag">${item.name}</div>
-            ${!isUnlocked ? `<div class="item-unlock-condition">${item.conditionText}</div>` : ''}
-        `;
-        
-        itemsList.appendChild(container);
-    });
+    if (charData.image2) {
+        const secondImg = document.createElement('img');
+        secondImg.src = charData.image2;
+        secondImg.alt = `${charData.name} 2`;
+        charImageContainer.appendChild(secondImg);
+    }
+
+    charEffects.innerHTML = '';
+    if (charData.effects) {
+        charData.effects.forEach(effect => {
+            const title = typeof effectTooltips !== 'undefined' && effectTooltips[effect] ? effectTooltips[effect] : "";
+            const img = createSmartImg(effect, 'Effects', 'effect-icon', effect, title);
+            charEffects.appendChild(img);
+        });
+    }
+
+    startingItemsList.innerHTML = '';
+    if (!charData.startingItems || charData.startingItems.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = 'None';
+        startingItemsList.appendChild(li);
+    } else {
+        charData.startingItems.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'starting-item';
+            
+            if (item.reqId) {
+                if (!userProgress[item.reqId]) {
+                    li.classList.add('item-locked');
+                }
+                li.style.cursor = 'pointer';
+                li.title = "Click to toggle secondary unlock";
+                li.addEventListener('click', () => {
+                    userProgress[item.reqId] = !userProgress[item.reqId];
+                    if (userProgress[item.reqId]) {
+                        playSFX('sfx-mark-complete');
+                    } else {
+                        playSFX('sfx-mark-incomplete');
+                    }
+                    saveProgress();
+                    renderAll();
+                });
+            }
+            
+            const defaultFolder = item.isEffectImg ? 'Effects' : 'Items';
+            const img = createSmartImg(item.img, defaultFolder, 'item-icon', item.name, item.tooltip);
+            
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'item-name-tag';
+            nameSpan.textContent = item.name;
+            
+            li.appendChild(img);
+            li.appendChild(nameSpan);
+
+            if (item.condition) {
+                const br = document.createElement('br');
+                const condSpan = document.createElement('span');
+                condSpan.className = 'item-unlock-condition';
+                condSpan.textContent = `(${item.condition})`;
+                li.appendChild(br);
+                li.appendChild(condSpan);
+            }
+            
+            startingItemsList.appendChild(li);
+        });
+    }
 }
 
 function renderUnlocks() {
@@ -791,38 +969,122 @@ function renderUnlocks() {
     const charData = gameData[char];
     if (!charData) return;
 
+    const checkAllComplete = () => {
+        return charData.unlocks.every(u => userProgress[u.id]);
+    };
+
     charData.unlocks.forEach(unlock => {
         const card = document.createElement('div');
-        card.className = `unlock-card ${userProgress[unlock.id] ? 'completed' : ''}`;
+        const bosses = unlock.boss.split(/,\s*|\s*&\s*/);
+        const isMulti = bosses.length > 1;
+
+        if (isMulti) {
+            const allCompleted = bosses.every(b => userProgress[`${unlock.id}_${b}`]);
+            userProgress[unlock.id] = allCompleted;
+        }
+
+        card.className = `unlock-card ${userProgress[unlock.id] ? 'completed' : ''} ${isMulti ? 'multi-boss' : ''}`;
         
         let bossImageHtml = '';
-        if (bossImagesMap[unlock.boss]) {
+        if (typeof bossImagesMap !== 'undefined' && bossImagesMap[unlock.boss]) {
             bossImageHtml = `<img src="img/Bosses/${bossImagesMap[unlock.boss]}" class="boss-img" alt="${unlock.boss}" onload="this.style.display='block'" onerror="this.style.display='none'">`;
         }
-        
+
+        let subBossesHtml = '';
+        if (isMulti) {
+            subBossesHtml = '<div class="sub-boss-container">';
+            bosses.forEach(b => {
+                const subId = `${unlock.id}_${b}`;
+                const isChecked = userProgress[subId];
+                subBossesHtml += `<button class="sub-boss-btn ${isChecked ? 'active' : ''}" data-subid="${subId}">${b}</button>`;
+            });
+            subBossesHtml += '</div>';
+        }
+
         card.innerHTML = `
             <div class="boss-name">${unlock.boss}</div>
             ${bossImageHtml}
             <div class="item-name">${unlock.item}</div>
             <div class="difficulty ${unlock.diff.includes('Hard') ? 'hard-mode' : ''}">${unlock.diff}</div>
+            ${subBossesHtml}
         `;
 
-        card.addEventListener('click', () => {
-            userProgress[unlock.id] = !userProgress[unlock.id];
-            card.classList.toggle('completed');
-            saveProgress();
-            renderCharInfo(); 
-        });
+        if (isMulti) {
+            const btns = card.querySelectorAll('.sub-boss-btn');
+            btns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const subId = btn.dataset.subid;
+                    const wasAlready100 = checkAllComplete();
+                    
+                    userProgress[subId] = !userProgress[subId];
 
+                    const parentAllDone = bosses.every(b => userProgress[`${unlock.id}_${b}`]);
+                    userProgress[unlock.id] = parentAllDone;
+                    
+                    const isNow100 = checkAllComplete();
+
+                    if (userProgress[subId]) {
+                        if (!wasAlready100 && isNow100) {
+                            playSFX('sfx-all-complete');
+                        } else {
+                            playSFX('sfx-mark-complete');
+                        }
+                    } else {
+                        playSFX('sfx-mark-incomplete');
+                    }
+                    
+                    btn.classList.toggle('active', userProgress[subId]);
+                    card.classList.toggle('completed', parentAllDone);
+
+                    saveProgress();
+                    updateProgressDisplay();
+                    renderCharInfo();
+                });
+            });
+        } else {
+            card.addEventListener('click', () => {
+                const wasAlready100 = checkAllComplete();
+                
+                userProgress[unlock.id] = !userProgress[unlock.id];
+                const isNow100 = checkAllComplete();
+                
+                if (userProgress[unlock.id]) {
+                    if (!wasAlready100 && isNow100) {
+                        playSFX('sfx-all-complete');
+                    } else {
+                        playSFX('sfx-mark-complete');
+                    }
+                } else {
+                    playSFX('sfx-mark-incomplete');
+                }
+                
+                card.classList.toggle('completed', userProgress[unlock.id]);
+
+                saveProgress();
+                updateProgressDisplay();
+                renderCharInfo();
+            });
+        }
         grid.appendChild(card);
     });
-
-    updateProgressText();
 }
 
 function renderAll() {
     renderCharInfo();
     renderUnlocks();
+    updateProgressDisplay();
 }
 
-init();
+select.addEventListener('change', renderAll);
+
+swapBtn.addEventListener('click', () => {
+    isTaintedMode = !isTaintedMode;
+    document.body.classList.toggle('tainted-mode', isTaintedMode);
+    playMusic(isTaintedMode ? 'tainted' : 'normal');
+    populateSelect();
+    renderAll();
+});
+
+populateSelect();
+renderAll();

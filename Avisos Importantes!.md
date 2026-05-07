@@ -379,6 +379,7 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 2.0_beta8: Site do Lucas V2.0 - BETA 8: Atualização GAMER 16 + TBOU 1
 1) Foi adicionado um site para ajudar os jogadores de TBOI a deixarem as suas idéias organizadas sobre os desbloqueios de itens por personagem.
 2) O site é organizado entre personagens e desbloqueios por personagens.
+3) O site ainda está em progresso, ou seja, é um WIP.
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
