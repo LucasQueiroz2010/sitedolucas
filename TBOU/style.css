@@ -59,6 +59,7 @@ select {
 }
 
 .secret-btn {
+    display: none;
     background-color: transparent;
     border: 2px dashed var(--border-color);
     color: var(--border-color);
@@ -128,8 +129,20 @@ select {
 
 .char-effects {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-top: 10px;
+}
+
+.effect-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
 }
 
 .effect-icon {
@@ -234,6 +247,10 @@ select {
     text-decoration: line-through;
     border-color: #111;
     box-shadow: none;
+}
+
+.unlock-card.secondary-unlock {
+    border-style: dashed;
 }
 
 /* --- Imagens e Textos dos Cards --- */

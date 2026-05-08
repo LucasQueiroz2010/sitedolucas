@@ -374,13 +374,18 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 3) Alguns backgrounds foram mudados, como por exemplo a tela de carregamento, a tela de início e a tela de seleção de modos.
 4) O 'Noise Mode' ainda está cheio de bugs, por isso ele ainda está em beta.
 
-2.0_beta7.1: Site do Lucas V2.0 - 7.1: URM 13.
+2.0_beta7.1: Site do Lucas V2.0 - BETA 7.1: URM 13.
 
 2.0_beta8: Site do Lucas V2.0 - BETA 8: Atualização GAMER 16 + TBOU 1
 1) Foi adicionado um site para ajudar os jogadores de TBOI a deixarem as suas idéias organizadas sobre os desbloqueios de itens por personagem.
 2) O site é organizado entre personagens e desbloqueios por personagens.
 3) O site ainda está em progresso, ou seja, é um WIP.
 
+2.0_beta8.1: Site do Lucas V2.0 - BETA 8.1: TBOU 2
+1) Foi adicionado interconexões entre desbloqueios, como por exemplo: derrotar o Boss Isaac como o Blue Baby desbloqueia o D6 com o Isaac.
+2) Foi adicionado desbloqueios secundários, como por exemplo: doar para a máquina de doação do Greed para poder desbloquear itens ou vençer desafios do jogo para outros desbloqueios.
+3) Algumas imagens foram alteradas.
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 20. / ND: 9. / Atualização GAMER: 16. / UD: 20. / URM: 13. / TBOU: 1
+UQV: 20. / ND: 9. / Atualização GAMER: 16. / UD: 20. / URM: 13. / TBOU: 2

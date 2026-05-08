@@ -21,22 +21,31 @@ const bossImagesMap = {
 };
 
 const effectTooltips = {
-    "Red_Heart.png": "Can have Red Health",
-    "Soul_Heart.png": "Can only have Soul/Black Hearts",
-    "Black_Heart.png": "Can only have Soul/Black Hearts",
-    "Double_Penny.png": "Have pennies as health",
-    "Golden_Penny.png": "Enemies drops temporary coins on death",
-    "Blended_Heart.png": "Can use Soul/Black Hearts as active item charges"
+    "Red_Heart.png": "Can have Red Heart containers",
+    "Soul_Heart.png": "Cannot use Red Heart containers, relies on Soul/Black Hearts",
+    "Black_Heart.png": "Starts with or can use Black Hearts",
+    "Double_Penny.png": "Uses coins as health",
+    "Golden_Penny.png": "Enemies drop temporary coins on death",
+    "Blended_Heart.png": "Uses Red/Soul/Black Hearts as active item charges"
+};
+
+const secondaryUnlocks = {
+    "chal_31": { id: "chal_31", boss: "Challenge #31", item: "Anemic", diff: "Backasswards" },
+    "chal_32": { id: "chal_32", boss: "Challenge #32", item: "Full Health Pill", diff: "April's Fool" },
+    "chal_34": { id: "chal_34", boss: "Challenge #34", item: "Child's Heart", diff: "Ultra Hard" },
+    "greed_68": { id: "greed_68", boss: "Greed Donation Machine", item: "Paper Clip", diff: "Donate 68c" },
+    "greed_439": { id: "greed_439", boss: "Greed Donation Machine", item: "Razor Blade", diff: "Donate 439c" },
+    "greed_879": { id: "greed_879", boss: "Greed Donation Machine", item: "Holy Mantle", diff: "Donate 879c" }
 };
 
 const gameData = {
 "Isaac": {
-        name: "Isaac", image: "img/Characters/Normal/Isaac.png", description: "The starting character. Starts with the D6 to reroll items. D6 goes brrr until you get Kamikaze.",
+        name: "Isaac", image: "img/Characters/Normal/Isaac.png", description: "The starting character. Starts with the D6 to reroll items. Lucas' note: D6 goes brrr until you get Kamikaze.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
             { name: "1 Bomb", img: "Bomb.png", isEffectImg: true, tooltip: "Starts with a Bomb", condition: null },
-            { name: "The D6", img: "D6.png", condition: "bluebaby_2", conditionText: "Beat Isaac as Blue Baby" }
+            { name: "The D6", img: "D6.png", condition: "bluebaby_4", conditionText: "Beat Isaac as Blue Baby" }
         ],
         unlocks: [
             { id: "isaac_1", boss: "Boss Rush", item: "Isaac's Head", diff: "Normal/Hard" },
@@ -58,7 +67,7 @@ const gameData = {
         ]
     },
     "Magdalene": {
-        name: "Magdalene", image: "img/Characters/Normal/Magdalene.png", description: "The tanky girl. Starts with high health and Yum Heart for healing. A Speed Down pill disguised as a character.",
+        name: "Magdalene", image: "img/Characters/Normal/Magdalene.png", description: "The tanky girl. Starts with high health and Yum Heart for healing. Lucas' note: A Speed Down pill disguised as a character.",
         stats: "HP: 4 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 0.85",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -85,7 +94,7 @@ const gameData = {
         ]
     },
     "Cain": {
-        name: "Cain", image: "img/Characters/Normal/Cain.png", description: "The lucky thief. Starts with high speed, Lucky Foot, only gets good pills, but shoots with one eye. Paperclip carries the entire run.",
+        name: "Cain", image: "img/Characters/Normal/Cain.png", description: "The lucky thief. Starts with high speed, Lucky Foot, only gets good pills, but shoots with one eye. Lucas' note: Paperclip carries the entire run.",
         stats: "HP: 2 Red<br>DMG: 4.20<br>Tears: 2.73<br>Speed: 1.30",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -113,7 +122,7 @@ const gameData = {
         ]
     },
     "Judas": {
-        name: "Judas", image: "img/Characters/Normal/Judas.png", description: "The glass cannon. Starts with 1 Heart and Book of Belial for temporary damage buff. First floor spider: 'Allow me to introduce myself'.",
+        name: "Judas", image: "img/Characters/Normal/Judas.png", description: "The glass cannon. Starts with 1 Heart and Book of Belial for temporary damage buff. Lucas' note: First floor spider: 'Allow me to introduce myself'.",
         stats: "HP: 1 Red<br>DMG: 4.72<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -140,7 +149,7 @@ const gameData = {
         ]
     },
     "Blue Baby": {
-        name: "Blue Baby", image: "img/Characters/Normal/Blue_Baby.png", description: "The dead boy. Can only have Soul/Black hearts and starts with The Poop. Destroying poops spawn blue flies. Literally a piece of shit of a character.",
+        name: "Blue Baby", image: "img/Characters/Normal/Blue_Baby.png", description: "The dead boy. Can only have Soul/Black hearts and starts with The Poop. Destroying poops spawn blue flies. Lucas' note: Literally a piece of shit of a character.",
         stats: "HP: 3 Soul<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.05",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -166,7 +175,7 @@ const gameData = {
         ]
     },
     "Eve": {
-        name: "Eve", image: "img/Characters/Normal/Eve.png", description: "The edgy kid. Starts weak but triggers the Whore of Babylon effect at 1 Red Heart. The hurt yourself simulador.",
+        name: "Eve", image: "img/Characters/Normal/Eve.png", description: "The edgy kid. Starts weak but triggers the Whore of Babylon effect at 1 Red Heart. Lucas' note: The hurt yourself simulador.",
         stats: "HP: 2 Red<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.23",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -194,7 +203,7 @@ const gameData = {
         ]
     },
     "Samson": {
-        name: "Samson", image: "img/Characters/Normal/Samson.png", description: "The  guy with angry issues. Starts with Bloody Lust, gaining damage when taking damage. Skill issue? No, it's a damage up!",
+        name: "Samson", image: "img/Characters/Normal/Samson.png", description: "The  guy with angry issues. Starts with Bloody Lust, gaining damage when taking damage. Lucas' note: Skill issue? No, it's a damage up!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.45<br>Speed: 1.10",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -221,7 +230,7 @@ const gameData = {
         ]
     },
     "Azazel": {
-        name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flying and a short-range Brimstone. The 'I just want to unlock things quickly' character.",
+        name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flying and a short-range Brimstone. Lucas' note: The 'I just want to unlock things quickly' character.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 0.76<br>Speed: 1.25",
         effects: ["Black_Heart.png"],
         startingItems: [
@@ -250,7 +259,7 @@ const gameData = {
         name: "Lazarus", 
         image: "img/Characters/Normal/Lazarus.png", 
         image2: "img/Characters/Normal/Lazarus_Risen.png", 
-        description: "The boy who lived twice. Revives with better stats upon his first death. The 'kill yourself' experience",
+        description: "The boy who lived twice. Revives with better stats upon his first death. Lucas' note: The 'kill yourself' experience",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -277,7 +286,7 @@ const gameData = {
         ]
     },
 "Eden": {
-        name: "Eden", image: "img/Characters/Normal/Eden.png", description: "The glitchy girl. Starts with completely randomized stats and items. Hold 'R' simulator until you don't start with 1 fire rate and Bob's Brain.",
+        name: "Eden", image: "img/Characters/Normal/Eden.png", description: "The glitchy girl. Starts with completely randomized stats and items. Lucas' note: Hold 'R' simulator until you don't start with 1 fire rate and Bob's Brain.",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -304,7 +313,7 @@ const gameData = {
         ]
     },
 "The Lost": {
-        name: "The Lost", image: "img/Characters/Normal/The_Lost.png", description: "The ghost. Has no health, starts with Holy Mantle and flying. Can take devil deals for free, but only one of the items. The embodiment of skill solution, until a random spider ends your career.",
+        name: "The Lost", image: "img/Characters/Normal/The_Lost.png", description: "The ghost. Has no health, starts with Holy Mantle and flying. Can take devil deals for free, but only one of the items. Lucas' note: The embodiment of skill solution, until a random spider ends your career.",
         stats: "HP: None<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -331,7 +340,7 @@ const gameData = {
         ]
     },
 "Lilith": {
-        name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of demons. Cannot shoot tears, relies entirely on familiars and on the Box of Friends item. Blindfolded, but still manages to fill the screen with more garbage than the game engine can handle.",
+        name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of demons. Cannot shoot tears, relies entirely on familiars and on the Box of Friends item. Lucas' note: Blindfolded, but still manages to fill the screen with more garbage than the game engine can handle.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png", "Black_Heart.png"],
         startingItems: [
@@ -359,7 +368,7 @@ const gameData = {
         ]
     },
 "Keeper": {
-        name: "Keeper", image: "img/Characters/Normal/Keeper.png", description: "The greedy corpse. Uses coins as health and shoots triple tears. -99 win streak simulator (Pre-Repentance PTSD).",
+        name: "Keeper", image: "img/Characters/Normal/Keeper.png", description: "The greedy corpse. Uses coins as health and shoots triple tears. Lucas' note: -99 win streak simulator (Pre-Repentance PTSD).",
         stats: "HP: 2 Coin Hearts<br>DMG: 4.20<br>Tears: 1.20<br>Speed: 0.85",
         effects: ["Double_Penny.png"],
         startingItems: [
@@ -388,7 +397,7 @@ const gameData = {
         ]
     },
 "Apollyon": {
-        name: "Apollyon", image: "img/Characters/Normal/Apollyon.png", description: "The destroyer. Starts with Void to suck up passive items for stats or copy active items. Sucking up a decent item just to get +0.2 shot speed and +0.2 luck.",
+        name: "Apollyon", image: "img/Characters/Normal/Apollyon.png", description: "The destroyer. Starts with Void to suck up passive items for stats or copy active items. Lucas' note: Sucking up a decent item just to get +0.2 shot speed and +0.2 luck.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -417,7 +426,7 @@ const gameData = {
         name: "The Forgotten", 
         image: "img/Characters/Normal/The_Forgotten.png", 
         image2: "img/Characters/Normal/The_Soul.png", 
-        description: "Two characters in one: Melee skeleton and flying soul. Bonk simulador.",
+        description: "Two characters in one: Melee skeleton and flying soul. Lucas' note: Bonk simulador.",
         stats: "HP: 2 Bone (Soul has 1 Soul)<br>DMG: 5.25<br>Tears: 1.36<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -443,7 +452,7 @@ const gameData = {
         ]
     },
 "Bethany": {
-        name: "Bethany", image: "img/Characters/Normal/Bethany.png", description: "The faithful. Cannot use Soul Hearts for health, but uses for soul charges. Protect the wisps with your life, only for them to instantly die to a red poop.",
+        name: "Bethany", image: "img/Characters/Normal/Bethany.png", description: "The faithful. Cannot use Soul Hearts for health, but uses for soul charges. Lucas' note: Protect the wisps with your life, only for them to instantly die to a red poop.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png", "Blended_Heart.png"],
         startingItems: [
@@ -469,7 +478,7 @@ const gameData = {
         ]
     },
 "Jacob & Esau": {
-        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. The Jacob and Hitbox experience.",
+        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. Lucas' note: The Jacob and Hitbox experience.",
         stats: "Jacob stats:<br>HP: 3 Red<br>DMG: 2.75<br>Tears: 2.73<br>Speed: 1.00<br><br>Esau stats:<br>HP: 1 Red, 1 Soul<br>DMG: 3.75<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png", "Soul_Heart.png"],
         startingItems: [],
@@ -494,7 +503,7 @@ const gameData = {
     },
 
 "Tainted Isaac": {
-        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. Minecraft full inventory gameplay",
+        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. Lucas' note: Minecraft full inventory gameplay",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -511,7 +520,7 @@ const gameData = {
         ]
     },
 "Tainted Magdalene": {
-        name: "Tainted Magdalene", image: "img/Characters/Tainted/Tainted_Magdalene.png", description: "The Dauntless. Bleeds out constantly buthugging enemies to death drops temporary half-red hearts. *DOOM music kicks in* TIME TO HUG 'EM ALL!",
+        name: "Tainted Magdalene", image: "img/Characters/Tainted/Tainted_Magdalene.png", description: "The Dauntless. Bleeds out constantly buthugging enemies to death drops temporary half-red hearts. Lucas' note: *DOOM music kicks in* TIME TO HUG 'EM ALL!",
         stats: "HP: 4 Red (Empty)<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.20",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -528,7 +537,7 @@ const gameData = {
         ]
     },
 "Tainted Cain": {
-        name: "Tainted Cain", image: "img/Characters/Tainted/Tainted_Cain.png", description: "The Hoarder. Cannot pick up items directly, and must craft them using pickups in a bag. Items turns into pickups. First we Cry, then we Craft.",
+        name: "Tainted Cain", image: "img/Characters/Tainted/Tainted_Cain.png", description: "The Hoarder. Cannot pick up items directly, and must craft them using pickups in a bag. Items turns into pickups. Lucas' note: First we Cry, then we Craft.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.30",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -545,7 +554,7 @@ const gameData = {
         ]
     },
 "Tainted Judas": {
-        name: "Tainted Judas", image: "img/Characters/Tainted/Tainted_Judas.png", description: "The Deceiver. Can only have Soul/Black hearts and starts with Dark Arts to slice through enemies. Omae wa, MOU shindeiru.",
+        name: "Tainted Judas", image: "img/Characters/Tainted/Tainted_Judas.png", description: "The Deceiver. Can only have Soul/Black hearts and starts with Dark Arts to slice through enemies. Lucas' note: Omae wa, MOU shindeiru.",
         stats: "HP: 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Black_Heart.png"],
         startingItems: [
@@ -562,7 +571,7 @@ const gameData = {
         ]
     },
 "Tainted Blue Baby": {
-        name: "Tainted Blue Baby", image: "img/Characters/Tainted/Tainted_Blue_Baby.png", description: "The Enigma. Cannot use bombs, but throws various types of poop instead. Taco Bell aftermath.",
+        name: "Tainted Blue Baby", image: "img/Characters/Tainted/Tainted_Blue_Baby.png", description: "The Enigma. Cannot use bombs, but throws various types of poop instead. Lucas' note: Taco Bell aftermath.",
         stats: "HP: 3 Soul<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.05",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -579,7 +588,7 @@ const gameData = {
         ]
     },
 "Tainted Eve": {
-        name: "Tainted Eve", image: "img/Characters/Tainted/Tainted_Eve.png", description: "The Curdled. Drains her own health to spawn a army of blood clots. Pikmin, but make it bloody.",
+        name: "Tainted Eve", image: "img/Characters/Tainted/Tainted_Eve.png", description: "The Curdled. Drains her own health to spawn a army of blood clots. Lucas' note: Pikmin, but make it bloody.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 1.20<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -596,7 +605,7 @@ const gameData = {
         ]
     },
 "Tainted Samson": {
-        name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Savage. Goes into a doom-slayer berserk rage after dealing/taking damage. *Ultrakill music kicks in* RIP AND TEAR, BABY!",
+        name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Savage. Goes into a doom-slayer berserk rage after dealing/taking damage. Lucas' note: *Ultrakill music kicks in* RIP AND TEAR, BABY!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.10",
         effects: ["Red_Heart.png"],
         startingItems: [],
@@ -611,7 +620,7 @@ const gameData = {
         ]
     },
 "Tainted Azazel": {
-        name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The Benighted. Has a skinny Brimstone and sneezes to push and curse enemies. Bless him.",
+        name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The Benighted. Has a skinny Brimstone and sneezes to push and curse enemies. Lucas' note: Bless him.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 1.20<br>Speed: 1.25",
         effects: ["Black_Heart.png"],
         startingItems: [],
@@ -629,7 +638,7 @@ const gameData = {
         name: "Tainted Lazarus", 
         image: "img/Characters/Tainted/Tainted_Lazarus.png", 
         image2: "img/Characters/Tainted/Tainted_Lazarus_Dead.png", 
-        description: "The Flipped. Swaps between an alive and dead form every time a room is cleared, splitting items between them. Two half-baked runs glued together by a item.",
+        description: "The Flipped. Swaps between an alive and dead form every time a room is cleared, splitting items between them. Lucas' note: Two half-baked runs glued together by a mid item.",
         stats: "HP: 3 Red (Alive) / 3 Soul (Dead)<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png", "Soul_Heart.png"],
         startingItems: [
@@ -646,7 +655,7 @@ const gameData = {
         ]
     },
 "Tainted Eden": {
-        name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The Capricious. Rerolls stats, items, and pickups upon taking damage. Oh, you have a broken build? *Gets hit by a fly* Enjoy your Bob's Brain and Cursed Eye run  .",
+        name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The Capricious. Rerolls stats, items, and pickups upon taking damage. Lucas' note: Oh, you have a broken build? *Gets hit by a fly* Enjoy your The Wiz + Cursed Eye run.",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
         effects: ["Red_Heart.png"],
         startingItems: [],
@@ -661,7 +670,7 @@ const gameData = {
         ]
     },
 "Tainted Lost": {
-        name: "Tainted Lost", image: "img/Characters/Tainted/Tainted_Lost.png", description: "The Baleful. No health, no mantle, better items and no defensive items. Dying to a spiked rock because you couldn't see it under the 50 items you picked up.",
+        name: "Tainted Lost", image: "img/Characters/Tainted/Tainted_Lost.png", description: "The Baleful. No health, no mantle, better items and no defensive items. Lucas' note: Dying to a spiked rock because you couldn't see it under the 50 items you picked up.",
         stats: "HP: None<br>DMG: 3.50 (x1.3 multiplier)<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -678,7 +687,7 @@ const gameData = {
         ]
     },
 "Tainted Lilith": {
-        name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The Harlot. Whips her unborn fetus out to deal massive melee damage. Yeetus the fetus.",
+        name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The Harlot. Whips her unborn fetus out to deal massive melee damage. Lucas' note: Yeetus the fetus.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png", "Black_Heart.png"],
         startingItems: [],
@@ -693,9 +702,9 @@ const gameData = {
         ]
     },
 "Tainted Keeper": {
-        name: "Tainted Keeper", image: "img/Characters/Tainted/Tainted_Keeper.png", description: "The Miser. Enemies drop temporary coins on death, but all items costs money instead of finding them free. Capitalism at its finest.",
+        name: "Tainted Keeper", image: "img/Characters/Tainted/Tainted_Keeper.png", description: "The Miser. Enemies drop temporary coins on death, but all items costs money instead of finding them free. Lucas' note: Capitalism at its finest.",
         stats: "HP: 2 Coin Hearts<br>DMG: 4.20<br>Tears: 1.20<br>Speed: 0.85",
-        effects: ["Double_Penny.png"],
+        effects: ["Double_Penny.png", "Golden_Penny.png"],
         startingItems: [
             { name: "1 Bomb", img: "Bomb.png", isEffectImg: true, tooltip: "Starts with a Bomb", condition: null }
         ],
@@ -710,7 +719,7 @@ const gameData = {
         ]
     },
 "Tainted Apollyon": {
-        name: "Tainted Apollyon", image: "img/Characters/Tainted/Tainted_Apollyon.png", description: "The Empty. Sucks up items to create an army of locusts with Abyss. When in doubt, make a fly.",
+        name: "Tainted Apollyon", image: "img/Characters/Tainted/Tainted_Apollyon.png", description: "The Empty. Sucks up items to create an army of locusts with Abyss. Lucas' note: When in doubt, make a fly.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -745,7 +754,7 @@ const gameData = {
         ]
     },
 "Tainted Bethany": {
-        name: "Tainted Bethany", image: "img/Characters/Tainted/Tainted_Bethany.png", description: "The Zealot. Uses red charges to spawn random item wisps with Lemegeton. Spawns a The Wiz wisp and immediately regrets everything.",
+        name: "Tainted Bethany", image: "img/Characters/Tainted/Tainted_Bethany.png", description: "The Zealot. Uses red charges to spawn random item wisps with Lemegeton. Lucas' note: Spawns a The Wiz wisp and immediately regrets everything.",
         stats: "HP: 3 Soul<br>DMG: 3.50 (x0.75 multiplier)<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -763,7 +772,7 @@ const gameData = {
     },
 "Tainted Jacob": {
         name: "Tainted Jacob", image: "img/Characters/Tainted/Tainted_Jacob.png", 
-        description: "The Deserter. Chased endlessly by Dark Esau. Touching him turns you into a mantle-less ghost. You thought Jacob & Esau was bad? Now one of them is actively trying to kill you + Tainted Lost experience.",
+        description: "The Deserter. Chased endlessly by Dark Esau. Touching him turns you into a mantle-less ghost. Lucas' note:    You thought Jacob & Esau was bad? Now one of them is actively trying to kill you + Tainted Lost experience.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -837,8 +846,9 @@ function updateProgressDisplay() {
     const charData = gameData[char];
     if (!charData) return;
     
-    const total = charData.unlocks.length;
-    const completed = charData.unlocks.filter(u => userProgress[u.id]).length;
+    const unlocks = getUnlocksForCharacter(charData);
+    const total = unlocks.length;
+    const completed = unlocks.filter(u => userProgress[u.id]).length;
     if (progressText) progressText.innerText = `${completed}/${total}`;
 }
 
@@ -857,27 +867,53 @@ function populateSelect() {
     });
 }
 
-function createSmartImg(baseName, defaultFolder, className, altText, titleText) {
-    const img = document.createElement('img');
-    img.className = className;
-    img.alt = altText || baseName;
-    if (titleText) img.title = titleText;
-
-    const folders = [defaultFolder, 'Items', 'Pickups', 'Effects', 'Trinkets', 'UI'];
+function getValidImagePath(baseName, defaultFolder, imgElement) {
+    const folders = [defaultFolder, 'Items', 'Characters/Effects', 'Pickups', 'Effects', 'Trinkets', 'UI', 'Bosses'];
     const uniqueFolders = [...new Set(folders)];
-    let idx = 0;
+    let currentIdx = 0;
 
-    img.src = `img/${uniqueFolders[idx]}/${baseName}`;
-
-    img.onerror = function() {
-        idx++;
-        if (idx < uniqueFolders.length) {
-            this.src = `img/${uniqueFolders[idx]}/${baseName}`;
+    imgElement.src = `img/${uniqueFolders[currentIdx]}/${baseName}`;
+    
+    imgElement.onerror = function() {
+        currentIdx++;
+        if (currentIdx < uniqueFolders.length) {
+            this.src = `img/${uniqueFolders[currentIdx]}/${baseName}`;
         } else {
             this.style.display = 'none';
         }
     };
-    return img;
+}
+
+function getUnlocksForCharacter(charData) {
+    const unlocks = [...charData.unlocks];
+    const existingIds = new Set(unlocks.map(unlock => unlock.id));
+
+    (charData.startingItems || []).forEach(item => {
+        if (item.condition && secondaryUnlocks[item.condition] && !existingIds.has(item.condition)) {
+            unlocks.push({ ...secondaryUnlocks[item.condition], secondary: true });
+            existingIds.add(item.condition);
+        }
+    });
+
+    return unlocks;
+}
+
+function getUnlockById(id) {
+    for (const charData of Object.values(gameData)) {
+        const unlock = charData.unlocks.find(entry => entry.id === id);
+        if (unlock) return unlock;
+    }
+
+    return secondaryUnlocks[id] || null;
+}
+
+function getConditionText(item) {
+    if (item.conditionText) return item.conditionText;
+
+    const unlock = getUnlockById(item.condition);
+    if (!unlock) return item.condition;
+
+    return `${unlock.boss}: ${unlock.item}`;
 }
 
 function renderCharInfo() {
@@ -905,9 +941,20 @@ function renderCharInfo() {
     charEffects.innerHTML = '';
     if (charData.effects) {
         charData.effects.forEach(effect => {
+            const chip = document.createElement('span');
+            chip.className = 'effect-chip';
+
+            const img = document.createElement('img');
+            img.className = 'effect-icon';
             const title = typeof effectTooltips !== 'undefined' && effectTooltips[effect] ? effectTooltips[effect] : "";
-            const img = createSmartImg(effect, 'Effects', 'effect-icon', effect, title);
-            charEffects.appendChild(img);
+            if (title) {
+                chip.title = title;
+                img.title = title;
+                img.setAttribute('aria-label', title);
+            }
+            getValidImagePath(effect, 'Effects', img);
+            chip.appendChild(img);
+            charEffects.appendChild(chip);
         });
     }
 
@@ -920,16 +967,17 @@ function renderCharInfo() {
         charData.startingItems.forEach(item => {
             const li = document.createElement('li');
             li.className = 'starting-item';
+            const conditionId = item.condition;
             
-            if (item.reqId) {
-                if (!userProgress[item.reqId]) {
+            if (conditionId) {
+                if (!userProgress[conditionId]) {
                     li.classList.add('item-locked');
                 }
                 li.style.cursor = 'pointer';
-                li.title = "Click to toggle secondary unlock";
+                li.title = getConditionText(item);
                 li.addEventListener('click', () => {
-                    userProgress[item.reqId] = !userProgress[item.reqId];
-                    if (userProgress[item.reqId]) {
+                    userProgress[conditionId] = !userProgress[conditionId];
+                    if (userProgress[conditionId]) {
                         playSFX('sfx-mark-complete');
                     } else {
                         playSFX('sfx-mark-incomplete');
@@ -940,8 +988,14 @@ function renderCharInfo() {
             }
             
             const defaultFolder = item.isEffectImg ? 'Effects' : 'Items';
-            const img = createSmartImg(item.img, defaultFolder, 'item-icon', item.name, item.tooltip);
             
+            const img = document.createElement('img');
+            img.className = 'item-icon';
+            img.alt = item.name;
+            if (item.tooltip || conditionId) img.title = item.tooltip || getConditionText(item);
+            
+            getValidImagePath(item.img, defaultFolder, img);
+
             const nameSpan = document.createElement('span');
             nameSpan.className = 'item-name-tag';
             nameSpan.textContent = item.name;
@@ -949,11 +1003,11 @@ function renderCharInfo() {
             li.appendChild(img);
             li.appendChild(nameSpan);
 
-            if (item.condition) {
+            if (conditionId) {
                 const br = document.createElement('br');
                 const condSpan = document.createElement('span');
                 condSpan.className = 'item-unlock-condition';
-                condSpan.textContent = `(${item.condition})`;
+                condSpan.textContent = userProgress[conditionId] ? '' : `(${getConditionText(item)})`;
                 li.appendChild(br);
                 li.appendChild(condSpan);
             }
@@ -968,12 +1022,13 @@ function renderUnlocks() {
     const char = select.value;
     const charData = gameData[char];
     if (!charData) return;
+    const unlocks = getUnlocksForCharacter(charData);
 
     const checkAllComplete = () => {
-        return charData.unlocks.every(u => userProgress[u.id]);
+        return unlocks.every(u => userProgress[u.id]);
     };
 
-    charData.unlocks.forEach(unlock => {
+    unlocks.forEach(unlock => {
         const card = document.createElement('div');
         const bosses = unlock.boss.split(/,\s*|\s*&\s*/);
         const isMulti = bosses.length > 1;
@@ -983,7 +1038,7 @@ function renderUnlocks() {
             userProgress[unlock.id] = allCompleted;
         }
 
-        card.className = `unlock-card ${userProgress[unlock.id] ? 'completed' : ''} ${isMulti ? 'multi-boss' : ''}`;
+        card.className = `unlock-card ${userProgress[unlock.id] ? 'completed' : ''} ${isMulti ? 'multi-boss' : ''} ${unlock.secondary ? 'secondary-unlock' : ''}`;
         
         let bossImageHtml = '';
         if (typeof bossImagesMap !== 'undefined' && bossImagesMap[unlock.boss]) {
@@ -1034,12 +1089,8 @@ function renderUnlocks() {
                         playSFX('sfx-mark-incomplete');
                     }
                     
-                    btn.classList.toggle('active', userProgress[subId]);
-                    card.classList.toggle('completed', parentAllDone);
-
                     saveProgress();
-                    updateProgressDisplay();
-                    renderCharInfo();
+                    renderAll();
                 });
             });
         } else {
@@ -1059,11 +1110,8 @@ function renderUnlocks() {
                     playSFX('sfx-mark-incomplete');
                 }
                 
-                card.classList.toggle('completed', userProgress[unlock.id]);
-
                 saveProgress();
-                updateProgressDisplay();
-                renderCharInfo();
+                renderAll();
             });
         }
         grid.appendChild(card);
@@ -1078,12 +1126,24 @@ function renderAll() {
 
 select.addEventListener('change', renderAll);
 
-swapBtn.addEventListener('click', () => {
+function toggleTaintedMode() {
     isTaintedMode = !isTaintedMode;
     document.body.classList.toggle('tainted-mode', isTaintedMode);
     playMusic(isTaintedMode ? 'tainted' : 'normal');
     populateSelect();
     renderAll();
+}
+
+swapBtn.addEventListener('click', toggleTaintedMode);
+
+document.addEventListener('keydown', (event) => {
+    const target = event.target;
+    const isTyping = target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName);
+    if (isTyping) return;
+
+    if (event.key.toLowerCase() === 'e') {
+        toggleTaintedMode();
+    }
 });
 
 populateSelect();
