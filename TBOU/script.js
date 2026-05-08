@@ -503,7 +503,7 @@ const gameData = {
     },
 
 "Tainted Isaac": {
-        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. Tainted Isaac is unlocked by using either Red Key, cracked key or soul of Cain to open the hidden closet in the Home floor as Isaac. All Tainted Characters are unlocked with the same method. Lucas' note: Minecraft full inventory gameplay",
+        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. Tainted Isaac is unlocked by using either Red Key, cracked key or soul of Cain to open the hidden closet in the Home floor as Isaac. All Tainted Characters are unlocked with the same method, the only diferrent is the character you are actually playing as. Lucas' note: Minecraft full inventory gameplay",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [

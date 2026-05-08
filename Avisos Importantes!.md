@@ -393,6 +393,8 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 2.0_beta8.3 Site do Lucas V2.0 - BETA 8.3: TBOU 3.
 1) Foi alterado as descrições de todos os personagens.
 
+2.0_beta8.3.1 SIte do Lucas V2.0 - BETA 8.3.1: TBOU 4 + UD 21 + URM 14.
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 21. / ND: 9. / Atualização GAMER: 16. / UD: 20. / URM: 13. / TBOU: 4
+UQV: 21. / ND: 9. / Atualização GAMER: 16. / UD: 21. / URM: 14. / TBOU: 5
