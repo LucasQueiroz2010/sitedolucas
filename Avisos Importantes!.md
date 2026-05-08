@@ -390,6 +390,9 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 1) Um bug que fazia os sons e a música não tocacem foi corrigido.
 2) O nome da pasta de sons/música foi renomeada de 'Soundtrack' para 'sound'.
 
+2.0_beta8.3 Site do Lucas V2.0 - BETA 8.3: TBOU 3.
+1) Foi alterado as descrições de todos os personagens.
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 21. / ND: 9. / Atualização GAMER: 16. / UD: 20. / URM: 13. / TBOU: 3
+UQV: 21. / ND: 9. / Atualização GAMER: 16. / UD: 20. / URM: 13. / TBOU: 4
