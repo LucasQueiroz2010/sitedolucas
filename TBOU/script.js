@@ -806,8 +806,8 @@ let isTaintedMode = false;
 let userProgress = JSON.parse(localStorage.getItem('isaacUnlocksProgress')) || {};
 
 const soundtrack = {
-    normal: "Soundtrack/Normal_Music.mp3",
-    tainted: "Soundtrack/Tainted_Music.mp3"
+    normal: "sound/Normal_Music.mp3",
+    tainted: "sound/Tainted_Music.mp3"
 };
 
 const audioPlayer = document.getElementById('bg-music');

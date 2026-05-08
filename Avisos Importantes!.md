@@ -386,6 +386,10 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 2) Foi adicionado desbloqueios secundários, como por exemplo: doar para a máquina de doação do Greed para poder desbloquear itens ou vençer desafios do jogo para outros desbloqueios.
 3) Algumas imagens foram alteradas.
 
+2.0_beta8.2: Site do Lucas V2.0 - BETA 8.2: TBOU 3 + UQV 21
+1) Um bug que fazia os sons e a música não tocacem foi corrigido.
+2) O nome da pasta de sons/música foi renomeada de 'Soundtrack' para 'sound'.
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 20. / ND: 9. / Atualização GAMER: 16. / UD: 20. / URM: 13. / TBOU: 2
+UQV: 21. / ND: 9. / Atualização GAMER: 16. / UD: 20. / URM: 13. / TBOU: 3
