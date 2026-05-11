@@ -390,11 +390,19 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 1) Um bug que fazia os sons e a música não tocacem foi corrigido.
 2) O nome da pasta de sons/música foi renomeada de 'Soundtrack' para 'sound'.
 
-2.0_beta8.3 Site do Lucas V2.0 - BETA 8.3: TBOU 3.
+2.0_beta8.3: Site do Lucas V2.0 - BETA 8.3: TBOU 4.
 1) Foi alterado as descrições de todos os personagens.
 
-2.0_beta8.3.1 SIte do Lucas V2.0 - BETA 8.3.1: TBOU 4 + UD 21 + URM 14.
+2.0_beta8.3.1: Site do Lucas V2.0 - BETA 8.3.1: TBOU 5 + UD 21 + URM 14.
+
+2.0_beta9: Site do Lucas V2.0 - BETA 9: Atualização GAMER 17 + TBOU 6
+1) (TBOU) Foi alterado os efeitos passivos do Azazel, Tainted Azazel, Lilith, Tainted Lilith, Dead Tainted Lazarus, The (Forgotten) Soul, etc.
+2) (TBOU) Foi adiciona uma separação de efeitos passivos entre o Jacob & Esau, Tainted Lazarus & Dead Tainted Lazarus e The Forgotten & The Soul.
+3) (PTWE) Foi modificado a IA do The Noise para que ele só possa usar o seu ataque de skate quando ele estiver no chão.
+4) (PTWE) Foi diminuido a chance de uma Pepper Pizza aparecer.
+5) (PTWE) Foi aumentado a chance de Toppings aparecerem.
+6) (PTWE) Foi mudado um bug envolvendo as plataformas
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 21. / ND: 9. / Atualização GAMER: 16. / UD: 21. / URM: 14. / TBOU: 5
+UQV: 21. / ND: 9. / Atualização GAMER: 17. / UD: 21. / URM: 14. / TBOU: 6

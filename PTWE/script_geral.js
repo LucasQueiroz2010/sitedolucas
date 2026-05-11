@@ -214,7 +214,8 @@ const peppino = {
     x: 0, y: 0, vx: 0, vy: 0, largura: 100, altura: 100, noChao: false,
     estado: 'idle', direcao: 1, 
     wallTimer: 0, tauntTimer: 0, tauntCooldown: 0, grabTimer: 0, hurtTimer: 0, dropTimer: 0,
-    tauntId: 1, parryId: 1, vida: VIDA_MAXIMA_PEPPINO, invencivelTimer: 0, pepperTimer: 0
+    tauntId: 1, parryId: 1, vida: VIDA_MAXIMA_PEPPINO, invencivelTimer: 0, pepperTimer: 0,
+    hurtType: 'hurt'
 };
 
 const inimigo = {
@@ -715,10 +716,15 @@ function atualizarGustavo() {
 }
 
 function acertarNoise(tipo) {
-    if (inimigo.estado === 'stunned') return;
+    if (inimigo.estado === 'stunned' || inimigo.estado === 'fireass') return;
     if (inimigo.estado.startsWith('skate')) pararSonsSkate();
-    inimigo.estado = 'stunned';
-    inimigo.stunTimer = tipo === 'stomp' ? STUN_NOISE_PADRAO : STUN_NOISE_PADRAO;
+    if (peppino.pepperTimer > 0) {
+        inimigo.estado = 'fireass';
+        inimigo.stunTimer = STUN_NOISE_POS_PEPPER;
+    } else {
+        inimigo.estado = 'stunned';
+        inimigo.stunTimer = tipo === 'stomp' ? STUN_NOISE_PADRAO : STUN_NOISE_PADRAO;
+    }
     inimigo.vx = 0;
     inimigo.vy = 0;
     tocarSom('soundtrack_jogo/Noise/Noise_hurt.wav');
@@ -742,10 +748,15 @@ function aplicarDanoPeppino(qtd = 1) {
     peppino.invencivelTimer = 80;
     peppino.hurtTimer = 35;
     peppino.estado = 'hurt';
+    peppino.hurtType = inimigo.pepperTimer > 0 ? 'fireass' : 'hurt';
     peppino.vx = inimigo.x < peppino.x ? 7 : -7;
     peppino.direcao = peppino.vx < 0 ? -1 : 1;
     peppino.vy = -7;
-    tocarSom('soundtrack_jogo/Peppino/Peppino_hurt.wav');
+    if (inimigo.pepperTimer > 0) {
+        tocarSom('soundtrack_jogo/Peppino/Peppino_scream.wav');
+    } else {
+        tocarSom('soundtrack_jogo/Peppino/Peppino_hurt.wav');
+    }
     setGustavo('peppino-hit');
     if (peppino.vida <= 0) encerrarRound('noise');
     return true;
@@ -792,6 +803,14 @@ function atualizarInimigoNoise() {
         return;
     }
 
+    if (inimigo.estado === 'fireass') {
+        inimigo.stunTimer--;
+        inimigo.vx = 0;
+        inimigo.vy = 0;
+        if (inimigo.stunTimer <= 0) inimigo.estado = 'walk';
+        return;
+    }
+
     if (inimigo.estado === 'stunned') {
         inimigo.stunTimer--;
         inimigo.vx = 0;
@@ -815,7 +834,7 @@ function atualizarInimigoNoise() {
     } else {
         andarLinear();
         tentarPuloAleatorio();
-        if (inimigo.skateCooldown <= 0 && Math.random() < 0.2 / FPS) iniciarSkateboard();
+        if (inimigo.skateCooldown <= 0 && inimigo.noChao && Math.random() < 0.2 / FPS) iniciarSkateboard();
     }
 
     inimigo.vy += GRAVIDADE;
@@ -853,26 +872,40 @@ function pularNoise(duplo) {
         inimigo.vy = -13;
         inimigo.noChao = false;
         inimigo.doubleJumpDisponivel = true;
-        inimigo.estado = 'jump';
+        if (inimigo.estado !== 'happy' && inimigo.estado !== 'scared') inimigo.estado = 'jump';
         tocarSom('soundtrack_jogo/Noise/Noise_jump.wav');
     } else if (duplo && inimigo.doubleJumpDisponivel) {
         inimigo.vy = -11;
         inimigo.doubleJumpDisponivel = false;
-        inimigo.estado = 'doublejump';
+        if (inimigo.estado !== 'happy' && inimigo.estado !== 'scared') inimigo.estado = 'doublejump';
         tocarSom('soundtrack_jogo/Noise/Noise_double_jump.wav');
     }
 }
 
 function iniciarSkateboard() {
-    inimigo.estado = 'skate-corner';
-    inimigo.skateTimer = 0;
+    if (!inimigo.noChao || inimigo.skateCooldown > 0 || inimigo.estado.startsWith('skate')) return;
+    inimigo.estado = 'skate-warn';
+    inimigo.skateTimer = Math.round(1.5 * FPS);
     inimigo.skateDirecao = Math.random() < 0.5 ? 1 : -1;
     inimigo.direcao = inimigo.skateDirecao;
     inimigo.somSkateTocou = false;
+    tocarSom('soundtrack_jogo/Noise/woag.wav');
 }
 
 function atualizarSkateboard() {
-    if (!inimigo.estado.startsWith('skate')) return false;
+    if (!inimigo.estado.startsWith('skate') && inimigo.estado !== 'skate-warn') return false;
+    if (inimigo.estado === 'skate-warn') {
+        inimigo.vx = 0;
+        inimigo.vy = 0;
+        inimigo.skateTimer--;
+        if (inimigo.skateTimer <= 0) {
+            inimigo.estado = 'skate-corner';
+            inimigo.skateTimer = 0;
+            inimigo.direcao = inimigo.skateDirecao;
+            inimigo.somSkateTocou = false;
+        }
+        return true;
+    }
     if (inimigo.estado === 'skate-corner') {
         if (!inimigo.somSkateTocou) {
             tocarSom('soundtrack_jogo/Noise/Noise_mach1.wav', false, 'noise-skate-mach1');
@@ -971,8 +1004,9 @@ function atualizarToppings() {
     toppingSpawnTimer--;
     if (toppingSpawnTimer <= 0) {
         spawnTopping(sortearTipoTopping());
-        if (Math.random() < 0.18) spawnTopping('pepper');
-        toppingSpawnTimer = 55 + Math.floor(Math.random() * 70);
+        if (Math.random() < 0.08) spawnTopping('pepper');
+        if (Math.random() < 0.55) spawnTopping(sortearTipoTopping());
+        toppingSpawnTimer = 35 + Math.floor(Math.random() * 40);
     }
 }
 
@@ -1063,8 +1097,22 @@ function encerrarRound(vencedor) {
     rankDelayTimer = DELAY_TELA_RANK;
     vencedorRound = vencedor;
     musicaBatalha.pause();
+    musicaPause.pause();
+    musicaPause.currentTime = 0;
     if (audiosAtivos['passos']) audiosAtivos['passos'].pause();
     pararSonsSkate();
+    document.getElementById('result-prompt').style.display = 'none';
+
+    if (vencedor === 'peppino') {
+        peppino.estado = 'win';
+        inimigo.estado = 'loser';
+        tocarSom(MUSICA_PEPPER_PEPPINO, true, 'victory-music');
+    } else {
+        peppino.estado = 'lose';
+        inimigo.estado = 'win';
+        tocarSom(MUSICA_PEPPER_NOISE, true, 'victory-music');
+    }
+
     setGustavo(vencedor === 'peppino' ? 'peppino-win' : 'noise-win', 9999);
     renderizarObjetos();
 }
@@ -1106,12 +1154,14 @@ function renderizarObjetos() {
 
     let img = 'imagens_jogo/P_sprites/Peppino_idle.gif';
     if (peppino.pepperTimer > 0) img = 'imagens_jogo/P_sprites/Pepper_Pizza_Peppino.gif';
+    else if (peppino.estado === 'win') img = 'imagens_jogo/P_sprites/Peppino_win.gif';
+    else if (peppino.estado === 'lose') img = 'imagens_jogo/P_sprites/Peppino_lose.gif';
+    else if (peppino.estado === 'hurt') img = peppino.hurtType === 'fireass' ? 'imagens_jogo/P_sprites/Peppino_fireass.gif' : 'imagens_jogo/P_sprites/Peppino_hurt.gif';
     else if (peppino.estado === 'walk') img = 'imagens_jogo/P_sprites/Peppino_walk.gif';
     else if (peppino.estado === 'run') img = 'imagens_jogo/P_sprites/Peppino_run.gif';
     else if (peppino.estado === 'jump') img = 'imagens_jogo/P_sprites/Peppino_jump.gif';
     else if (peppino.estado === 'wall') img = 'imagens_jogo/P_sprites/Peppino_wall.gif';
     else if (peppino.estado === 'wallfall') img = 'imagens_jogo/P_sprites/Peppino_wallfall.gif';
-    else if (peppino.estado === 'hurt') img = 'imagens_jogo/P_sprites/Peppino_hurt.gif';
     else if (peppino.estado === 'grab') img = 'imagens_jogo/P_sprites/Peppino_grab.gif';
     else if (peppino.estado === 'stomp') img = 'imagens_jogo/P_sprites/Peppino_stomp.gif';
     else if (peppino.estado === 'taunt') img = `imagens_jogo/P_sprites/taunt${peppino.tauntId}.png`;
@@ -1126,16 +1176,20 @@ function renderizarObjetos() {
     tauntEffect.style.display = (peppino.estado === 'taunt' || peppino.estado === 'parry') && peppino.tauntTimer > 0 ? 'block' : 'none';
 
     let nImg = 'imagens_jogo/N_sprites/Noise_idle_D.gif';
-    if (inimigo.pepperTimer > 0 && inimigo.estado !== 'joke') nImg = 'imagens_jogo/N_sprites/Pepper_Pizza_Noise.gif';
+    if (inimigo.estado === 'win') nImg = 'imagens_jogo/N_sprites/Noise_P_win.gif';
+    else if (inimigo.estado === 'loser') nImg = 'imagens_jogo/N_sprites/Noise_lose.gif';
+    else if (inimigo.estado === 'fireass') nImg = 'imagens_jogo/N_sprites/Noise_fireass.gif';
+    else if (inimigo.pepperTimer > 0 && inimigo.estado !== 'joke') nImg = 'imagens_jogo/N_sprites/Pepper_Pizza_Noise.gif';
     else if (inimigo.estado === 'joke') nImg = 'imagens_jogo/N_sprites/Noise_joke.png';
+    else if (inimigo.estado === 'happy') nImg = 'imagens_jogo/N_sprites/Noise_happy.gif';
+    else if (inimigo.estado === 'scared') nImg = 'imagens_jogo/N_sprites/Noise_scaried.gif';
+    else if (inimigo.estado === 'skate-warn') nImg = 'imagens_jogo/N_sprites/Noise_warn.gif';
     else if (!inimigo.noChao && inimigo.estado === 'doublejump') nImg = 'imagens_jogo/N_sprites/Noise_doublejump.gif';
     else if (!inimigo.noChao) nImg = 'imagens_jogo/N_sprites/Noise_jump.png';
     else if (inimigo.estado === 'walk') nImg = 'imagens_jogo/N_sprites/Noise_walk.gif';
     else if (inimigo.estado === 'jump') nImg = 'imagens_jogo/N_sprites/Noise_jump.png';
     else if (inimigo.estado === 'doublejump') nImg = 'imagens_jogo/N_sprites/Noise_doublejump.gif';
     else if (inimigo.estado === 'stunned') nImg = 'imagens_jogo/N_sprites/Noise_hurt.gif';
-    else if (inimigo.estado === 'happy') nImg = 'imagens_jogo/N_sprites/Noise_happy.gif';
-    else if (inimigo.estado === 'scared') nImg = 'imagens_jogo/N_sprites/Noise_scaried.gif';
     else if (inimigo.estado === 'pepper') nImg = 'imagens_jogo/N_sprites/Pepper_Pizza_Noise.gif';
     else if (inimigo.estado === 'skate-corner') nImg = 'imagens_jogo/N_sprites/Noise_mach1.gif';
     else if (inimigo.estado === 'skate-charge') nImg = 'imagens_jogo/N_sprites/Noise_charge.gif';

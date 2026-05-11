@@ -41,31 +41,5 @@
         
         <button class="btn-limpar" onclick="limparFeedbacks()">Apagar Todos os Comentários</button>
     </div>
-
-    <script>
-        const user = JSON.parse(localStorage.getItem('usuarioAtual'));
-        if (!user || user.cargo !== 'admin') window.location.href = 'index.html';
-
-        function carregarFeedbacks() {
-            const feedbacks = JSON.parse(localStorage.getItem('feedbacksDB')) || [];
-            const tbody = document.getElementById('tabela-feedbacks');
-            tbody.innerHTML = "";
-
-            feedbacks.reverse().forEach(f => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td style="color: cyan;">${f.usuario}</td>
-                    <td style="color: yellow; text-align: center;">${f.nota}</td>
-                    <td>${f.comentario}</td>
-                    <td style="font-size: 12px; color: gray;">${f.data}</td>
-                `;
-                tbody.appendChild(tr);});}
-
-        function limparFeedbacks() {
-            if (confirm("Tem certeza que deseja apagar todos os comentários?")) {
-                localStorage.removeItem('feedbacksDB');
-                carregarFeedbacks();}}
-        carregarFeedbacks();
-    </script>
 </body>
 </html>

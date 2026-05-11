@@ -134,6 +134,28 @@ select {
     margin-top: 10px;
 }
 
+.effect-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px;
+    background-color: rgba(0,0,0,0.16);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.effect-group-label {
+    color: var(--accent-color);
+    font-size: 9px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.effect-group-chips {
+    display: inline-flex;
+    gap: 5px;
+}
+
 .effect-chip {
     display: inline-flex;
     align-items: center;

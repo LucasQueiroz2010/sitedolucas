@@ -22,18 +22,22 @@ const bossImagesMap = {
 
 const effectTooltips = {
     "Red_Heart.png": "Can have Red Heart containers",
-    "Soul_Heart.png": "Cannot use Red Heart containers, relies on Soul/Black Hearts",
-    "Black_Heart.png": "Starts with or can use Black Hearts",
+    "Soul_Heart.png": "depende de Soul/Black Hearts",
+    "Black_Heart.png": "depende de Black/Soul Hearts",
     "Double_Penny.png": "Uses coins as health",
     "Golden_Penny.png": "Enemies drop temporary coins on death",
-    "Blended_Heart.png": "Uses Red/Soul/Black Hearts as active item charges"
+    "Blended_Heart.png": "Uses Red/Soul/Black Hearts as active item charges",
+    "Bone_Heart.png": "Can only have Bone Hearts",
+    "Half_Soul_Heart.png": "Starts with Soul Hearts",
+    "Half_Black_Heart.png": "Starts with Black Hearts",
+    "Half_Red_Heart.png": "Don't start with, but can have Red Hearts"
 };
 
 const secondaryUnlocks = {
     "chal_31": { id: "chal_31", boss: "Challenge #31", item: "Anemic", diff: "Backasswards" },
     "chal_32": { id: "chal_32", boss: "Challenge #32", item: "Full Health Pill", diff: "April's Fool" },
     "chal_34": { id: "chal_34", boss: "Challenge #34", item: "Child's Heart", diff: "Ultra Hard" },
-    "greed_68": { id: "greed_68", boss: "Greed Donation Machine", item: "Paper Clip", diff: "Donate 68c" },
+    "greed_68": { id: "greed_68", boss: "Greed Donation Machine", item: "Paper Clip", diff: "Donate 68 coins " },
     "greed_439": { id: "greed_439", boss: "Greed Donation Machine", item: "Razor Blade", diff: "Donate 439c" },
     "greed_879": { id: "greed_879", boss: "Greed Donation Machine", item: "Holy Mantle", diff: "Donate 879c" }
 };
@@ -100,7 +104,7 @@ const gameData = {
         startingItems: [
             { name: "1 Key", img: "Key.png", isEffectImg: true, tooltip: "Starts with a key", condition: null },
             { name: "Lucky Foot", img: "Lucky_Foot.png", condition: null },
-            { name: "Paper Clip", img: "Paper_Clip.png", condition: "greed_68", conditionText: "Donate 68c to Greed Machine" }
+            { name: "Paper Clip", img: "Paper_Clip.png", condition: "greed_68", conditionText: "Donate 68 cents to the Greed Donation Machine" }
         ],
         unlocks: [
             { id: "cain_1", boss: "Boss Rush", item: "Cain's Other Eye", diff: "Normal/Hard" },
@@ -181,7 +185,7 @@ const gameData = {
         startingItems: [
             { name: "Whore of Babylon", img: "Whore_of_Babylon.png", condition: null },
             { name: "Dead Bird", img: "Dead_Bird.png", condition: null },
-            { name: "Razor Blade", img: "Razor_Blade.png", condition: "greed_439", conditionText: "Donate 439c to Greed Machine" }
+            { name: "Razor Blade", img: "Razor_Blade.png", condition: "greed_439", conditionText: "Donate 439 cents to the Greed Donation Machine" }
         ],
         unlocks: [
             { id: "eve_1", boss: "Boss Rush", item: "Eve's Mascara", diff: "Normal/Hard" },
@@ -232,7 +236,7 @@ const gameData = {
     "Azazel": {
         name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flying and a short-range Brimstone. Azazel is unlocked by making 3 deals with the Devil. Lucas' note: The 'I just want to unlock things quickly' character.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 0.76<br>Speed: 1.25",
-        effects: ["Black_Heart.png"],
+        effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [
             { name: "0 - The Fool", img: "Fool_Card.png", isEffectImg: true, tooltip: "Starts with The Fool card", condition: null }
         ],
@@ -318,7 +322,7 @@ const gameData = {
         effects: ["Soul_Heart.png"],
         startingItems: [
             { name: "Eternal D6", img: "Eternal_D6.png", condition: null },
-            { name: "Holy Mantle", img: "Holy_Mantle.png", condition: "greed_879", conditionText: "Donate 879c to Greed Machine" }
+            { name: "Holy Mantle", img: "Holy_Mantle.png", condition: "greed_879", conditionText: "Donate 879 coins to the Greed Donation Machine" }
         ],
         unlocks: [
             { id: "lost_1", boss: "Boss Rush", item: "D100", diff: "Normal/Hard" },
@@ -342,7 +346,7 @@ const gameData = {
 "Lilith": {
         name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of demons. Cannot shoot tears, relies entirely on familiars and on the Box of Friends item. Lilith is unlocked my defeating Ultra Greed as Azazel. Lucas' note: Blindfolded, but still manages to fill the screen with more garbage than the game engine can handle.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
-        effects: ["Red_Heart.png", "Black_Heart.png"],
+        effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [
             { name: "Incubus", img: "Incubus.png", condition: null },
             { name: "Cambion Conception", img: "Cambion_Conception.png", condition: null },
@@ -373,9 +377,9 @@ const gameData = {
         effects: ["Double_Penny.png"],
         startingItems: [
             { name: "1 Bomb", img: "Bomb.png", isEffectImg: true, tooltip: "Starts with a Bomb", condition: null },
-            { name: "Store Key", img: "Store_Key.png", condition: "keeper_3", conditionText: "Beat Satan as Keeper" },
-            { name: "Wooden Nickel", img: "Wooden_Nickel.png", condition: "keeper_4", conditionText: "Beat Isaac as Keeper" },
-            { name: "3rd Coin Heart", img: "Coin_Heart.png", condition: "keeper_9", conditionText: "Beat Hush as Keeper" }
+            { name: "Wooden Nickel", img: "Wooden_Nickel.png", condition: "keeper_4", conditionText: "Defeat Isaac" },
+            { name: "Store Key", img: "Store_Key.png", condition: "keeper_3", conditionText: "Defeat Satan" },
+            { name: "3rd Coin Heart", img: "coin_container.png", lockedImg: "empty_coin_container.png", isEffectImg: true, condition: "keeper_9", conditionText: "Defeat Hush", tooltip: "Starts with 3 Coin Hearts" }
         ],
         unlocks: [
             { id: "keeper_1", boss: "Boss Rush", item: "Sticky Nickel", diff: "Normal/Hard" },
@@ -428,10 +432,11 @@ const gameData = {
         image2: "img/Characters/Normal/The_Soul.png", 
         description: "Two characters in one: Melee skeleton and flying soul. The Forgotten is unlocked via a complicated proccess: The Lamb must have been defeated previously before The Forgotten can be unlocked, then you have to defeat the first floor boss under 1 minute. After that, go into the starting room and bomb the middle of the room. This will drop the broken shovel item, that will make Mom's foot fall on top of you for the entire run. Your objective is, with the broken shovel, defeat Boss Rush, collect the second part of the shovel, creating the Mom's Shovel item and head into the Dark Room, on a specific room and use the Shovel on the middle of the room. Lucas' note: Bonk simulador.",
         stats: "HP: 2 Bone (Soul has 1 Soul)<br>DMG: 5.25<br>Tears: 1.36<br>Speed: 1.00",
-        effects: ["Soul_Heart.png"],
-        startingItems: [
-            { name: "Bone Club", img: "Bone_Club.png", condition: null }
+        effectGroups: [
+            { label: "The Forgotten", effects: ["Bone_Heart.png"] },
+            { label: "The Soul", effects: ["Soul_Heart.png", "Black_Heart.png"] }
         ],
+        startingItems: [],
         unlocks: [
             { id: "forgotten_1", boss: "Boss Rush", item: "Divorce Papers", diff: "Normal/Hard" },
             { id: "forgotten_2", boss: "Mom's Heart", item: "Marrow", diff: "Hard" },
@@ -480,7 +485,10 @@ const gameData = {
 "Jacob & Esau": {
         name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. Jaboc & Esau are unlocked by defeating Mother for the first time. Lucas' note: The Jacob and Hitbox experience.",
         stats: "Jacob stats:<br>HP: 3 Red<br>DMG: 2.75<br>Tears: 2.73<br>Speed: 1.00<br><br>Esau stats:<br>HP: 1 Red, 1 Soul<br>DMG: 3.75<br>Tears: 2.73<br>Speed: 1.00",
-        effects: ["Red_Heart.png", "Soul_Heart.png"],
+        effectGroups: [
+            { label: "Jacob", effects: ["Red_Heart.png"] },
+            { label: "Esau", effects: ["Red_Heart.png", "Half_Soul_Heart.png"] }
+        ],
         startingItems: [],
         unlocks: [
             { id: "jacob_1", boss: "Boss Rush", item: "Rock Bottom", diff: "Normal/Hard" },
@@ -608,7 +616,9 @@ const gameData = {
         name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Savage. Goes into a doom-slayer berserk rage after dealing/taking damage. Tainted Samson is unlocked via the same method as Tainted Isaac, but you need to play as Samson Lucas' note: *Ultrakill music kicks in* RIP AND TEAR, BABY!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.10",
         effects: ["Red_Heart.png"],
-        startingItems: [],
+        startingItems: [
+            { name: "Berserk!", img: "Berserk.png", condition: null }
+        ],
         unlocks: [
             { id: "t_samson_1", boss: "Boss Rush & Hush", item: "Soul of Samson", diff: "Hard" },
             { id: "t_samson_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Temporary Tattoo", diff: "Hard" },
@@ -622,7 +632,7 @@ const gameData = {
 "Tainted Azazel": {
         name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The Benighted. Has a skinny Brimstone and sneezes to push and curse enemies. Tainted Azazel is unlocked via the same method as Tainted Isaac, but you need to play as Azazel Lucas' note: Bless him.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 1.20<br>Speed: 1.25",
-        effects: ["Black_Heart.png"],
+        effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [],
         unlocks: [
             { id: "t_azazel_1", boss: "Boss Rush & Hush", item: "Soul of Azazel", diff: "Hard" },
@@ -637,10 +647,13 @@ const gameData = {
 "Tainted Lazarus": {
         name: "Tainted Lazarus", 
         image: "img/Characters/Tainted/Tainted_Lazarus.png", 
-        image2: "img/Characters/Tainted/Tainted_Lazarus_Dead.png", 
+        image2: "img/Characters/Tainted/Dead_Tainted_Lazarus.png", 
         description: "The Flipped. Swaps between an alive and dead form every time a room is cleared, splitting items between them. Tainted Lazarus is unlocked via the same method as Tainted Isaac, but you need to play as Lazarus. Lucas' note: Two half-baked runs glued together by a mid item.",
         stats: "HP: 3 Red (Alive) / 3 Soul (Dead)<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
-        effects: ["Red_Heart.png", "Soul_Heart.png"],
+        effectGroups: [
+            { label: "Tainted Lazarus", effects: ["Red_Heart.png"] },
+            { label: "Dead Tainted Lazarus", effects: ["Half_Red_Heart.png", "Half_Soul_Heart.png"] }
+        ],
         startingItems: [
             { name: "Flip", img: "Flip.png", condition: null }
         ],
@@ -658,7 +671,10 @@ const gameData = {
         name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The Capricious. Rerolls stats, items, and pickups upon taking damage. Tainted Eden is unlocked via the same method as Tainted Isaac, but you need to play as Eden Lucas' note: Oh, you have a broken build? *Gets hit by a fly* Enjoy your The Wiz + Cursed Eye run.",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
         effects: ["Red_Heart.png"],
-        startingItems: [],
+        startingItems: [
+            { name: "Random Active", img: "Random_item.png", condition: null, tooltip: "Starts with a random Active item" },
+            { name: "Random Passive", img: "Random_item.png", condition: null, tooltip: "Starts with a random Passive item" }
+        ],
         unlocks: [
             { id: "t_eden_1", boss: "Boss Rush & Hush", item: "Soul of Eden", diff: "Hard" },
             { id: "t_eden_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Nuh Uh!", diff: "Hard" },
@@ -689,7 +705,7 @@ const gameData = {
 "Tainted Lilith": {
         name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The Harlot. Whips her unborn fetus out to deal massive melee damage. Tainted Lilith is unlocked via the same method as Tainted Isaac, but you need to play as Lilith Lucas' note: Yeetus the fetus.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
-        effects: ["Red_Heart.png", "Black_Heart.png"],
+        effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [],
         unlocks: [
             { id: "t_lilith_1", boss: "Boss Rush & Hush", item: "Soul of Lilith", diff: "Hard" },
@@ -916,6 +932,24 @@ function getConditionText(item) {
     return `${unlock.boss}: ${unlock.item}`;
 }
 
+function createEffectChip(effect) {
+    const chip = document.createElement('span');
+    chip.className = 'effect-chip';
+
+    const img = document.createElement('img');
+    img.className = 'effect-icon';
+    const title = typeof effectTooltips !== 'undefined' && effectTooltips[effect] ? effectTooltips[effect] : "";
+    if (title) {
+        chip.title = title;
+        img.title = title;
+        img.setAttribute('aria-label', title);
+    }
+    getValidImagePath(effect, 'Effects', img);
+    chip.appendChild(img);
+
+    return chip;
+}
+
 function renderCharInfo() {
     const char = select.value;
     const charData = gameData[char];
@@ -939,22 +973,27 @@ function renderCharInfo() {
     }
 
     charEffects.innerHTML = '';
-    if (charData.effects) {
-        charData.effects.forEach(effect => {
-            const chip = document.createElement('span');
-            chip.className = 'effect-chip';
+    if (charData.effectGroups) {
+        charData.effectGroups.forEach(group => {
+            const groupWrap = document.createElement('div');
+            groupWrap.className = 'effect-group';
 
-            const img = document.createElement('img');
-            img.className = 'effect-icon';
-            const title = typeof effectTooltips !== 'undefined' && effectTooltips[effect] ? effectTooltips[effect] : "";
-            if (title) {
-                chip.title = title;
-                img.title = title;
-                img.setAttribute('aria-label', title);
-            }
-            getValidImagePath(effect, 'Effects', img);
-            chip.appendChild(img);
-            charEffects.appendChild(chip);
+            const label = document.createElement('span');
+            label.className = 'effect-group-label';
+            label.textContent = group.label;
+            groupWrap.appendChild(label);
+
+            const chips = document.createElement('span');
+            chips.className = 'effect-group-chips';
+            group.effects.forEach(effect => {
+                chips.appendChild(createEffectChip(effect));
+            });
+            groupWrap.appendChild(chips);
+            charEffects.appendChild(groupWrap);
+        });
+    } else if (charData.effects) {
+        charData.effects.forEach(effect => {
+            charEffects.appendChild(createEffectChip(effect));
         });
     }
 
@@ -994,7 +1033,8 @@ function renderCharInfo() {
             img.alt = item.name;
             if (item.tooltip || conditionId) img.title = item.tooltip || getConditionText(item);
             
-            getValidImagePath(item.img, defaultFolder, img);
+            const itemImg = item.lockedImg && conditionId && !userProgress[conditionId] ? item.lockedImg : item.img;
+            getValidImagePath(itemImg, defaultFolder, img);
 
             const nameSpan = document.createElement('span');
             nameSpan.className = 'item-name-tag';
