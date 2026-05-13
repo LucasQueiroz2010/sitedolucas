@@ -218,7 +218,7 @@ pobs: O PTWE ainda está com alguns sprites e áudios bugados.
 5) Alguns sprites estão bugados/sendo executados na hora errada. Isso vai ser corrigido em versões futuras.
 ?!+try_remove subject:"FATAL_ERROR" ... task_failed+!?
 
-9.8- Site do Lucas V1.9.8: atualização GAMER 9.
+9.8- Site do Lucas V1.9.8: atualização GAMER 8.
 1) No "Doise Overlay", as pedras caem com um pouco mais de frequência.
 2) No "Doise Overlay", podem cair bombas, que vão sempre focar no The Doise e causar uma explosão, que dá dano em área por algum tempo.
 3) ..."edoM rekaF" on euqilC
@@ -270,7 +270,7 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 3) Alguns detalhes foram mudaram/atualizados.
 (4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
-9.10.3.1- Site do Lucas V1.9.10.3.1: UD 13 + easter egg.
+9.10.3.1- Site do Lucas V1.9.10.3.1: UD 12 + easter egg.
 1) Um novo easter egg foi adicionado.
 2) Pequenos detalhes foram mudados/atualizados.
 (4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
@@ -281,14 +281,14 @@ ND: Obviamente, eu compliquei o jogo da velha para deixa-lo mais a minha cara.
 ND: Ontem (dia 15/02/2010), eu fiz 16 anos, e quando eu começei a programar em HTML, não achei que ia tão longe. Mas cá estou eu, começando a aprender MySQL e um monte de outras coisas. Sou grato enernamente a Fit Gestão Empresarial por me dar essa oportunidade incrível!
 (4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
-9.10.4.1: Site do Lucas V1.9.10.4.1: UQV 14 + UD 14 + ND 5 + URM 9.
+9.10.4.1: Site do Lucas V1.9.10.4.1: UQV 14 + UD 13 + ND 5 + URM 9.
 1) Foi mudados alguns delathes no README.
 2) Foi mudado o texto do contador de versão da página inicial.
 3) Foi adicionado 3 arquivos PHP e 1 imagem nova.
 ND: Eu tentyei implementar um banco de dados (para que seja possível fazer login/se cadastrar no meu site), mas eu ainda não consegui, pois isso precisa de um backend externo, e eu ainda não sei usar um backend externo.
 (4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
-2.0_beta: Site do Lucas V2.0 - BETA 1: Versão experimental da versão 2.0 + Atualização GAMER 11 + ND 5.
+2.0_beta: Site do Lucas V2.0 - BETA 1: Versão experimental da versão 2.0 + Atualização GAMER 9 + ND 5.
 1) Foi finalmente adicionado o modo 'Faker Attack'.
 2) O Fake Peppino pode dar um pulo, um pulo duplo, um Grab Attack (que é um dash) e tem uma barra de vida.
 3) O Peppino pode dar um Grab Attack também. 
@@ -312,7 +312,7 @@ ND: Recentemente eu conversei com meus supervisores e eu tomei bronca por causa 
 ND: Eu fico feliz em anunciar que o PTWE está oficialmente de volta! Após muito tempo de conversa/bronca/negociações, eu consegui colocar o jogo de volta, mas apenas se for de uma forma "escondida". Os espertos vão entender como acessar o jogo, mas eu não posso mencionar como aqui, pois se eu falar como, meu chefe vai ficar uma fera. Além disso, apenas iremos sair da beta da versão 2.0 apenas quando eu finalizar tudo o que eu tenho em mente para os meus projetos.
 pobs: Eu estou muito feliz.
 
-2.0_beta3.1: Site do Lucas V2.0 - BETA 3.1: URM 10 + UD 15
+2.0_beta3.1: Site do Lucas V2.0 - BETA 3.1: URM 10 + UD 14
 1) Foi mudado a imagem temporária da parallax que existe entre os textos na página "Site do Lucas!".
 2) O README foi atualizado.
 3) Uma palavra no dicionário foi alterada.
@@ -322,22 +322,22 @@ pobs: Eu estou muito feliz.
 2) Uma nova interação foi adicionada com a estrela marrom à esquerda na 'Página Inicial'.
 3) Outros erros/bugs insiqnificantes foram corrigidos/removidos.
 
-2.0_beta4: Site do Lucas V2.0 - BETA 4: UQV 16
+2.0_beta4: Site do Lucas V2.0 - BETA 4: UQV 17
 1) Foi substítuido a imagem temporária no Site do Lucas
 2) Foi adicionado um novo Easter Egg.
 3) Outros erros/bugs insiqnificantes foram corrigidos/removidos.
 
-2.0_beta4.1: Site do Lucas V2.0 - BETA 4.1: UD 16
+2.0_beta4.1: Site do Lucas V2.0 - BETA 4.1: UD 15
 1) Um dos easter eggs foi alterado.
 
-2.0_beta4.2: Site do Lucas V2.0 - BETA 4.2: UQV 18 + UD 17
+2.0_beta4.2: Site do Lucas V2.0 - BETA 4.2: UQV 18 + UD 18
 1) Foi mudado a imagem de quando você dá double click na estrela marrom da esquerda.
 2) O bug de quando você dá double click na estrela marrom da esquerda, e após isso dá double click novamente e a estrela voltava dourada foi consertado.
 
-2.0_beta4.3: Site do Lucas V2.0 - BETA 4.2: UD 18 + URM 11
+2.0_beta4.3: Site do Lucas V2.0 - BETA 4.2: UD 17 + URM 11
 1) Foi alterado o número que mostra a versão do site na página principal.
 
-2.0_beta5: Site do Lucas V2.0 - BETA 5: Update dos usuários+ Update do CSS + UQV 19 + ND 8 + URM.
+2.0_beta5: Site do Lucas V2.0 - BETA 5: Update dos usuários+ Update do CSS + UQV 19 + ND 8 + URM 12.
 1) Foi adicionado um sistema de login/logoff no site.
 2) Foi mudado o CSS, agora sendo mais cheio e retirando o style separado dos sites e implementando-os no CSS bruto.
 3) A página principal sofreu mudanças severas.
@@ -347,7 +347,7 @@ pobs: Eu estou muito feliz.
 7) FOi mudado alguns pontos do README.
 ND: Esse é um dos maiores updates que eu já fiz a muito tempo, mas eu finalmente consegui! Agora a seção de feedbacks está oficialmente funcionando, mas eu ainda preciso testar tudo. Mesmo assim, eu estou muito perto de lançar a versão 2.0 oficialmente! Meu plano é fazer um suporte SASS melhor, além de implementar um sistema de ranking no PTWE e no jogo da velha (talvez até um sistema que você tenha que jogar um modo de jogo para poder liberar outro modo de jogo).
 
-2.0_beta5.1: Site do Lucas V2.0 - BETA 5.1: Update GAMER 13 + UD 19.
+2.0_beta5.1: Site do Lucas V2.0 - BETA 5.1: Update GAMER 13 + UD 18.
 1) Na página de comentários, foi adicionado uma imagem de background.
 2) Foi implementado um sistema de ranks e desbloqueamento de modos no PTWE, que depende do usuário.
 3) Foi implementado um sistema de desbloqueamento de modos, que varia dependendo do usuário.
@@ -368,7 +368,7 @@ ND: Esse é um dos maiores updates que eu já fiz a muito tempo, mas eu finalmen
 9) Um monte de micro-updates (sendo alguns desses micro-updates: mudanças de código, melhor organização nos códigos, etc.) foram feitos.
 ND: Os modos de jogo ainda não estão implementados, pois eles estão extremamente bugados devido as alterações feitas no site, ou seja, eu vou ter que refaze-los do zero.
 
-2.0_beta7: Site do Lucas V2.0 - BETA 7: Atualização GAMER 15
+2.0_beta7: Site do Lucas V2.0 - BETA 7: Atualização GAMER 10
 1) O 'Noise Mode' foi re-implementado.
 2) Algumas novas mecanicas foram adicionadas, como um ataque de skate do Noise.
 3) Alguns backgrounds foram mudados, como por exemplo a tela de carregamento, a tela de início e a tela de seleção de modos.
@@ -376,7 +376,7 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 
 2.0_beta7.1: Site do Lucas V2.0 - BETA 7.1: URM 13.
 
-2.0_beta8: Site do Lucas V2.0 - BETA 8: Atualização GAMER 16 + TBOU 1
+2.0_beta8: Site do Lucas V2.0 - BETA 8: Atualização GAMER 11 + TBOU 1
 1) Foi adicionado um site para ajudar os jogadores de TBOI a deixarem as suas idéias organizadas sobre os desbloqueios de itens por personagem.
 2) O site é organizado entre personagens e desbloqueios por personagens.
 3) O site ainda está em progresso, ou seja, é um WIP.
@@ -393,9 +393,9 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 2.0_beta8.3: Site do Lucas V2.0 - BETA 8.3: TBOU 4.
 1) Foi alterado as descrições de todos os personagens.
 
-2.0_beta8.3.1: Site do Lucas V2.0 - BETA 8.3.1: TBOU 5 + UD 21 + URM 14.
+2.0_beta8.3.1: Site do Lucas V2.0 - BETA 8.3.1: TBOU 5 + UD 19 + URM 14.
 
-2.0_beta9: Site do Lucas V2.0 - BETA 9: Atualização GAMER 17 + TBOU 6
+2.0_beta9: Site do Lucas V2.0 - BETA 9: Atualização GAMER 12 + TBOU 6
 1) (TBOU) Foi alterado os efeitos passivos do Azazel, Tainted Azazel, Lilith, Tainted Lilith, Dead Tainted Lazarus, The (Forgotten) Soul, etc.
 2) (TBOU) Foi adiciona uma separação de efeitos passivos entre o Jacob & Esau, Tainted Lazarus & Dead Tainted Lazarus e The Forgotten & The Soul.
 3) (PTWE) Foi modificado a IA do The Noise para que ele só possa usar o seu ataque de skate quando ele estiver no chão.
@@ -403,6 +403,12 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 5) (PTWE) Foi aumentado a chance de Toppings aparecerem.
 6) (PTWE) Foi mudado um bug envolvendo as plataformas
 
+2.0_beta10: Site do Lucas V2.0 - BETA 10: TBOU 7 + Atualização GAMER 13 + UQV 22 + URM 15
+1) Foi mudado a imagem da estrela amarela da direita (clique duas vezes e descubra).
+2) Foi melhorado a inteligencia artificial do The Noise, onde ele faz um som antes de fazer o seu ataque de skate.
+3) Foi adicionado uma imagem melhor para as plataformas do PTWE.
+4) Alguns ajustes de movimentação foram feitos no Peppino.
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 21. / ND: 9. / Atualização GAMER: 17. / UD: 21. / URM: 14. / TBOU: 6
+UQV: 22. / ND: 9. / Atualização GAMER: 13. / UD: 19. / URM: 15. / TBOU: 7

@@ -68,7 +68,7 @@ const assetsParaCarregar = [
     'imagens_jogo/Toppings/Pineapple.gif', 'imagens_jogo/Toppings/Tomato.gif',
     'imagens_jogo/Toppings/Weiner.gif', 'imagens_jogo/Toppings/Gerome.gif',
     'imagens_jogo/Toppings/Life_hat.gif', 'imagens_jogo/Toppings/Pepper_Pizza.gif',
-    'imagens_jogo/Stuff/platform.png',
+    'imagens_jogo/Stuff/platform.gif',
     'imagens_jogo/Stuff/backwoag.png', 'imagens_jogo/Stuff/backwong.png',
     'imagens_jogo/Stuff/dnuorgkcab.png', 'imagens_jogo/Stuff/loading_screen.png',
     'imagens_jogo/Stuff/Mode_Screen.png', 'imagens_jogo/Stuff/Title_Screen.png',
@@ -172,6 +172,8 @@ const STUN_NOISE_POS_PEPPER = 10 * FPS;
 const JOKE_NOISE_POS_HIT = Math.round(1.5 * FPS);
 const SKATE_COOLDOWN = 15 * FPS;
 const DELAY_TELA_RANK = 10 * FPS;
+const OFFSET_TOPO_VISUAL_PLATAFORMA = 16;
+const CHANCE_SPAWN_PEPPER = 0.025;
 
 const arenaPlataformas = [
     { x: 200, y: 380, largura: 500, altura: 60 },
@@ -355,9 +357,9 @@ function prepararArena(modo) {
             div.style.top = plat.y + 'px';
             div.style.width = plat.largura + 'px';
             div.style.height = plat.altura + 'px';
-            div.style.backgroundImage = "url('imagens_jogo/Stuff/platform.png')";
+            div.style.backgroundImage = "url('imagens_jogo/Stuff/platform.gif')";
             div.style.backgroundSize = "100% 100%";
-            div.style.backgroundPosition = "center";
+            div.style.backgroundPosition = "0 0";
             div.style.backgroundRepeat = "no-repeat";
             div.style.position = "absolute";
             div.style.zIndex = "50";
@@ -667,16 +669,21 @@ function checarColisoesBasicas(obj) {
         arenaPlataformas.forEach(plat => {
             const peAtual = obj.y + obj.altura;
             const centroX = obj.x + (obj.largura / 2);
+            const topoColisao = topoColisaoPlataforma(plat);
             
             if (centroX >= plat.x && centroX <= plat.x + plat.largura) {
-                if (chaoAnterior <= plat.y && peAtual >= plat.y) {
-                    obj.y = plat.y - obj.altura; 
+                if (chaoAnterior <= topoColisao && peAtual >= topoColisao) {
+                    obj.y = topoColisao - obj.altura; 
                     obj.vy = 0;
                     obj.noChao = true;
                 }
             }
         });
     }
+}
+
+function topoColisaoPlataforma(plat) {
+    return plat.y + OFFSET_TOPO_VISUAL_PLATAFORMA;
 }
 
 function atualizarRound() {
@@ -1004,14 +1011,13 @@ function atualizarToppings() {
     toppingSpawnTimer--;
     if (toppingSpawnTimer <= 0) {
         spawnTopping(sortearTipoTopping());
-        if (Math.random() < 0.08) spawnTopping('pepper');
+        if (Math.random() < CHANCE_SPAWN_PEPPER && !toppings.some(t => t.tipo === 'pepper')) spawnTopping('pepper');
         if (Math.random() < 0.55) spawnTopping(sortearTipoTopping());
         toppingSpawnTimer = 35 + Math.floor(Math.random() * 40);
     }
 }
 
 function sortearTipoTopping() {
-    if (Math.random() < 0.1) return 'vida';
     const normais = ['cheese', 'mushroom', 'pineapple', 'tomato', 'weiner'];
     return normais[Math.floor(Math.random() * normais.length)];
 }
@@ -1019,8 +1025,8 @@ function sortearTipoTopping() {
 function escolherPosicaoTopping() {
     const pontos = [
         { x: 180 + Math.random() * 500, y: CHAO_Y - 45 },
-        { x: arenaPlataformas[0].x + 30 + Math.random() * (arenaPlataformas[0].largura - 80), y: arenaPlataformas[0].y - 45 },
-        { x: arenaPlataformas[1].x + 30 + Math.random() * (arenaPlataformas[1].largura - 80), y: arenaPlataformas[1].y - 45 }
+        { x: arenaPlataformas[0].x + 30 + Math.random() * (arenaPlataformas[0].largura - 80), y: topoColisaoPlataforma(arenaPlataformas[0]) - 45 },
+        { x: arenaPlataformas[1].x + 30 + Math.random() * (arenaPlataformas[1].largura - 80), y: topoColisaoPlataforma(arenaPlataformas[1]) - 45 }
     ];
     let ponto = pontos[Math.floor(Math.random() * pontos.length)];
     if (ponto.y === CHAO_Y - 45) {
@@ -1102,6 +1108,7 @@ function encerrarRound(vencedor) {
     if (audiosAtivos['passos']) audiosAtivos['passos'].pause();
     pararSonsSkate();
     document.getElementById('result-prompt').style.display = 'none';
+    limparToppings();
 
     if (vencedor === 'peppino') {
         peppino.estado = 'win';
