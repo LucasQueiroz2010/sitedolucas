@@ -167,12 +167,15 @@ const TEMPO_ROUND_PADRAO = 60;
 const TEMPO_ROUND_POR_MODO = { noise: 60, doise: 90, faker: 60 };
 const VIDA_MAXIMA_PEPPINO = 6;
 const PEPPER_DURACAO = Math.round(7.5 * FPS);
+const PEPPER_AVISO_FIM = Math.round(2 * FPS);
+const PEPPER_AUTO_PARRY_DURACAO = 24;
+const PEPPER_AUTO_PARRY_INTERVALO = 55;
 const STUN_NOISE_PADRAO = 3 * FPS;
 const STUN_NOISE_POS_PEPPER = 10 * FPS;
 const JOKE_NOISE_POS_HIT = Math.round(1.5 * FPS);
 const SKATE_COOLDOWN = 15 * FPS;
 const DELAY_TELA_RANK = 10 * FPS;
-const OFFSET_TOPO_VISUAL_PLATAFORMA = 16;
+const OFFSET_TOPO_VISUAL_PLATAFORMA =   16;
 const CHANCE_SPAWN_PEPPER = 0.025;
 
 const arenaPlataformas = [
@@ -217,6 +220,7 @@ const peppino = {
     estado: 'idle', direcao: 1, 
     wallTimer: 0, tauntTimer: 0, tauntCooldown: 0, grabTimer: 0, hurtTimer: 0, dropTimer: 0,
     tauntId: 1, parryId: 1, vida: VIDA_MAXIMA_PEPPINO, invencivelTimer: 0, pepperTimer: 0,
+    autoParryCooldown: 0,
     hurtType: 'hurt'
 };
 
@@ -224,7 +228,8 @@ const inimigo = {
     x: 750, y: 0, vx: -4, vy: 0, largura: 100, altura: 100, noChao: false,
     estado: 'walk', stunTimer: 0, direcao: -1, jumpTimer: 0, doubleJumpDisponivel: true,
     contatoCooldown: 0, pepperTimer: 0, skateCooldown: SKATE_COOLDOWN,
-    skateTimer: 0, skateDirecao: -1, somSkateTocou: false, dropTimer: 0
+    skateTimer: 0, skateDirecao: -1, somSkateTocou: false, dropTimer: 0,
+    parryTimer: 0, autoParryCooldown: 0
 };
 const gustavo = { x: 400, y: CHAO_Y - 100, estado: 'idle', timer: 0 };
 let toppings = [];
@@ -327,9 +332,11 @@ function prepararArena(modo) {
 
     peppino.x = 50; peppino.y = CHAO_Y - peppino.altura; peppino.vx = 0; peppino.vy = 0; peppino.estado = 'idle';
     peppino.vida = VIDA_MAXIMA_PEPPINO; peppino.invencivelTimer = 0; peppino.pepperTimer = 0;
+    peppino.autoParryCooldown = 0;
     inimigo.x = 750; inimigo.y = CHAO_Y - inimigo.altura; inimigo.vx = -4; inimigo.vy = 0; inimigo.estado = 'walk';
     inimigo.direcao = -1; inimigo.stunTimer = 0; inimigo.pepperTimer = 0; inimigo.contatoCooldown = 0;
     inimigo.skateCooldown = SKATE_COOLDOWN; inimigo.skateTimer = 0; inimigo.somSkateTocou = false;
+    inimigo.parryTimer = 0; inimigo.autoParryCooldown = 0;
     pararSonsSkate();
     gustavo.x = 400; gustavo.y = CHAO_Y - 100; gustavo.estado = 'idle'; gustavo.timer = 0;
     roundFramesRestantes = (TEMPO_ROUND_POR_MODO[modo] || TEMPO_ROUND_PADRAO) * FPS;
@@ -477,6 +484,7 @@ function loopDoJogo() {
     atualizarRound();
     atualizarPeppino();
     atualizarInimigoNoise();
+    atualizarParryPepperAutomatico();
     atualizarGustavo();
     atualizarToppings();
     checarColetas();
@@ -627,8 +635,8 @@ function atualizarPeppino() {
     if (peppino.invencivelTimer > 0) peppino.invencivelTimer--;
     if (peppino.pepperTimer > 0) {
         peppino.pepperTimer--;
+        atualizarAuraPepper('player', peppino.pepperTimer);
         if (peppino.pepperTimer === 0) {
-            document.getElementById('player').classList.remove('pepper-ativo');
             atualizarMusicaPepper();
         }
     }
@@ -722,6 +730,37 @@ function atualizarGustavo() {
     }
 }
 
+function atualizarAuraPepper(elementoId, timer) {
+    const elemento = document.getElementById(elementoId);
+    if (!elemento) return;
+    elemento.classList.toggle('pepper-ativo', timer > 0);
+    elemento.classList.toggle('pepper-aviso', timer > 0 && timer <= PEPPER_AVISO_FIM);
+}
+
+function atualizarParryPepperAutomatico() {
+    if (peppino.autoParryCooldown > 0) peppino.autoParryCooldown--;
+    if (inimigo.autoParryCooldown > 0) inimigo.autoParryCooldown--;
+
+    if (peppino.pepperTimer <= 0 || inimigo.pepperTimer <= 0 || roundFinalizado) return;
+    if (peppino.autoParryCooldown > 0 || inimigo.autoParryCooldown > 0) return;
+
+    peppino.estado = 'parry';
+    peppino.parryId = Math.floor(Math.random() * 3) + 1;
+    peppino.tauntTimer = PEPPER_AUTO_PARRY_DURACAO;
+    peppino.vx = 0;
+    peppino.vy = 0;
+
+    if (inimigo.estado.startsWith('skate')) pararSonsSkate();
+    inimigo.estado = 'parry';
+    inimigo.parryTimer = PEPPER_AUTO_PARRY_DURACAO;
+    inimigo.vx = 0;
+    inimigo.vy = 0;
+
+    peppino.autoParryCooldown = PEPPER_AUTO_PARRY_INTERVALO;
+    inimigo.autoParryCooldown = PEPPER_AUTO_PARRY_INTERVALO;
+    tocarSom('soundtrack_jogo/Stuff/Parry.wav');
+}
+
 function acertarNoise(tipo) {
     if (inimigo.estado === 'stunned' || inimigo.estado === 'fireass') return;
     if (inimigo.estado.startsWith('skate')) pararSonsSkate();
@@ -773,14 +812,14 @@ function ativarPepper(usuario) {
     if (usuario === peppino) {
         pepperMusicaDono = 'peppino';
         peppino.pepperTimer = PEPPER_DURACAO;
-        document.getElementById('player').classList.add('pepper-ativo');
+        atualizarAuraPepper('player', peppino.pepperTimer);
         setGustavo('pepper-peppino', 90);
     } else {
         if (inimigo.estado.startsWith('skate')) pararSonsSkate();
         pepperMusicaDono = 'noise';
         inimigo.pepperTimer = PEPPER_DURACAO;
         inimigo.estado = 'pepper';
-        document.getElementById('noise').classList.add('pepper-ativo');
+        atualizarAuraPepper('noise', inimigo.pepperTimer);
         setGustavo('pepper-noise', 90);
     }
     atualizarMusicaPepper();
@@ -791,8 +830,8 @@ function atualizarInimigoNoise() {
     if (inimigo.skateCooldown > 0) inimigo.skateCooldown--;
     if (inimigo.pepperTimer > 0) {
         inimigo.pepperTimer--;
+        atualizarAuraPepper('noise', inimigo.pepperTimer);
         if (inimigo.pepperTimer === 0) {
-            document.getElementById('noise').classList.remove('pepper-ativo');
             inimigo.estado = 'stunned';
             inimigo.stunTimer = STUN_NOISE_POS_PEPPER;
             inimigo.vx = 0;
@@ -800,6 +839,14 @@ function atualizarInimigoNoise() {
             atualizarMusicaPepper();
             return;
         }
+    }
+
+    if (inimigo.parryTimer > 0) {
+        inimigo.parryTimer--;
+        inimigo.vx = 0;
+        inimigo.vy = 0;
+        if (inimigo.parryTimer <= 0) inimigo.estado = inimigo.pepperTimer > 0 ? 'pepper' : 'walk';
+        return;
     }
 
     if (inimigo.estado === 'joke') {
@@ -840,9 +887,9 @@ function atualizarInimigoNoise() {
         inimigo.estado = 'scared';
     } else {
         andarLinear();
-        tentarPuloAleatorio();
         if (inimigo.skateCooldown <= 0 && inimigo.noChao && Math.random() < 0.2 / FPS) iniciarSkateboard();
     }
+    tentarPuloAleatorio();
 
     inimigo.vy += GRAVIDADE;
     inimigo.x += inimigo.vx;
@@ -871,7 +918,8 @@ function fugirDoPeppino() {
 }
 
 function tentarPuloAleatorio() {
-    if (Math.random() < 0.2 / FPS) pularNoise(!inimigo.noChao);
+    const chance = inimigo.noChao ? 0.9 / FPS : 0.75 / FPS;
+    if (Math.random() < chance) pularNoise(!inimigo.noChao);
 }
 
 function pularNoise(duplo) {
@@ -980,7 +1028,12 @@ function limitarInimigoNaArena() {
 }
 
 function checarContatoNoisePeppino() {
-    if (inimigo.estado === 'stunned' || inimigo.contatoCooldown > 0 || !retangulosColidem(peppino, inimigo)) return;
+    if (inimigo.estado === 'stunned' || inimigo.estado === 'fireass' || inimigo.contatoCooldown > 0 || !retangulosColidem(peppino, inimigo)) return;
+    if (peppino.pepperTimer > 0) {
+        acertarNoise('pepper-contact');
+        inimigo.contatoCooldown = 70;
+        return;
+    }
     const acertouPeppino = aplicarDanoPeppino(inimigo.pepperTimer > 0 ? 2 : 1);
     if (acertouPeppino && inimigo.pepperTimer > 0) {
         inimigo.estado = 'joke';
@@ -1160,7 +1213,8 @@ function renderizarObjetos() {
 
 
     let img = 'imagens_jogo/P_sprites/Peppino_idle.gif';
-    if (peppino.pepperTimer > 0) img = 'imagens_jogo/P_sprites/Pepper_Pizza_Peppino.gif';
+    if (peppino.estado === 'parry' && peppino.tauntTimer > 0) img = `imagens_jogo/P_sprites/Parry${peppino.parryId}.gif`;
+    else if (peppino.pepperTimer > 0) img = 'imagens_jogo/P_sprites/Pepper_Pizza_Peppino.gif';
     else if (peppino.estado === 'win') img = 'imagens_jogo/P_sprites/Peppino_win.gif';
     else if (peppino.estado === 'lose') img = 'imagens_jogo/P_sprites/Peppino_lose.gif';
     else if (peppino.estado === 'hurt') img = peppino.hurtType === 'fireass' ? 'imagens_jogo/P_sprites/Peppino_fireass.gif' : 'imagens_jogo/P_sprites/Peppino_hurt.gif';
@@ -1172,7 +1226,6 @@ function renderizarObjetos() {
     else if (peppino.estado === 'grab') img = 'imagens_jogo/P_sprites/Peppino_grab.gif';
     else if (peppino.estado === 'stomp') img = 'imagens_jogo/P_sprites/Peppino_stomp.gif';
     else if (peppino.estado === 'taunt') img = `imagens_jogo/P_sprites/taunt${peppino.tauntId}.png`;
-    else if (peppino.estado === 'parry') img = `imagens_jogo/P_sprites/Parry${peppino.parryId}.gif`;
 
     pDiv.style.backgroundImage = 'none';
     pSprite.style.backgroundImage = `url('${img}')`;
@@ -1180,11 +1233,13 @@ function renderizarObjetos() {
     pDiv.style.left = peppino.x + 'px';
     pDiv.style.top = peppino.y + 'px';
     pDiv.classList.toggle('blinking', peppino.invencivelTimer > 0 && peppino.pepperTimer <= 0);
+    pDiv.classList.toggle('pepper-aviso', peppino.pepperTimer > 0 && peppino.pepperTimer <= PEPPER_AVISO_FIM);
     tauntEffect.style.display = (peppino.estado === 'taunt' || peppino.estado === 'parry') && peppino.tauntTimer > 0 ? 'block' : 'none';
 
     let nImg = 'imagens_jogo/N_sprites/Noise_idle_D.gif';
     if (inimigo.estado === 'win') nImg = 'imagens_jogo/N_sprites/Noise_P_win.gif';
     else if (inimigo.estado === 'loser') nImg = 'imagens_jogo/N_sprites/Noise_lose.gif';
+    else if (inimigo.estado === 'parry' && inimigo.parryTimer > 0) nImg = 'imagens_jogo/N_sprites/Noise_parry.gif';
     else if (inimigo.estado === 'fireass') nImg = 'imagens_jogo/N_sprites/Noise_fireass.gif';
     else if (inimigo.pepperTimer > 0 && inimigo.estado !== 'joke') nImg = 'imagens_jogo/N_sprites/Pepper_Pizza_Noise.gif';
     else if (inimigo.estado === 'joke') nImg = 'imagens_jogo/N_sprites/Noise_joke.png';
@@ -1207,6 +1262,7 @@ function renderizarObjetos() {
     nDiv.style.top = inimigo.y + 'px';
     nDiv.style.transform = `scaleX(${inimigo.direcao})`;
     nDiv.classList.toggle('blinking', inimigo.estado === 'stunned');
+    nDiv.classList.toggle('pepper-aviso', inimigo.pepperTimer > 0 && inimigo.pepperTimer <= PEPPER_AVISO_FIM);
 
     let gImg = 'imagens_jogo/G_sprites/Gustavo_idle.gif';
     if (gustavo.estado === 'peppino-hit') gImg = 'imagens_jogo/G_sprites/Gustavo_P_hit.gif';

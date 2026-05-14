@@ -39,12 +39,74 @@ const secondaryUnlocks = {
     "chal_34": { id: "chal_34", boss: "Challenge #34", item: "Child's Heart", diff: "Ultra Hard" },
     "greed_68": { id: "greed_68", boss: "Greed Donation Machine", item: "Paper Clip", diff: "Donate 68 coins " },
     "greed_439": { id: "greed_439", boss: "Greed Donation Machine", item: "Razor Blade", diff: "Donate 439c" },
-    "greed_879": { id: "greed_879", boss: "Greed Donation Machine", item: "Holy Mantle", diff: "Donate 879c" }
+    "greed_879": { id: "greed_879", boss: "Greed Donation Machine", item: "Holy Mantle", diff: "Donate 879c" },
+    "greed_1000": { id: "greed_1000", boss: "Greed Donation Machine", item: "Keeper", diff: "Donate 1000c" }
 };
+
+const greedDonationUnlocks = [
+    { coins: 68, id: "greed_68", reward: "Paper Clip" },
+    { coins: 439, id: "greed_439", reward: "Razor Blade" },
+    { coins: 879, id: "greed_879", reward: "Holy Mantle for The Lost" },
+    { coins: 1000, id: "greed_1000", reward: "Keeper" }
+];
+
+const dailyAchievements = [
+    { id: "daily_broken_modem", name: "Broken Modem", reward: "Win 7 Daily Runs", stat: "wins", goal: 7 },
+    { id: "daily_cracked_crown", name: "Cracked Crown", reward: "Get a 5 Daily Run victory streak", stat: "streak", goal: 5 },
+    { id: "daily_dedication", name: "Dedication", reward: "Play 31 Daily Runs", stat: "played", goal: 31 }
+];
+
+const challengeData = [
+    { id: "chal_1", name: "Pitch Black", reward: "Rune of Hagalaz", requirements: [] },
+    { id: "chal_2", name: "High Brow", reward: "Rune of Jera", requirements: [] },
+    { id: "chal_3", name: "Head Trauma", reward: "Rune of Ehwaz", requirements: [] },
+    { id: "chal_4", name: "Darkness Falls", reward: "Rune of Dagaz", requirements: [{ id: "eve_6", text: "Defeat ??? as Eve" }] },
+    { id: "chal_5", name: "The Tank", reward: "Rune of Algiz", requirements: [] },
+    { id: "chal_6", name: "Solar System", reward: "Rune of Perthro", requirements: [{ text: "Defeat Mom's Heart 3 times" }] },
+    { id: "chal_7", name: "Suicide King", reward: "Suicide King card", requirements: [{ text: "Defeat Mom's Heart 11 times" }, { text: "Unlock Lazarus" }] },
+    { id: "chal_8", name: "Cat Got Your Tongue", reward: "Rune of Ansuz", requirements: [{ id: "mag_5", text: "Unlock Maggy's Faith" }] },
+    { id: "chal_9", name: "Demo Man", reward: "Chaos Card", requirements: [] },
+    { id: "chal_10", name: "Cursed!", reward: "Credit Card", requirements: [] },
+    { id: "chal_11", name: "Glass Cannon", reward: "Rules Card", requirements: [{ text: "Defeat Mom's Heart 11 times" }] },
+    { id: "chal_12", name: "When Life Gives You Lemons", reward: "Card Against Humanity", requirements: [] },
+    { id: "chal_13", name: "Beans!", reward: "Burnt Penny", requirements: [] },
+    { id: "chal_14", name: "It's in the Cards", reward: "SMB Super Fan", requirements: [] },
+    { id: "chal_15", name: "Slow Roll", reward: "Swallowed Penny", requirements: [] },
+    { id: "chal_16", name: "Computer Savvy", reward: "Robo-Baby 2.0", requirements: [] },
+    { id: "chal_17", name: "Waka Waka", reward: "Death's Touch", requirements: [] },
+    { id: "chal_18", name: "The Host", reward: "Technology .5", requirements: [] },
+    { id: "chal_19", name: "The Family Man", reward: "Epic Fetus", requirements: [{ id: "isaac_13", text: "Defeat Mega Satan as Isaac" }] },
+    { id: "chal_20", name: "Purist", reward: "Rune of Berkano", requirements: [] },
+    { id: "chal_21", name: "XXXXXXXXL", reward: "Gold Heart", requirements: [{ text: "Defeat Mom's Heart 11 times" }] },
+    { id: "chal_22", name: "SPEED!", reward: "Get out of Jail Free Card", requirements: [{ text: "Defeat Mom" }] },
+    { id: "chal_23", name: "Blue Bomber", reward: "Gold Bomb", requirements: [{ text: "Destroy 10 Tinted Rocks" }, { text: "Defeat Mom's Heart 11 times" }] },
+    { id: "chal_24", name: "PAY TO PLAY", reward: "2 new pills", requirements: [{ id: "cain_4", text: "Defeat Isaac as Cain" }, { text: "Destroy 10 Tinted Rocks" }] },
+    { id: "chal_25", name: "Have a Heart", reward: "2 new pills", requirements: [{ text: "Defeat Mom" }] },
+    { id: "chal_26", name: "I RULE!", reward: "Poker Chip", requirements: [{ id: "global_mega_blast", text: "Defeat Mega Satan" }, { text: "Unlock The Negative" }] },
+    { id: "chal_27", name: "BRAINS!", reward: "Stud Finder", requirements: [{ id: "bluebaby_4", text: "Defeat Isaac as ???" }] },
+    { id: "chal_28", name: "PRIDE DAY!", reward: "D8", requirements: [{ text: "Defeat Mom" }] },
+    { id: "chal_29", name: "Onan's Streak", reward: "Kidney Stone", requirements: [{ text: "Unlock Judas" }, { text: "Unlock It Lives" }] },
+    { id: "chal_30", name: "The Guardian", reward: "Blank Rune", requirements: [{ text: "Defeat Mom" }] },
+    { id: "chal_31", name: "Backasswards", reward: "Anemic", requirements: [{ id: "global_mega_blast", text: "Defeat Mega Satan" }, { text: "Unlock The Negative" }] },
+    { id: "chal_32", name: "Aprils Fool", reward: "Maggy starts with a Full Health pill", requirements: [{ text: "Defeat Mom" }] },
+    { id: "chal_33", name: "Pokey Mans", reward: "Charged Key", requirements: [{ text: "Defeat Mom's Heart 11 times" }] },
+    { id: "chal_34", name: "Ultra Hard", reward: "Samson starts with Child's Heart", requirements: [{ id: "global_mega_blast", text: "Defeat Mega Satan" }, { text: "Unlock The Negative" }] },
+    { id: "chal_35", name: "Pong", reward: "Greed's Gullet", requirements: [{ id: "bluebaby_4", text: "Defeat Isaac as ???" }] },
+    { id: "chal_36", name: "Scat Man", reward: "Dirty Mind", requirements: [] },
+    { id: "chal_37", name: "Bloody Mary", reward: "Sigil of Baphomet", requirements: [{ text: "Unlock Bethany" }, { text: "Unlock Blood Bag" }, { text: "Unlock It Lives" }] },
+    { id: "chal_38", name: "Baptism by Fire", reward: "Purgatory", requirements: [{ id: "bethany_3", text: "Defeat Satan as Bethany" }, { id: "mag_5", text: "Unlock Maggy's Faith" }, { text: "Defeat Mom's Heart 11 times" }] },
+    { id: "chal_39", name: "Isaac's Awakening", reward: "Spirit Sword", requirements: [{ id: "isaac_11", text: "Defeat Mother as Isaac" }] },
+    { id: "chal_40", name: "Seeing Double", reward: "Broken Glasses", requirements: [{ id: "jacob_11", text: "Defeat Mother as Jacob & Esau" }] },
+    { id: "chal_41", name: "Pica Run", reward: "Ice Cube", requirements: [{ text: "Defeat Mom's Heart 11 times" }, { text: "Unlock Marbles" }] },
+    { id: "chal_42", name: "Hot Potato", reward: "The Chariot?", requirements: [{ id: "t_forgotten_6", text: "Unlock Tainted Forgotten" }] },
+    { id: "chal_43", name: "Cantripped!", reward: "Justice?", requirements: [{ id: "t_cain_6", text: "Unlock Tainted Cain" }] },
+    { id: "chal_44", name: "Red Redemption", reward: "The Hermit?", requirements: [{ id: "t_jacob_6", text: "Unlock Tainted Jacob" }] },
+    { id: "chal_45", name: "DELETE THIS", reward: "Temperance?", requirements: [{ id: "t_eden_6", text: "Unlock Tainted Eden" }] }
+];
 
 const gameData = {
 "Isaac": {
-        name: "Isaac", image: "img/Characters/Normal/Isaac.png", description: "The default guy. Starts with the D6 to reroll items. Isaac is unlocked by default. Lucas' note: D6 goes brrr until you get Kamikaze.",
+        name: "Isaac", image: "img/Characters/Normal/Isaac.png", description: "The default guy. Starts with the D6 to reroll items onto their items pools. The best item pool is the Secret Room pool. Is recommended to unlock Mom's Knife, Options? and D-Infinity. Isaac is unlocked by default. Lucas' note: D6 goes crazy until you get Kamikaze.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -71,7 +133,7 @@ const gameData = {
         ]
     },
     "Magdalene": {
-        name: "Magdalene", image: "img/Characters/Normal/Magdalene.png", description: "The tanky girl. Starts with high health and Yum Heart for healing. Magdalene is unlocked by having 7 red heart container at once. Lucas' note: A Speed Down pill disguised as a character.",
+        name: "Magdalene", image: "img/Characters/Normal/Magdalene.png", description: "The tanky girl. Starts with high health and Yum Heart for healing 1 red heart. Magdalene is unlocked by having 7 red heart container or more at once. Is recommended to unlock Eucharist, Purity and the Full Health Pill (starting pill). Lucas' note: A Speed Down pill disguised as a character.",
         stats: "HP: 4 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 0.85",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -98,7 +160,7 @@ const gameData = {
         ]
     },
     "Cain": {
-        name: "Cain", image: "img/Characters/Normal/Cain.png", description: "The lucky thief. Starts with high speed, Lucky Foot, only gets good pills, but shoots with one eye. Cain is unlocked by having 55 pennies at once. Lucas' note: Paperclip carries the entire run.",
+        name: "Cain", image: "img/Characters/Normal/Cain.png", description: "The lucky 'pirate'. Starts with high speed and Lucky Foot, that makes you have only good pills, but shoots with one eye. Cain is unlocked by having 55 pennies or more at once. Is recommended to unlock Paper Clip (starting trinket), Guppy's Eye and Silver Dollar. Lucas' note: No more 'Tears Down'!",
         stats: "HP: 2 Red<br>DMG: 4.20<br>Tears: 2.73<br>Speed: 1.30",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -126,7 +188,7 @@ const gameData = {
         ]
     },
     "Judas": {
-        name: "Judas", image: "img/Characters/Normal/Judas.png", description: "The glass cannon. Starts with 1 Heart and Book of Belial for temporary damage buff. Judas is unlocked by defeating Satan for the first time. Lucas' note: First floor spider: 'Allow me to introduce myself'.",
+        name: "Judas", image: "img/Characters/Normal/Judas.png", description: "The glass cannon. Starts with 1 red heart and The Book of Belial for temporary damage buff + increased devil/angel deal chance. Judas is unlocked by defeating Satan for the first time. Is recommended to unlock Judas' Shadow, Judas' Tongue and the Eye of Belial. Lucas' note: First floor spider: 'Allow me to introduce myself'.",
         stats: "HP: 1 Red<br>DMG: 4.72<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -153,7 +215,7 @@ const gameData = {
         ]
     },
     "Blue Baby": {
-        name: "Blue Baby", image: "img/Characters/Normal/Blue_Baby.png", description: "The dead boy. Can only have Soul/Black hearts and starts with The Poop. Destroying poops spawn blue flies. Blue Baby is unlocked by defeating Mom's Heart 10 times. Lucas' note: Literally a piece of shit of a character.",
+        name: "Blue Baby", image: "img/Characters/Normal/Blue_Baby.png", description: "The dead boy. Can only have Soul/Black hearts and starts with The Poop. Destroying poops spawn blue flies. Blue Baby is unlocked by defeating Mom's Heart 10 times. Is recommended to unlock Forget Me Now, The D6 and the Eternal D6. Lucas' note: Literally a piece of shit of a character.",
         stats: "HP: 3 Soul<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.05",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -179,7 +241,7 @@ const gameData = {
         ]
     },
     "Eve": {
-        name: "Eve", image: "img/Characters/Normal/Eve.png", description: "The edgy kid. Starts weak but triggers the Whore of Babylon effect at 1 Red Heart. Eve is unlocked by not picking up any hearts for 2 floors. Lucas' note: The hurt yourself simulador.",
+        name: "Eve", image: "img/Characters/Normal/Eve.png", description: "The edgy kid. Starts with weak stats, but triggers the Whore of Babylon effect at 1 Red Heart or less. Eve is unlocked by not picking up any hearts for 2 floors (don't need to be consecutive). Is recommended to unlock Eve's Mascara, the Athame and the Razor Blade (starting item). Lucas' note: The hurt yourself simulador.",
         stats: "HP: 2 Red<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.23",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -207,7 +269,7 @@ const gameData = {
         ]
     },
     "Samson": {
-        name: "Samson", image: "img/Characters/Normal/Samson.png", description: "The  guy with angry issues. Starts with Bloody Lust, gaining damage when taking damage. Samson is unlocked by completing 2 floors without taking damage. Lucas' note: Skill issue? No, it's a damage up!",
+        name: "Samson", image: "img/Characters/Normal/Samson.png", description: "The guy with angry issues. Starts with Bloody Lust, gaining damage when taking damage. The damage buff resets when entering a new floor. Samson is unlocked by completing 2 floors without taking damage (don't need to be consecutive). Is recommended to unlock the Bloody Lust, bloody Crown and the Bloody Gust. Lucas' note: Skill issue? No, it's a damage up!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.45<br>Speed: 1.10",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -234,7 +296,7 @@ const gameData = {
         ]
     },
     "Azazel": {
-        name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flying and a short-range Brimstone. Azazel is unlocked by making 3 deals with the Devil. Lucas' note: The 'I just want to unlock things quickly' character.",
+        name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flying and a short-range Brimstone. 'Range up' items increase the Brimstone's range. Azazel is unlocked by making 3 deals with the Devil (trading your health for items 3 times in a run). Is recommended to unlock Lilith, Satanic Bible and the Demon's Tail. Lucas' note: The 'I just want to unlock things quickly' character.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 0.76<br>Speed: 1.25",
         effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [
@@ -263,7 +325,7 @@ const gameData = {
         name: "Lazarus", 
         image: "img/Characters/Normal/Lazarus.png", 
         image2: "img/Characters/Normal/Lazarus_Risen.png", 
-        description: "The boy who lived twice. Revives with better stats upon his first death. Lazarus is unlocked by having 4 soul hearts at the same time. Lucas' note: The 'kill yourself' experience",
+        description: "The guy who lived twice. Gets a all-stats up on death, but the buffs are reset on each new floor, except for a +0,5 damage up per death. Every time Lazarus dies, he loses one red heart container. Lazarus is unlocked by having 4 soul hearts at the same time. Is recommended to unlock the Lazarus' Rags, the Pandora's Box and the Store Credit (Bonus to the Anemic starting item). Lucas' note: The 'kill yourself' experience",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -290,7 +352,7 @@ const gameData = {
         ]
     },
 "Eden": {
-        name: "Eden", image: "img/Characters/Normal/Eden.png", description: "The glitchy girl. Starts with completely randomized stats and items. Eden is unlocked by completing The Womb floor for the first time. Lucas' note: Hold 'R' simulator until you don't start with 1 fire rate and Bob's Brain.",
+        name: "Eden", image: "img/Characters/Normal/Eden.png", description: "The glitchy girl. Starts with completely randomized stats and items per run. Her appearance is also randomized per run. Eden is unlocked by completing The Womb floor for the first time. Is recommended to unlock Eden's Blessing, Eden's Soul and Blank Card. Lucas' note: Hold 'R' simulator until you don't start with 1 fire rate and Bob's Brain.",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -317,7 +379,7 @@ const gameData = {
         ]
     },
 "The Lost": {
-        name: "The Lost", image: "img/Characters/Normal/The_Lost.png", description: "The ghost. Has no health, starts with Holy Mantle and flying. Can take devil deals for free, but only one of the items. The Lost is unlocked by dying on a Sacrifice Room while holding the 'Missing Poster' trinket. Lucas' note: The embodiment of skill solution, until a random spider ends your career.",
+        name: "The Lost", image: "img/Characters/Normal/The_Lost.png", description: "The ghost. Has no health, starts with Holy Mantle, flying and spectral tears. Can take one item of the devil deals for free, but the rest will disappear. The Lost is unlocked by dying on a Sacrifice Room while holding the 'Missing Poster' trinket. Is recommended to unlock The Mind, Lost Soul and Holy Card (Bonus for Godhead). Lucas' note: The embodiment of skill solution, until a random spider ends your career.",
         stats: "HP: None<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -344,7 +406,7 @@ const gameData = {
         ]
     },
 "Lilith": {
-        name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of demons. Cannot shoot tears, relies entirely on familiars and on the Box of Friends item. Lilith is unlocked my defeating Ultra Greed as Azazel. Lucas' note: Blindfolded, but still manages to fill the screen with more garbage than the game engine can handle.",
+        name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of demons. Cannot shoot tears by herself, so she relies entirely on familiars and on the Box of Friends item, that creates a clone of every single familiar she has. Lilith is unlocked by defeating Ultra Greed as Azazel. Is recommended to unlock Rune Bag, C-Section and Duality (Bonus for Incubus and Succubus). Lucas' note: Blindfolded, but still manages to fill the screen with more garbage than the game engine can handle.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [
@@ -372,7 +434,7 @@ const gameData = {
         ]
     },
 "Keeper": {
-        name: "Keeper", image: "img/Characters/Normal/Keeper.png", description: "The greedy corpse. Uses coins as health and shoots triple tears. Keeper is unlocked my donate 1000 coins into the Greed Donation machine. Lucas' note: -99 win streak simulator (Pre-Repentance PTSD).",
+        name: "Keeper", image: "img/Characters/Normal/Keeper.png", description: "The greedy corpse. Uses coins as health and has triple shots. Is highly recommended to let coins on the ground, so that you can collect them later, either for health or for shops. Keeper is unlocked by donating 1000 coins into the Greed Donation machine. Is recommended to unlock the Wooden Nickel (Starting item), the third coin container (Starting event) and Keeper's sack (Bonus for Deep Pockets and The Store Key starting Trinket). Lucas' note: -99 win streak simulator (Pre-Repentance PTSD).",
         stats: "HP: 2 Coin Hearts<br>DMG: 4.20<br>Tears: 1.20<br>Speed: 0.85",
         effects: ["Double_Penny.png"],
         startingItems: [
@@ -401,7 +463,7 @@ const gameData = {
         ]
     },
 "Apollyon": {
-        name: "Apollyon", image: "img/Characters/Normal/Apollyon.png", description: "The destroyer. Starts with Void to suck up passive items for stats or copy active items. Apollyon is unlocked by defeating Mega Satan for ther first time. Lucas' note: Sucking up a decent item just to get +0.2 shot speed and +0.2 luck.",
+        name: "Apollyon", image: "img/Characters/Normal/Apollyon.png", description: "The destroyer. Starts with Void to suck up passive items for stats or copy active items. If you collect an item that you don't like, you can use The Void on the item during the pick-up animation. Apollyon is unlocked by defeating Mega Satan for ther first time. Is recommended to unlock The Smalter, Blank Rune and any of the Locust trinkets. Lucas' note: Sucking up a decent item just to get +0.2 shot speed and +0.2 luck.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -430,7 +492,7 @@ const gameData = {
         name: "The Forgotten", 
         image: "img/Characters/Normal/The_Forgotten.png", 
         image2: "img/Characters/Normal/The_Soul.png", 
-        description: "Two characters in one: Melee skeleton and flying soul. The Forgotten is unlocked via a complicated proccess: The Lamb must have been defeated previously before The Forgotten can be unlocked, then you have to defeat the first floor boss under 1 minute. After that, go into the starting room and bomb the middle of the room. This will drop the broken shovel item, that will make Mom's foot fall on top of you for the entire run. Your objective is, with the broken shovel, defeat Boss Rush, collect the second part of the shovel, creating the Mom's Shovel item and head into the Dark Room, on a specific room and use the Shovel on the middle of the room. Lucas' note: Bonk simulador.",
+        description: "Two characters in one: Melee skeleton and flying soul. The Forgotten is unlocked via a complicated proccess: The Lamb must have been defeated previously before The Forgotten can be unlocked, then you have to defeat the first floor boss under 1 minute. After that, go into the starting room and bomb the middle of the room. This will drop the broken shovel item, that will make Mom's foot fall on top of you for the entire run. Your objective is, with the broken shovel, defeat Boss Rush, collect the second part of the shovel, creating the Mom's Shovel item and head into the Dark Room, on a specific room and use the Shovel on the pile of dirt that is on the room. Is recommended to unlock Divorce Papers, The Book of the Dead and Dad's Ring. Lucas' note: Bonk simulador.",
         stats: "HP: 2 Bone (Soul has 1 Soul)<br>DMG: 5.25<br>Tears: 1.36<br>Speed: 1.00",
         effectGroups: [
             { label: "The Forgotten", effects: ["Bone_Heart.png"] },
@@ -457,7 +519,7 @@ const gameData = {
         ]
     },
 "Bethany": {
-        name: "Bethany", image: "img/Characters/Normal/Bethany.png", description: "The faithful. Cannot use Soul Hearts for health, but uses for soul charges. Bethany is unlocked by defeating Mom's Heart/It Lives! as Lazarus on hard mode, while not dying once. Lucas' note: Protect the wisps with your life, only for them to instantly die to a red poop.",
+        name: "Bethany", image: "img/Characters/Normal/Bethany.png", description: "The faithful. Cannot use Soul Hearts for health, but uses for soul charges. Use your active as often as possible for the wisps protection. Bethany is unlocked by defeating Mom's Heart/It Lives! as Lazarus on hard mode, while not dying once. Is recommended to unlock the Book of Virtudes, Blessed Penny and Revelation. Lucas' note: Protect the wisps with your life, only for them to instantly die to a red poop.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png", "Blended_Heart.png"],
         startingItems: [
@@ -483,7 +545,7 @@ const gameData = {
         ]
     },
 "Jacob & Esau": {
-        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. Jaboc & Esau are unlocked by defeating Mother for the first time. Lucas' note: The Jacob and Hitbox experience.",
+        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. The best stragety is to not let them get separated at all. Jacob & Esau are unlocked by defeating Mother for the first time. Is recommended to unlock Rock Bottom, Birthright and The Stairway. Lucas' note: The Jacob and Hitbox experience.",
         stats: "Jacob stats:<br>HP: 3 Red<br>DMG: 2.75<br>Tears: 2.73<br>Speed: 1.00<br><br>Esau stats:<br>HP: 1 Red, 1 Soul<br>DMG: 3.75<br>Tears: 2.73<br>Speed: 1.00",
         effectGroups: [
             { label: "Jacob", effects: ["Red_Heart.png"] },
@@ -511,7 +573,7 @@ const gameData = {
     },
 
 "Tainted Isaac": {
-        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. Tainted Isaac is unlocked by using either Red Key, cracked key or soul of Cain to open the hidden closet in the Home floor as Isaac. All Tainted Characters are unlocked with the same method, the only diferrent is the character you are actually playing as. Lucas' note: Minecraft full inventory gameplay",
+        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. 'Health up' items don't lost their effect when dropped of, so collet the item and get rid of it when possible. Tainted Isaac is unlocked by using either Red Key, cracked key or soul of Cain to open the hidden closet in the Home floor as Isaac. All Tainted Characters are unlocked with the same method, the only diferrent is the character you are actually playing as. Is recommended to unlock Soul of Isaac, the Spindown Dice and Glitched Crown (Bonus for 'The Stars?'). Lucas' note: Minecraft full inventory gameplay",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -528,7 +590,7 @@ const gameData = {
         ]
     },
 "Tainted Magdalene": {
-        name: "Tainted Magdalene", image: "img/Characters/Tainted/Tainted_Magdalene.png", description: "The Dauntless. Bleeds out constantly buthugging enemies to death drops temporary half-red hearts. Tainted Magdalene is unlocked via the same method as Tainted Isaac, but you need to play as Magdalene. Lucas' note: *DOOM music kicks in* TIME TO HUG 'EM ALL!",
+        name: "Tainted Magdalene", image: "img/Characters/Tainted/Tainted_Magdalene.png", description: "The Dauntless. Bleeds out constantly buthugging enemies to death drops temporary half red hearts. Items that heals you have double effect. Tainted Magdalene is unlocked via the same method as Tainted Isaac, but you need to play as Magdalene. Is recommended to unlock Holy Crown, Belly Jelly and 'The Lovers?' (Bonus for Mother's kiss). Lucas' note: *DOOM music kicks in* TIME TO HUG 'EM ALL!",
         stats: "HP: 4 Red (Empty)<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.20",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -545,7 +607,7 @@ const gameData = {
         ]
     },
 "Tainted Cain": {
-        name: "Tainted Cain", image: "img/Characters/Tainted/Tainted_Cain.png", description: "The Hoarder. Cannot pick up items directly, and must craft them using pickups in a bag. Items turns into pickups. Tainted Cain is unlocked via the same method as Tainted Isaac, but you need to play as Cain. Lucas' note: First we Cry, then we Craft.",
+        name: "Tainted Cain", image: "img/Characters/Tainted/Tainted_Cain.png", description: "The Hoarder. Cannot pick up items directly, and must craft them using pickups in a bag. The best strategy is to let pick-ups on the ground, complete the whole floor and then start crafting, being the first item you want to craft being Birthright. Tainted Cain is unlocked via the same method as Tainted Isaac, but you need to play as Cain. Is recommended to unlock Soul of Cain, the Bag of Crafting and Golden Pill (Bonus for 'Wheel of Fortune?'). Lucas' note: First we Cry, then we Craft.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.30",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -562,7 +624,7 @@ const gameData = {
         ]
     },
 "Tainted Judas": {
-        name: "Tainted Judas", image: "img/Characters/Tainted/Tainted_Judas.png", description: "The Deceiver. Can only have Soul/Black hearts and starts with Dark Arts to slice through enemies. Tainted Judas is unlocked via the same method as Tainted Isaac, but you need to play as Judas. Lucas' note: Omae wa, MOU shindeiru.",
+        name: "Tainted Judas", image: "img/Characters/Tainted/Tainted_Judas.png", description: "The Deceiver. Can only have Soul/Black hearts and starts with Dark Arts to slice through enemies. Tainted Judas is unlocked via the same method as Tainted Isaac, but you need to play as Judas. Is recommended to unlock Your Soul, Number Magnet and Black Sack (Bonus for 'The Magician?' and Soul of Judas). Lucas' note: Omae wa, MOU shindeiru.",
         stats: "HP: 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Black_Heart.png"],
         startingItems: [
@@ -579,7 +641,7 @@ const gameData = {
         ]
     },
 "Tainted Blue Baby": {
-        name: "Tainted Blue Baby", image: "img/Characters/Tainted/Tainted_Blue_Baby.png", description: "The Enigma. Cannot use bombs, but throws various types of poop instead. Tainted Blue Baby is unlocked via the same method as Tainted Isaac, but you need to play as Blue Baby. Lucas' note: Taco Bell aftermath.",
+        name: "Tainted Blue Baby", image: "img/Characters/Tainted/Tainted_Blue_Baby.png", description: "The Enigma. Cannot use bombs, but throws various types of poop instead. Tainted Blue Baby spawns Poop pickups passively for you to have more poop options. Tainted Blue Baby is unlocked via the same method as Tainted Isaac, but you need to play as Blue Baby. Is recommended to unlock Charming Poop, The Swarm and 'The Emperor?' (Bonus for Dingle Berry). Lucas' note: Taco Bell aftermath.",
         stats: "HP: 3 Soul<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.05",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -596,7 +658,7 @@ const gameData = {
         ]
     },
 "Tainted Eve": {
-        name: "Tainted Eve", image: "img/Characters/Tainted/Tainted_Eve.png", description: "The Curdled. Drains her own health to spawn a army of blood clots. Tainted Eve is unlocked via the same method as Tainted Isaac, but you need to play as Eve. Lucas' note: Pikmin, but make it bloody.",
+        name: "Tainted Eve", image: "img/Characters/Tainted/Tainted_Eve.png", description: "The Curdled. Drains her own health to spawn a army of blood clots. You can refresh the clots health by using Sumptorium. Tainted Eve is unlocked via the same method as Tainted Isaac, but you need to play as Eve. Is recommended to unlock Strange Key, Horse Pill and Sumptorium (Bonus for 'The Empress?' and Soul of Eve). Lucas' note: Pikmin, but make it bloody.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 1.20<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -613,7 +675,7 @@ const gameData = {
         ]
     },
 "Tainted Samson": {
-        name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Savage. Goes into a doom-slayer berserk rage after dealing/taking damage. Tainted Samson is unlocked via the same method as Tainted Isaac, but you need to play as Samson Lucas' note: *Ultrakill music kicks in* RIP AND TEAR, BABY!",
+        name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Savage. Goes into a doom-slayer berserk rage after dealing/taking damage. One of the best strategies is to build your rage to use the berserker form against the boss. Tainted Samson is unlocked via the same method as Tainted Isaac, but you need to play as Samson. Is recommended to unlock Soul of Samson, Crain Game and 'Strength?'. Lucas' note: *Ultrakill music kicks in* RIP AND TEAR, BABY!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.10",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -630,7 +692,7 @@ const gameData = {
         ]
     },
 "Tainted Azazel": {
-        name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The Benighted. Has a skinny Brimstone and sneezes to push and curse enemies. Tainted Azazel is unlocked via the same method as Tainted Isaac, but you need to play as Azazel Lucas' note: Bless him.",
+        name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The Benighted. Has a skinny Brimstone and sneezes to push and curse enemies. Tainted Azazel is unlocked via the same method as Tainted Isaac, but you need to play as Azazel. Is recommended to unlock Soul of Azazel, Azazel's Rage and Wicked Crown (Bonus for 'The Devil?'). Lucas' note: Bless him.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 1.20<br>Speed: 1.25",
         effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [],
@@ -648,7 +710,7 @@ const gameData = {
         name: "Tainted Lazarus", 
         image: "img/Characters/Tainted/Tainted_Lazarus.png", 
         image2: "img/Characters/Tainted/Dead_Tainted_Lazarus.png", 
-        description: "The Flipped. Swaps between an alive and dead form every time a room is cleared, splitting items between them. Tainted Lazarus is unlocked via the same method as Tainted Isaac, but you need to play as Lazarus. Lucas' note: Two half-baked runs glued together by a mid item.",
+        description: "The Flipped. Swaps between an alive and dead form every time a room is cleared, splitting items between them. The best strategy is to have Flip fully charged when entering treasure rooms, boss rooms and shops. Tainted Lazarus is unlocked via the same method as Tainted Isaac, but you need to play as Lazarus. Is recommended to unlock  Soul of Lazarus, Flip and 'Judgment?' (Bonus for Salvation and Wooden Chest). Lucas' note: Two half-baked runs glued together by a mid item.",
         stats: "HP: 3 Red (Alive) / 3 Soul (Dead)<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effectGroups: [
             { label: "Tainted Lazarus", effects: ["Red_Heart.png"] },
@@ -668,7 +730,7 @@ const gameData = {
         ]
     },
 "Tainted Eden": {
-        name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The Capricious. Rerolls stats, items, and pickups upon taking damage. Tainted Eden is unlocked via the same method as Tainted Isaac, but you need to play as Eden Lucas' note: Oh, you have a broken build? *Gets hit by a fly* Enjoy your The Wiz + Cursed Eye run.",
+        name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The Capricious. Rerolls stats, items, and pickups upon taking damage. Get items that avoid hits, like Holy Mantle. Tainted Eden is unlocked via the same method as Tainted Isaac, but you need to play as Eden. Is recommended to unlock Soul of Eden, Wild Card and Modeling Clay (Bonus for 'The World?' and 'Nuh Uh!'). Lucas' note: Oh, you have a broken build? *Gets hit by a fly* Enjoy your The Wiz + Cursed Eye run.",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -686,7 +748,7 @@ const gameData = {
         ]
     },
 "Tainted Lost": {
-        name: "Tainted Lost", image: "img/Characters/Tainted/Tainted_Lost.png", description: "The Baleful. No health, no mantle, better items and no defensive items. Tainted Lost is unlocked via the same method as Tainted Isaac, but you need to play as The Lost Lucas' note: Dying to a spiked rock because you couldn't see it under the 50 items you picked up.",
+        name: "Tainted Lost", image: "img/Characters/Tainted/Tainted_Lost.png", description: "The Baleful. No health, no mantle, better items and no defensive items. You should use obstacles to your advantage, since most enemies don't have flight. Tainted Lost is unlocked via the same method as Tainted Isaac, but you need to play as The Lost. Is recommended to unlock Soul of The Lost, Sacred Orb and Crystal Key (Bonus for 'The Fool?'). Lucas' note: Dying to a spiked rock because you couldn't see it under the 50 items you picked up.",
         stats: "HP: None<br>DMG: 3.50 (x1.3 multiplier)<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -703,7 +765,7 @@ const gameData = {
         ]
     },
 "Tainted Lilith": {
-        name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The Harlot. Whips her unborn fetus out to deal massive melee damage. Tainted Lilith is unlocked via the same method as Tainted Isaac, but you need to play as Lilith Lucas' note: Yeetus the fetus.",
+        name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The Harlot. Whips her unborn fetus out to deal massive melee damage. Tainted Lilith is unlocked via the same method as Tainted Isaac, but you need to play as Lilith. Is recommended to unlock Soul of Lilith, Twisted Pair and Fool's Gold. Lucas' note: Yeetus the fetus.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [],
@@ -718,7 +780,7 @@ const gameData = {
         ]
     },
 "Tainted Keeper": {
-        name: "Tainted Keeper", image: "img/Characters/Tainted/Tainted_Keeper.png", description: "The Miser. Enemies drop temporary coins on death, but all items costs money instead of finding them free. Tainted Keeper is unlocked via the same method as Tainted Isaac, but you need to play as Keeper Lucas' note: Capitalism at its finest.",
+        name: "Tainted Keeper", image: "img/Characters/Tainted/Tainted_Keeper.png", description: "The Miser. Enemies drop temporary coins on death, but all items costs money instead of finding them free. Try to be greedy and collect as much coiins as possible, even if you take damage, and atch out for nickels and dimes! Tainted Keeper is unlocked via the same method as Tainted Isaac, but you need to play as Keeper. Is recommended to unlock Soul of The Keeper, Keeper's Kin and Golden Penny (Bonus for 'The Hermit?'). Lucas' note: Capitalism at its finest.",
         stats: "HP: 2 Coin Hearts<br>DMG: 4.20<br>Tears: 1.20<br>Speed: 0.85",
         effects: ["Double_Penny.png", "Golden_Penny.png"],
         startingItems: [
@@ -735,7 +797,7 @@ const gameData = {
         ]
     },
 "Tainted Apollyon": {
-        name: "Tainted Apollyon", image: "img/Characters/Tainted/Tainted_Apollyon.png", description: "The Empty. Sucks up items to create an army of locusts with Abyss. Tainted Appolyon is unlocked via the same method as Tainted Isaac, but you need to play as Apollyon. Lucas' note: When in doubt, make a fly.",
+        name: "Tainted Apollyon", image: "img/Characters/Tainted/Tainted_Apollyon.png", description: "The Empty. Sucks up items to create an army of locusts with Abyss. You can use the same strategy as Appolyon with Void, but with Abyss. Tainted Appolyon is unlocked via the same method as Tainted Isaac, but you need to play as Apollyon. Is recommended to unlock Soul of Appolyon, Echo Chamber and 'The Tower?' (Bonus for Rotten Beggar). Lucas' note: When in doubt, make a fly.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -755,7 +817,7 @@ const gameData = {
         name: "Tainted Forgotten", 
         image: "img/Characters/Tainted/Tainted_Forgotten.png", 
         image2: "img/Characters/Tainted/Tainted_Soul.png",
-        description: "The Fettered. The soul carries the skeleton and literally throws it at enemies. Ludovico special.",
+        description: "The Fettered. The soul carries the skeleton and literally throws it at enemies to deal damage. The Tainted Soul alone can't deal any damage by itself. Is recommended to unlock Soul of The Forgotten, Golden Battery and Polished Bones (Bonus for 'Death?' and Isaac's Tomb). Lucas' Note: Ludovico special + American Football simulator.",
         stats: "HP: 3 Soul<br>DMG: 3.50 (x1.5 Bone damage)<br>Tears: 1.20<br>Speed: 1.30",
         effects: ["Soul_Heart.png"],
         startingItems: [],
@@ -770,7 +832,7 @@ const gameData = {
         ]
     },
 "Tainted Bethany": {
-        name: "Tainted Bethany", image: "img/Characters/Tainted/Tainted_Bethany.png", description: "The Zealot. Uses red charges to spawn random item wisps with Lemegeton. Tainted Bethany is unlocked via the same method as Tainted Isaac, but you need to play as Bethany Lucas' note: When you spawn a The Wiz wisp, you immediately regrets everything.",
+        name: "Tainted Bethany", image: "img/Characters/Tainted/Tainted_Bethany.png", description: "The Zealot. Uses red charges to spawn random item wisps with Lemegeton. The Lemegeton has a 25% chance to give you a item wisp based on the item pool of the room you're currently in. Is recommended to unlock Soul of Bethany, Lemegeton and Confessional (Bonus for 'The Hierophant?' and Vengeful Spirit). Lucas' note: When you spawn a The Wiz wisp, you immediately regrets everything.",
         stats: "HP: 3 Soul<br>DMG: 3.50 (x0.75 multiplier)<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -788,7 +850,7 @@ const gameData = {
     },
 "Tainted Jacob": {
         name: "Tainted Jacob", image: "img/Characters/Tainted/Tainted_Jacob.png", 
-        description: "The Deserter. Chased endlessly by Dark Esau. Touching him turns you into a mantle-less ghost. Tainted Jacob is unlocked via the same method as Tainted Isaac, but you need to play as Jacob & Esau Lucas' note: You thought Jacob & Esau was bad? Now one of them is actively trying to kill you + Tainted Lost experience.",
+        description: "The Deserter. Chased endlessly by Dark Esau. Touching him turns you into a mantle-less ghost. At the end of the floor, turn yourself into a ghost to enter the devil room, because Ghost Tainted Jacob have the same propieties of The Lost when on Devil Deals. Is recommended to unlock Soul of Jacob & Esau, 'The Sun?' & 'The Moon?' and Golden Trinkets. (Bonus for Esau Jr and Found Soul). Lucas' note: You thought Jacob & Esau was bad? Now one of them is actively trying to kill you + Tainted Lost experience.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -817,9 +879,26 @@ const startingItemsList = document.getElementById('starting-items-list');
 const grid = document.getElementById('unlock-grid');
 const progressText = document.getElementById('progress-text');
 const charImageContainer = document.getElementById('char-image-container');
+const screens = document.querySelectorAll('.screen');
+const navButtons = document.querySelectorAll('[data-view]');
+const greedCoinTotal = document.getElementById('greed-coin-total');
+const greedUnlocks = document.getElementById('greed-unlocks');
+const challengeGrid = document.getElementById('challenge-grid');
+const challengeProgress = document.getElementById('challenge-progress');
+const dailyPlayed = document.getElementById('daily-played');
+const dailyStreak = document.getElementById('daily-streak');
+const dailyAchievementsGrid = document.getElementById('daily-achievements');
+const dailyVictoryBtn = document.getElementById('daily-victory-btn');
+const dailyDefeatBtn = document.getElementById('daily-defeat-btn');
 
 let isTaintedMode = false;
 let userProgress = JSON.parse(localStorage.getItem('isaacUnlocksProgress')) || {};
+let greedCoins = Number(localStorage.getItem('isaacGreedCoins')) || 0;
+let dailyProgress = JSON.parse(localStorage.getItem('isaacDailyProgress')) || {
+    played: 0,
+    wins: 0,
+    streak: 0
+};
 
 const soundtrack = {
     normal: "sound/Normal_Music.mp3",
@@ -855,6 +934,50 @@ document.addEventListener('click', () => {
 
 function saveProgress() {
     localStorage.setItem('isaacUnlocksProgress', JSON.stringify(userProgress));
+}
+
+function saveGreedProgress() {
+    localStorage.setItem('isaacGreedCoins', String(greedCoins));
+}
+
+function saveDailyProgress() {
+    localStorage.setItem('isaacDailyProgress', JSON.stringify(dailyProgress));
+}
+
+function showView(viewId) {
+    screens.forEach(screen => {
+        screen.classList.toggle('active', screen.id === viewId);
+    });
+
+    if (viewId === 'greed-screen') renderGreedMachine();
+    if (viewId === 'challenges-screen') renderChallenges();
+    if (viewId === 'daily-screen') renderDailyRuns();
+}
+
+function syncGreedUnlocks() {
+    let changed = false;
+    greedDonationUnlocks.forEach(unlock => {
+        const shouldUnlock = greedCoins >= unlock.coins;
+        if (shouldUnlock && !userProgress[unlock.id]) {
+            userProgress[unlock.id] = true;
+            changed = true;
+        }
+    });
+
+    if (changed) saveProgress();
+}
+
+function getRequirementKey(requirement) {
+    if (requirement.id) return requirement.id;
+    return `manual_req_${requirement.text.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')}`;
+}
+
+function isRequirementMet(requirement) {
+    return Boolean(userProgress[getRequirementKey(requirement)]);
+}
+
+function getMissingRequirements(challenge) {
+    return (challenge.requirements || []).filter(requirement => !isRequirementMet(requirement));
 }
 
 function updateProgressDisplay() {
@@ -1158,10 +1281,162 @@ function renderUnlocks() {
     });
 }
 
+function renderGreedMachine() {
+    syncGreedUnlocks();
+    if (greedCoinTotal) greedCoinTotal.textContent = greedCoins;
+    if (!greedUnlocks) return;
+
+    greedUnlocks.innerHTML = '';
+    greedDonationUnlocks.forEach(unlock => {
+        const card = document.createElement('div');
+        const completed = userProgress[unlock.id];
+        const remaining = Math.max(unlock.coins - greedCoins, 0);
+        card.className = `status-card ${completed ? 'completed' : ''}`;
+        card.innerHTML = `
+            <div class="status-title">${unlock.reward}</div>
+            <div class="status-detail">${unlock.coins} coins</div>
+            <div class="${completed ? 'status-detail' : 'status-missing'}">${completed ? 'Unlocked' : `${remaining} coins remaining`}</div>
+        `;
+        greedUnlocks.appendChild(card);
+    });
+}
+
+function renderChallenges() {
+    if (!challengeGrid) return;
+    challengeGrid.innerHTML = '';
+
+    const completedCount = challengeData.filter(challenge => userProgress[challenge.id]).length;
+    if (challengeProgress) {
+        challengeProgress.textContent = `Challenges: ${completedCount}/${challengeData.length}`;
+    }
+
+    challengeData.forEach(challenge => {
+        const missing = getMissingRequirements(challenge);
+        const locked = missing.length > 0;
+        const completed = userProgress[challenge.id];
+        const card = document.createElement('div');
+        card.className = `challenge-card ${locked ? 'locked' : ''} ${completed ? 'completed' : ''}`;
+
+        const missingText = locked
+            ? 'Missing:'
+            : 'Unlocked';
+        const missingButtons = locked
+            ? `<div class="challenge-requirements">${missing.map(requirement => `<button class="requirement-btn" data-req="${getRequirementKey(requirement)}">${requirement.text}</button>`).join('')}</div>`
+            : '';
+
+        card.innerHTML = `
+            <div class="challenge-title">#${challenge.id.replace('chal_', '')} ${challenge.name}</div>
+            <div class="challenge-reward">Unlocks: ${challenge.reward}</div>
+            <div class="${locked ? 'challenge-missing' : 'challenge-reward'}">${missingText}</div>
+            ${missingButtons}
+        `;
+
+        card.querySelectorAll('.requirement-btn').forEach(button => {
+            button.addEventListener('click', event => {
+                event.stopPropagation();
+                userProgress[button.dataset.req] = true;
+                playSFX('sfx-mark-complete');
+                saveProgress();
+                renderAll();
+            });
+        });
+
+        if (!locked) {
+            card.addEventListener('click', () => {
+                userProgress[challenge.id] = !userProgress[challenge.id];
+                playSFX(userProgress[challenge.id] ? 'sfx-mark-complete' : 'sfx-mark-incomplete');
+                saveProgress();
+                renderAll();
+            });
+        }
+
+        challengeGrid.appendChild(card);
+    });
+}
+
+function getDailyStatValue(stat) {
+    if (stat === 'played') return dailyProgress.played;
+    if (stat === 'wins') return dailyProgress.wins;
+    if (stat === 'streak') return dailyProgress.streak;
+    return 0;
+}
+
+function syncDailyAchievements() {
+    let changed = false;
+    dailyAchievements.forEach(achievement => {
+        const complete = getDailyStatValue(achievement.stat) >= achievement.goal;
+        if (complete && !userProgress[achievement.id]) {
+            userProgress[achievement.id] = true;
+            changed = true;
+        }
+    });
+    if (changed) saveProgress();
+}
+
+function renderDailyRuns() {
+    syncDailyAchievements();
+    if (dailyPlayed) dailyPlayed.textContent = dailyProgress.played;
+    if (dailyStreak) dailyStreak.textContent = dailyProgress.streak;
+    if (!dailyAchievementsGrid) return;
+
+    dailyAchievementsGrid.innerHTML = '';
+    dailyAchievements.forEach(achievement => {
+        const current = getDailyStatValue(achievement.stat);
+        const completed = userProgress[achievement.id];
+        const card = document.createElement('div');
+        card.className = `status-card ${completed ? 'completed' : ''}`;
+        card.innerHTML = `
+            <div class="status-title">${achievement.name}</div>
+            <div class="status-detail">${achievement.reward}</div>
+            <div class="${completed ? 'status-detail' : 'status-missing'}">${Math.min(current, achievement.goal)}/${achievement.goal}</div>
+        `;
+        dailyAchievementsGrid.appendChild(card);
+    });
+}
+
 function renderAll() {
     renderCharInfo();
     renderUnlocks();
     updateProgressDisplay();
+    renderGreedMachine();
+    renderChallenges();
+    renderDailyRuns();
+}
+
+navButtons.forEach(button => {
+    button.addEventListener('click', () => showView(button.dataset.view));
+});
+
+document.querySelectorAll('.coin-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const coins = Number(button.dataset.coins) || 0;
+        greedCoins = Math.min(greedCoins + coins, 1000);
+        saveGreedProgress();
+        syncGreedUnlocks();
+        playSFX('sfx-mark-complete');
+        renderAll();
+    });
+});
+
+if (dailyVictoryBtn) {
+    dailyVictoryBtn.addEventListener('click', () => {
+        dailyProgress.played += 1;
+        dailyProgress.wins += 1;
+        dailyProgress.streak += 1;
+        saveDailyProgress();
+        playSFX('sfx-mark-complete');
+        renderAll();
+    });
+}
+
+if (dailyDefeatBtn) {
+    dailyDefeatBtn.addEventListener('click', () => {
+        dailyProgress.played += 1;
+        dailyProgress.streak = 0;
+        saveDailyProgress();
+        playSFX('sfx-mark-incomplete');
+        renderAll();
+    });
 }
 
 select.addEventListener('change', renderAll);

@@ -13,34 +13,96 @@
 <body>
     <div class="container">
         <h1 id="main-title">The Binding of Unlocks</h1>
-        
-        <div class="controls">
-            <select id="character-select"></select>
-            <button id="swap-btn" class="secret-btn" title="Secret Swap">Swap</button>
-        </div>
 
-        <div class="character-info-panel" id="char-info">
-            <div class="char-header">
-                <div class="char-image-container" id="char-image-container">
-                </div>
-                <div class="char-details">
-                    <h2 id="char-name"></h2>
-                    <p id="char-desc"></p>
-                    <div id="char-effects" class="char-effects"></div>
-                </div>
-            </div>
-            <div class="char-stats" id="char-stats"></div>
-            <div class="char-starting-items">
-                <h3>Starting Items</h3>
-                <ul class="item-list" id="starting-items-list"></ul>
+        <div id="home-screen" class="screen home-screen active">
+            <div class="home-actions">
+                <button class="menu-btn" data-view="unlocks-screen">Unlocks</button>
+                <button class="menu-btn" data-view="greed-screen">Greed Donation Machine</button>
+                <button class="menu-btn" data-view="challenges-screen">Challenges</button>
+                <button class="menu-btn" data-view="daily-screen">Daily Run</button>
             </div>
         </div>
 
-        <div id="progress-container">
-            Progress: <span id="progress-text">0/0</span>
+        <div id="unlocks-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+
+            <div class="controls">
+                <select id="character-select"></select>
+                <button id="swap-btn" class="secret-btn" title="Secret Swap">Swap</button>
+            </div>
+
+            <div class="character-info-panel" id="char-info">
+                <div class="char-header">
+                    <div class="char-image-container" id="char-image-container">
+                    </div>
+                    <div class="char-details">
+                        <h2 id="char-name"></h2>
+                        <p id="char-desc"></p>
+                        <div id="char-effects" class="char-effects"></div>
+                    </div>
+                </div>
+                <div class="char-stats" id="char-stats"></div>
+                <div class="char-starting-items">
+                    <h3>Starting Items</h3>
+                    <ul class="item-list" id="starting-items-list"></ul>
+                </div>
+            </div>
+
+            <div id="progress-container">
+                Progress: <span id="progress-text">0/0</span>
+            </div>
+
+            <div class="unlock-grid" id="unlock-grid"></div>
         </div>
 
-        <div class="unlock-grid" id="unlock-grid"></div>
+        <div id="greed-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="greed-panel">
+                <div class="greed-total">Donated Coins: <span id="greed-coin-total">0</span>/1000</div>
+                <div class="greed-machine" aria-label="Greed Donation Machine">
+                    <div class="machine-face">C</div>
+                    <div class="machine-slot"></div>
+                    <div class="machine-base"></div>
+                </div>
+                <div class="greed-actions">
+                    <button class="coin-btn" data-coins="1">+1 Coin</button>
+                    <button class="coin-btn" data-coins="5">+5 Coins</button>
+                    <button class="coin-btn" data-coins="10">+10 Coins</button>
+                    <button class="coin-btn" data-coins="100">+100 Coins</button>
+                </div>
+                <div class="greed-unlocks" id="greed-unlocks"></div>
+            </div>
+        </div>
+
+        <div id="challenges-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div id="challenge-progress" class="screen-progress"></div>
+            <div class="challenge-grid" id="challenge-grid"></div>
+        </div>
+
+        <div id="daily-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="daily-panel">
+                <div class="daily-stats">
+                    <div>Played Daily Runs: <span id="daily-played">0</span></div>
+                    <div>Victory streak: <span id="daily-streak">0</span></div>
+                </div>
+                <div class="daily-actions">
+                    <button id="daily-victory-btn">Victory!</button>
+                    <button id="daily-defeat-btn">Defeat...</button>
+                </div>
+                <h2>Daily Achievements</h2>
+                <div class="daily-achievements" id="daily-achievements"></div>
+            </div>
+        </div>
     </div>
     
     <audio id="bg-music" loop>

@@ -409,6 +409,14 @@ ND: Os modos de jogo ainda não estão implementados, pois eles estão extremame
 3) Foi adicionado uma imagem melhor para as plataformas do PTWE.
 4) Alguns ajustes de movimentação foram feitos no Peppino.
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+2.0_beta11: Site do Lucas V2.0 - BETA 11: TBOU 8
+1) Agora, ao entrar no site TBOU, aparecerá 4 botões, onde você pode selecionar entre:
+1.1) Unlocks: a tela de desbloqueios padrão.
+1.2) Greed Donation Machine: local onde você insere a quantidade de moedas que tem a sua máquina de doação do modo Greed/Greedier.
+1.3) Challenges: Local onde tem os desafios, seus desbloqueios e métodos de desbloquear.
+1.4) Daily Run: um local onde te ajuda a entender os desbloqueios baseados em Daily Runs.
+2) O The Noise usa um sprite novo para quando ele avisa que vai fazer um ataque.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 22. / ND: 9. / Atualização GAMER: 13. / UD: 19. / URM: 15. / TBOU: 7
+UQV: 22. / ND: 9. / Atualização GAMER: 13. / UD: 19. / URM: 15. / TBOU: 8
