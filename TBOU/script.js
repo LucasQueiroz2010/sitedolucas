@@ -46,7 +46,7 @@ const secondaryUnlocks = {
 const greedDonationUnlocks = [
     { coins: 68, id: "greed_68", reward: "Paper Clip" },
     { coins: 439, id: "greed_439", reward: "Razor Blade" },
-    { coins: 879, id: "greed_879", reward: "Holy Mantle for The Lost" },
+    { coins: 879, id: "greed_879", reward: "Lost starts with Holy Mantle" },
     { coins: 1000, id: "greed_1000", reward: "Keeper" }
 ];
 
@@ -882,6 +882,7 @@ const charImageContainer = document.getElementById('char-image-container');
 const screens = document.querySelectorAll('.screen');
 const navButtons = document.querySelectorAll('[data-view]');
 const greedCoinTotal = document.getElementById('greed-coin-total');
+const greedMachineCounter = document.getElementById('greed-machine-counter');
 const greedUnlocks = document.getElementById('greed-unlocks');
 const challengeGrid = document.getElementById('challenge-grid');
 const challengeProgress = document.getElementById('challenge-progress');
@@ -898,6 +899,157 @@ let dailyProgress = JSON.parse(localStorage.getItem('isaacDailyProgress')) || {
     played: 0,
     wins: 0,
     streak: 0
+};
+
+const globalSpecialUnlocks = [
+    { id: "global_mega_blast", item: "Mega Blast", boss: "Mega Satan", diff: "Hard" },
+    { id: "global_mega_mush", item: "Mega Mush", boss: "All Hard Mode Marks", diff: "Hard" }
+];
+
+const characterStats = {
+    "Isaac": { hp: "3 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Magdalene": { hp: "4 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "0.85", shotSpeed: "1.00", luck: "0.00" },
+    "Cain": { hp: "2 Red", damage: "4.20", tears: "2.73", range: "4.50", speed: "1.30", shotSpeed: "1.00", luck: "1.00" },
+    "Judas": { hp: "1 Red", damage: "4.72", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Blue Baby": { hp: "3 Soul", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.05", shotSpeed: "1.00", luck: "0.00" },
+    "Eve": { hp: "2 Red", damage: "2.62", tears: "2.73", range: "6.50", speed: "1.23", shotSpeed: "1.00", luck: "0.00" },
+    "Samson": { hp: "3 Red", damage: "3.50", tears: "2.45", range: "5.00", speed: "1.10", shotSpeed: "1.00", luck: "0.00" },
+    "Azazel": { hp: "3 Black", damage: "5.50", tears: "0.76", range: "4.50", speed: "1.25", shotSpeed: "1.00", luck: "0.00" },
+    "Lazarus": { hp: "3 Red", damage: "3.50", tears: "2.73", range: "4.50", speed: "1.00", shotSpeed: "1.00", luck: "-1.00" },
+    "Eden": { hp: "Random", damage: "Random", tears: "Random", range: "Random", speed: "Random", shotSpeed: "Random", luck: "Random" },
+    "The Lost": { hp: "None", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Lilith": { hp: "1 Red, 2 Black", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Keeper": { hp: "2 Coin Hearts", damage: "4.20", tears: "1.20", range: "4.50", speed: "0.85", shotSpeed: "1.00", luck: "-2.00" },
+    "Apollyon": { hp: "2 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "The Forgotten": [
+        { label: "The Forgotten", hp: "2 Bone, 1 Soul", damage: "5.25", tears: "1.36", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+        { label: "The Soul", hp: "Shared Soul Heart", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.30", shotSpeed: "1.00", luck: "0.00" }
+    ],
+    "Bethany": { hp: "3 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Jacob & Esau": [
+        { label: "Jacob", hp: "3 Red", damage: "2.75", tears: "2.73", range: "5.00", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+        { label: "Esau", hp: "1 Red, 1 Soul", damage: "3.75", tears: "2.73", range: "8.00", speed: "1.00", shotSpeed: "1.00", luck: "0.00" }
+    ],
+    "Tainted Isaac": { hp: "3 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Magdalene": { hp: "4 Red (Empty)", damage: "2.62", tears: "2.73", range: "6.50", speed: "1.20", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Cain": { hp: "2 Red", damage: "3.50", tears: "2.73", range: "4.50", speed: "1.30", shotSpeed: "1.00", luck: "1.00" },
+    "Tainted Judas": { hp: "2 Black", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Blue Baby": { hp: "3 Soul", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.05", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Eve": { hp: "2 Red", damage: "3.50", tears: "1.20", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Samson": { hp: "3 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.10", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Azazel": { hp: "3 Black", damage: "5.50", tears: "1.20", range: "4.50", speed: "1.25", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Lazarus": [
+        { label: "Tainted Lazarus", hp: "3 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+        { label: "Dead Tainted Lazarus", hp: "3 Soul", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" }
+    ],
+    "Tainted Eden": { hp: "Random", damage: "Random", tears: "Random", range: "Random", speed: "Random", shotSpeed: "Random", luck: "Random" },
+    "Tainted Lost": { hp: "None", damage: "3.50 (x1.30 multiplier)", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Lilith": { hp: "1 Red, 2 Black", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Keeper": { hp: "2 Coin Hearts", damage: "4.20", tears: "1.20", range: "4.50", speed: "0.85", shotSpeed: "1.00", luck: "-2.00" },
+    "Tainted Apollyon": { hp: "2 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Forgotten": [
+        { label: "Tainted Forgotten", hp: "None", damage: "3.50 (x1.50 bone)", tears: "1.20", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+        { label: "Tainted Soul", hp: "3 Soul", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.30", shotSpeed: "1.00", luck: "0.00" }
+    ],
+    "Tainted Bethany": { hp: "3 Red", damage: "3.50 (x0.75 multiplier)", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" },
+    "Tainted Jacob": { hp: "3 Red", damage: "3.50", tears: "2.73", range: "6.50", speed: "1.00", shotSpeed: "1.00", luck: "0.00" }
+};
+
+const unlockImageNameOverrides = {
+    "A Bag of Bombs": "Bomb_Bag.png",
+    "A Pound of Flesh": "A_Pound_of_Flesh.png",
+    "A Cross": "Maggy_Bow.png",
+    "Abel": "Abel.png",
+    "Akeldama": "Akeldama.png",
+    "Anemic": "Anemic.png",
+    "Belial baby": "Belial_Baby.png",
+    "Betrayal": "Betrayal.png",
+    "Brown baby": "Brown_Baby.png",
+    "Buddy Baby": "Buddy_Baby.png",
+    "Cain' Eye": "Cain_Eye.png",
+    "Cain's Other Eye": "Cain_Other_Eye.png",
+    "Candy Heart": "Candy_Heart.png",
+    "Celtic Cross": "Celtic_Cross.png",
+    "Censer": "Censer.png",
+    "Child's Heart": "Child_Heart.png",
+    "Colorful Baby": "Colorful_Baby.png",
+    "3rd Coin Heart": "coin_container.png",
+    "Cry Baby": "Cry_Baby.png",
+    "Curved Horn": "Curved_Horn.png",
+    "Cute Baby": "Cute_Baby.png",
+    "D1": "D1.png",
+    "D12": "D12.png",
+    "D20": "D20.png",
+    "D Infinity": "D_Infinity.png",
+    "D6": "D6.png",
+    "Eucharist": "Eucharist.png",
+    "Evil Eye": "Evil_Eye.png",
+    "Eye of Belial": "Eye_of_Belial.png",
+    "Fart Baby": "Fart_Baby.png",
+    "Full Health Pill": "Pill.png",
+    "Glass baby": "Glass_Baby.png",
+    "Glyph of Balance": "Glyph_of_Balance.png",
+    "Green baby": "Green_Baby.png",
+    "Guardian Angel": "Guardian_Angel.png",
+    "Guillotine": "Guillotine.png",
+    "Guppy's Eye": "Guppy_Eye.png",
+    "Lost starts with Holy Mantle": "Holy_Mantle.png",
+    "Isaac's Head": "Isaac_Head.png",
+    "Isaac's Tears": "Isaac_Tears.png",
+    "Judas' Shadow": "Judas_Shadow.png.png",
+    "Judas' Tongue": "Judas_Tongle.png",
+    "Little Chest": "Lil_Chest.png",
+    "Lost Baby": "Lost_Baby.png",
+    "Maggy's Faith": "Maggy_Faith.png",
+    "Meat Cleaver": "Meat_Cleaver.png",
+    "Missing poster": "Missing_Poster.png",
+    "Mom's Knife": "Mom_Knife.png",
+    "My Shadow": "My_Shadow.png",
+    "Options?": "Options_question.png",
+    "Paper Clip": "Paper_Clip.png",
+    "Picky baby": "Picky_Baby.png",
+    "Purity": "Purity.png",
+    "Razor Blade": "Razor_Blade.png",
+    "Red Baby": "Red_Baby.png",
+    "Redemption": "Redemption.png",
+    "Sack of Sacks": "Sack_of_Sacks.png",
+    "Shade": "Shade.png",
+    "Shadow baby": "Shadow_Baby.png",
+    "Silver Dollar": "Silver_Dollar.png",
+    "Store Key": "Store_Key.png",
+    "The Razor": "Razor_Blade.png",
+    "The Left Hand": "The_Left_Hand.png",
+    "The Relic": "The_Relic.png",
+    "Wooden Nickel": "Wooden_Nickel.png",
+    "Yuck Heart": "Yuck_Heart.png"
+};
+
+const itemTooltipOverrides = {
+    "D6": "Rerolls items in the current room pool.",
+    "D20": "Rerolls all pickups in the room into another pickups.",
+    "D Infinity": "Cycles between all dices in the game (except Spindown dice).",
+    "Mom's Knife": "Replaces your tears with a charged knife attack.",
+    "Holy Mantle": "Blocks the first hit in each room, every time.",
+    "Lost starts with Holy Mantle": "Gives The Lost Holy Mantle at the start of runs.",
+    "Paper Clip": "Cain starts with Paper Clip, letting golden chests open without keys.",
+    "Razor Blade": "Eve starts with Razor Blade, trading health for damage.",
+    "Mega Blast": "A huge Brimstone laser that lasts 15 seconds and it lasts between rooms.",
+    "Mega Mush": "Turns Isaac temporary enormous, invincible, and give him a damage boost.",
+    "Wooden Nickel": "Have a 50% chance to spawn a random coin per use.",
+    "Store Key": "Shops don't require keys to open.",
+    "The Relic": "A familiar that drops Soul Hearts each 7-8 rooms.",
+    "Eucharist": "Makes angel room deals be at 100% for the rest of the run. The Angel deal also stays open even if you get out of it's room.",
+    "Glyph of Balance": "Improves pickup drops based on the pickups you have the least of.",
+    "Curved Horn": "Grants a +1 flat damage up while held.",
+    "The Left Hand": "Turns all kind of chests into red chests.",
+    "Eye of Belial": "Tears can pierce through enemies, then gain damage and homing after passing through them.",
+    "Anemic": "Taking damage leaves a creep trail.",
+    "Child's Heart": "More red heart drops from room clear rewards and chests reward drops hearts."
+};
+
+const coinSoundState = {
+    timers: [],
+    sounds: []
 };
 
 const soundtrack = {
@@ -926,6 +1078,154 @@ function playSFX(id) {
     }
 }
 
+function stopCoinSounds() {
+    coinSoundState.timers.forEach(timer => clearTimeout(timer));
+    coinSoundState.timers = [];
+    coinSoundState.sounds.forEach(sound => {
+        sound.pause();
+        sound.currentTime = 0;
+    });
+    coinSoundState.sounds = [];
+}
+
+function playCoinSoundRepeated(id, count) {
+    stopCoinSounds();
+    const source = document.getElementById(id);
+    if (!source || count <= 0) return;
+
+    const maxSounds = Math.min(count, 100);
+    for (let i = 0; i < maxSounds; i++) {
+        const timer = setTimeout(() => {
+            const sound = source.cloneNode(true);
+            coinSoundState.sounds.push(sound);
+            sound.play().catch(() => {});
+            sound.addEventListener('ended', () => {
+                coinSoundState.sounds = coinSoundState.sounds.filter(activeSound => activeSound !== sound);
+            }, { once: true });
+        }, i * 60);
+        coinSoundState.timers.push(timer);
+    }
+}
+
+function sanitizeKey(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+}
+
+function getGlobalSpecialCharacters() {
+    return Object.values(gameData).filter(charData => !charData.name.startsWith("Tainted"));
+}
+
+function getGlobalSpecialCharacterId(baseId, charName) {
+    return `${baseId}_${sanitizeKey(charName)}`;
+}
+
+function getGlobalSpecialCount(baseId) {
+    const characters = getGlobalSpecialCharacters();
+    const hasSpecificProgress = characters.some(charData => userProgress[getGlobalSpecialCharacterId(baseId, charData.name)]);
+    if (userProgress[baseId] && !hasSpecificProgress) return characters.length;
+    return characters.filter(charData => userProgress[getGlobalSpecialCharacterId(baseId, charData.name)]).length;
+}
+
+function syncGlobalSpecialUnlocks() {
+    const goal = getGlobalSpecialCharacters().length;
+    globalSpecialUnlocks.forEach(unlock => {
+        const count = getGlobalSpecialCount(unlock.id);
+        userProgress[unlock.id] = count >= goal;
+    });
+}
+
+function makeItemFilename(name) {
+    return `${name.replace(/'s\b/g, '').replace(/\?/g, 'question').replace(/&/g, 'and').replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '')}.png`;
+}
+
+function getUnlockImageCandidates(charName, itemName) {
+    const folder = charName.replace(/&/g, 'and').replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
+    const override = unlockImageNameOverrides[itemName];
+    const generated = makeItemFilename(itemName);
+    const possessiveGenerated = `${itemName.replace(/\?/g, 'question').replace(/&/g, 'and').replace(/'/g, '').replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '')}.png`;
+    const candidates = [];
+
+    if (override) candidates.push(`img/Unlockables/${folder}/${override}`);
+    candidates.push(`img/Unlockables/${folder}/${generated}`);
+    candidates.push(`img/Unlockables/${folder}/${possessiveGenerated}`);
+    candidates.push(`img/Items/${override || generated}`);
+    candidates.push(`img/Items/${generated}`);
+    candidates.push("img/Unlockables/no_set.png");
+
+    return [...new Set(candidates)];
+}
+
+function setImageWithFallback(img, sources) {
+    let currentIdx = 0;
+    img.src = sources[currentIdx];
+    img.onerror = function() {
+        currentIdx++;
+        if (currentIdx < sources.length) {
+            this.src = sources[currentIdx];
+        }
+    };
+}
+
+function isBabyUnlock(itemName) {
+    return /\bbaby\b/i.test(itemName);
+}
+
+function getItemTooltip(itemName) {
+    if (itemTooltipOverrides[itemName]) return itemTooltipOverrides[itemName];
+    if (isBabyUnlock(itemName)) return `${itemName} is a co-op baby skin. It does not fix your run, but it does attend it with confidence.`;
+    return `${itemName}: unlocks this item or trinket for future runs. Exact chaos may vary, as Isaac intended.`;
+}
+
+function getStatsEntries(charData) {
+    const detailedStats = characterStats[charData.name];
+    if (detailedStats) return Array.isArray(detailedStats) ? detailedStats : [{ label: charData.name, ...detailedStats }];
+
+    const fallback = {};
+    (charData.stats || '').split('<br>').forEach(row => {
+        const [label, value] = row.split(':');
+        if (!label || !value) return;
+        const key = label.trim().toLowerCase();
+        fallback[key === 'dmg' ? 'damage' : key] = value.trim();
+    });
+
+    return [{
+        label: charData.name,
+        hp: fallback.hp || "Unknown",
+        damage: fallback.damage || "3.50",
+        tears: fallback.tears || "2.73",
+        range: fallback.range || "6.50",
+        speed: fallback.speed || "1.00",
+        shotSpeed: fallback.shotSpeed || fallback['shot speed'] || "1.00",
+        luck: fallback.luck || "0.00"
+    }];
+}
+
+function renderStats(charData) {
+    const statLabels = [
+        ["hp", "HP"],
+        ["damage", "Damage"],
+        ["tears", "Tears"],
+        ["range", "Range"],
+        ["speed", "Speed"],
+        ["shotSpeed", "Shot Speed"],
+        ["luck", "Luck"]
+    ];
+
+    return getStatsEntries(charData).map(entry => `
+        <div class="stat-block">
+            <div class="stat-owner">${entry.label}</div>
+            <div class="stat-grid">
+                ${statLabels.map(([key, label]) => `
+                    <div class="stat-row">
+                        <span>${label}</span>
+                        <strong>${entry[key]}</strong>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
+
 document.addEventListener('click', () => {
     if (audioPlayer && audioPlayer.paused) {
         audioPlayer.play().catch(() => {});
@@ -945,6 +1245,9 @@ function saveDailyProgress() {
 }
 
 function showView(viewId) {
+    const wasGreedScreen = document.getElementById('greed-screen')?.classList.contains('active');
+    if (wasGreedScreen && viewId !== 'greed-screen') stopCoinSounds();
+
     screens.forEach(screen => {
         screen.classList.toggle('active', screen.id === viewId);
     });
@@ -985,6 +1288,7 @@ function updateProgressDisplay() {
     const charData = gameData[char];
     if (!charData) return;
     
+    syncGlobalSpecialUnlocks();
     const unlocks = getUnlocksForCharacter(charData);
     const total = unlocks.length;
     const completed = unlocks.filter(u => userProgress[u.id]).length;
@@ -1024,7 +1328,7 @@ function getValidImagePath(baseName, defaultFolder, imgElement) {
 }
 
 function getUnlocksForCharacter(charData) {
-    const unlocks = [...charData.unlocks];
+    const unlocks = charData.unlocks.filter(unlock => !globalSpecialUnlocks.some(special => special.id === unlock.id));
     const existingIds = new Set(unlocks.map(unlock => unlock.id));
 
     (charData.startingItems || []).forEach(item => {
@@ -1080,7 +1384,7 @@ function renderCharInfo() {
 
     charName.textContent = charData.name;
     charDesc.textContent = charData.description;
-    charStats.innerHTML = charData.stats;
+    charStats.innerHTML = renderStats(charData);
 
     charImageContainer.innerHTML = '';
     const mainImg = document.createElement('img');
@@ -1130,13 +1434,14 @@ function renderCharInfo() {
             const li = document.createElement('li');
             li.className = 'starting-item';
             const conditionId = item.condition;
+            li.title = item.tooltip || getItemTooltip(item.name);
             
             if (conditionId) {
                 if (!userProgress[conditionId]) {
                     li.classList.add('item-locked');
                 }
                 li.style.cursor = 'pointer';
-                li.title = getConditionText(item);
+                li.title = `${item.tooltip || getItemTooltip(item.name)} Unlock condition: ${getConditionText(item)}`;
                 li.addEventListener('click', () => {
                     userProgress[conditionId] = !userProgress[conditionId];
                     if (userProgress[conditionId]) {
@@ -1154,7 +1459,8 @@ function renderCharInfo() {
             const img = document.createElement('img');
             img.className = 'item-icon';
             img.alt = item.name;
-            if (item.tooltip || conditionId) img.title = item.tooltip || getConditionText(item);
+            img.title = item.tooltip || getItemTooltip(item.name);
+            if (conditionId && !item.tooltip) img.title = `${getItemTooltip(item.name)} Unlock condition: ${getConditionText(item)}`;
             
             const itemImg = item.lockedImg && conditionId && !userProgress[conditionId] ? item.lockedImg : item.img;
             getValidImagePath(itemImg, defaultFolder, img);
@@ -1180,11 +1486,86 @@ function renderCharInfo() {
     }
 }
 
+function renderSpecialGlobalUnlocks() {
+    let specialContainer = document.getElementById('special-unlocks');
+    if (!specialContainer) {
+        specialContainer = document.createElement('div');
+        specialContainer.id = 'special-unlocks';
+        specialContainer.className = 'special-unlocks';
+        grid.parentNode.insertBefore(specialContainer, grid);
+    }
+
+    const characters = getGlobalSpecialCharacters();
+    const goal = characters.length;
+    specialContainer.innerHTML = '';
+
+    globalSpecialUnlocks.forEach(unlock => {
+        const count = getGlobalSpecialCount(unlock.id);
+        const completed = count >= goal;
+        userProgress[unlock.id] = completed;
+
+        const card = document.createElement('div');
+        card.className = `unlock-card special-unlock-card ${completed ? 'completed' : ''}`;
+        card.title = getItemTooltip(unlock.item);
+
+        const img = document.createElement('img');
+        img.className = 'unlock-item-img';
+        img.alt = unlock.item;
+        img.title = getItemTooltip(unlock.item);
+        setImageWithFallback(img, getUnlockImageCandidates("Isaac", unlock.item));
+
+        const title = document.createElement('div');
+        title.className = 'boss-name';
+        title.textContent = unlock.boss;
+
+        const itemName = document.createElement('div');
+        itemName.className = 'item-name';
+        itemName.textContent = unlock.item;
+
+        const counter = document.createElement('div');
+        counter.className = 'special-counter';
+        counter.textContent = `${count}/${goal}`;
+
+        const difficulty = document.createElement('div');
+        difficulty.className = 'difficulty hard-mode';
+        difficulty.textContent = unlock.diff;
+
+        const subBosses = document.createElement('div');
+        subBosses.className = 'sub-boss-container';
+        characters.forEach(charData => {
+            const subId = getGlobalSpecialCharacterId(unlock.id, charData.name);
+            const button = document.createElement('button');
+            button.className = `sub-boss-btn ${userProgress[subId] || (userProgress[unlock.id] && count === goal) ? 'active' : ''}`;
+            button.dataset.subid = subId;
+            button.textContent = charData.name;
+            button.addEventListener('click', event => {
+                event.stopPropagation();
+                userProgress[subId] = !userProgress[subId];
+                userProgress[unlock.id] = getGlobalSpecialCount(unlock.id) >= goal;
+                playSFX(userProgress[subId] ? 'sfx-mark-complete' : 'sfx-mark-incomplete');
+                saveProgress();
+                renderAll();
+            });
+            subBosses.appendChild(button);
+        });
+
+        card.appendChild(title);
+        card.appendChild(img);
+        card.appendChild(itemName);
+        card.appendChild(counter);
+        card.appendChild(difficulty);
+        card.appendChild(subBosses);
+        specialContainer.appendChild(card);
+    });
+}
+
 function renderUnlocks() {
     grid.innerHTML = '';
     const char = select.value;
     const charData = gameData[char];
     if (!charData) return;
+    syncGlobalSpecialUnlocks();
+    renderSpecialGlobalUnlocks();
     const unlocks = getUnlocksForCharacter(charData);
 
     const checkAllComplete = () => {
@@ -1208,6 +1589,8 @@ function renderUnlocks() {
             bossImageHtml = `<img src="img/Bosses/${bossImagesMap[unlock.boss]}" class="boss-img" alt="${unlock.boss}" onload="this.style.display='block'" onerror="this.style.display='none'">`;
         }
 
+        const itemTooltip = getItemTooltip(unlock.item);
+
         let subBossesHtml = '';
         if (isMulti) {
             subBossesHtml = '<div class="sub-boss-container">';
@@ -1222,10 +1605,16 @@ function renderUnlocks() {
         card.innerHTML = `
             <div class="boss-name">${unlock.boss}</div>
             ${bossImageHtml}
+            <img class="unlock-item-img" alt="${unlock.item}">
             <div class="item-name">${unlock.item}</div>
             <div class="difficulty ${unlock.diff.includes('Hard') ? 'hard-mode' : ''}">${unlock.diff}</div>
             ${subBossesHtml}
         `;
+
+        card.title = `${unlock.boss}: ${itemTooltip}`;
+        const itemImg = card.querySelector('.unlock-item-img');
+        itemImg.title = itemTooltip;
+        setImageWithFallback(itemImg, getUnlockImageCandidates(charData.name, unlock.item));
 
         if (isMulti) {
             const btns = card.querySelectorAll('.sub-boss-btn');
@@ -1284,6 +1673,15 @@ function renderUnlocks() {
 function renderGreedMachine() {
     syncGreedUnlocks();
     if (greedCoinTotal) greedCoinTotal.textContent = greedCoins;
+    if (greedMachineCounter) {
+        greedMachineCounter.innerHTML = '';
+        String(greedCoins).padStart(3, '0').slice(-3).split('').forEach(digit => {
+            const digitEl = document.createElement('span');
+            digitEl.className = 'machine-counter-digit';
+            digitEl.textContent = digit;
+            greedMachineCounter.appendChild(digitEl);
+        });
+    }
     if (!greedUnlocks) return;
 
     greedUnlocks.innerHTML = '';
@@ -1410,13 +1808,19 @@ navButtons.forEach(button => {
 document.querySelectorAll('.coin-btn').forEach(button => {
     button.addEventListener('click', () => {
         const coins = Number(button.dataset.coins) || 0;
-        greedCoins = Math.min(greedCoins + coins, 1000);
+        const nextCoins = Math.max(0, Math.min(greedCoins + coins, 1000));
+        const delta = nextCoins - greedCoins;
+        greedCoins = nextCoins;
         saveGreedProgress();
         syncGreedUnlocks();
-        playSFX('sfx-mark-complete');
+        if (delta > 0) playCoinSoundRepeated('sfx-coin-insert', delta);
+        if (delta < 0) playCoinSoundRepeated('sfx-coin-unsert', Math.abs(delta));
         renderAll();
     });
 });
+
+window.addEventListener('pagehide', stopCoinSounds);
+window.addEventListener('beforeunload', stopCoinSounds);
 
 if (dailyVictoryBtn) {
     dailyVictoryBtn.addEventListener('click', () => {

@@ -65,14 +65,19 @@
                 <div class="greed-total">Donated Coins: <span id="greed-coin-total">0</span>/1000</div>
                 <div class="greed-machine" aria-label="Greed Donation Machine">
                     <div class="machine-face">C</div>
+                    <div class="machine-counter" id="greed-machine-counter" aria-label="Machine coin counter"></div>
                     <div class="machine-slot"></div>
                     <div class="machine-base"></div>
                 </div>
                 <div class="greed-actions">
-                    <button class="coin-btn" data-coins="1">+1 Coin</button>
-                    <button class="coin-btn" data-coins="5">+5 Coins</button>
-                    <button class="coin-btn" data-coins="10">+10 Coins</button>
-                    <button class="coin-btn" data-coins="100">+100 Coins</button>
+                    <button class="coin-btn" data-coins="1" title="+1 Coin"><img src="img/Items/Icons/coin.png" alt="">+1</button>
+                    <button class="coin-btn" data-coins="5" title="+5 Coins"><img src="img/Items/Icons/nickel.png" alt="">+5</button>
+                    <button class="coin-btn" data-coins="10" title="+10 Coins"><img src="img/Items/Icons/dime.png" alt="">+10</button>
+                    <button class="coin-btn" data-coins="100" title="+100 Coins"><img src="img/Items/Icons/dollar.png" alt="">+100</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-1" title="-1 Coin"><img src="img/Items/Icons/coin.png" alt="">-1</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-5" title="-5 Coins"><img src="img/Items/Icons/nickel.png" alt="">-5</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-10" title="-10 Coins"><img src="img/Items/Icons/dime.png" alt="">-10</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-100" title="-100 Coins"><img src="img/Items/Icons/dollar.png" alt="">-100</button>
                 </div>
                 <div class="greed-unlocks" id="greed-unlocks"></div>
             </div>
@@ -112,6 +117,8 @@
     <audio id="sfx-mark-complete" src="sound/Mark_complete.wav"></audio>
     <audio id="sfx-mark-incomplete" src="sound/Mark_incomplete.wav"></audio>
     <audio id="sfx-all-complete" src="sound/All_complete.wav"></audio>
+    <audio id="sfx-coin-insert" src="sound/coin_insert.wav"></audio>
+    <audio id="sfx-coin-unsert" src="sound/coin_unsert.wav"></audio>
     <script src="script.js"></script>
 </body>
 </html>

@@ -68,7 +68,7 @@ const assetsParaCarregar = [
     'imagens_jogo/Toppings/Pineapple.gif', 'imagens_jogo/Toppings/Tomato.gif',
     'imagens_jogo/Toppings/Weiner.gif', 'imagens_jogo/Toppings/Gerome.gif',
     'imagens_jogo/Toppings/Life_hat.gif', 'imagens_jogo/Toppings/Pepper_Pizza.gif',
-    'imagens_jogo/Stuff/platform.gif',
+    'imagens_jogo/Stuff/Platform.gif',
     'imagens_jogo/Stuff/backwoag.png', 'imagens_jogo/Stuff/backwong.png',
     'imagens_jogo/Stuff/dnuorgkcab.png', 'imagens_jogo/Stuff/loading_screen.png',
     'imagens_jogo/Stuff/Mode_Screen.png', 'imagens_jogo/Stuff/Title_Screen.png',
@@ -364,7 +364,7 @@ function prepararArena(modo) {
             div.style.top = plat.y + 'px';
             div.style.width = plat.largura + 'px';
             div.style.height = plat.altura + 'px';
-            div.style.backgroundImage = "url('imagens_jogo/Stuff/platform.gif')";
+            div.style.backgroundImage = "url('imagens_jogo/Stuff/Platform.gif')";
             div.style.backgroundSize = "100% 100%";
             div.style.backgroundPosition = "0 0";
             div.style.backgroundRepeat = "no-repeat";
