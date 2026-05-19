@@ -1,7 +1,45 @@
-﻿let usuarioLogado = JSON.parse(localStorage.getItem('usuarioAtual'));
+﻿const PERFIL_PADRAO = {
+    nome: 'Player',
+    foto: '../imagens/usuario_padrao.png'
+};
+
+function normalizarAvatarPath(caminho) {
+    if (!caminho || typeof caminho !== 'string' || caminho.trim() === '') {
+        return PERFIL_PADRAO.foto;
+    }
+
+    const path = caminho.trim();
+    if (path === 'usuario_padrao.png') return PERFIL_PADRAO.foto;
+    if (path.startsWith('imagens/')) return '../' + path;
+    if (path.startsWith('./')) return '../' + path.slice(2);
+    if (!path.includes('/')) return '../' + path;
+    return path;
+}
+
+const AVATARES_PADRAO = [
+    '../imagens/usuario_padrao.png',
+    '../imagens/Foto.jpeg',
+    '../imagens/Isaac.gif'
+];
+
+let usuarioLogado = JSON.parse(localStorage.getItem('usuarioAtual'));
 if (!usuarioLogado) {
-    window.location.href = "../login.html";
+    usuarioLogado = {
+        nome: PERFIL_PADRAO.nome,
+        foto: PERFIL_PADRAO.foto,
+        progressoPTWE: {
+            modosDesbloqueados: { noise: true, doise: false, faker: false },
+            ranks: {
+                noise: { P: 0, S: 0, A: 0, B: 0, C: 0, D: 0 },
+                doise: { P: 0, S: 0, A: 0, B: 0, C: 0, D: 0 },
+                faker: { P: 0, S: 0, A: 0, B: 0, C: 0, D: 0 }
+            },
+            partidasJogadas: { noise: 0, doise: 0, faker: 0 }
+        }
+    };
+    atualizarBancoDeDados(usuarioLogado);
 } else {
+    usuarioLogado.foto = normalizarAvatarPath(usuarioLogado.foto || PERFIL_PADRAO.foto);
     if (!usuarioLogado.progressoPTWE) {
         usuarioLogado.progressoPTWE = {
             modosDesbloqueados: { noise: true, doise: false, faker: false },
@@ -72,6 +110,8 @@ const assetsParaCarregar = [
     'imagens_jogo/Stuff/backwoag.png', 'imagens_jogo/Stuff/backwong.png',
     'imagens_jogo/Stuff/dnuorgkcab.png', 'imagens_jogo/Stuff/loading_screen.png',
     'imagens_jogo/Stuff/Mode_Screen.png', 'imagens_jogo/Stuff/Title_Screen.png',
+    'imagens_jogo/Stuff/Tutorial_background.png',
+    'imagens_jogo/Stuff/Pizza_Granny_Idle.gif', 'imagens_jogo/Stuff/Pizza_Granny_Talk.gif',
     'imagens_jogo/Ranks/P-Rank.png', 'imagens_jogo/Ranks/S-Rank.png',
     'imagens_jogo/Ranks/A-Rank.png', 'imagens_jogo/Ranks/B-Rank.png',
     'imagens_jogo/Ranks/C-Rank.png', 'imagens_jogo/Ranks/D-Rank.png',
@@ -90,7 +130,10 @@ const assetsParaCarregar = [
     'soundtrack_jogo/Stuff/Topping_collect.wav', 'soundtrack_jogo/Stuff/Gerome_spawn.wav',
     'soundtrack_jogo/Stuff/Gerome_collect.wav', 'soundtrack_jogo/Stuff/Pepper_spawn.wav',
     'soundtrack_jogo/Stuff/Pepper_collect.wav', 'soundtrack_jogo/Stuff/Hat_collect.wav',
+    'soundtrack_jogo/Stuff/Gerome_collect.wav',
+    'soundtrack_jogo/Stuff/Pizza_Granny1.wav', 'soundtrack_jogo/Stuff/Pizza_Granny2.wav', 'soundtrack_jogo/Stuff/Pizza_Granny3.wav',
     'soundtrack_jogo/Stuff/round_over.wav',
+    'soundtrack_jogo/Stuff/Tutorial_music.mp3',
     'soundtrack_jogo/Peppino/Pepper_Pizza_Peppino.mp3',
     'soundtrack_jogo/Noise/Pepper_Pizza_Noise.mp3',
     'imagens_jogo/Stuff/taunt_effect.png'
@@ -98,6 +141,7 @@ const assetsParaCarregar = [
 
 let arquivosCarregados = 0;
 let carregamentoConcluido = false;
+let preloadTimeoutId = null;
 let jogoRodando = false;
 let jogoPausado = false;
 let gameLoopId;
@@ -112,11 +156,78 @@ musicaPause.loop = true;
 const MUSICAS_MODO = {
     noise: 'soundtrack_jogo/Stuff/Noise_Music.mp3',
     doise: 'soundtrack_jogo/Stuff/Doise_Music.mp3',
-    faker: 'soundtrack_jogo/Stuff/Faker_Music.mp3'
+    faker: 'soundtrack_jogo/Stuff/Faker_Music.mp3',
+    tutorial: 'soundtrack_jogo/Stuff/Tutorial_music.mp3'
 };
 
 const MUSICA_PEPPER_PEPPINO = 'soundtrack_jogo/Peppino/Pepper_Pizza_Peppino.mp3';
 const MUSICA_PEPPER_NOISE = 'soundtrack_jogo/Noise/Pepper_Pizza_Noise.mp3';
+
+const WORLD_WIDTH_TUTORIAL = 2400;
+const CHAO_Y = 500;
+let cameraX = 0;
+let tutorialMode = false;
+let tutorialDialogTimer = 0;
+
+const tutorialPlataformas = [
+    { x: 120, y: 420, largura: 300, altura: 40 },
+    { x: 520, y: 380, largura: 300, altura: 40 },
+    { x: 980, y: 420, largura: 250, altura: 40 },
+    { x: 1400, y: 380, largura: 280, altura: 40 },
+    { x: 1880, y: 420, largura: 280, altura: 40 }
+];
+
+const tutorialPizzaGrannies = [
+    {
+        x: 240,
+        y: CHAO_Y - 160,
+        largura: 120,
+        altura: 160,
+        mensagem: 'Hey, I\'m the Pizza Granny! Use [← and →] to walk and hold [SHIFT] to run faster.',
+        falaAtiva: false,
+        falada: false
+    },
+    {
+        x: 660,
+        y: CHAO_Y - 160,
+        largura: 120,
+        altura: 160,
+        mensagem: 'Press [Z] to jump. If you are in mid-air and walk in the direction of the wall, you will start to climb it. Keep walking inthe direction of the wall to keep climbing, but you can only climb a wall for a few seconds before you start falling.',
+        falaAtiva: false,
+        falada: false
+    },
+    {
+        x: 1120,
+        y: CHAO_Y - 160,
+        largura: 120,
+        altura: 160,
+        mensagem: 'Use [X] to use your grab attack and [C] to do a sick taunt! And you can also parry your enemies, but it only works if you can taunt right before they hit you.',
+        falaAtiva: false,
+        falada: false
+    },
+    {
+        x: 1600,
+        y: CHAO_Y - 160,
+        largura: 120,
+        altura: 160,
+        mensagem: 'Toppings gives you +100 Pizza Points (PP). Gerome gives +500 PP when collected, but he can only spawn once on the screen. If you hit your enemy, Gustavo may give you some HP, but if you already have full HP, the HP topping will give you +50 PP.',
+        falaAtiva: false,
+        falada: false
+    },
+    {
+        x: 2060,
+        y: CHAO_Y - 160,
+        largura: 120,
+        altura: 160,
+        mensagem: 'The Pepper Pizza is a supreme power-up! It gives you temporary imunity to damage and makes The Noise crap himself. But watch out if The Noise gets the Pepper Pizza...',
+        falaAtiva: false,
+        falada: false
+    }
+];
+
+function getWorldWidth() {
+    return tutorialMode ? WORLD_WIDTH_TUTORIAL : LARGURA_TELA;
+}
 
 function trocarMusicaBatalha(caminho) {
     const srcAtual = decodeURIComponent(musicaBatalha.src || '');
@@ -158,13 +269,13 @@ function pararSom(idCanais) {
 
 let modoSelecionadoNoMenu = 'noise';
 let modoAtualDaPartida = 'noise';
+let avatarSelecionadoTemporario = null;
 
 const GRAVIDADE = 0.6;
-const CHAO_Y = 500; 
 const LARGURA_TELA = 900;
 const FPS = 60;
 const TEMPO_ROUND_PADRAO = 60;
-const TEMPO_ROUND_POR_MODO = { noise: 60, doise: 90, faker: 60 };
+const TEMPO_ROUND_POR_MODO = { noise: 60, doise: 90, faker: 60, tutorial: 999 };
 const VIDA_MAXIMA_PEPPINO = 6;
 const PEPPER_DURACAO = Math.round(7.5 * FPS);
 const PEPPER_AVISO_FIM = Math.round(2 * FPS);
@@ -250,17 +361,28 @@ let pepperMusicaDono = 'none';
 function iniciarPreloader() {
     document.getElementById('loading-screen').style.display = 'flex';
     if (assetsParaCarregar.length === 0) { finalizarCarregamento(); return; }
+    if (preloadTimeoutId) clearTimeout(preloadTimeoutId);
+    preloadTimeoutId = setTimeout(() => {
+        if (!carregamentoConcluido) {
+            carregamentoConcluido = true;
+            finalizarCarregamento();
+        }
+    }, 10000);
+
     assetsParaCarregar.forEach(src => {
         if (src.endsWith('.mp3') || src.endsWith('.wav')) {
             const audio = new Audio();
             audio.addEventListener('canplaythrough', registrarProgresso, { once: true });
+            audio.addEventListener('loadeddata', registrarProgresso, { once: true });
             audio.addEventListener('error', registrarProgresso, { once: true });
-            audio.src = src; audio.load();
+            audio.src = src;
+            audio.load();
         } else {
             const img = new Image();
             img.addEventListener('load', registrarProgresso, { once: true });
             img.addEventListener('error', registrarProgresso, { once: true });
             img.src = src;
+            if (img.complete) registrarProgresso();
         }
     });
 }
@@ -270,14 +392,25 @@ function registrarProgresso() {
     arquivosCarregados++;
     const barra = document.getElementById('barra-loading');
     if (barra) barra.style.width = Math.floor((arquivosCarregados / assetsParaCarregar.length) * 100) + '%';
-    if (arquivosCarregados >= assetsParaCarregar.length) { carregamentoConcluido = true; setTimeout(finalizarCarregamento, 300); }
+    if (arquivosCarregados >= assetsParaCarregar.length) {
+        carregamentoConcluido = true;
+        if (preloadTimeoutId) clearTimeout(preloadTimeoutId);
+        setTimeout(finalizarCarregamento, 300);
+    }
 }
 
 function finalizarCarregamento() {
     let telaLoading = document.getElementById('loading-screen');
     let telaStart = document.getElementById('start-screen');
+    let telaModo = document.getElementById('mode-screen');
+    let telaPause = document.getElementById('pause-screen');
+    let telaTrocaModo = document.getElementById('change-mode-pause-screen');
+
     if (telaLoading) telaLoading.style.display = 'none';
     if (telaStart) telaStart.style.display = 'flex';
+    if (telaModo) telaModo.style.display = 'none';
+    if (telaPause) telaPause.style.display = 'none';
+    if (telaTrocaModo) telaTrocaModo.style.display = 'none';
     atualizarBotoesDoMenu();
 }
 
@@ -306,7 +439,7 @@ function selecionarModo(modo) {
 function clicarStartBattle() {
     document.getElementById('mode-screen').style.display = 'none';
     modoAtualDaPartida = modoSelecionadoNoMenu;
-    if (usuarioLogado && usuarioLogado.progressoPTWE) {
+    if (usuarioLogado && usuarioLogado.progressoPTWE && modoAtualDaPartida !== 'tutorial') {
         usuarioLogado.progressoPTWE.partidasJogadas[modoAtualDaPartida] += 1;
         atualizarBancoDeDados(usuarioLogado);
     }
@@ -319,8 +452,18 @@ function prepararArena(modo) {
     const gameArea = document.getElementById('game-area');
     const playerDiv = document.getElementById('player');
     const noiseDiv = document.getElementById('noise');
+    const gustavoDiv = document.getElementById('gustavo');
+    const tutorialPlatformContainer = document.getElementById('tutorial-platform-container');
+    const tutorialDialog = document.getElementById('tutorial-dialog');
 
-    playerDiv.style.display = 'block'; noiseDiv.style.display = 'block';
+    playerDiv.style.display = 'block';
+    noiseDiv.style.display = 'block';
+    gustavoDiv.style.display = 'block';
+    if (tutorialPlatformContainer) tutorialPlatformContainer.innerHTML = '';
+    if (tutorialDialog) tutorialDialog.style.display = 'none';
+
+    tutorialMode = modo === 'tutorial';
+    cameraX = 0;
 
     if (modo === 'noise') {
         gameArea.style.backgroundImage = "url('imagens_jogo/Stuff/backwoag.png')";
@@ -328,6 +471,16 @@ function prepararArena(modo) {
         gameArea.style.backgroundImage = "url('imagens_jogo/Stuff/backwong.png')";
     } else if (modo === 'faker') {
         gameArea.style.backgroundImage = "url('imagens_jogo/Stuff/dnuorgkcab.png')";
+    } else if (modo === 'tutorial') {
+        gameArea.style.backgroundImage = "url('imagens_jogo/Stuff/Tutorial_background.png')";
+        gameArea.style.backgroundPosition = 'left bottom';
+        gameArea.style.backgroundSize = 'cover';
+        noiseDiv.style.display = 'none';
+        gustavoDiv.style.display = 'none';
+        document.getElementById('plataforma1').style.display = 'none';
+        document.getElementById('plataforma2').style.display = 'none';
+        criarPlataformasTutorial();
+        criarPizzaGrannies();
     }
 
     peppino.x = 50; peppino.y = CHAO_Y - peppino.altura; peppino.vx = 0; peppino.vy = 0; peppino.estado = 'idle';
@@ -356,22 +509,24 @@ function prepararArena(modo) {
     document.getElementById('result-screen').style.display = 'none';
     atualizarHUD();
 
-    arenaPlataformas.forEach((plat, index) => {
-        let div = document.getElementById('plataforma' + (index + 1));
-        if (div) {
-            div.style.display = 'block';
-            div.style.left = plat.x + 'px';
-            div.style.top = plat.y + 'px';
-            div.style.width = plat.largura + 'px';
-            div.style.height = plat.altura + 'px';
-            div.style.backgroundImage = "url('imagens_jogo/Stuff/Platform.gif')";
-            div.style.backgroundSize = "100% 100%";
-            div.style.backgroundPosition = "0 0";
-            div.style.backgroundRepeat = "no-repeat";
-            div.style.position = "absolute";
-            div.style.zIndex = "50";
-        }
-    });
+    if (!tutorialMode) {
+        arenaPlataformas.forEach((plat, index) => {
+            let div = document.getElementById('plataforma' + (index + 1));
+            if (div) {
+                div.style.display = 'block';
+                div.style.left = plat.x + 'px';
+                div.style.top = plat.y + 'px';
+                div.style.width = plat.largura + 'px';
+                div.style.height = plat.altura + 'px';
+                div.style.backgroundImage = "url('imagens_jogo/Stuff/Platform.gif')";
+                div.style.backgroundSize = "100% 100%";
+                div.style.backgroundPosition = "0 0";
+                div.style.backgroundRepeat = "no-repeat";
+                div.style.position = "absolute";
+                div.style.zIndex = "50";
+            }
+        });
+    }
 
     jogoRodando = true;
     jogoPausado = false;
@@ -379,6 +534,91 @@ function prepararArena(modo) {
     renderizarObjetos();
     cancelAnimationFrame(gameLoopId);
     gameLoopId = requestAnimationFrame(loopDoJogo);
+}
+
+function criarPlataformasTutorial() {
+    const container = document.getElementById('tutorial-platform-container');
+    if (!container) return;
+    container.innerHTML = '';
+    tutorialPlataformas.forEach((plat) => {
+        const div = document.createElement('div');
+        div.className = 'plataforma-fisica';
+        div.style.left = plat.x + 'px';
+        div.style.top = plat.y + 'px';
+        div.style.width = plat.largura + 'px';
+        div.style.height = plat.altura + 'px';
+        div.style.backgroundImage = "url('imagens_jogo/Stuff/Platform.gif')";
+        div.style.position = 'absolute';
+        div.style.zIndex = '50';
+        container.appendChild(div);
+    });
+}
+
+function criarPizzaGrannies() {
+    const container = document.getElementById('pizza-granny-container');
+    if (!container) return;
+    container.innerHTML = '';
+    tutorialPizzaGrannies.forEach((granny, index) => {
+        const div = document.createElement('div');
+        div.className = 'pizza-granny';
+        div.dataset.index = index;
+        div.style.left = granny.x + 'px';
+        div.style.top = granny.y + 'px';
+        div.style.width = granny.largura + 'px';
+        div.style.height = granny.altura + 'px';
+        div.style.backgroundImage = "url('imagens_jogo/Stuff/Pizza_Granny_Idle.gif')";
+        div.style.position = 'absolute';
+        div.style.zIndex = '55';
+        container.appendChild(div);
+    });
+}
+
+function getRenderX(x) {
+    return tutorialMode ? x - cameraX : x;
+}
+
+function atualizarTutorial() {
+    if (!tutorialMode) return;
+    const gameArea = document.getElementById('game-area');
+    const dialog = document.getElementById('tutorial-dialog');
+
+    cameraX = Math.min(Math.max(peppino.x + peppino.largura / 2 - LARGURA_TELA / 2, 0), WORLD_WIDTH_TUTORIAL - LARGURA_TELA);
+    gameArea.style.backgroundPosition = `${-cameraX}px bottom`;
+
+    let dialogText = '';
+    tutorialPizzaGrannies.forEach((granny, index) => {
+        const isNear = retangulosColidem(peppino, granny);
+        if (isNear && !granny.falada) {
+            granny.falada = true;
+            granny.falaAtiva = true;
+            granny.talkingTimer = 4 * FPS;
+            playPizzaGrannySound();
+        }
+        if (granny.falaAtiva) {
+            granny.talkingTimer = Math.max(0, (granny.talkingTimer || 0) - 1);
+            if (granny.talkingTimer === 0) granny.falaAtiva = false;
+            if (!dialogText) dialogText = granny.mensagem;
+        }
+    });
+
+    if (dialogText) {
+        dialog.innerText = dialogText;
+        dialog.style.display = 'block';
+        tutorialDialogTimer = 120;
+    } else if (tutorialDialogTimer > 0) {
+        tutorialDialogTimer -= 1;
+        if (tutorialDialogTimer === 0) dialog.style.display = 'none';
+    }
+}
+
+function playPizzaGrannySound() {
+    const options = [
+        'soundtrack_jogo/Stuff/Pizza_Granny1.wav',
+        'soundtrack_jogo/Stuff/Pizza_Granny2.wav',
+        'soundtrack_jogo/Stuff/Pizza_Granny3.wav'
+    ];
+    const choice = options[Math.floor(Math.random() * options.length)];
+    tocarSom(choice);
 }
 
 function alternarPause() {
@@ -440,7 +680,8 @@ function abrirTrocaModoPause() {
     const modos = [
         {id: 'noise', nome: 'NOISE MODE'},
         {id: 'doise', nome: 'DOISE OVERLAY'},
-        {id: 'faker', nome: 'FAKER ATTACK'}
+        {id: 'faker', nome: 'FAKER ATTACK'},
+        {id: 'tutorial', nome: 'TUTORIAL'}
     ];
 
     modos.forEach(m => {
@@ -483,12 +724,16 @@ function loopDoJogo() {
 
     atualizarRound();
     atualizarPeppino();
-    atualizarInimigoNoise();
-    atualizarParryPepperAutomatico();
-    atualizarGustavo();
-    atualizarToppings();
-    checarColetas();
-    checarContatoNoisePeppino();
+    if (tutorialMode) {
+        atualizarTutorial();
+    } else {
+        atualizarInimigoNoise();
+        atualizarParryPepperAutomatico();
+        atualizarGustavo();
+        atualizarToppings();
+        checarColetas();
+        checarContatoNoisePeppino();
+    }
     atualizarHUD();
     
     controles.z_press = false; controles.x_press = false; controles.c_press = false;
@@ -598,8 +843,9 @@ function atualizarPeppino() {
     atualizarDirecaoPorVelocidade(peppino);
 
     let bateuNaParede = false;
-    if (peppino.x <= 0) { peppino.x = 0; bateuNaParede = true; } 
-    else if (peppino.x + peppino.largura >= LARGURA_TELA) { peppino.x = LARGURA_TELA - peppino.largura; bateuNaParede = true; }
+    const peppinoMaxX = getWorldWidth() - peppino.largura;
+    if (peppino.x <= 0) { peppino.x = 0; bateuNaParede = true; }
+    else if (peppino.x + peppino.largura >= peppinoMaxX) { peppino.x = peppinoMaxX; bateuNaParede = true; }
 
     if (!animacaoTravada) {
         if (bateuNaParede && !peppino.noChao && (controles.esquerda || controles.direita)) {
@@ -1016,12 +1262,13 @@ function atualizarSkateboard() {
 }
 
 function limitarInimigoNaArena() {
+    const maxX = getWorldWidth() - inimigo.largura;
     if (inimigo.x <= 0) {
         inimigo.x = 0;
         inimigo.direcao = 1;
         inimigo.vx = Math.abs(inimigo.vx);
-    } else if (inimigo.x + inimigo.largura >= LARGURA_TELA) {
-        inimigo.x = LARGURA_TELA - inimigo.largura;
+    } else if (inimigo.x + inimigo.largura >= maxX) {
+        inimigo.x = maxX;
         inimigo.direcao = -1;
         inimigo.vx = -Math.abs(inimigo.vx);
     }
@@ -1230,7 +1477,7 @@ function renderizarObjetos() {
     pDiv.style.backgroundImage = 'none';
     pSprite.style.backgroundImage = `url('${img}')`;
     pDiv.style.transform = `scaleX(${peppino.direcao})`;
-    pDiv.style.left = peppino.x + 'px';
+    pDiv.style.left = getRenderX(peppino.x) + 'px';
     pDiv.style.top = peppino.y + 'px';
     pDiv.classList.toggle('blinking', peppino.invencivelTimer > 0 && peppino.pepperTimer <= 0);
     pDiv.classList.toggle('pepper-aviso', peppino.pepperTimer > 0 && peppino.pepperTimer <= PEPPER_AVISO_FIM);
@@ -1258,9 +1505,10 @@ function renderizarObjetos() {
     else if (inimigo.estado === 'skate-attack') nImg = 'imagens_jogo/N_sprites/Noise_mach2.gif';
     else if (inimigo.estado === 'skate-wallhit') nImg = 'imagens_jogo/N_sprites/Noise_wallhit.gif';
     nDiv.style.backgroundImage = `url('${nImg}')`;
-    nDiv.style.left = inimigo.x + 'px';
+    nDiv.style.left = getRenderX(inimigo.x) + 'px';
     nDiv.style.top = inimigo.y + 'px';
     nDiv.style.transform = `scaleX(${inimigo.direcao})`;
+    nDiv.style.display = tutorialMode ? 'none' : 'block';
     nDiv.classList.toggle('blinking', inimigo.estado === 'stunned');
     nDiv.classList.toggle('pepper-aviso', inimigo.pepperTimer > 0 && inimigo.pepperTimer <= PEPPER_AVISO_FIM);
 
@@ -1273,8 +1521,18 @@ function renderizarObjetos() {
     else if (gustavo.estado === 'pepper-noise') gImg = 'imagens_jogo/G_sprites/Gustavo_PN.gif';
     else if (gustavo.estado === 'pepper-peppino') gImg = 'imagens_jogo/G_sprites/Gustavo_PP.gif';
     gDiv.style.backgroundImage = `url('${gImg}')`;
-    gDiv.style.left = gustavo.x + 'px';
+    gDiv.style.left = getRenderX(gustavo.x) + 'px';
     gDiv.style.top = gustavo.y + 'px';
+    gDiv.style.display = tutorialMode ? 'none' : 'block';
+
+    if (tutorialMode) {
+        document.querySelectorAll('.pizza-granny').forEach((div, index) => {
+            const granny = tutorialPizzaGrannies[index];
+            div.style.left = getRenderX(granny.x) + 'px';
+            div.style.top = granny.y + 'px';
+            div.style.backgroundImage = granny.falaAtiva ? "url('imagens_jogo/Stuff/Pizza_Granny_Talk.gif')" : "url('imagens_jogo/Stuff/Pizza_Granny_Idle.gif')";
+        });
+    }
 }
 
 function garantirEstruturaRanks() {
@@ -1390,14 +1648,25 @@ function abrirEdicaoPerfil() {
     document.getElementById('edit-profile-screen').style.display = 'flex';
     document.getElementById('input-novo-nome').value = usuarioLogado.nome;
     
-    avatarSelecionadoTemporario = usuarioLogado.foto || 'imagens/usuario_padrao.png';
+    avatarSelecionadoTemporario = usuarioLogado.foto || PERFIL_PADRAO.foto;
     const grid = document.getElementById('grid-avatares');
     grid.innerHTML = '';
 
-    for(let i=1; i<=20; i++) {
-        let src = `imagens/avatar${i}.png`;
+    const usuariosDB = JSON.parse(localStorage.getItem('usuariosDB')) || [];
+    const fotosExistentes = usuariosDB
+        .map(u => u.foto)
+        .filter(foto => typeof foto === 'string' && foto.trim() !== '');
+
+    const avatarSources = Array.from(new Set([
+        ...AVATARES_PADRAO,
+        usuarioLogado.foto || PERFIL_PADRAO.foto,
+        ...fotosExistentes
+    ].map(normalizarAvatarPath)));
+
+    avatarSources.forEach(src => {
         let img = document.createElement('img');
         img.src = src;
+        img.alt = 'Avatar';
         img.className = 'avatar-option';
         if (src === avatarSelecionadoTemporario) img.classList.add('selected');
         img.onclick = function() {
@@ -1406,7 +1675,7 @@ function abrirEdicaoPerfil() {
             avatarSelecionadoTemporario = src;
         };
         grid.appendChild(img);
-    }
+    });
 }
 
 function fecharEdicaoPerfil() { document.getElementById('edit-profile-screen').style.display = 'none'; document.getElementById('stats-screen').style.display = 'flex'; }
@@ -1415,7 +1684,7 @@ function salvarEdicaoPerfil() {
     const novoNome = document.getElementById('input-novo-nome').value.trim();
     if (novoNome === '') return;
     usuarioLogado.nome = novoNome;
-    usuarioLogado.foto = avatarSelecionadoTemporario;
+    usuarioLogado.foto = avatarSelecionadoTemporario || PERFIL_PADRAO.foto;
     document.getElementById('nome-perfil-ptwe').innerText = novoNome;
     document.getElementById('foto-perfil-ptwe').src = usuarioLogado.foto;
     atualizarBancoDeDados(usuarioLogado);
@@ -1425,7 +1694,7 @@ function salvarEdicaoPerfil() {
 function arrancarJogo() {
     if (usuarioLogado) {
         document.getElementById('nome-perfil-ptwe').innerText = usuarioLogado.nome;
-        document.getElementById('foto-perfil-ptwe').src = usuarioLogado.foto || 'imagens/usuario_padrao.png';
+        document.getElementById('foto-perfil-ptwe').src = usuarioLogado.foto || PERFIL_PADRAO.foto;
     }
     try {
         musicaPrincipal.play().catch(() => { 

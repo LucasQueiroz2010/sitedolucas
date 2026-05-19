@@ -1025,26 +1025,26 @@ const unlockImageNameOverrides = {
 };
 
 const itemTooltipOverrides = {
-    "D6": "Rerolls items in the current room pool.",
-    "D20": "Rerolls all pickups in the room into another pickups.",
-    "D Infinity": "Cycles between all dices in the game (except Spindown dice).",
-    "Mom's Knife": "Replaces your tears with a charged knife attack.",
-    "Holy Mantle": "Blocks the first hit in each room, every time.",
-    "Lost starts with Holy Mantle": "Gives The Lost Holy Mantle at the start of runs.",
-    "Paper Clip": "Cain starts with Paper Clip, letting golden chests open without keys.",
-    "Razor Blade": "Eve starts with Razor Blade, trading health for damage.",
-    "Mega Blast": "A huge Brimstone laser that lasts 15 seconds and it lasts between rooms.",
-    "Mega Mush": "Turns Isaac temporary enormous, invincible, and give him a damage boost.",
-    "Wooden Nickel": "Have a 50% chance to spawn a random coin per use.",
-    "Store Key": "Shops don't require keys to open.",
-    "The Relic": "A familiar that drops Soul Hearts each 7-8 rooms.",
-    "Eucharist": "Makes angel room deals be at 100% for the rest of the run. The Angel deal also stays open even if you get out of it's room.",
-    "Glyph of Balance": "Improves pickup drops based on the pickups you have the least of.",
-    "Curved Horn": "Grants a +1 flat damage up while held.",
-    "The Left Hand": "Turns all kind of chests into red chests.",
-    "Eye of Belial": "Tears can pierce through enemies, then gain damage and homing after passing through them.",
-    "Anemic": "Taking damage leaves a creep trail.",
-    "Child's Heart": "More red heart drops from room clear rewards and chests reward drops hearts."
+    "D6": " A active item that rerolls items in the current room pool.",
+    "D20": "A active item that rerolls all pickups in the room.",
+    "D Infinity": "A active item that cycles between all dices in the game (except Spindown dice) by pressing the drop button.",
+    "Mom's Knife": "A passive item that replaces your tears with a charged knife attack that deals damage based on the knife charge.",
+    "Holy Mantle": "A passive item that blocks the first hit in the room and can be replaced if you leave the room.",
+    "Lost starts with Holy Mantle": "Gives the Holy Mantle for The Lost at the start of every run.",
+    "Paper Clip": "A trinket that allows golden chests to be opened without keys.",
+    "Razor Blade": "A active item that trades health for temporary damage. If used, it gives you a damage boost for the current room and takes a full red heart of damage. Afer that, it will cost half a red heart.",
+    "Mega Blast": "A active item that creates a huge Brimstone laser that lasts 15 seconds and it stays between rooms.",
+    "Mega Mush": "A active item that turns Isaac temporary enormous, invincible, and gives him a damage boost.",
+    "Wooden Nickel": "A active item that has a 50% chance to spawn a random coin per use.",
+    "Store Key": "A trinket that allows shops to be opened without keys.",
+    "The Relic": "A passive item that grants a familiar that drops Soul Hearts every     7-8 rooms.",
+    "Eucharist": "A passive item that makes angel room deals be at 100% for the rest of the run. The Angel deal also stays open even if you get out of it's room.",
+    "Glyph of Balance": "A passive item that improves pickup drops based on the pickups you have the least of.",
+    "Curved Horn": "A trinket that grants a +1 flat damage up while held.",
+    "The Left Hand": "A trinket that turns all kind of chests into red chests.",
+    "Eye of Belial": "A passive item that allows tears to pierce through enemies, then gain damage and homing after passing through them.",
+    "Anemic": "A passive item that makes taking damage leave a creep trail.",
+    "Child's Heart": "A trinket that increases the chance of red hearts being dropped from room clear rewards and chests."
 };
 
 const coinSoundState = {

@@ -9,7 +9,7 @@
 <body>
 
     <div id="perfil-ptwe" onclick="abrirEstatisticas()">
-        <img id="foto-perfil-ptwe" src="imagens/usuario_padrao.png" alt="Perfil">
+        <img id="foto-perfil-ptwe" src="../imagens/usuario_padrao.png" alt="Perfil">
         <span id="nome-perfil-ptwe">Player</span>
     </div>
 
@@ -64,6 +64,7 @@
             </div>
 
             <div id="mode-screen" style="display: none;">
+                    <button class="btn-modo btn-tutorial" id="btn-tutorial" onclick="selecionarModo('tutorial')">TUTORIAL (WIP)</button><br>
                 <div class="modos-container">
                     <button class="btn-modo btn-noise" id="btn-noise" onclick="selecionarModo('noise')">NOISE MODE</button>
                     <button class="btn-modo btn-doise" id="btn-doise" onclick="selecionarModo('doise')" disabled>DOISE OVERLAY</button>
@@ -90,6 +91,9 @@
 
             <div id="plataforma1" class="plataforma-fisica" style="display: none;"></div>
             <div id="plataforma2" class="plataforma-fisica" style="display: none;"></div>
+            <div id="tutorial-platform-container"></div>
+            <div id="pizza-granny-container"></div>
+            <div id="tutorial-dialog" style="display: none;"></div>
             
             <div id="player" style="display: none;">
                 <div id="taunt-effect"></div>

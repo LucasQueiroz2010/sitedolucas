@@ -422,6 +422,19 @@ body {
     color: #888; 
 }
 
+#btn-tutorial { 
+    background: #8bcf7e; 
+    border-color: #4c8a35; 
+    color: #101000; 
+}
+
+#btn-tutorial.selected { 
+    background: #c4ff9c; 
+    border-color: #6dc251; 
+    transform: scale(1.1); 
+    color: #000; 
+}
+
 #btn-start-battle {
     margin-top: 30px; 
     padding: 15px 40px; 
@@ -496,6 +509,11 @@ body {
 #gustavo { width: 100px; height: 100px; position: absolute; z-index: 55;
   background-size: contain; background-repeat: no-repeat; background-position: bottom center;
   left: 400px;}
+
+#tutorial-platform-container, #pizza-granny-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.pizza-granny { width: 120px; height: 160px; position: absolute; background-size: contain; background-repeat: no-repeat; background-position: bottom center; z-index: 55; }
+
+#tutorial-dialog { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); width: 860px; max-width: 96%; padding: 18px 20px; background: rgba(0,0,0,0.86); border: 4px solid #d08416; border-radius: 14px; color: white; font-size: 20px; text-align: center; z-index: 300; display: none; }
 
   #topping-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; }
 .topping { width: 40px; height: 40px; position: absolute; background-size: contain; background-repeat: no-repeat; }

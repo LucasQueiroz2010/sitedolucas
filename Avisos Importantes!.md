@@ -425,8 +425,15 @@ ND: Esse update é um teste do novo design do TBOU, então o site pode e prováv
 1) Foi modificado a forma que os botões da tela inicial do TBOU é organizado.
 2) Foi adicionado (alguns) itens e descrições.
 3) Foi mudado um bug que fazia a imagem da plataforma e da tela inicial não aparecem.
-4) Algumas imagens desnecessárias foram removidas.  
+4) Algumas imagens desnecessárias foram removidas.
+
+2.0_beta13: Site do Lucas V2.0 - BETA 13: Atualização GAMER 15 + TBOU 10
+1) Foi adicionado um tutorial no PTWE, que é um WIP, mas já consegue ensinar o básico.
+2) Alguns sons/sprites novos foram adicionados ao PTWE.
+3) Algumas novas imagens/sons/descrições foram adicionadas no TBOU.
+4) A descrição dos itens já existentes foram alteradas no TBOU.
+5) Foi mudado a tonalidade das telas do TBOU.
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 22. / ND: 10. / Atualização GAMER: 14. / UD: 19. / URM: 16. / TBOU: 9
+UQV: 22. / ND: 10. / Atualização GAMER: 15. / UD: 19. / URM: 16. / TBOU: 10
