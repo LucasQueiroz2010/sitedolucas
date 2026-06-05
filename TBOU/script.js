@@ -141,10 +141,10 @@ const gameData = {
             { name: "Full Health Pill", img: "Pill.png", isEffectImg: true, tooltip: "Starts with a pill", condition: "chal_32", conditionText: "April's Fool Challenge" }
         ],
         unlocks: [
-            { id: "mag_1", boss: "Boss Rush", item: "The Relic", diff: "Normal/Hard" },
+            { id: "mag_1", boss: "Boss Rush", item: "Maggy's Bow", diff: "Normal/Hard" },
             { id: "mag_2", boss: "Mom's Heart", item: "Cute Baby", diff: "Hard" },
             { id: "mag_3", boss: "Satan", item: "Guardian Angel", diff: "Normal/Hard" },
-            { id: "mag_4", boss: "Isaac", item: "A Cross", diff: "Normal/Hard" },
+            { id: "mag_4", boss: "Isaac", item: "The Relic", diff: "Normal/Hard" },
             { id: "mag_5", boss: "The Lamb", item: "Maggy's Faith", diff: "Normal/Hard" },
             { id: "mag_6", boss: "Blue Baby", item: "Celtic Cross", diff: "Normal/Hard" },
             { id: "mag_7", boss: "Greed Mode", item: "Censer", diff: "Normal/Hard" },
@@ -958,6 +958,7 @@ const characterStats = {
 const unlockImageNameOverrides = {
     "A Bag of Bombs": "Bomb_Bag.png",
     "A Pound of Flesh": "A_Pound_of_Flesh.png",
+    "A Sack of Pennies": "Sack_of_Pennies.png",
     "A Cross": "Maggy_Bow.png",
     "Abel": "Abel.png",
     "Akeldama": "Akeldama.png",
@@ -996,12 +997,15 @@ const unlockImageNameOverrides = {
     "Lost starts with Holy Mantle": "Holy_Mantle.png",
     "Isaac's Head": "Isaac_Head.png",
     "Isaac's Tears": "Isaac_Tears.png",
-    "Judas' Shadow": "Judas_Shadow.png.png",
-    "Judas' Tongue": "Judas_Tongle.png",
+    "Judas' Shadow": "Judas_Shadow.png",
+    "Judas' Tongue": "Judas_Tongue.png",
     "Little Chest": "Lil_Chest.png",
     "Lost Baby": "Lost_Baby.png",
+    "Maggy's Bow": "Maggy_Bow.png",
     "Maggy's Faith": "Maggy_Faith.png",
     "Meat Cleaver": "Meat_Cleaver.png",
+    "Mega Blast": "Mega Blast.png",
+    "Mega Mush": "Mega Mush.png",
     "Missing poster": "Missing_Poster.png",
     "Mom's Knife": "Mom_Knife.png",
     "My Shadow": "My_Shadow.png",
@@ -1119,19 +1123,85 @@ function getGlobalSpecialCharacterId(baseId, charName) {
     return `${baseId}_${sanitizeKey(charName)}`;
 }
 
+function isGlobalSpecialUnlock(unlock) {
+    return globalSpecialUnlocks.some(special => special.id === unlock.id);
+}
+
+function getGlobalSpecialSourceUnlock(baseId, charData) {
+    if (baseId === "global_mega_blast") {
+        return charData.unlocks.find(unlock => !isGlobalSpecialUnlock(unlock) && unlock.boss === "Mega Satan");
+    }
+
+    if (baseId === "global_mega_mush") {
+        return charData.unlocks.find(unlock => !isGlobalSpecialUnlock(unlock) && unlock.boss === "All Hard Mode Marks");
+    }
+
+    return null;
+}
+
+function getCharacterMarkUnlocks(charData) {
+    return charData.unlocks.filter(unlock => !isGlobalSpecialUnlock(unlock) && unlock.boss !== "All Hard Mode Marks");
+}
+
+function areCharacterMarksComplete(charData) {
+    const markUnlocks = getCharacterMarkUnlocks(charData);
+    return markUnlocks.length > 0 && markUnlocks.every(unlock => userProgress[unlock.id]);
+}
+
+function syncGlobalSpecialCharacterProgress(baseId, charData) {
+    const sourceUnlock = getGlobalSpecialSourceUnlock(baseId, charData);
+    if (!sourceUnlock) return false;
+
+    if (baseId === "global_mega_mush" && areCharacterMarksComplete(charData)) {
+        userProgress[sourceUnlock.id] = true;
+    }
+
+    return Boolean(userProgress[sourceUnlock.id]);
+}
+
 function getGlobalSpecialCount(baseId) {
     const characters = getGlobalSpecialCharacters();
-    const hasSpecificProgress = characters.some(charData => userProgress[getGlobalSpecialCharacterId(baseId, charData.name)]);
-    if (userProgress[baseId] && !hasSpecificProgress) return characters.length;
     return characters.filter(charData => userProgress[getGlobalSpecialCharacterId(baseId, charData.name)]).length;
 }
 
 function syncGlobalSpecialUnlocks() {
+    let changed = false;
     const goal = getGlobalSpecialCharacters().length;
+    getGlobalSpecialCharacters().forEach(charData => {
+        globalSpecialUnlocks.forEach(unlock => {
+            const subId = getGlobalSpecialCharacterId(unlock.id, charData.name);
+            const sourceUnlock = getGlobalSpecialSourceUnlock(unlock.id, charData);
+            const wasSourceComplete = sourceUnlock ? Boolean(userProgress[sourceUnlock.id]) : false;
+            const shouldComplete = syncGlobalSpecialCharacterProgress(unlock.id, charData);
+            if (sourceUnlock && wasSourceComplete !== Boolean(userProgress[sourceUnlock.id])) {
+                changed = true;
+            }
+            if (userProgress[subId] !== shouldComplete) {
+                userProgress[subId] = shouldComplete;
+                changed = true;
+            }
+        });
+    });
+
     globalSpecialUnlocks.forEach(unlock => {
         const count = getGlobalSpecialCount(unlock.id);
-        userProgress[unlock.id] = count >= goal;
+        const completed = count >= goal;
+        if (userProgress[unlock.id] !== completed) {
+            userProgress[unlock.id] = completed;
+            changed = true;
+        }
     });
+
+    if (changed) saveProgress();
+}
+
+function toggleGlobalSpecialCharacterProgress(baseId, charData) {
+    const sourceUnlock = getGlobalSpecialSourceUnlock(baseId, charData);
+    if (!sourceUnlock) return false;
+
+    const completed = toggleProgress(sourceUnlock.id);
+    syncGlobalSpecialUnlocks();
+    return completed;
 }
 
 function makeItemFilename(name) {
@@ -1139,18 +1209,31 @@ function makeItemFilename(name) {
 }
 
 function getUnlockImageCandidates(charName, itemName) {
+    if (charName === "Azazel" && itemName === "Lilith") {
+        const imageName = userProgress["azazel_7"] ? "Lilith_Thumbs_Up.png" : "Lilith.png";
+        return [
+            `img/Characters/Character_Unlocks/Azazel/${imageName}`,
+            `img/Characters/Character_Unlocks/Azazel/Lilith.png`,
+            `img/Characters/Character_Unlocks/Azazel/Lilith_Thumbs_Up.png`,
+            "img/Characters/Character_Unlocks/no_set.png"
+        ];
+    }
+
     const folder = charName.replace(/&/g, 'and').replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
     const override = unlockImageNameOverrides[itemName];
     const generated = makeItemFilename(itemName);
     const possessiveGenerated = `${itemName.replace(/\?/g, 'question').replace(/&/g, 'and').replace(/'/g, '').replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '')}.png`;
     const candidates = [];
 
-    if (override) candidates.push(`img/Unlockables/${folder}/${override}`);
-    candidates.push(`img/Unlockables/${folder}/${generated}`);
-    candidates.push(`img/Unlockables/${folder}/${possessiveGenerated}`);
-    candidates.push(`img/Items/${override || generated}`);
-    candidates.push(`img/Items/${generated}`);
-    candidates.push("img/Unlockables/no_set.png");
+    if (override) candidates.push(`img/Characters/Character_Unlocks/${folder}/${override}`);
+    candidates.push(`img/Characters/Character_Unlocks/${folder}/${generated}`);
+    candidates.push(`img/Characters/Character_Unlocks/${folder}/${possessiveGenerated}`);
+    if (override) candidates.push(`img/Characters/Character_Unlocks/${override}`);
+    candidates.push(`img/Characters/Character_Unlocks/${generated}`);
+    candidates.push(`img/Characters/Character_Unlocks/${possessiveGenerated}`);
+    candidates.push(`img/Characters/Character_Items/${override || generated}`);
+    candidates.push(`img/Characters/Character_Items/${generated}`);
+    candidates.push("img/Characters/Character_Unlocks/no_set.png");
 
     return [...new Set(candidates)];
 }
@@ -1283,6 +1366,29 @@ function getMissingRequirements(challenge) {
     return (challenge.requirements || []).filter(requirement => !isRequirementMet(requirement));
 }
 
+const linkedProgressIds = {
+    "chal_31": ["chal_31"],
+    "chal_32": ["chal_32"],
+    "chal_34": ["chal_34"],
+    "greed_68": ["greed_68"],
+    "greed_439": ["greed_439"],
+    "greed_879": ["greed_879"],
+    "greed_1000": ["greed_1000"]
+};
+
+function setProgress(id, value) {
+    const linkedIds = linkedProgressIds[id] || [id];
+    linkedIds.forEach(linkedId => {
+        userProgress[linkedId] = value;
+    });
+}
+
+function toggleProgress(id) {
+    const nextValue = !userProgress[id];
+    setProgress(id, nextValue);
+    return nextValue;
+}
+
 function updateProgressDisplay() {
     const char = select.value;
     const charData = gameData[char];
@@ -1310,8 +1416,36 @@ function populateSelect() {
     });
 }
 
+const characterModePairs = {
+    "Isaac": "Tainted Isaac",
+    "Magdalene": "Tainted Magdalene",
+    "Cain": "Tainted Cain",
+    "Judas": "Tainted Judas",
+    "Blue Baby": "Tainted Blue Baby",
+    "Eve": "Tainted Eve",
+    "Samson": "Tainted Samson",
+    "Azazel": "Tainted Azazel",
+    "Lazarus": "Tainted Lazarus",
+    "Eden": "Tainted Eden",
+    "The Lost": "Tainted Lost",
+    "Lilith": "Tainted Lilith",
+    "Keeper": "Tainted Keeper",
+    "Apollyon": "Tainted Apollyon",
+    "The Forgotten": "Tainted Forgotten",
+    "Bethany": "Tainted Bethany",
+    "Jacob & Esau": "Tainted Jacob"
+};
+
+const reverseCharacterModePairs = Object.fromEntries(
+    Object.entries(characterModePairs).map(([normalName, taintedName]) => [taintedName, normalName])
+);
+
+function getCharacterModeCounterpart(charName) {
+    return characterModePairs[charName] || reverseCharacterModePairs[charName] || null;
+}
+
 function getValidImagePath(baseName, defaultFolder, imgElement) {
-    const folders = [defaultFolder, 'Items', 'Characters/Effects', 'Pickups', 'Effects', 'Trinkets', 'UI', 'Bosses'];
+    const folders = [defaultFolder, 'Characters/Character_Items', 'Characters/Character_Effects', 'Pickups', 'Trinkets', 'UI', 'Bosses'];
     const uniqueFolders = [...new Set(folders)];
     let currentIdx = 0;
 
@@ -1328,17 +1462,7 @@ function getValidImagePath(baseName, defaultFolder, imgElement) {
 }
 
 function getUnlocksForCharacter(charData) {
-    const unlocks = charData.unlocks.filter(unlock => !globalSpecialUnlocks.some(special => special.id === unlock.id));
-    const existingIds = new Set(unlocks.map(unlock => unlock.id));
-
-    (charData.startingItems || []).forEach(item => {
-        if (item.condition && secondaryUnlocks[item.condition] && !existingIds.has(item.condition)) {
-            unlocks.push({ ...secondaryUnlocks[item.condition], secondary: true });
-            existingIds.add(item.condition);
-        }
-    });
-
-    return unlocks;
+    return charData.unlocks.filter(unlock => !globalSpecialUnlocks.some(special => special.id === unlock.id));
 }
 
 function getUnlockById(id) {
@@ -1371,7 +1495,7 @@ function createEffectChip(effect) {
         img.title = title;
         img.setAttribute('aria-label', title);
     }
-    getValidImagePath(effect, 'Effects', img);
+    getValidImagePath(effect, 'Characters/Character_Effects', img);
     chip.appendChild(img);
 
     return chip;
@@ -1443,8 +1567,8 @@ function renderCharInfo() {
                 li.style.cursor = 'pointer';
                 li.title = `${item.tooltip || getItemTooltip(item.name)} Unlock condition: ${getConditionText(item)}`;
                 li.addEventListener('click', () => {
-                    userProgress[conditionId] = !userProgress[conditionId];
-                    if (userProgress[conditionId]) {
+                    const completed = toggleProgress(conditionId);
+                    if (completed) {
                         playSFX('sfx-mark-complete');
                     } else {
                         playSFX('sfx-mark-incomplete');
@@ -1454,7 +1578,7 @@ function renderCharInfo() {
                 });
             }
             
-            const defaultFolder = item.isEffectImg ? 'Effects' : 'Items';
+            const defaultFolder = item.isEffectImg ? 'Characters/Character_Effects' : 'Characters/Character_Items';
             
             const img = document.createElement('img');
             img.className = 'item-icon';
@@ -1534,15 +1658,18 @@ function renderSpecialGlobalUnlocks() {
         subBosses.className = 'sub-boss-container';
         characters.forEach(charData => {
             const subId = getGlobalSpecialCharacterId(unlock.id, charData.name);
+            const sourceUnlock = getGlobalSpecialSourceUnlock(unlock.id, charData);
             const button = document.createElement('button');
             button.className = `sub-boss-btn ${userProgress[subId] || (userProgress[unlock.id] && count === goal) ? 'active' : ''}`;
             button.dataset.subid = subId;
+            if (sourceUnlock) {
+                button.title = `${sourceUnlock.boss}: ${sourceUnlock.item}`;
+            }
             button.textContent = charData.name;
             button.addEventListener('click', event => {
                 event.stopPropagation();
-                userProgress[subId] = !userProgress[subId];
-                userProgress[unlock.id] = getGlobalSpecialCount(unlock.id) >= goal;
-                playSFX(userProgress[subId] ? 'sfx-mark-complete' : 'sfx-mark-incomplete');
+                const completed = toggleGlobalSpecialCharacterProgress(unlock.id, charData);
+                playSFX(completed ? 'sfx-mark-complete' : 'sfx-mark-incomplete');
                 saveProgress();
                 renderAll();
             });
@@ -1649,10 +1776,10 @@ function renderUnlocks() {
             card.addEventListener('click', () => {
                 const wasAlready100 = checkAllComplete();
                 
-                userProgress[unlock.id] = !userProgress[unlock.id];
+                const completed = toggleProgress(unlock.id);
                 const isNow100 = checkAllComplete();
                 
-                if (userProgress[unlock.id]) {
+                if (completed) {
                     if (!wasAlready100 && isNow100) {
                         playSFX('sfx-all-complete');
                     } else {
@@ -1732,7 +1859,7 @@ function renderChallenges() {
         card.querySelectorAll('.requirement-btn').forEach(button => {
             button.addEventListener('click', event => {
                 event.stopPropagation();
-                userProgress[button.dataset.req] = true;
+                setProgress(button.dataset.req, true);
                 playSFX('sfx-mark-complete');
                 saveProgress();
                 renderAll();
@@ -1741,8 +1868,8 @@ function renderChallenges() {
 
         if (!locked) {
             card.addEventListener('click', () => {
-                userProgress[challenge.id] = !userProgress[challenge.id];
-                playSFX(userProgress[challenge.id] ? 'sfx-mark-complete' : 'sfx-mark-incomplete');
+                const completed = toggleProgress(challenge.id);
+                playSFX(completed ? 'sfx-mark-complete' : 'sfx-mark-incomplete');
                 saveProgress();
                 renderAll();
             });
@@ -1793,6 +1920,8 @@ function renderDailyRuns() {
 }
 
 function renderAll() {
+    syncGlobalSpecialUnlocks();
+    syncGreedUnlocks();
     renderCharInfo();
     renderUnlocks();
     updateProgressDisplay();
@@ -1846,10 +1975,14 @@ if (dailyDefeatBtn) {
 select.addEventListener('change', renderAll);
 
 function toggleTaintedMode() {
+    const counterpart = getCharacterModeCounterpart(select.value);
     isTaintedMode = !isTaintedMode;
     document.body.classList.toggle('tainted-mode', isTaintedMode);
     playMusic(isTaintedMode ? 'tainted' : 'normal');
     populateSelect();
+    if (counterpart && gameData[counterpart]) {
+        select.value = counterpart;
+    }
     renderAll();
 }
 
@@ -1867,3 +2000,235 @@ document.addEventListener('keydown', (event) => {
 
 populateSelect();
 renderAll();
+
+const itemsMenuBtn = document.querySelector('.menu-btn[data-view="items-screen"]');
+const searchBar = document.getElementById('item-search-bar');
+const itemsSearchCount = document.getElementById('items-search-count');
+const itemsContainer = document.getElementById('items-container');
+let searchableEntries = [];
+
+function fetchItems() {
+    if (!window.TBOU_SEARCH_DATA || !window.TBOU_SEARCH_DATA.items || !window.TBOU_SEARCH_DATA.transformations) {
+        console.error('Erro: TBOU_SEARCH_DATA nao foi carregado corretamente ou esta incompleto.');
+        itemsContainer.innerHTML = '<p style="color: #aaa;">Não foi possível carregar os dados de pesquisa.</p>';
+        return;
+    }
+
+    const itemsData = window.TBOU_SEARCH_DATA.items.map(item => ({
+        ...item,
+        type: 'item'
+    }));
+
+    const transformationsData = window.TBOU_SEARCH_DATA.transformations.map(trans => ({
+        name: trans.Name,
+        description: trans.Description,
+        functionality: trans.Method,
+        image: trans.Image,
+        type: 'transformation',
+        id: 'N/A', quality: 'N/A', pool: 'N/A', transformation: 'N/A'
+    }));
+
+    searchableEntries = [...itemsData, ...transformationsData];
+    renderSearchResults();
+}
+
+const popupOverlay = document.getElementById('item-popup-overlay');
+const popupContent = document.getElementById('item-popup-content');
+const popupCloseBtn = document.getElementById('item-popup-close');
+
+function getSearchIconUrl(entry) {
+    const image = entry.image ? entry.image.trim() : '';
+    return image || 'img/Search/Items/no_set.png';
+}
+
+function getQualityInfo(quality) {
+    const qualityString = String(quality || '').trim();
+    const match = qualityString.match(/Quality([0-4])\.png$/i) || qualityString.match(/^([0-4])$/);
+    const qualityKey = match ? match[1] : 'N/A';
+    const qualityMap = {
+        '0': {
+            src: 'img/Search/Quality/Quality0.png',
+            tooltip: 'Quality 0... This is so terrible it should come with a support group.',
+            label: 'Quality 0...'
+        },
+        '1': {
+            src: 'img/Search/Quality/Quality1.png',
+            tooltip: 'Quality 1. Not great, not tragic. Just quietly sad.',
+            label: 'Quality 1.'
+        },
+        '2': {
+            src: 'img/Search/Quality/Quality2.png',
+            tooltip: 'Quality 2. Normal item. Mid-tier, middling, mundanity embodied.',
+            label: 'Quality 2.'
+        },
+        '3': {
+            src: 'img/Search/Quality/Quality3.png',
+            tooltip: 'Quality 3. Actually decent. It makes the rest of your build feel fancy.',
+            label: 'Quality 3.'
+        },
+        '4': {
+            src: 'img/Search/Quality/Quality4.png',
+            tooltip: 'Quality 4! Legendary flex energy detected.',
+            label: 'Quality 4!'
+        },
+        'N/A': {
+            src: 'img/Search/Items/no_set.png',
+            tooltip: 'No quality has been assigned. This item is emotionally indefinite.',
+            label: 'Quality N/A'
+        }
+    };
+    const qualityInfo = qualityMap[qualityKey] || qualityMap['N/A'];
+    return { ...qualityInfo, key: qualityKey };
+}
+
+function getPoolInfo(pool) {
+    const normalized = pool ? pool.toLowerCase() : '';
+    const poolMap = [
+        { test: p => p.includes('treasure room'), src: 'img/Search/Items_pool/Treasure_Room.png', tooltip: 'The biggest item pool of the game. If a item pool runs out of items to give, it will fall onto the treasure room items pool!' },
+        { test: p => p.includes('secret room') && !p.includes('ultra'), src: 'img/Search/Items_pool/Secret_Room.png', tooltip: 'The best item pool of the game! Always try to reroll items on there!' },
+        { test: p => p.includes('ultra secret'), src: 'img/Search/Items_pool/Ultra_Secret_Room.png', tooltip: 'All the items are red on this pool! Try to reroll these to get the best or decent things!' },
+        { test: p => p.includes('super secret'), src: 'img/Search/Items_pool/Secret_Room.png', tooltip: 'The best item pool of the game! Always try to reroll items on there!' },
+        { test: p => p.includes('shop'), src: 'img/Search/Items_pool/Shop.png', tooltip: 'The shop item pool.' },
+        { test: p => p.includes('curse room'), src: 'img/Search/Items_pool/Curse_Room.png', tooltip: 'Somewhat decent. Some items from the devil pool are in here, so if you can, reroll it.' },
+        { test: p => p.includes('devil room') || p.includes('devil pool'), src: 'img/Search/Items_pool/Devil_Room.png', tooltip: 'The diabolical side have some decent items by default. Always try to keep a reroll ready for the devil room!' },
+        { test: p => p.includes('angel room') || p.includes('angel pool'), src: 'img/Search/Items_pool/Angel_Room.png', tooltip: 'The angelic side needs some work to have good items, but is worth it! Always try to keep a reroll ready for the angel room!' },
+        { test: p => p.includes('boss reward'), src: 'img/Search/Items_pool/Boss_Room.png', tooltip: 'Boss reward item pool.' },
+        { test: p => p.includes('golden chest'), src: 'img/Search/Items_pool/Golden_Chest.png', tooltip: 'Golden Chest item pool.' },
+        { test: p => p.includes('crane game'), src: 'img/Search/Items_pool/Crane_Game.png', tooltip: 'Crane Game item pool.' },
+        { test: p => p.includes('baby shop'), src: 'img/Search/Items_pool/Baby_Shop.png', tooltip: 'Baby Shop item pool.' },
+        { test: p => p.includes('rotten beggar'), src: 'img/Search/Items_pool/Rotten_Beggar.png', tooltip: 'Rotten Beggar Pool.' }
+    ];
+    const found = poolMap.find(entry => entry.test(normalized));
+    return found || { src: 'img/Search/Items/no_set.png', tooltip: pool ? `${pool} item pool.` : 'Pool not available' };
+}
+
+function getTransformationName(entry) {
+    if (!entry) return null;
+    const text = entry.transformation || '';
+    let match = text.match(/['"]([^'"]+)['"]/);
+    if (match) return match[1];
+    match = text.match(/contribute to the ([^.]+?) transformation/i);
+    if (match) return match[1].trim();
+    if (entry.functionality) {
+        match = entry.functionality.match(/belongs to the ([^.]+?) set/i);
+        if (match) return match[1].trim();
+    }
+    return null;
+}
+
+function getTransformationIcon(name) {
+    if (!name || !window.TBOU_SEARCH_DATA || !Array.isArray(window.TBOU_SEARCH_DATA.transformations)) {
+        return 'img/Search/Items/no_set.png';
+    }
+    const transformation = window.TBOU_SEARCH_DATA.transformations.find(trans => trans.Name.toLowerCase() === name.toLowerCase());
+    return transformation && transformation.Image ? transformation.Image : 'img/Search/Items/no_set.png';
+}
+
+function showSearchPopup(entry) {
+    if (!popupOverlay || !popupContent) return;
+    const imageUrl = getSearchIconUrl(entry);
+    const qualityInfo = entry.type === 'item' ? getQualityInfo(entry.quality) : null;
+    const poolInfo = entry.type === 'item' ? getPoolInfo(entry.pool) : null;
+    const transformationName = entry.type === 'item' ? getTransformationName(entry) : entry.type === 'transformation' ? entry.name : null;
+    const transformationIcon = getTransformationIcon(transformationName);
+    const transformationLabel = transformationName || (entry.type === 'item' ? entry.transformation || 'Nenhuma' : 'Sem transformação');
+    const qualityClass = entry.type === 'item' ? `quality-${qualityInfo ? qualityInfo.key.toLowerCase() : 'n-a'}` : '';
+
+    popupContent.innerHTML = `
+        <div class="item-popup-header">
+            <img src="${imageUrl}" alt="${entry.name}" onerror="this.src='img/Search/Items/no_set.png'">
+            <div>
+                <h2 id="item-popup-title">${entry.name}</h2>
+                <p class="item-popup-label">${entry.type === 'item' ? 'Item' : 'Transformation'}</p>
+                <div class="item-popup-meta">
+                    ${qualityInfo ? `<span class="meta-pill quality-pill ${qualityClass}" title="${qualityInfo.tooltip}"><img src="${qualityInfo.src}" alt="Quality icon" onerror="this.src='img/Search/Items/no_set.png'"><span>${qualityInfo.label}</span></span>` : ''}
+                    ${poolInfo ? `<span class="meta-pill" title="${poolInfo.tooltip}"><img src="${poolInfo.src}" alt="Pool icon" onerror="this.src='img/Search/Items/no_set.png'"><span>${entry.pool}</span></span>` : ''}
+                </div>
+            </div>
+        </div>
+        <div class="item-popup-details">
+            <p><strong>Descripcion:</strong> ${entry.description || 'No given description.'}</p>
+            <p><strong>Functionality:</strong> ${entry.functionality || 'No given functionality.'}</p>
+            ${entry.type === 'item' ? `<p><strong>ID:</strong> ${entry.id || 'N/A'}</p>` : `<p><strong>Method:</strong> ${entry.functionality || 'Nenhuma informação.'}</p>`}
+            ${entry.type === 'item' ? `<p class="item-popup-transformation"><strong>Transformation:</strong> <img src="${transformationIcon}" alt="Transformation icon" onerror="this.src='img/Search/Items/no_set.png'"> ${transformationLabel}</p>` : ''}
+        </div>
+    `;
+
+    popupOverlay.classList.add('active');
+    popupOverlay.setAttribute('aria-hidden', 'false');
+}
+
+function hideSearchPopup() {
+    if (!popupOverlay) return;
+    popupOverlay.classList.remove('active');
+    popupOverlay.setAttribute('aria-hidden', 'true');
+}
+
+function renderSearchResults() {
+    if (!itemsContainer) return;
+    const term = searchBar ? searchBar.value.toLowerCase() : '';
+    
+    const entries = searchableEntries.filter(entry => {
+        const name = entry.name ? entry.name.toLowerCase() : '';
+        const desc = entry.description ? entry.description.toLowerCase() : '';
+        const func = entry.functionality ? entry.functionality.toLowerCase() : '';
+        return name.includes(term) || desc.includes(term) || func.includes(term);
+    });
+
+    itemsContainer.innerHTML = '';
+    if (itemsSearchCount) {
+        itemsSearchCount.textContent = `${entries.length}/${searchableEntries.length} results`;
+    }
+    
+    if (entries.length === 0) {
+        itemsContainer.innerHTML = '<p style="color: #aaa;">Nenhum item encontrado.</p>';
+        return;
+    }
+
+    entries.forEach(entry => {
+        const card = document.createElement('div');
+        card.className = `item-card item-card-${entry.type}`;
+        const imageUrl = getSearchIconUrl(entry);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'item-icon-btn';
+        button.title = entry.name;
+        button.innerHTML = `<img src="${imageUrl}" alt="${entry.name}" loading="lazy" onerror="this.onerror=null;this.src='img/Search/Items/no_set.png'">`;
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            showSearchPopup(entry);
+        });
+
+        card.appendChild(button);
+        itemsContainer.appendChild(card);
+    });
+}
+
+if (searchBar) searchBar.addEventListener('input', renderSearchResults);
+if (popupCloseBtn) popupCloseBtn.addEventListener('click', hideSearchPopup);
+if (popupOverlay) popupOverlay.addEventListener('click', (event) => {
+    if (event.target === popupOverlay) hideSearchPopup();
+});
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') hideSearchPopup();
+});
+
+setTimeout(fetchItems, 100);
+
+const musicToggleBtn = document.getElementById('music-toggle-btn');
+const bgMusic = document.getElementById('bg-music');
+
+if (musicToggleBtn && bgMusic) {
+    musicToggleBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play().then(() => {
+                musicToggleBtn.textContent = '🎵 ON';
+                musicToggleBtn.classList.remove('music-muted');
+            }).catch(err => console.log("Audio play blocked", err));
+        } else {
+            bgMusic.pause();
+            musicToggleBtn.textContent = '🔇 OFF';
+            musicToggleBtn.classList.add('music-muted');
+        }
+    });
+}

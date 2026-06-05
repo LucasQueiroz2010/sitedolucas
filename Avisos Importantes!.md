@@ -434,6 +434,14 @@ ND: Esse update é um teste do novo design do TBOU, então o site pode e prováv
 4) A descrição dos itens já existentes foram alteradas no TBOU.
 5) Foi mudado a tonalidade das telas do TBOU.
 
+2.0_beta14: Site do Lucas - BETA 14: TBOU 11
+1) Foi adicionado todas as imagens dos itens de todos os desbloqueios de todos os personagens normais e tainted.
+2) Foi adicionado a seção de pesquisa de itens, que tem o nome, imagem, qualidade, descrição que o jogo dá aos itens e a funcionalidade que o item tem dentro do jogo, feito por mim e pela wiki do jogo (https://bindingofisaacrebirth.fandom.com/wiki/Binding_of_Isaac:_Rebirth_Wiki).
+3) Foi adicionado um arquivo JavaScript, que contém todas as informações dos itens e transformações.
+4) Foi adicionado várias imagens, que vão ser usadas no sistema de pesquisa de itens.
+5) Foi atualizado o CSS do site, para uma melhor estilização do site em geral.
+6) Mudanças pequenas no código foram feitas.
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações: 
-UQV: 22. / ND: 10. / Atualização GAMER: 15. / UD: 19. / URM: 16. / TBOU: 10
+UQV: 22. / ND: 10. / Atualização GAMER: 15. / UD: 19. / URM: 16. / TBOU: 11

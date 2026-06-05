@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle Music">🎵 ON</button>
     <div class="container">
         <h1 id="main-title">The Binding of Unlocks</h1>
 
@@ -19,18 +20,21 @@
                 <button class="menu-btn" data-view="unlocks-screen">Unlocks</button>
                 <button class="menu-btn" data-view="greed-screen">Greed Donation Machine</button>
                 <button class="menu-btn" data-view="challenges-screen">Challenges</button>
-                <button class="menu-btn" data-view="daily-screen">Daily Run</button>
+                <button class="menu-btn" data-view="daily-screen">Daily Run</button>                
+                <button class="menu-btn" data-view="items-screen">Items Search</button>
             </div>
         </div>
 
         <div id="unlocks-screen" class="screen">
+                <p class="swap-message">Press [E] to swap between Normal/Tainted characters!</p>
+                <br>
             <div class="section-nav">
                 <button class="back-btn" data-view="home-screen">Back</button>
             </div>
-
             <div class="controls">
+
                 <select id="character-select"></select>
-                <button id="swap-btn" class="secret-btn" title="Secret Swap">Swap</button>
+                <button id="swap-btn" class="secret-btn" title="Secret Swap">[E]</button>
             </div>
 
             <div class="character-info-panel" id="char-info">
@@ -58,6 +62,8 @@
         </div>
 
         <div id="greed-screen" class="screen">
+        <img src="img/Shopkeeper.png" class="shopkeeper-left" alt="Shopkeeper" loading="lazy">
+        <img src="img/Hanging_Shopkeeper.png" class="shopkeeper-right" alt="Hanging Shopkeeper" loading="lazy">
             <div class="section-nav">
                 <button class="back-btn" data-view="home-screen">Back</button>
             </div>
@@ -70,14 +76,14 @@
                     <div class="machine-base"></div>
                 </div>
                 <div class="greed-actions">
-                    <button class="coin-btn" data-coins="1" title="+1 Coin"><img src="img/Items/Icons/coin.png" alt="">+1</button>
-                    <button class="coin-btn" data-coins="5" title="+5 Coins"><img src="img/Items/Icons/nickel.png" alt="">+5</button>
-                    <button class="coin-btn" data-coins="10" title="+10 Coins"><img src="img/Items/Icons/dime.png" alt="">+10</button>
-                    <button class="coin-btn" data-coins="100" title="+100 Coins"><img src="img/Items/Icons/dollar.png" alt="">+100</button>
-                    <button class="coin-btn coin-btn-negative" data-coins="-1" title="-1 Coin"><img src="img/Items/Icons/coin.png" alt="">-1</button>
-                    <button class="coin-btn coin-btn-negative" data-coins="-5" title="-5 Coins"><img src="img/Items/Icons/nickel.png" alt="">-5</button>
-                    <button class="coin-btn coin-btn-negative" data-coins="-10" title="-10 Coins"><img src="img/Items/Icons/dime.png" alt="">-10</button>
-                    <button class="coin-btn coin-btn-negative" data-coins="-100" title="-100 Coins"><img src="img/Items/Icons/dollar.png" alt="">-100</button>
+                    <button class="coin-btn" data-coins="1" title="+1 Coin"><img src="img/Characters/Character_Items/Icons/coin.png" alt="">+1</button>
+                    <button class="coin-btn" data-coins="5" title="+5 Coins"><img src="img/Characters/Character_Items/Icons/nickel.png" alt="">+5</button>
+                    <button class="coin-btn" data-coins="10" title="+10 Coins"><img src="img/Characters/Character_Items/Icons/dime.png" alt="">+10</button>
+                    <button class="coin-btn" data-coins="100" title="+100 Coins"><img src="img/Characters/Character_Items/Icons/dollar.png" alt="">+100</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-1" title="-1 Coin"><img src="img/Characters/Character_Items/Icons/coin.png" alt="">-1</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-5" title="-5 Coins"><img src="img/Characters/Character_Items/Icons/nickel.png" alt="">-5</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-10" title="-10 Coins"><img src="img/Characters/Character_Items/Icons/dime.png" alt="">-10</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-100" title="-100 Coins"><img src="img/Characters/Character_Items/Icons/dollar.png" alt="">-100</button>
                 </div>
                 <div class="greed-unlocks" id="greed-unlocks"></div>
             </div>
@@ -108,6 +114,25 @@
                 <div class="daily-achievements" id="daily-achievements"></div>
             </div>
         </div>
+        <div id="items-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="section-panel item-search-panel">
+                <h2>Items Search</h2>
+                <div class="item-search-controls">
+                    <input type="text" id="item-search-bar" placeholder="Search item, trinket, transformation..." autocomplete="off">
+                </div>
+                <div id="items-search-count" class="items-search-count"></div>
+                <div id="items-container" class="items-grid"></div>
+                <div id="item-popup-overlay" class="item-popup-overlay" aria-hidden="true">
+                    <div class="item-popup" role="dialog" aria-modal="true" aria-labelledby="item-popup-title">
+                        <button id="item-popup-close" class="item-popup-close" aria-label="Fechar">×</button>
+                        <div id="item-popup-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <audio id="bg-music" loop>
@@ -119,6 +144,8 @@
     <audio id="sfx-all-complete" src="sound/All_complete.wav"></audio>
     <audio id="sfx-coin-insert" src="sound/coin_insert.wav"></audio>
     <audio id="sfx-coin-unsert" src="sound/coin_unsert.wav"></audio>
+
+    <script src="search_data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
