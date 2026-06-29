@@ -512,7 +512,7 @@ ND: Esse update é um teste do novo design do TBOU, então o site pode e prováv
 5) Foi atualizado o CSS do site, para uma melhor estilização do site em geral.
 6) Mudanças pequenas no código foram feitas.
 
-2.0_beta15: Site do Lucas - BETA 14.1: TBOU 12: TBOU 12 + UQV 23
+2.0_beta14.1: Site do Lucas - BETA 14.1: TBOU 12: TBOU 12 + UQV 23
 
 1) Foi modificado o nome do sistema de pesquisa de itens de 'Item Search' para 'The Search of Isaac' (ou TSOI).
 2) Foi adicionado no TSOI todos os efeitos de pílulas, cartas, runas, soul stones e curses.
@@ -521,6 +521,10 @@ ND: Esse update é um teste do novo design do TBOU, então o site pode e prováv
 5) Foi mudado alguns outros bugs de qualidade de vida.
 OBS: Essa atualização está feita pela metade devido a problemas no meu dispositivo, então espere por uma atualizaç~~ao para consertar as pontas soltas.
 
+2.0_beta14.2: Site do Lucas - BETA 14.2: URM 17
+
+1) O nome do update anterior estava errado, então essa atualização foi feita para corrigir esse erro.
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações:
-UQV: 23. / ND: 10. / Atualização GAMER: 15. / UD: 19. / URM: 16. / TBOU: 12
+UQV: 23. / ND: 10. / Atualização GAMER: 15. / UD: 19. / URM: 17. / TBOU: 12
