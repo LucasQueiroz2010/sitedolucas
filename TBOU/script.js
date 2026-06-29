@@ -106,7 +106,7 @@ const challengeData = [
 
 const gameData = {
 "Isaac": {
-        name: "Isaac", image: "img/Characters/Normal/Isaac.png", description: "The default guy. Starts with the D6 to reroll items onto their items pools. The best item pool is the Secret Room pool. Is recommended to unlock Mom's Knife, Options? and D-Infinity. Isaac is unlocked by default. Lucas' note: D6 goes crazy until you get Kamikaze.",
+        name: "Isaac", image: "img/Characters/Normal/Isaac.png", description: "The default guy. Starts with 'the D6' item to reroll items. Search for 'Isaac' on the TSOI tab for more tips. Is recommended to unlock the 'Mom's Knife', 'Options?' and 'D-Infinity' items (bonus to the 'D20' item and 'Missing Poster' trinket). Isaac is unlocked by default. Lucas' note: D6 goes crazy until you don't have any rerrols and you got 'Kamikaze'.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -133,7 +133,7 @@ const gameData = {
         ]
     },
     "Magdalene": {
-        name: "Magdalene", image: "img/Characters/Normal/Magdalene.png", description: "The tanky girl. Starts with high health and Yum Heart for healing 1 red heart. Magdalene is unlocked by having 7 red heart container or more at once. Is recommended to unlock Eucharist, Purity and the Full Health Pill (starting pill). Lucas' note: A Speed Down pill disguised as a character.",
+        name: "Magdalene", image: "img/Characters/Normal/Magdalene.png", description: "The tanky girl. Starts with high health and the 'Yum Heart' item for healing. Magdalene is unlocked by having 7 red heart container or more at once. Is recommended to unlock the Full Health Pill (starting pill), the 'Eucharist' and 'Purity' items (bonus to 'The Relic' and 'Glyph of Balance' items). Lucas' note: A Speed Down pill disguised as a character.",
         stats: "HP: 4 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 0.85",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -160,7 +160,7 @@ const gameData = {
         ]
     },
     "Cain": {
-        name: "Cain", image: "img/Characters/Normal/Cain.png", description: "The lucky 'pirate'. Starts with high speed and Lucky Foot, that makes you have only good pills, but shoots with one eye. Cain is unlocked by having 55 pennies or more at once. Is recommended to unlock Paper Clip (starting trinket), Guppy's Eye and Silver Dollar. Lucas' note: No more 'Tears Down'!",
+        name: "Cain", image: "img/Characters/Normal/Cain.png", description: "The lucky gambler. Starts with high speed and the 'Lucky Foot' item, but shoots with one eye. Cain is unlocked by having 55 pennies or more at once. Is recommended to unlock the 'Paper Clip' (starting trinket), 'Guppy's Eye' item and 'Silver Dollar' trinket (bonus to the 'Cain's Other Eye' and 'A Pound of Flesh' items). Lucas' note: No more 'Tears Down'!",
         stats: "HP: 2 Red<br>DMG: 4.20<br>Tears: 2.73<br>Speed: 1.30",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -188,8 +188,8 @@ const gameData = {
         ]
     },
     "Judas": {
-        name: "Judas", image: "img/Characters/Normal/Judas.png", description: "The glass cannon. Starts with 1 red heart and The Book of Belial for temporary damage buff + increased devil/angel deal chance. Judas is unlocked by defeating Satan for the first time. Is recommended to unlock Judas' Shadow, Judas' Tongue and the Eye of Belial. Lucas' note: First floor spider: 'Allow me to introduce myself'.",
-        stats: "HP: 1 Red<br>DMG: 4.72<br>Tears: 2.73<br>Speed: 1.00",
+        name: "Judas", image: "img/Characters/Normal/Judas.png", description: "The glass cannon. Starts with 1 red heart and with 'The Book of Belial' item for temporary damage buff. Judas is unlocked by defeating the boss 'Satan' for the first time. Is recommended to unlock 'Judas' Tongle' trinket, 'Judas' Shadow' and the 'Eye of Belial' items (bonus to the 'Curved Horn' trinket and 'Redemption' item). Lucas' note: First floor spider: 'Allow me to introduce myself'.",
+        stats: "HP: 1 Red<br>DMG: 4.72<br>DMG Multiplier: 1.35x<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
             { name: "The Book of Belial", img: "The_Book_of_Belial.png", condition: null },
@@ -215,8 +215,8 @@ const gameData = {
         ]
     },
     "Blue Baby": {
-        name: "Blue Baby", image: "img/Characters/Normal/Blue_Baby.png", description: "The dead boy. Can only have Soul/Black hearts and starts with The Poop. Destroying poops spawn blue flies. Blue Baby is unlocked by defeating Mom's Heart 10 times. Is recommended to unlock Forget Me Now, The D6 and the Eternal D6. Lucas' note: Literally a piece of shit of a character.",
-        stats: "HP: 3 Soul<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.05",
+        name: "Blue Baby", image: "img/Characters/Normal/Blue_Baby.png", description: "The dead boy. Can only have Soul/Black hearts and starts with 'The Poop' item. Destroying poops spawn blue flies, like the 'Lil' Larva' trinket effect. Blue Baby is unlocked by defeating the boss 'Mom's Heart' 10 times. Is recommended to unlock the 'Forget Me Now', 'The D6' and the 'Eternal D6' items (bonus to the 'Fate' and 'Fate's Reward' items). Lucas' note: Is either a piece of shit of a character or a full-ass GOD.",
+        stats: "HP: 3 Soul<br>DMG: 3.50<br>DMG Multiplier: 1.05x<br>Tears: 2.73<br>Speed: 1.05",
         effects: ["Soul_Heart.png"],
         startingItems: [
             { name: "The Poop", img: "The_Poop.png", condition: null }
@@ -241,7 +241,7 @@ const gameData = {
         ]
     },
     "Eve": {
-        name: "Eve", image: "img/Characters/Normal/Eve.png", description: "The edgy kid. Starts with weak stats, but triggers the Whore of Babylon effect at 1 Red Heart or less. Eve is unlocked by not picking up any hearts for 2 floors (don't need to be consecutive). Is recommended to unlock Eve's Mascara, the Athame and the Razor Blade (starting item). Lucas' note: The hurt yourself simulador.",
+        name: "Eve", image: "img/Characters/Normal/Eve.png", description: "The edgy kid. Starts with weak stats, but triggers the 'Whore of Babylon' item effect at 1 red heart or less. Eve is unlocked by not picking up any hearts for 2 floors (don't need to be consecutive). Is recommended to unlock the 'Razor Blade' (starting item), 'Eve's Mascara' and 'Athame' items (bonus to the 'Sacrificial Dagger' and 'Cracked Orb' item). Lucas' note: The hurt yourself simulador.",
         stats: "HP: 2 Red<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.23",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -269,7 +269,7 @@ const gameData = {
         ]
     },
     "Samson": {
-        name: "Samson", image: "img/Characters/Normal/Samson.png", description: "The guy with angry issues. Starts with Bloody Lust, gaining damage when taking damage. The damage buff resets when entering a new floor. Samson is unlocked by completing 2 floors without taking damage (don't need to be consecutive). Is recommended to unlock the Bloody Lust, bloody Crown and the Bloody Gust. Lucas' note: Skill issue? No, it's a damage up!",
+        name: "Samson", image: "img/Characters/Normal/Samson.png", description: "The guy with angry issues. Starts with the 'Bloody Lust' item, gaining damage when taking damage. Samson is unlocked by completing 2 floors without taking damage (don't need to be consecutive). Is recommended to unlock the 'Bloody Lust' and 'Bloody Gust' items and 'Bloody Crown' trinket. Lucas' note: Skill issue? No, it's a damage up!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.45<br>Speed: 1.10",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -296,7 +296,7 @@ const gameData = {
         ]
     },
     "Azazel": {
-        name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flying and a short-range Brimstone. 'Range up' items increase the Brimstone's range. Azazel is unlocked by making 3 deals with the Devil (trading your health for items 3 times in a run). Is recommended to unlock Lilith, Satanic Bible and the Demon's Tail. Lucas' note: The 'I just want to unlock things quickly' character.",
+        name: "Azazel", image: "img/Characters/Normal/Azazel.png", description: "The demon. Starts with flying and a short-range Brimstone. Azazel is unlocked by making 3 deals with the Devil (trading your health for items 3 times in a single run). Is recommended to unlock the 'Lilith' character, 'Satanic Bible' item and the 'Demon's Tail' trinket (bonus to the 'Maw of the Void' item and 'Devil's Crown' trinket). Lucas' note: The 'I just want to unlock things quickly' character.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 0.76<br>Speed: 1.25",
         effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [
@@ -325,7 +325,7 @@ const gameData = {
         name: "Lazarus", 
         image: "img/Characters/Normal/Lazarus.png", 
         image2: "img/Characters/Normal/Lazarus_Risen.png", 
-        description: "The guy who lived twice. Gets a all-stats up on death, but the buffs are reset on each new floor, except for a +0,5 damage up per death. Every time Lazarus dies, he loses one red heart container. Lazarus is unlocked by having 4 soul hearts at the same time. Is recommended to unlock the Lazarus' Rags, the Pandora's Box and the Store Credit (Bonus to the Anemic starting item). Lucas' note: The 'kill yourself' experience",
+        description: "The guy who lived twice. Gets a all-stats up on death, but the buffs are reset on each new floor, except for a +0,5 damage up per death. Every time Lazarus dies, he loses one red heart container. Lazarus is unlocked by having 4 soul hearts at the same time. Is recommended to unlock the 'Lazarus' Rags' and 'Pandora's Box' item and the 'Store Credit' trinket (bonus to the 'Anemic' starting item and 'Compound Fracture' item). Lucas' note: The 'kill yourself' experience",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -352,7 +352,7 @@ const gameData = {
         ]
     },
 "Eden": {
-        name: "Eden", image: "img/Characters/Normal/Eden.png", description: "The glitchy girl. Starts with completely randomized stats and items per run. Her appearance is also randomized per run. Eden is unlocked by completing The Womb floor for the first time. Is recommended to unlock Eden's Blessing, Eden's Soul and Blank Card. Lucas' note: Hold 'R' simulator until you don't start with 1 fire rate and Bob's Brain.",
+        name: "Eden", image: "img/Characters/Normal/Eden.png", description: "The glitchy girl. Starts with completely randomized stats and items per run. Her appearance is also randomized per run. Eden is unlocked by completing The Womb floor for the first time. Is recommended to unlock the 'Eden's Blessing', 'Eden's Soul' and 'Blank Card' items (bonus to the 'GB bug' and 'Book of Secrets items'). Lucas' note: Hold 'R' simulator until you don't start with low stats and horrible items.",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -379,7 +379,7 @@ const gameData = {
         ]
     },
 "The Lost": {
-        name: "The Lost", image: "img/Characters/Normal/The_Lost.png", description: "The ghost. Has no health, starts with Holy Mantle, flying and spectral tears. Can take one item of the devil deals for free, but the rest will disappear. The Lost is unlocked by dying on a Sacrifice Room while holding the 'Missing Poster' trinket. Is recommended to unlock The Mind, Lost Soul and Holy Card (Bonus for Godhead). Lucas' note: The embodiment of skill solution, until a random spider ends your career.",
+        name: "The Lost", image: "img/Characters/Normal/The_Lost.png", description: "The ghost. Has no health, starts with Holy Mantle, flying and spectral tears. Can take one item of the devil deals for free, but the rest will disappear. The Lost is unlocked by dying on a sacrifice room while holding the 'Missing Poster' trinket. Is recommended to unlock the 'Holy Mantle' (starting item), 'The Mind', 'Lost Soul' items (Bonus for the items 'Godhead' and 'D100'). Lucas' note: The embodiment of skill solution, until a random spider ends your whole career.",
         stats: "HP: None<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -406,7 +406,7 @@ const gameData = {
         ]
     },
 "Lilith": {
-        name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of demons. Cannot shoot tears by herself, so she relies entirely on familiars and on the Box of Friends item, that creates a clone of every single familiar she has. Lilith is unlocked by defeating Ultra Greed as Azazel. Is recommended to unlock Rune Bag, C-Section and Duality (Bonus for Incubus and Succubus). Lucas' note: Blindfolded, but still manages to fill the screen with more garbage than the game engine can handle.",
+        name: "Lilith", image: "img/Characters/Normal/Lilith.png", description: "The mother of demons. Cannot shoot tears by herself, so she relies entirely on familiars and on the 'Box of Friends' item. Lilith is unlocked by defeating the boss 'Ultra Greed' as the character 'Azazel'. Is recommended to unlock the 'Rune Bag', 'C-Section' and 'Duality' items (bonus for 'Incubus' and 'Succubus' items). Lucas' note: Blindfolded, but still manages to fill the screen with more garbage than the game engine can handle.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [
@@ -434,7 +434,7 @@ const gameData = {
         ]
     },
 "Keeper": {
-        name: "Keeper", image: "img/Characters/Normal/Keeper.png", description: "The greedy corpse. Uses coins as health and has triple shots. Is highly recommended to let coins on the ground, so that you can collect them later, either for health or for shops. Keeper is unlocked by donating 1000 coins into the Greed Donation machine. Is recommended to unlock the Wooden Nickel (Starting item), the third coin container (Starting event) and Keeper's sack (Bonus for Deep Pockets and The Store Key starting Trinket). Lucas' note: -99 win streak simulator (Pre-Repentance PTSD).",
+        name: "Keeper", image: "img/Characters/Normal/Keeper.png", description: "The greedy corpse. Uses coins as health and has triple shots. Is highly recommended to let coins on the ground, so that you can collect them later, either for health or for shops. Keeper is unlocked by donating 1000 coins into the greed donation machine. Is recommended to unlock the 'Wooden Nickel' (Starting item), the third coin container and 'Keeper's sack' item (Bonus for the 'Deep Pockets' item and the 'Store Key' starting trinket). Lucas' note: -99 win streak simulator (Pre-Repentance PTSD).",
         stats: "HP: 2 Coin Hearts<br>DMG: 4.20<br>Tears: 1.20<br>Speed: 0.85",
         effects: ["Double_Penny.png"],
         startingItems: [
@@ -463,7 +463,7 @@ const gameData = {
         ]
     },
 "Apollyon": {
-        name: "Apollyon", image: "img/Characters/Normal/Apollyon.png", description: "The destroyer. Starts with Void to suck up passive items for stats or copy active items. If you collect an item that you don't like, you can use The Void on the item during the pick-up animation. Apollyon is unlocked by defeating Mega Satan for ther first time. Is recommended to unlock The Smalter, Blank Rune and any of the Locust trinkets. Lucas' note: Sucking up a decent item just to get +0.2 shot speed and +0.2 luck.",
+        name: "Apollyon", image: "img/Characters/Normal/Apollyon.png", description: "The destroyer. Starts with the 'Void' item to suck up passive items for stats or copy active items. Apollyon is unlocked by defeating the boss 'Mega Satan' for ther first time. Is recommended to unlock the 'The Smelter' item, the 'Blank Rune' pickup and any of the 'Locust' trinkets. Lucas' note: Sucking up a decent item just to get +0.2 shot speed and +0.2 luck.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -492,7 +492,7 @@ const gameData = {
         name: "The Forgotten", 
         image: "img/Characters/Normal/The_Forgotten.png", 
         image2: "img/Characters/Normal/The_Soul.png", 
-        description: "Two characters in one: Melee skeleton and flying soul. The Forgotten is unlocked via a complicated proccess: The Lamb must have been defeated previously before The Forgotten can be unlocked, then you have to defeat the first floor boss under 1 minute. After that, go into the starting room and bomb the middle of the room. This will drop the broken shovel item, that will make Mom's foot fall on top of you for the entire run. Your objective is, with the broken shovel, defeat Boss Rush, collect the second part of the shovel, creating the Mom's Shovel item and head into the Dark Room, on a specific room and use the Shovel on the pile of dirt that is on the room. Is recommended to unlock Divorce Papers, The Book of the Dead and Dad's Ring. Lucas' note: Bonk simulador.",
+        description: "Two characters in one: Melee skeleton and flying soul. The Forgotten is unlocked via a complicated proccess (Serach for the 'Broken Shovel 1' item for more info). Is recommended to unlock the 'Divorce Papers', 'The Book of the Dead' and 'Dad's Ring' items (bonus to the 'Marrow' and 'Brittle Bones' items). Lucas' note: Bonk/Scout simulador.",
         stats: "HP: 2 Bone (Soul has 1 Soul)<br>DMG: 5.25<br>Tears: 1.36<br>Speed: 1.00",
         effectGroups: [
             { label: "The Forgotten", effects: ["Bone_Heart.png"] },
@@ -519,7 +519,7 @@ const gameData = {
         ]
     },
 "Bethany": {
-        name: "Bethany", image: "img/Characters/Normal/Bethany.png", description: "The faithful. Cannot use Soul Hearts for health, but uses for soul charges. Use your active as often as possible for the wisps protection. Bethany is unlocked by defeating Mom's Heart/It Lives! as Lazarus on hard mode, while not dying once. Is recommended to unlock the Book of Virtudes, Blessed Penny and Revelation. Lucas' note: Protect the wisps with your life, only for them to instantly die to a red poop.",
+        name: "Bethany", image: "img/Characters/Normal/Bethany.png", description: "The faithful girl. Cannot use soul hearts for health, but uses for soul charges. Use any of your active items as often as possible for the wisps protection. Bethany is unlocked by defeating the boss 'Mom's Heart' or 'It Lives!' as the character 'Lazarus' on hard mode without dying once. Is recommended to unlock the 'Book of Virtudes' and 'Revelation' items and the 'Blessed Penny' trinket (bonus to the items 'Alabaster Box' and 'Star of Bethlehem'). Lucas' note: Protect the wisps with your life, only for them to instantly die to a red poop.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png", "Blended_Heart.png"],
         startingItems: [
@@ -545,7 +545,7 @@ const gameData = {
         ]
     },
 "Jacob & Esau": {
-        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. The best stragety is to not let them get separated at all. Jacob & Esau are unlocked by defeating Mother for the first time. Is recommended to unlock Rock Bottom, Birthright and The Stairway. Lucas' note: The Jacob and Hitbox experience.",
+        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. The best stragety is to not let them get separated at all. Jacob & Esau are unlocked by defeating the boss 'Mother' for the first time. Is recommended to unlock the 'Rock Bottom', 'Birthright' and 'The Stairway' items (bonus to the items 'Genesis' and 'Inner Child'). Lucas' note: The Jacob and Hitbox experience.",
         stats: "Jacob stats:<br>HP: 3 Red<br>DMG: 2.75<br>Tears: 2.73<br>Speed: 1.00<br><br>Esau stats:<br>HP: 1 Red, 1 Soul<br>DMG: 3.75<br>Tears: 2.73<br>Speed: 1.00",
         effectGroups: [
             { label: "Jacob", effects: ["Red_Heart.png"] },
@@ -573,7 +573,7 @@ const gameData = {
     },
 
 "Tainted Isaac": {
-        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. 'Health up' items don't lost their effect when dropped of, so collet the item and get rid of it when possible. Tainted Isaac is unlocked by using either Red Key, cracked key or soul of Cain to open the hidden closet in the Home floor as Isaac. All Tainted Characters are unlocked with the same method, the only diferrent is the character you are actually playing as. Is recommended to unlock Soul of Isaac, the Spindown Dice and Glitched Crown (Bonus for 'The Stars?'). Lucas' note: Minecraft full inventory gameplay",
+        name: "Tainted Isaac", image: "img/Characters/Tainted/Tainted_Isaac.png", description: "The Hoarder. Items cycles through 2 item choices but can only hold 8 passives at a time. 'Health up' items don't lost their effect when dropped of, so collet the item and get rid of it when possible. Tainted Isaac is unlocked by using either the 'Red Key' item, cracked key or soul of Cain to open the hidden closet in the 'Home' floor, while playing as the character 'Isaac' Is recommended to unlock the 'Soul of Isaac' pickup, the 'Spindown Dice' and 'Glitched Crown' items (Bonus for 'The Stars?' pickup and 'Dice Bag' trinket). Lucas' note: Minecraft full inventory gameplay",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -590,7 +590,7 @@ const gameData = {
         ]
     },
 "Tainted Magdalene": {
-        name: "Tainted Magdalene", image: "img/Characters/Tainted/Tainted_Magdalene.png", description: "The Dauntless. Bleeds out constantly buthugging enemies to death drops temporary half red hearts. Items that heals you have double effect. Tainted Magdalene is unlocked via the same method as Tainted Isaac, but you need to play as Magdalene. Is recommended to unlock Holy Crown, Belly Jelly and 'The Lovers?' (Bonus for Mother's kiss). Lucas' note: *DOOM music kicks in* TIME TO HUG 'EM ALL!",
+        name: "Tainted Magdalene", image: "img/Characters/Tainted/Tainted_Magdalene.png", description: "The Dauntless. Bleeds out constantly, but hugs enemies to death, making them drops temporary half red hearts. Items that heals you have double effect. Tainted Magdalene is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the 'Magdalene' character. Is recommended to unlock the 'Holy Crown' trinket, 'Belly Jelly' item and 'The Lovers?' pickup (Bonus for the 'Mother's kiss' trinket). Lucas' note: *DOOM music kicks in* TIME TO HUG 'EM ALL!",
         stats: "HP: 4 Red (Empty)<br>DMG: 2.62<br>Tears: 2.73<br>Speed: 1.20",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -607,7 +607,7 @@ const gameData = {
         ]
     },
 "Tainted Cain": {
-        name: "Tainted Cain", image: "img/Characters/Tainted/Tainted_Cain.png", description: "The Hoarder. Cannot pick up items directly, and must craft them using pickups in a bag. The best strategy is to let pick-ups on the ground, complete the whole floor and then start crafting, being the first item you want to craft being Birthright. Tainted Cain is unlocked via the same method as Tainted Isaac, but you need to play as Cain. Is recommended to unlock Soul of Cain, the Bag of Crafting and Golden Pill (Bonus for 'Wheel of Fortune?'). Lucas' note: First we Cry, then we Craft.",
+        name: "Tainted Cain", image: "img/Characters/Tainted/Tainted_Cain.png", description: "The Hoarder. Cannot pick up items directly, and must craft them using pickups in the 'Bag of Crafting' item. The best strategy is to let pick-ups on the ground, complete the whole floor and then start crafting, being the first item you want to craft being the 'Birthright'. Tainted Cain is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Cain'. Is recommended to unlock the 'Soul of Cain' pickup and 'Golden Pill' pickup and the 'Bag of Crafting' item (bonus for 'Wheel of Fortune?' pickup). Lucas' note: First we cry, then we craft.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.30",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -624,7 +624,7 @@ const gameData = {
         ]
     },
 "Tainted Judas": {
-        name: "Tainted Judas", image: "img/Characters/Tainted/Tainted_Judas.png", description: "The Deceiver. Can only have Soul/Black hearts and starts with Dark Arts to slice through enemies. Tainted Judas is unlocked via the same method as Tainted Isaac, but you need to play as Judas. Is recommended to unlock Your Soul, Number Magnet and Black Sack (Bonus for 'The Magician?' and Soul of Judas). Lucas' note: Omae wa, MOU shindeiru.",
+        name: "Tainted Judas", image: "img/Characters/Tainted/Tainted_Judas.png", description: "The Deceiver. Can only have soul/black hearts and starts with the 'Dark Arts' item to slice through enemies. Tainted Judas is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Judas'. Is recommended to unlock the 'Your Soul' and 'Number Magnet' trinkets and the 'Black Sack' pickup (Bonus for 'The Magician?' and 'Soul of Judas' pickups). Lucas' note: Omae wa, MOOOU shindeiru.",
         stats: "HP: 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Black_Heart.png"],
         startingItems: [
@@ -641,7 +641,7 @@ const gameData = {
         ]
     },
 "Tainted Blue Baby": {
-        name: "Tainted Blue Baby", image: "img/Characters/Tainted/Tainted_Blue_Baby.png", description: "The Enigma. Cannot use bombs, but throws various types of poop instead. Tainted Blue Baby spawns Poop pickups passively for you to have more poop options. Tainted Blue Baby is unlocked via the same method as Tainted Isaac, but you need to play as Blue Baby. Is recommended to unlock Charming Poop, The Swarm and 'The Emperor?' (Bonus for Dingle Berry). Lucas' note: Taco Bell aftermath.",
+        name: "Tainted Blue Baby", image: "img/Characters/Tainted/Tainted_Blue_Baby.png", description: "The Enigma. Cannot use bombs, but throws various types of poop instead. Tainted Blue Baby spawns 'Poop' pickups passively. Tainted Blue Baby is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Blue Baby'. Is recommended to unlock the 'Charming Poop' obstacle, 'The Swarm' item and 'The Emperor?' pickup (Bonus for the 'Dingle Berry' trinket). Lucas' note: Taco Bell aftermath.",
         stats: "HP: 3 Soul<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.05",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -658,7 +658,7 @@ const gameData = {
         ]
     },
 "Tainted Eve": {
-        name: "Tainted Eve", image: "img/Characters/Tainted/Tainted_Eve.png", description: "The Curdled. Drains her own health to spawn a army of blood clots. You can refresh the clots health by using Sumptorium. Tainted Eve is unlocked via the same method as Tainted Isaac, but you need to play as Eve. Is recommended to unlock Strange Key, Horse Pill and Sumptorium (Bonus for 'The Empress?' and Soul of Eve). Lucas' note: Pikmin, but make it bloody.",
+        name: "Tainted Eve", image: "img/Characters/Tainted/Tainted_Eve.png", description: "The Curdled. Drains her own health to spawn a army of blood clots. You can refresh the clots health by using Sumptorium. Tainted Eve is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Eve'. Is recommended to unlock the 'Strange Key' trinket, 'Horse Pill' pickup and the 'Sumptorium' item (Bonus for 'The Empress?' and 'Soul of Eve' pickup). Lucas' note: Pikmin, but make it bloody.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 1.20<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -675,7 +675,7 @@ const gameData = {
         ]
     },
 "Tainted Samson": {
-        name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Savage. Goes into a doom-slayer berserk rage after dealing/taking damage. One of the best strategies is to build your rage to use the berserker form against the boss. Tainted Samson is unlocked via the same method as Tainted Isaac, but you need to play as Samson. Is recommended to unlock Soul of Samson, Crain Game and 'Strength?'. Lucas' note: *Ultrakill music kicks in* RIP AND TEAR, BABY!",
+        name: "Tainted Samson", image: "img/Characters/Tainted/Tainted_Samson.png", description: "The Savage. Goes into a doom-slayer berserk rage after dealing/taking damage. One of the best strategies is to build your rage to use the berserker form against the boss. Tainted Samson is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Samson'. Is recommended to unlock the 'Soul of Samson', 'Crain Game' and 'Strength?' pickups. Lucas' note: *Ultrakill music kicks in* RIP AND TEAR, BABY!",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.10",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -692,7 +692,7 @@ const gameData = {
         ]
     },
 "Tainted Azazel": {
-        name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The Benighted. Has a skinny Brimstone and sneezes to push and curse enemies. Tainted Azazel is unlocked via the same method as Tainted Isaac, but you need to play as Azazel. Is recommended to unlock Soul of Azazel, Azazel's Rage and Wicked Crown (Bonus for 'The Devil?'). Lucas' note: Bless him.",
+        name: "Tainted Azazel", image: "img/Characters/Tainted/Tainted_Azazel.png", description: "The Benighted. Has a skinny Brimstone and sneezes to push and curse enemies. Tainted Azazel is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Azazel'. Is recommended to unlock the 'Soul of Azazel' pickup, 'Azazel's Rage' item and 'Wicked Crown' trinket (Bonus for 'The Devil?' pickup). Lucas' note: Bless him.",
         stats: "HP: 3 Black<br>DMG: 5.50<br>Tears: 1.20<br>Speed: 1.25",
         effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [],
@@ -710,7 +710,7 @@ const gameData = {
         name: "Tainted Lazarus", 
         image: "img/Characters/Tainted/Tainted_Lazarus.png", 
         image2: "img/Characters/Tainted/Dead_Tainted_Lazarus.png", 
-        description: "The Flipped. Swaps between an alive and dead form every time a room is cleared, splitting items between them. The best strategy is to have Flip fully charged when entering treasure rooms, boss rooms and shops. Tainted Lazarus is unlocked via the same method as Tainted Isaac, but you need to play as Lazarus. Is recommended to unlock  Soul of Lazarus, Flip and 'Judgment?' (Bonus for Salvation and Wooden Chest). Lucas' note: Two half-baked runs glued together by a mid item.",
+        description: "The Flipped. Swaps between an alive and dead form every time a room is cleared, splitting items between them. The best strategy is to have the 'Flip' item fully charged when entering treasure rooms, boss rooms and shops. Tainted Lazarus is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Lazarus' (or 'Lazarus Risen'). Is recommended to unlock the 'Soul of Lazarus' and 'Judgment?' pickups and the 'Flip' item (Bonus for the 'Salvation' item and 'Wooden Chest' pickup). Lucas' note: Two half-baked runs glued together by a mid item.",
         stats: "HP: 3 Red (Alive) / 3 Soul (Dead)<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effectGroups: [
             { label: "Tainted Lazarus", effects: ["Red_Heart.png"] },
@@ -730,7 +730,7 @@ const gameData = {
         ]
     },
 "Tainted Eden": {
-        name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The Capricious. Rerolls stats, items, and pickups upon taking damage. Get items that avoid hits, like Holy Mantle. Tainted Eden is unlocked via the same method as Tainted Isaac, but you need to play as Eden. Is recommended to unlock Soul of Eden, Wild Card and Modeling Clay (Bonus for 'The World?' and 'Nuh Uh!'). Lucas' note: Oh, you have a broken build? *Gets hit by a fly* Enjoy your The Wiz + Cursed Eye run.",
+        name: "Tainted Eden", image: "img/Characters/Tainted/Tainted_Eden.png", description: "The Capricious. Rerolls stats, items, and pickups upon taking damage. Tainted Eden is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Eden'. Is recommended to unlock the 'Soul of Eden' and 'Wild Card' pickups and the 'Modeling Clay' trinket (Bonus for 'The World?' pickup and 'Nuh Uh!' trinket). Lucas' note: Oh, you have a broken build? *Gets hit by a fly* Enjoy your 'The Wiz' + 'Cursed Eye' items run!",
         stats: "HP: Random<br>DMG: Random<br>Tears: Random<br>Speed: Random",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -748,7 +748,7 @@ const gameData = {
         ]
     },
 "Tainted Lost": {
-        name: "Tainted Lost", image: "img/Characters/Tainted/Tainted_Lost.png", description: "The Baleful. No health, no mantle, better items and no defensive items. You should use obstacles to your advantage, since most enemies don't have flight. Tainted Lost is unlocked via the same method as Tainted Isaac, but you need to play as The Lost. Is recommended to unlock Soul of The Lost, Sacred Orb and Crystal Key (Bonus for 'The Fool?'). Lucas' note: Dying to a spiked rock because you couldn't see it under the 50 items you picked up.",
+        name: "Tainted Lost", image: "img/Characters/Tainted/Tainted_Lost.png", description: "The Baleful. No health, no mantle, ''''better items'''' and no defensive items. You should use obstacles to your advantage, since most enemies don't have flight. Tainted Lost is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'The Lost'. Is recommended to unlock the 'Soul of The Lost' pickup, the 'Sacred Orb' item and the 'Crystal Key' trinket (Bonus for 'The Fool?' pickup). Lucas' note: Sneezing to hard could kill this guy *Tainted Azazel enters the room*.",
         stats: "HP: None<br>DMG: 3.50 (x1.3 multiplier)<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Soul_Heart.png"],
         startingItems: [
@@ -765,7 +765,7 @@ const gameData = {
         ]
     },
 "Tainted Lilith": {
-        name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The Harlot. Whips her unborn fetus out to deal massive melee damage. Tainted Lilith is unlocked via the same method as Tainted Isaac, but you need to play as Lilith. Is recommended to unlock Soul of Lilith, Twisted Pair and Fool's Gold. Lucas' note: Yeetus the fetus.",
+        name: "Tainted Lilith", image: "img/Characters/Tainted/Tainted_Lilith.png", description: "The Harlot. Whips her unborn fetus out to deal massive melee damage. Tainted Lilith is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Lilith'. Is recommended to unlock the 'Soul of Lilith' pickup, 'Twisted Pair' item and 'Fool's Gold' obstacle. Lucas' note: Yeetus the fetus.",
         stats: "HP: 1 Red, 2 Black<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Half_Red_Heart.png", "Half_Black_Heart.png"],
         startingItems: [],
@@ -780,14 +780,14 @@ const gameData = {
         ]
     },
 "Tainted Keeper": {
-        name: "Tainted Keeper", image: "img/Characters/Tainted/Tainted_Keeper.png", description: "The Miser. Enemies drop temporary coins on death, but all items costs money instead of finding them free. Try to be greedy and collect as much coiins as possible, even if you take damage, and atch out for nickels and dimes! Tainted Keeper is unlocked via the same method as Tainted Isaac, but you need to play as Keeper. Is recommended to unlock Soul of The Keeper, Keeper's Kin and Golden Penny (Bonus for 'The Hermit?'). Lucas' note: Capitalism at its finest.",
+        name: "Tainted Keeper", image: "img/Characters/Tainted/Tainted_Keeper.png", description: "The Miser. Enemies drop temporary coins on death, but all items costs money instead of being free. Try to be greedy and collect as much coiins as possible, even if you would take damage, and watch out for nickels and dimes! Tainted Keeper is unlocked via the same method as the chracter 'Tainted Isaac', but you need to play as the character 'Keeper'. Is recommended to unlock the 'Soul of the Keeper' and Golden Penny pickups and the 'Keeper's Kin' item (Bonus for 'The Hermit?' pickup). Lucas' note: Capitalism at its finest.",
         stats: "HP: 2 Coin Hearts<br>DMG: 4.20<br>Tears: 1.20<br>Speed: 0.85",
         effects: ["Double_Penny.png", "Golden_Penny.png"],
         startingItems: [
             { name: "1 Bomb", img: "Bomb.png", isEffectImg: true, tooltip: "Starts with a Bomb", condition: null }
         ],
         unlocks: [
-            { id: "t_keeper_1", boss: "Boss Rush & Hush", item: "Soul of The Keeper", diff: "Hard" },
+            { id: "t_keeper_1", boss: "Boss Rush & Hush", item: "Soul of the Keeper", diff: "Hard" },
             { id: "t_keeper_2", boss: "Isaac Moriah, ???, Satan & The Lamb", item: "Keeper's Bargain", diff: "Hard" },
             { id: "t_keeper_3", boss: "Mega Satan", item: "Golden Penny", diff: "Hard" },
             { id: "t_keeper_4", boss: "Delirium", item: "Keeper's Kin", diff: "Hard" },
@@ -797,7 +797,7 @@ const gameData = {
         ]
     },
 "Tainted Apollyon": {
-        name: "Tainted Apollyon", image: "img/Characters/Tainted/Tainted_Apollyon.png", description: "The Empty. Sucks up items to create an army of locusts with Abyss. You can use the same strategy as Appolyon with Void, but with Abyss. Tainted Appolyon is unlocked via the same method as Tainted Isaac, but you need to play as Apollyon. Is recommended to unlock Soul of Appolyon, Echo Chamber and 'The Tower?' (Bonus for Rotten Beggar). Lucas' note: When in doubt, make a fly.",
+        name: "Tainted Apollyon", image: "img/Characters/Tainted/Tainted_Apollyon.png", description: "The Empty. Sucks up items to create an army of locusts with the 'Abyss' item. Tainted Appolyon is unlocked via the same method as the character 'Tainted Isaac', but you need to play as the character 'Apollyon'. Is recommended to unlock the 'Soul of Appolyon' and 'The Tower?' pickup and the 'Echo Camber' item (Bonus for the 'Cricket's leg' trinket). Lucas' note: When in doubt, make a locust.",
         stats: "HP: 2 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -817,7 +817,7 @@ const gameData = {
         name: "Tainted Forgotten", 
         image: "img/Characters/Tainted/Tainted_Forgotten.png", 
         image2: "img/Characters/Tainted/Tainted_Soul.png",
-        description: "The Fettered. The soul carries the skeleton and literally throws it at enemies to deal damage. The Tainted Soul alone can't deal any damage by itself. Is recommended to unlock Soul of The Forgotten, Golden Battery and Polished Bones (Bonus for 'Death?' and Isaac's Tomb). Lucas' Note: Ludovico special + American Football simulator.",
+        description: "The Fettered. The Tainted Soul carries Tainted Forgotten and literally throws it at enemies to deal damage. The Tainted Soul alone can't deal any damage by itself, depending of Tainted Forgotten do to so. Is recommended to unlock the 'Soul of The Forgotten' and 'Golden Battery' pickups and 'Polished Bones' trinket (Bonus for 'Death?' pickup and 'Isaac's Tomb' item). Lucas' Note: Ludovico special + American Football simulator.",
         stats: "HP: 3 Soul<br>DMG: 3.50 (x1.5 Bone damage)<br>Tears: 1.20<br>Speed: 1.30",
         effects: ["Soul_Heart.png"],
         startingItems: [],
@@ -848,9 +848,9 @@ const gameData = {
             { id: "t_bethany_7", boss: "Greedier Mode", item: "The Hierophant?", diff: "Hard" }
         ]
     },
-"Tainted Jacob": {
-        name: "Tainted Jacob", image: "img/Characters/Tainted/Tainted_Jacob.png", 
-        description: "The Deserter. Chased endlessly by Dark Esau. Touching him turns you into a mantle-less ghost. At the end of the floor, turn yourself into a ghost to enter the devil room, because Ghost Tainted Jacob have the same propieties of The Lost when on Devil Deals. Is recommended to unlock Soul of Jacob & Esau, 'The Sun?' & 'The Moon?' and Golden Trinkets. (Bonus for Esau Jr and Found Soul). Lucas' note: You thought Jacob & Esau was bad? Now one of them is actively trying to kill you + Tainted Lost experience.",
+"Tainted Jacob & Dark Esau": {
+        name: "Tainted Jacob & Dark Esau", image: "img/Characters/Tainted/Tainted_Jacob.png", 
+        description: "The Deserter. Chased endlessly by 'Tainted' Esau. Touching him turns you into a mantle-less ghost (like the character 'Tainted Lost'). A good strategy is, at the end of the floor, turn yourself into the ghost form to enter the devil room, because Ghost Tainted Jacob have the same propieties of the character 'The Lost' (or 'Tainted Lost') when on devil deals. Is recommended to unlock the 'Soul of Jacob & Esau' and 'The Sun?' & 'The Moon?' pickups and the 'Golden Trinkets' event. (Bonus for the 'Esau Jr' item and the 'Found Soul' trinket). Lucas' note: You thought Jacob & Esau was bad? Now one of them is actively trying to kill you + Tainted Lost experience.",
         stats: "HP: 3 Red<br>DMG: 3.50<br>Tears: 2.73<br>Speed: 1.00",
         effects: ["Red_Heart.png"],
         startingItems: [
@@ -883,6 +883,7 @@ const screens = document.querySelectorAll('.screen');
 const navButtons = document.querySelectorAll('[data-view]');
 const greedCoinTotal = document.getElementById('greed-coin-total');
 const greedMachineCounter = document.getElementById('greed-machine-counter');
+const greedMachine = document.querySelector('.greed-machine');
 const greedUnlocks = document.getElementById('greed-unlocks');
 const challengeGrid = document.getElementById('challenge-grid');
 const challengeProgress = document.getElementById('challenge-progress');
@@ -1070,14 +1071,17 @@ function playMusic(mode) {
     if (!musicSource.src.includes(newSrc)) {
         musicSource.src = newSrc;
         audioPlayer.load();
+        audioPlayer.volume = 0.2;
         audioPlayer.play().catch(() => {});
     }
 }
 
 function playSFX(id) {
+    if (sfxMuted) return;
     const sfx = document.getElementById(id);
     if (sfx) {
         sfx.currentTime = 0;
+        sfx.volume = 0.2;
         sfx.play().catch(() => {});
     }
 }
@@ -1101,6 +1105,7 @@ function playCoinSoundRepeated(id, count) {
     for (let i = 0; i < maxSounds; i++) {
         const timer = setTimeout(() => {
             const sound = source.cloneNode(true);
+            sound.volume = 0.2;
             coinSoundState.sounds.push(sound);
             sound.play().catch(() => {});
             sound.addEventListener('ended', () => {
@@ -1335,17 +1340,115 @@ function showView(viewId) {
         screen.classList.toggle('active', screen.id === viewId);
     });
 
-    if (viewId === 'greed-screen') renderGreedMachine();
+    if (viewId === 'greed-screen') {
+        const shopkeeperLeft = document.querySelector('.shopkeeper-left');
+        const shopkeeperRight = document.querySelector('.shopkeeper-right');
+        const special = Math.random() < 0.01;
+        if (shopkeeperLeft && shopkeeperRight) {
+            shopkeeperLeft.src = special ? 'img/Special_Shopkeeper.png' : 'img/Shopkeeper.png';
+            shopkeeperRight.src = special ? 'img/Special_Hanging_Shopkeeper.png' : 'img/Hanging_Shopkeeper.png';
+            shopkeeperLeft.alt = special ? 'Special Shopkeeper' : 'Shopkeeper';
+            shopkeeperRight.alt = special ? 'Special Hanging Shopkeeper' : 'Hanging Shopkeeper';
+        }
+        renderGreedMachine();
+    }
     if (viewId === 'challenges-screen') renderChallenges();
     if (viewId === 'daily-screen') renderDailyRuns();
+}
+
+function showConfirmDialog(screenInfo, onConfirm) {
+    if (!popupOverlay || !popupContent) return;
+    popupContent.innerHTML = `
+        <div class="item-popup-header">
+            <img src="img/R_Key.png" alt="R Key">
+            <div>
+                <h2 id="item-popup-title">Reset ${screenInfo}</h2>
+                <p class="item-popup-label">Confirm Reset</p>
+            </div>
+        </div>
+        <div class="item-popup-details">
+            <p>are you REALLY sure you want to reset?</p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+                <button id="confirm-reset-btn" class="confirm-btn">R Key</button>
+                <button id="cancel-reset-btn" class="cancel-btn">Not yet...</button>
+            </div>
+        </div>
+    `;
+    popupOverlay.classList.add('active');
+    popupOverlay.setAttribute('aria-hidden', 'false');
+
+    document.getElementById('confirm-reset-btn')?.addEventListener('click', () => {
+        hideSearchPopup();
+        onConfirm();
+    });
+    document.getElementById('cancel-reset-btn')?.addEventListener('click', () => {
+        hideSearchPopup();
+    });
+}
+
+function resetUnlocksProgress() {
+    const unlockIds = new Set();
+    Object.values(gameData).forEach(charData => charData.unlocks.forEach(unlock => {
+        unlockIds.add(unlock.id);
+        const bosses = unlock.boss.split(/,\s*|\s*&\s*/);
+        bosses.forEach(boss => unlockIds.add(`${unlock.id}_${boss}`));
+    }));
+    globalSpecialUnlocks.forEach(unlock => unlockIds.add(unlock.id));
+
+    Object.keys(userProgress).forEach(key => {
+        if (unlockIds.has(key)) {
+            delete userProgress[key];
+        }
+    });
+    saveProgress();
+    renderAll();
+}
+
+function resetGreedProgress() {
+    greedCoins = 0;
+    saveGreedProgress();
+    greedDonationUnlocks.forEach(unlock => delete userProgress[unlock.id]);
+    saveProgress();
+    renderAll();
+}
+
+function resetChallengesProgress() {
+    challengeData.forEach(challenge => delete userProgress[challenge.id]);
+    saveProgress();
+    renderAll();
+}
+
+function resetDailyProgress() {
+    dailyProgress = { played: 0, wins: 0, streak: 0 };
+    saveDailyProgress();
+    dailyAchievements.forEach(achievement => delete userProgress[achievement.id]);
+    saveProgress();
+    renderAll();
+}
+
+function bindResetButtons() {
+    const mapping = [
+        { id: 'reset-unlocks-btn', info: 'Unlocks screen', action: resetUnlocksProgress },
+        { id: 'reset-greed-btn', info: 'Greed Donation Machine', action: resetGreedProgress },
+        { id: 'reset-challenges-btn', info: 'Challenges', action: resetChallengesProgress },
+        { id: 'reset-daily-btn', info: 'Daily Run', action: resetDailyProgress }
+    ];
+    mapping.forEach(entry => {
+        const btn = document.getElementById(entry.id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                showConfirmDialog(entry.info, entry.action);
+            });
+        }
+    });
 }
 
 function syncGreedUnlocks() {
     let changed = false;
     greedDonationUnlocks.forEach(unlock => {
         const shouldUnlock = greedCoins >= unlock.coins;
-        if (shouldUnlock && !userProgress[unlock.id]) {
-            userProgress[unlock.id] = true;
+        if (userProgress[unlock.id] !== shouldUnlock) {
+            userProgress[unlock.id] = shouldUnlock;
             changed = true;
         }
     });
@@ -1401,11 +1504,36 @@ function updateProgressDisplay() {
     if (progressText) progressText.innerText = `${completed}/${total}`;
 }
 
+function isCharacterUnlocked(charName) {
+    const charData = gameData[charName];
+    if (!charData) return false;
+    if (charData.name === 'Isaac') return true;
+    const key = `char_unlocked_${sanitizeKey(charData.name)}`;
+    if (userProgress[key]) return true;
+    // consider auto-unlocked by completing all marks
+    if (areCharacterMarksComplete(charData)) return true;
+    return false;
+}
+
+function syncCharacterUnlockedFlags() {
+    let changed = false;
+    Object.values(gameData).forEach(charData => {
+        const key = `char_unlocked_${sanitizeKey(charData.name)}`;
+        if (areCharacterMarksComplete(charData) && !userProgress[key]) {
+            userProgress[key] = true;
+            changed = true;
+        }
+    });
+    if (changed) saveProgress();
+}
+
 function populateSelect() {
+    syncCharacterUnlockedFlags();
     select.innerHTML = '';
     const chars = Object.keys(gameData).filter(c => {
         const isTaintedChar = c.startsWith("Tainted");
-        return isTaintedMode ? isTaintedChar : !isTaintedChar;
+        if (!(isTaintedMode ? isTaintedChar : !isTaintedChar)) return false;
+        return isCharacterUnlocked(c);
     });
 
     chars.forEach(char => {
@@ -1483,6 +1611,16 @@ function getConditionText(item) {
     return `${unlock.boss}: ${unlock.item}`;
 }
 
+function getUnlockMethodFromDescription(desc) {
+    if (!desc) return null;
+    const s = String(desc);
+    const m = s.match(/is unlocked by ([^.]+)\.?/i);
+    if (m) return `Unlocked by ${m[1].trim()}.`;
+    // fallback: return first sentence
+    const first = s.split('.').map(p=>p.trim()).find(Boolean);
+    return first ? `${first}.` : null;
+}
+
 function createEffectChip(effect) {
     const chip = document.createElement('span');
     chip.className = 'effect-chip';
@@ -1505,22 +1643,52 @@ function renderCharInfo() {
     const char = select.value;
     const charData = gameData[char];
     if (!charData) return;
+    const unlockedKey = `char_unlocked_${sanitizeKey(charData.name)}`;
+    const unlocked = Boolean(userProgress[unlockedKey]) || charData.name === 'Isaac';
 
     charName.textContent = charData.name;
-    charDesc.textContent = charData.description;
+    // if locked, show only unlock method in description
+    if (!unlocked) {
+        charDesc.textContent = getUnlockMethodFromDescription(charData.description) || 'Locked. Unlock condition unknown.';
+    } else {
+        charDesc.textContent = charData.description;
+    }
     charStats.innerHTML = renderStats(charData);
 
     charImageContainer.innerHTML = '';
     const mainImg = document.createElement('img');
     mainImg.src = charData.image;
     mainImg.alt = charData.name;
+    if (!unlocked) mainImg.classList.add('locked');
     charImageContainer.appendChild(mainImg);
     
     if (charData.image2) {
         const secondImg = document.createElement('img');
         secondImg.src = charData.image2;
         secondImg.alt = `${charData.name} 2`;
+        if (!unlocked) secondImg.classList.add('locked');
         charImageContainer.appendChild(secondImg);
+    }
+
+    // add Unlock button if locked
+    const existingBtn = document.getElementById('unlock-char-btn');
+    if (!unlocked && !existingBtn) {
+        const btn = document.createElement('button');
+        btn.id = 'unlock-char-btn';
+        btn.type = 'button';
+        btn.textContent = 'Unlocked?';
+        btn.className = 'unlock-char-btn';
+        btn.addEventListener('click', () => {
+            // mark special key and all unlocks for this char as completed
+            userProgress[unlockedKey] = true;
+            if (charData.unlocks && Array.isArray(charData.unlocks)) {
+                charData.unlocks.forEach(u => { if (u && u.id) userProgress[u.id] = true; });
+            }
+            saveProgress();
+            playSFX('sfx-mark-complete');
+            renderAll();
+        });
+        charImageContainer.appendChild(btn);
     }
 
     charEffects.innerHTML = '';
@@ -1611,79 +1779,46 @@ function renderCharInfo() {
 }
 
 function renderSpecialGlobalUnlocks() {
-    let specialContainer = document.getElementById('special-unlocks');
-    if (!specialContainer) {
-        specialContainer = document.createElement('div');
-        specialContainer.id = 'special-unlocks';
-        specialContainer.className = 'special-unlocks';
-        grid.parentNode.insertBefore(specialContainer, grid);
-    }
+    // This function is now integrated into renderUnlocks
+    // No separate container needed
+}
 
+function showGlobalSpecialUnlockPopup(unlock) {
+    if (!popupOverlay || !popupContent) return;
+    
     const characters = getGlobalSpecialCharacters();
     const goal = characters.length;
-    specialContainer.innerHTML = '';
-
-    globalSpecialUnlocks.forEach(unlock => {
-        const count = getGlobalSpecialCount(unlock.id);
-        const completed = count >= goal;
-        userProgress[unlock.id] = completed;
-
-        const card = document.createElement('div');
-        card.className = `unlock-card special-unlock-card ${completed ? 'completed' : ''}`;
-        card.title = getItemTooltip(unlock.item);
-
-        const img = document.createElement('img');
-        img.className = 'unlock-item-img';
-        img.alt = unlock.item;
-        img.title = getItemTooltip(unlock.item);
-        setImageWithFallback(img, getUnlockImageCandidates("Isaac", unlock.item));
-
-        const title = document.createElement('div');
-        title.className = 'boss-name';
-        title.textContent = unlock.boss;
-
-        const itemName = document.createElement('div');
-        itemName.className = 'item-name';
-        itemName.textContent = unlock.item;
-
-        const counter = document.createElement('div');
-        counter.className = 'special-counter';
-        counter.textContent = `${count}/${goal}`;
-
-        const difficulty = document.createElement('div');
-        difficulty.className = 'difficulty hard-mode';
-        difficulty.textContent = unlock.diff;
-
-        const subBosses = document.createElement('div');
-        subBosses.className = 'sub-boss-container';
-        characters.forEach(charData => {
-            const subId = getGlobalSpecialCharacterId(unlock.id, charData.name);
-            const sourceUnlock = getGlobalSpecialSourceUnlock(unlock.id, charData);
-            const button = document.createElement('button');
-            button.className = `sub-boss-btn ${userProgress[subId] || (userProgress[unlock.id] && count === goal) ? 'active' : ''}`;
-            button.dataset.subid = subId;
-            if (sourceUnlock) {
-                button.title = `${sourceUnlock.boss}: ${sourceUnlock.item}`;
-            }
-            button.textContent = charData.name;
-            button.addEventListener('click', event => {
-                event.stopPropagation();
-                const completed = toggleGlobalSpecialCharacterProgress(unlock.id, charData);
-                playSFX(completed ? 'sfx-mark-complete' : 'sfx-mark-incomplete');
-                saveProgress();
-                renderAll();
-            });
-            subBosses.appendChild(button);
-        });
-
-        card.appendChild(title);
-        card.appendChild(img);
-        card.appendChild(itemName);
-        card.appendChild(counter);
-        card.appendChild(difficulty);
-        card.appendChild(subBosses);
-        specialContainer.appendChild(card);
+    const count = getGlobalSpecialCount(unlock.id);
+    const imageUrl = getUnlockImageCandidates("Isaac", unlock.item)[0];
+    
+    let charactersList = '<div style="max-height: 40vh; overflow-y: auto; padding-right: 8px;">';
+    characters.forEach(charData => {
+        const subId = getGlobalSpecialCharacterId(unlock.id, charData.name);
+        const isCompleted = userProgress[subId];
+        charactersList += `<div style="padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); ${isCompleted ? 'text-decoration: line-through; opacity: 0.6;' : ''};">${charData.name}</div>`;
     });
+    charactersList += '</div>';
+
+    popupContent.innerHTML = `
+        <div class="item-popup-header">
+            <img src="${imageUrl}" alt="${unlock.item}" onerror="this.src='img/Search/Items/no_set.png'">
+            <div>
+                <h2 id="item-popup-title">${unlock.item}</h2>
+                <p class="item-popup-label">Special Unlock</p>
+                <div class="item-popup-meta">
+                    <span class="meta-pill"><strong>Progress:</strong> ${count}/${goal}</span>
+                </div>
+            </div>
+        </div>
+        <div class="item-popup-details">
+            <p><strong>Description:</strong> ${unlock.id === 'global_mega_blast' ? 'Defeat Mega Satan with all normal characters on hard mode' : 'Complete all completion marks on hard mode with all normal characters'}</p>
+            <p><strong>Characters:</strong></p>
+            ${charactersList}
+        </div>
+    `;
+
+    popupOverlay.classList.add('active');
+    popupOverlay.setAttribute('aria-hidden', 'false');
 }
 
 function renderUnlocks() {
@@ -1692,12 +1827,62 @@ function renderUnlocks() {
     const charData = gameData[char];
     if (!charData) return;
     syncGlobalSpecialUnlocks();
-    renderSpecialGlobalUnlocks();
+    
     const unlocks = getUnlocksForCharacter(charData);
 
     const checkAllComplete = () => {
         return unlocks.every(u => userProgress[u.id]);
     };
+
+    // Add special unlocks first if not in tainted mode
+    if (!isTaintedMode) {
+        const characters = getGlobalSpecialCharacters();
+        const goal = characters.length;
+        globalSpecialUnlocks.forEach(unlock => {
+            const count = getGlobalSpecialCount(unlock.id);
+            const completed = count >= goal;
+            userProgress[unlock.id] = completed;
+
+            const card = document.createElement('div');
+            card.className = `unlock-card special-unlock-card ${completed ? 'completed' : ''}`;
+            card.style.cursor = 'pointer';
+
+            const img = document.createElement('img');
+            img.className = 'unlock-item-img';
+            img.alt = unlock.item;
+            img.title = 'Click to manage characters';
+            img.style.cursor = 'pointer';
+            setImageWithFallback(img, getUnlockImageCandidates("Isaac", unlock.item));
+            
+            img.addEventListener('click', () => {
+                showGlobalSpecialUnlockPopup(unlock);
+            });
+
+            const title = document.createElement('div');
+            title.className = 'boss-name';
+            title.textContent = unlock.item;
+
+            const itemName = document.createElement('div');
+            itemName.className = 'item-name';
+            itemName.textContent = unlock.item;
+
+            const counter = document.createElement('div');
+            counter.className = 'special-counter';
+            counter.textContent = `${count}/${goal}`;
+
+            const difficulty = document.createElement('div');
+            difficulty.className = 'difficulty hard-mode';
+            difficulty.textContent = unlock.diff;
+
+                    card.appendChild(title);
+            card.appendChild(img);
+            card.appendChild(itemName);
+            card.appendChild(counter);
+            card.appendChild(difficulty);
+            card.addEventListener('click', () => showGlobalSpecialUnlockPopup(unlock));
+            grid.appendChild(card);
+        });
+    }
 
     unlocks.forEach(unlock => {
         const card = document.createElement('div');
@@ -1799,10 +1984,14 @@ function renderUnlocks() {
 
 function renderGreedMachine() {
     syncGreedUnlocks();
+    if (greedMachine) {
+        greedMachine.classList.toggle('broken', greedCoins >= 1000);
+    }
     if (greedCoinTotal) greedCoinTotal.textContent = greedCoins;
     if (greedMachineCounter) {
         greedMachineCounter.innerHTML = '';
-        String(greedCoins).padStart(3, '0').slice(-3).split('').forEach(digit => {
+        const counterText = greedCoins >= 1000 ? String(greedCoins) : String(greedCoins).padStart(3, '0');
+        counterText.split('').forEach(digit => {
             const digitEl = document.createElement('span');
             digitEl.className = 'machine-counter-digit';
             digitEl.textContent = digit;
@@ -2003,6 +2192,10 @@ renderAll();
 
 const itemsMenuBtn = document.querySelector('.menu-btn[data-view="items-screen"]');
 const searchBar = document.getElementById('item-search-bar');
+const itemFilterSelect = document.getElementById('item-filter-select');
+const itemSubfilterSelect = document.getElementById('item-subfilter-select');
+const qualityPicker = document.getElementById('quality-picker');
+let qualityFilter = null; // null = no specific quality, number 0-4 = selected
 const itemsSearchCount = document.getElementById('items-search-count');
 const itemsContainer = document.getElementById('items-container');
 let searchableEntries = [];
@@ -2029,6 +2222,104 @@ function fetchItems() {
     }));
 
     searchableEntries = [...itemsData, ...transformationsData];
+    renderSearchResults();
+    // populate subfilter options now that searchableEntries exists
+    try { updateSubFilterOptions(); } catch(e) {}
+}
+
+function extractQualityNumber(quality) {
+    if (quality === null || typeof quality === 'undefined') return null;
+    const s = String(quality || '').toLowerCase();
+    const m = s.match(/([0-4])/);
+    return m ? Number(m[1]) : null;
+}
+
+function normalizeForKey(text) {
+    if (!text && text !== 0) return '';
+    try {
+        return String(text).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    } catch (e) {
+        return String(text).toLowerCase().trim();
+    }
+}
+
+function titleCase(text) {
+    if (!text) return '';
+    return String(text).toLowerCase().split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
+function updateSubFilterOptions() {
+    if (!itemFilterSelect || !itemSubfilterSelect) return;
+    const filter = itemFilterSelect.value;
+    itemSubfilterSelect.innerHTML = '';
+    // reset visual quality picker
+    if (qualityPicker) qualityPicker.innerHTML = '';
+    qualityFilter = null;
+    if (filter === 'qualities') {
+        // show visual quality buttons (icons + label)
+        if (qualityPicker) {
+            const allBtn = document.createElement('button');
+            allBtn.type = 'button';
+            allBtn.className = 'quality-option quality-option-all selected';
+            allBtn.textContent = 'All Qualities';
+            allBtn.addEventListener('click', () => setQualityFilter('all', allBtn));
+            qualityPicker.appendChild(allBtn);
+            for (let q = 0; q <= 4; q++) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'quality-option';
+                const img = document.createElement('img');
+                img.src = `img/Search/Quality/Quality${q}.png`;
+                img.alt = `Quality ${q}`;
+                img.onerror = () => { img.src = 'img/Search/Items/no_set.png'; };
+                const span = document.createElement('span');
+                span.textContent = `Quality ${q}`;
+                btn.appendChild(img);
+                btn.appendChild(span);
+                btn.addEventListener('click', () => setQualityFilter(q, btn));
+                qualityPicker.appendChild(btn);
+            }
+            qualityPicker.style.display = '';
+        }
+        // hide textual select for qualities (we use visual picker)
+        itemSubfilterSelect.style.display = 'none';
+    } else if (filter === 'pools') {
+        // collect unique pools from searchableEntries and normalize keys to remove accents/capitalization duplicates
+        const poolMap = new Map(); // key(normalized) => displayName
+        searchableEntries.forEach(entry => {
+            if (entry.type === 'item' && entry.pool) {
+                const parts = String(entry.pool).split(',').map(p => p.trim()).filter(Boolean);
+                parts.forEach(rawPart => {
+                    const key = normalizeForKey(rawPart);
+                    if (key && !poolMap.has(key)) poolMap.set(key, titleCase(rawPart));
+                });
+            }
+        });
+        const poolList = Array.from(poolMap.entries()).sort((a,b) => a[1].localeCompare(b[1]));
+        const allOpt = document.createElement('option');
+        allOpt.value = 'all';
+        allOpt.textContent = 'All Pools';
+        itemSubfilterSelect.appendChild(allOpt);
+        poolList.forEach(([key, display]) => {
+            const opt = document.createElement('option');
+            opt.value = key;
+            opt.textContent = display;
+            itemSubfilterSelect.appendChild(opt);
+        });
+        itemSubfilterSelect.style.display = '';
+        if (qualityPicker) qualityPicker.style.display = 'none';
+    } else {
+        itemSubfilterSelect.style.display = 'none';
+    }
+}
+
+function setQualityFilter(value, clickedBtn) {
+    // value is 'all' or number
+    qualityFilter = value === 'all' ? 'all' : Number(value);
+    // update selected class
+    if (!qualityPicker) return;
+    Array.from(qualityPicker.children).forEach(child => child.classList.remove('selected'));
+    if (clickedBtn) clickedBtn.classList.add('selected');
     renderSearchResults();
 }
 
@@ -2129,6 +2420,7 @@ function showSearchPopup(entry) {
     const imageUrl = getSearchIconUrl(entry);
     const qualityInfo = entry.type === 'item' ? getQualityInfo(entry.quality) : null;
     const poolInfo = entry.type === 'item' ? getPoolInfo(entry.pool) : null;
+    const displayPoolName = entry && entry.pool ? String(entry.pool).split(',').map(p => titleCase(normalizeForKey(p))).join(', ') : null;
     const transformationName = entry.type === 'item' ? getTransformationName(entry) : entry.type === 'transformation' ? entry.name : null;
     const transformationIcon = getTransformationIcon(transformationName);
     const transformationLabel = transformationName || (entry.type === 'item' ? entry.transformation || 'Nenhuma' : 'Sem transformação');
@@ -2142,14 +2434,17 @@ function showSearchPopup(entry) {
                 <p class="item-popup-label">${entry.type === 'item' ? 'Item' : 'Transformation'}</p>
                 <div class="item-popup-meta">
                     ${qualityInfo ? `<span class="meta-pill quality-pill ${qualityClass}" title="${qualityInfo.tooltip}"><img src="${qualityInfo.src}" alt="Quality icon" onerror="this.src='img/Search/Items/no_set.png'"><span>${qualityInfo.label}</span></span>` : ''}
-                    ${poolInfo ? `<span class="meta-pill" title="${poolInfo.tooltip}"><img src="${poolInfo.src}" alt="Pool icon" onerror="this.src='img/Search/Items/no_set.png'"><span>${entry.pool}</span></span>` : ''}
+                    ${poolInfo ? `<span class="meta-pill" title="${poolInfo.tooltip}"><img src="${poolInfo.src}" alt="Pool icon" onerror="this.src='img/Search/Items/no_set.png'"><span>${displayPoolName || entry.pool}</span></span>` : ''}
                 </div>
             </div>
         </div>
         <div class="item-popup-details">
             <p><strong>Descripcion:</strong> ${entry.description || 'No given description.'}</p>
             <p><strong>Functionality:</strong> ${entry.functionality || 'No given functionality.'}</p>
-            ${entry.type === 'item' ? `<p><strong>ID:</strong> ${entry.id || 'N/A'}</p>` : `<p><strong>Method:</strong> ${entry.functionality || 'Nenhuma informação.'}</p>`}
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                ${entry.type === 'item' ? `<p style="flex: 1; margin: 0;"><strong>ID:</strong> ${entry.id || 'N/A'}</p>` : ''}
+                ${entry.type === 'item' ? `<p style="flex: 1; margin: 0;"><strong>Quality:</strong> ${qualityInfo ? qualityInfo.label : 'N/A'}</p>` : ''}
+            </div>
             ${entry.type === 'item' ? `<p class="item-popup-transformation"><strong>Transformation:</strong> <img src="${transformationIcon}" alt="Transformation icon" onerror="this.src='img/Search/Items/no_set.png'"> ${transformationLabel}</p>` : ''}
         </div>
     `;
@@ -2168,12 +2463,38 @@ function renderSearchResults() {
     if (!itemsContainer) return;
     const term = searchBar ? searchBar.value.toLowerCase() : '';
     
-    const entries = searchableEntries.filter(entry => {
+    let entries = searchableEntries.filter(entry => {
         const name = entry.name ? entry.name.toLowerCase() : '';
         const desc = entry.description ? entry.description.toLowerCase() : '';
         const func = entry.functionality ? entry.functionality.toLowerCase() : '';
         return name.includes(term) || desc.includes(term) || func.includes(term);
     });
+
+    // Apply filter select if present
+    const filter = itemFilterSelect ? itemFilterSelect.value : 'all';
+    if (filter && filter !== 'all') {
+        if (filter === 'items') entries = entries.filter(e => e.type === 'item');
+        if (filter === 'transformations') entries = entries.filter(e => e.type === 'transformation');
+        if (filter === 'qualities') entries = entries.filter(e => e.type === 'item' && extractQualityNumber(e.quality) !== null);
+        if (filter === 'pools') entries = entries.filter(e => e.type === 'item' && e.pool && String(e.pool).toLowerCase() !== 'n/a');
+    }
+
+    // apply subfilter when available: qualityPicker (visual) takes precedence over subselect
+    if (filter === 'qualities') {
+        if (qualityFilter !== null && qualityFilter !== 'all') {
+            entries = entries.filter(e => extractQualityNumber(e.quality) === Number(qualityFilter));
+        }
+        // fallback to select if visible
+        if ((qualityFilter === null || qualityFilter === 'all') && itemSubfilterSelect && itemSubfilterSelect.style.display !== 'none') {
+            const subVal = itemSubfilterSelect.value;
+            if (subVal && subVal !== 'all') entries = entries.filter(e => extractQualityNumber(e.quality) === Number(subVal));
+        }
+    } else if (filter === 'pools') {
+        if (itemSubfilterSelect && itemSubfilterSelect.style.display !== 'none') {
+            const subVal = itemSubfilterSelect.value;
+            if (subVal && subVal !== 'all') entries = entries.filter(e => e.pool && String(e.pool).split(',').map(p=>normalizeForKey(p)).includes(subVal));
+        }
+    }
 
     itemsContainer.innerHTML = '';
     if (itemsSearchCount) {
@@ -2199,12 +2520,20 @@ function renderSearchResults() {
             showSearchPopup(entry);
         });
 
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'item-card-name';
+        nameDiv.textContent = entry.name;
+
         card.appendChild(button);
+        card.appendChild(nameDiv);
         itemsContainer.appendChild(card);
     });
 }
 
 if (searchBar) searchBar.addEventListener('input', renderSearchResults);
+if (itemFilterSelect) itemFilterSelect.addEventListener('change', renderSearchResults);
+if (itemFilterSelect) itemFilterSelect.addEventListener('change', updateSubFilterOptions);
+if (itemSubfilterSelect) itemSubfilterSelect.addEventListener('change', renderSearchResults);
 if (popupCloseBtn) popupCloseBtn.addEventListener('click', hideSearchPopup);
 if (popupOverlay) popupOverlay.addEventListener('click', (event) => {
     if (event.target === popupOverlay) hideSearchPopup();
@@ -2217,18 +2546,137 @@ setTimeout(fetchItems, 100);
 
 const musicToggleBtn = document.getElementById('music-toggle-btn');
 const bgMusic = document.getElementById('bg-music');
+let sfxMuted = false;
+const sfxToggleBtn = document.getElementById('sfx-toggle-btn');
+
+// Initialize audio buttons: show MUSIC ON by default and attempt autoplay on first interaction
+if (musicToggleBtn) {
+    musicToggleBtn.textContent = 'MUSIC ON';
+}
+if (sfxToggleBtn) {
+    sfxToggleBtn.textContent = 'SFX ON';
+}
+
+// Try to start music on first user interaction (gesture required by browsers)
+function startMusicOnUserGesture() {
+    if (!bgMusic) return;
+    if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+            if (musicToggleBtn) {
+                musicToggleBtn.textContent = 'MUSIC ON';
+                musicToggleBtn.classList.remove('music-muted');
+            }
+        }).catch(() => {});
+    }
+    document.removeEventListener('click', startMusicOnUserGesture);
+    document.removeEventListener('keydown', startMusicOnUserGesture);
+}
+document.addEventListener('click', startMusicOnUserGesture, { once: true });
+document.addEventListener('keydown', startMusicOnUserGesture, { once: true });
 
 if (musicToggleBtn && bgMusic) {
     musicToggleBtn.addEventListener('click', () => {
         if (bgMusic.paused) {
             bgMusic.play().then(() => {
-                musicToggleBtn.textContent = '🎵 ON';
+                musicToggleBtn.textContent = 'MUSIC ON';
                 musicToggleBtn.classList.remove('music-muted');
             }).catch(err => console.log("Audio play blocked", err));
         } else {
             bgMusic.pause();
-            musicToggleBtn.textContent = '🔇 OFF';
+            musicToggleBtn.textContent = 'MUSIC OFF';
             musicToggleBtn.classList.add('music-muted');
         }
     });
 }
+
+if (sfxToggleBtn) {
+    sfxToggleBtn.addEventListener('click', () => {
+        sfxMuted = !sfxMuted;
+        if (sfxMuted) {
+            sfxToggleBtn.textContent = 'SFX OFF';
+            sfxToggleBtn.classList.add('music-muted');
+        } else {
+            sfxToggleBtn.textContent = 'SFX ON';
+            sfxToggleBtn.classList.remove('music-muted');
+        }
+    });
+}
+
+bindResetButtons();
+
+// Save & Load bindings initializer
+function initSaveScreenBindings() {
+    const exportBtn = document.getElementById('export-save-btn');
+    const downloadBtn = document.getElementById('download-save-btn');
+    const importBtn = document.getElementById('import-save-btn');
+    const clearBtn = document.getElementById('clear-save-btn');
+    const textarea = document.getElementById('save-textarea');
+
+    function buildSaveObject() {
+        return {
+            userProgress: userProgress || {},
+            greedCoins: greedCoins || 0,
+            dailyProgress: dailyProgress || {}
+        };
+    }
+
+    if (exportBtn && textarea) {
+        exportBtn.addEventListener('click', () => {
+            const data = JSON.stringify(buildSaveObject(), null, 2);
+            textarea.value = data;
+            try { navigator.clipboard.writeText(data); } catch (e) {}
+            alert('Save copied to textarea (and clipboard when allowed).');
+        });
+    }
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            const data = JSON.stringify(buildSaveObject(), null, 2);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'tbou_save.json';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        });
+    }
+
+    if (importBtn && textarea) {
+        importBtn.addEventListener('click', () => {
+            try {
+                const parsed = JSON.parse(textarea.value);
+                if (parsed.userProgress) userProgress = parsed.userProgress;
+                if (typeof parsed.greedCoins !== 'undefined') greedCoins = Number(parsed.greedCoins) || 0;
+                if (parsed.dailyProgress) dailyProgress = parsed.dailyProgress;
+                saveProgress();
+                saveGreedProgress();
+                saveDailyProgress();
+                renderAll();
+                alert('Save imported successfully.');
+            } catch (e) {
+                alert('Invalid save JSON.');
+            }
+        });
+    }
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (!confirm('Clear all saved data in localStorage? This cannot be undone.')) return;
+            localStorage.removeItem('isaacUnlocksProgress');
+            localStorage.removeItem('isaacGreedCoins');
+            localStorage.removeItem('isaacDailyProgress');
+            userProgress = {};
+            greedCoins = 0;
+            dailyProgress = { played:0, wins:0, streak:0 };
+            saveProgress(); saveGreedProgress(); saveDailyProgress();
+            renderAll();
+            alert('Saved data cleared.');
+        });
+    }
+}
+
+// Initialize save screen bindings after DOM is ready
+document.addEventListener('DOMContentLoaded', initSaveScreenBindings);
