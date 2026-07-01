@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <title>Painel do Administrador</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        body { 
+            font-family: 'Index', sans-serif; 
+            background-image: url(imagens/background_ADM.png); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white; 
+            padding: 20px; 
+            margin: 0;
+        }
+        .painel-container {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid gray;
+            box-shadow: 0px 0px 20px black;
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #222; }
+        th, td { border: 1px solid gray; padding: 10px; text-align: left; }
+        th { background-color: #54260d; }
+        button { cursor: pointer; padding: 5px 10px; font-family: 'Index';}
+        .btn-banir { background-color: red; color: white; border: none; border-radius: 3px;}
+        .btn-desbanir { background-color: green; color: white; border: none; border-radius: 3px;}
+        .btn-voltar { background-color: gray; color: white; padding: 10px; margin-top: 20px; border: none; cursor: pointer; font-family: 'Index';}
+    </style>
+</head>
+<body>
+    <div class="painel-container">
+        <h1 style="color: gold;">PAINEL DO ADMINISTRADOR</h1>
+        <h2>Gerenciamento de Usuários</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome de Usuário</th>
+                    <th>E-mail</th>
+                    <th>Cargo</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-usuarios">
+            </tbody>
+        </table>
+
+        <button class="btn-voltar" onclick="window.location.href='index.html'">Voltar ao Site</button>
+        <button class="btn-voltar" style="background-color: red;" onclick="sair()">Sair da Conta</button>
+    </div>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem('usuarioAtual'));
+        if (!user || user.cargo !== 'admin') {
+            window.location.href = 'index.html';
+        }
+
+        function carregarUsuarios() {
+            const usuariosDB = JSON.parse(localStorage.getItem('usuariosDB')) || [];
+            const tbody = document.getElementById('tabela-usuarios');
+            tbody.innerHTML = '';
+
+            usuariosDB.forEach((u, index) => {
+                if (u.nome === 'ADM') return; 
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${u.nome}</td>
+                    <td>${u.email || 'N/A'}</td>
+                    <td>${u.cargo}</td>
+                    <td style="color: ${u.banido ? 'red' : 'lightgreen'}">${u.banido ? 'BANIDO' : 'ATIVO'}</td>
+                    <td>
+                        <button class="${u.banido ? 'btn-desbanir' : 'btn-banir'}" onclick="alternarBan(${index})">
+                            ${u.banido ? 'Desbanir' : 'Banir'}
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function alternarBan(index) {
+            let usuariosDB = JSON.parse(localStorage.getItem('usuariosDB'));
+            usuariosDB[index].banido = !usuariosDB[index].banido;
+            localStorage.setItem('usuariosDB', JSON.stringify(usuariosDB));
+            carregarUsuarios();
+        }
+
+        function sair() {
+            localStorage.removeItem('usuarioAtual');
+            window.location.href = 'login.html';
+        }
+
+        carregarUsuarios();
+    </script>
+</body>
+</html>

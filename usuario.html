@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <title>Perfil do Usuário</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        body { 
+            font-family: 'Index', sans-serif; 
+            background-image: url(imagens/background_usuario.png); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white; 
+            display: flex; 
+            justify-content: center; 
+            padding-top: 50px; 
+            margin: 0;
+        }
+        .caixa_usuario { background-color: rgba(0, 0, 0, 0.85); padding: 30px; border-radius: 10px; border: 5px solid gray; box-shadow: 0px 0px 20px black; width: 400px; text-align: center; }
+        input, select { width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #54260d; background-color: #222; color: white; }
+        .btn-salvar { background-color: green; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; border-radius: 5px; font-family: 'Index'; font-size: 18px; margin-bottom: 10px;}
+        .btn-voltar { background-color: gray; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; border-radius: 5px; font-family: 'Index'; margin-bottom: 10px;}
+        .btn-sair { background-color: red; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; border-radius: 5px; font-family: 'Index';}
+    </style>
+</head>
+<body>
+    <div class="caixa_usuario">
+        <h2>Meu Perfil</h2>
+        <img id="preview-foto" src="" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; border: 2px solid white;">
+        
+        <input class="break" type="text" id="edit-nome" placeholder="Nome de Usuário" disabled title="O nome de usuário não pode ser mudado"><br>
+        <input type="email" id="edit-email" placeholder="E-mail">
+        <input type="date" id="edit-data">
+        <select id="edit-genero">
+            <option value="">Selecione o Gênero</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+        </select>
+        
+        <label style="display:block; margin-bottom: 5px;">Mudar Foto de Perfil:</label>
+        <input type="file" id="edit-foto" accept="image/*" style="font-size: 12px; margin-bottom: 20px;">
+        
+        <button class="btn-salvar" onclick="processarEdicao()">Salvar Alterações</button>
+        <button class="btn-voltar" onclick="voltar()">Voltar ao Site</button>
+        <button class="btn-sair" onclick="sair()">Sair da Conta</button>
+    </div>
+
+    <script>
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioAtual'));
+        if (!usuarioLogado) {
+            window.location.href = 'login.html';
+        } else {
+            document.getElementById('edit-nome').value = usuarioLogado.nome;
+            document.getElementById('edit-email').value = usuarioLogado.email || '';
+            document.getElementById('edit-data').value = usuarioLogado.dataNascimento || '';
+            document.getElementById('edit-genero').value = usuarioLogado.genero || '';
+            document.getElementById('preview-foto').src = usuarioLogado.foto || 'imagens/usuario_padrao.png';
+        }
+
+        function processarEdicao() {
+            const fotoInput = document.getElementById('edit-foto');
+            if (fotoInput.files.length > 0) {
+                const leitor = new FileReader();
+                leitor.onload = function(evento) {
+                    salvarDados(evento.target.result);
+                };
+                leitor.readAsDataURL(fotoInput.files[0]);
+            } else {
+                salvarDados(usuarioLogado.foto); 
+            }
+        }
+
+        function salvarDados(fotoFinal) {
+            let usuariosDB = JSON.parse(localStorage.getItem('usuariosDB'));
+            let index = usuariosDB.findIndex(u => u.nome === usuarioLogado.nome);
+
+            const dadosAtualizados = {
+                nome: document.getElementById('edit-nome').value,
+                email: document.getElementById('edit-email').value,
+                dataNascimento: document.getElementById('edit-data').value,
+                genero: document.getElementById('edit-genero').value,
+                foto: fotoFinal
+            };
+
+            usuariosDB[index] = { ...usuariosDB[index], ...dadosAtualizados };
+            localStorage.setItem('usuariosDB', JSON.stringify(usuariosDB));
+            localStorage.setItem('usuarioAtual', JSON.stringify(usuariosDB[index])); 
+            
+            alert("Perfil atualizado com sucesso!");
+            document.getElementById('preview-foto').src = fotoFinal;
+        }
+
+        function voltar() { window.location.href = 'index.html'; }
+        function sair() { localStorage.removeItem('usuarioAtual'); window.location.href = 'login.html'; }
+    </script>
+</body>
+</html>
