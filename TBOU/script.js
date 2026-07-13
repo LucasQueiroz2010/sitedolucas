@@ -492,7 +492,7 @@ const gameData = {
         name: "The Forgotten", 
         image: "img/Characters/Normal/The_Forgotten.png", 
         image2: "img/Characters/Normal/The_Soul.png", 
-        description: "Two characters in one: Melee skeleton and flying soul. The Forgotten is unlocked via a complicated proccess (Serach for the 'Broken Shovel 1' item for more info). Is recommended to unlock the 'Divorce Papers', 'The Book of the Dead' and 'Dad's Ring' items (bonus to the 'Marrow' and 'Brittle Bones' items). Lucas' note: Bonk/Scout simulador.",
+        description: "Is complicated! Search for the 'Broken Shovel 1' in TSOT for more information.",
         stats: "HP: 2 Bone (Soul has 1 Soul)<br>DMG: 5.25<br>Tears: 1.36<br>Speed: 1.00",
         effectGroups: [
             { label: "The Forgotten", effects: ["Bone_Heart.png"] },
@@ -545,7 +545,7 @@ const gameData = {
         ]
     },
 "Jacob & Esau": {
-        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "The twins. Control two characters at the exact same time with separate health and items. The best stragety is to not let them get separated at all. Jacob & Esau are unlocked by defeating the boss 'Mother' for the first time. Is recommended to unlock the 'Rock Bottom', 'Birthright' and 'The Stairway' items (bonus to the items 'Genesis' and 'Inner Child'). Lucas' note: The Jacob and Hitbox experience.",
+        name: "Jacob & Esau", image: "img/Characters/Normal/Jacob_&_Esau.png", description: "Defeat the boss 'Mother' for the first time.",
         stats: "Jacob stats:<br>HP: 3 Red<br>DMG: 2.75<br>Tears: 2.73<br>Speed: 1.00<br><br>Esau stats:<br>HP: 1 Red, 1 Soul<br>DMG: 3.75<br>Tears: 2.73<br>Speed: 1.00",
         effectGroups: [
             { label: "Jacob", effects: ["Red_Heart.png"] },
@@ -875,11 +875,15 @@ const charName = document.getElementById('char-name');
 const charDesc = document.getElementById('char-desc');
 const charStats = document.getElementById('char-stats');
 const charEffects = document.getElementById('char-effects');
+const charLockStatus = document.getElementById('char-lock-status');
 const startingItemsList = document.getElementById('starting-items-list');
 const grid = document.getElementById('unlock-grid');
 const progressText = document.getElementById('progress-text');
+const progressFill = document.getElementById('progress-fill');
 const charImageContainer = document.getElementById('char-image-container');
 const screens = document.querySelectorAll('.screen');
+const collectionCount = document.getElementById('collection-count');
+const collectionList = document.getElementById('collection-list');
 const navButtons = document.querySelectorAll('[data-view]');
 const greedCoinTotal = document.getElementById('greed-coin-total');
 const greedMachineCounter = document.getElementById('greed-machine-counter');
@@ -894,13 +898,32 @@ const dailyVictoryBtn = document.getElementById('daily-victory-btn');
 const dailyDefeatBtn = document.getElementById('daily-defeat-btn');
 
 let isTaintedMode = false;
-let userProgress = JSON.parse(localStorage.getItem('isaacUnlocksProgress')) || {};
-let greedCoins = Number(localStorage.getItem('isaacGreedCoins')) || 0;
-let dailyProgress = JSON.parse(localStorage.getItem('isaacDailyProgress')) || {
+
+function loadJSONStorage(key, fallback) {
+    const value = localStorage.getItem(key);
+    if (value === null || value === undefined) return fallback;
+    try {
+        const parsed = JSON.parse(value);
+        return parsed === null ? fallback : parsed;
+    } catch (error) {
+        console.warn(`Invalid JSON in localStorage for key ${key}. Resetting to default.`, error);
+        return fallback;
+    }
+}
+
+let userProgress = loadJSONStorage('isaacUnlocksProgress', {});
+let greedCoins = (() => {
+    const raw = localStorage.getItem('isaacGreedCoins');
+    return raw !== null ? Number(raw) || 0 : 0;
+})();
+let dailyProgress = loadJSONStorage('isaacDailyProgress', {
     played: 0,
     wins: 0,
     streak: 0
-};
+});
+
+const collectionStorageKey = 'tbouCollectionEntries';
+let collectionEntries = loadJSONStorage(collectionStorageKey, {});
 
 const globalSpecialUnlocks = [
     { id: "global_mega_blast", item: "Mega Blast", boss: "Mega Satan", diff: "Hard" },
@@ -1064,6 +1087,7 @@ const soundtrack = {
 
 const audioPlayer = document.getElementById('bg-music');
 const musicSource = document.getElementById('music-source');
+let musicMuted = false; // track music enabled/disabled state
 
 function playMusic(mode) {
     if (!audioPlayer || !musicSource) return;
@@ -1072,8 +1096,15 @@ function playMusic(mode) {
         musicSource.src = newSrc;
         audioPlayer.load();
         audioPlayer.volume = 0.2;
+    }
+    // Only start playing if music is not muted
+    if (!musicMuted) {
         audioPlayer.play().catch(() => {});
     }
+}
+
+function loadCollection() {
+    collectionEntries = loadJSONStorage(collectionStorageKey, {});
 }
 
 function playSFX(id) {
@@ -1354,6 +1385,7 @@ function showView(viewId) {
     }
     if (viewId === 'challenges-screen') renderChallenges();
     if (viewId === 'daily-screen') renderDailyRuns();
+    if (viewId === 'collection-screen') renderCollectionPage();
 }
 
 function showConfirmDialog(screenInfo, onConfirm) {
@@ -1396,7 +1428,7 @@ function resetUnlocksProgress() {
     globalSpecialUnlocks.forEach(unlock => unlockIds.add(unlock.id));
 
     Object.keys(userProgress).forEach(key => {
-        if (unlockIds.has(key)) {
+        if (unlockIds.has(key) || key.startsWith('char_unlocked_')) {
             delete userProgress[key];
         }
     });
@@ -1493,31 +1525,114 @@ function toggleProgress(id) {
 }
 
 function updateProgressDisplay() {
-    const char = select.value;
-    const charData = gameData[char];
-    if (!charData) return;
-    
     syncGlobalSpecialUnlocks();
-    const unlocks = getUnlocksForCharacter(charData);
-    const total = unlocks.length;
-    const completed = unlocks.filter(u => userProgress[u.id]).length;
-    if (progressText) progressText.innerText = `${completed}/${total}`;
+    const unlockTotal = Object.values(gameData).reduce((total, charData) => total + getUnlocksForCharacter(charData).length, 0) + (isTaintedMode ? 0 : globalSpecialUnlocks.length);
+    const unlockCompleted = Object.values(gameData).reduce((total, charData) => total + getUnlocksForCharacter(charData).filter(unlock => userProgress[unlock.id]).length, 0) + (isTaintedMode ? 0 : globalSpecialUnlocks.filter(unlock => userProgress[unlock.id]).length);
+    const challengeCompleted = challengeData.filter(challenge => userProgress[challenge.id]).length;
+    const greedCompleted = greedDonationUnlocks.filter(unlock => userProgress[unlock.id]).length;
+    const dailyCompleted = dailyAchievements.filter(achievement => userProgress[achievement.id]).length;
+    const collectionCompleted = Object.keys(collectionEntries).length;
+    // Exclude non-dead-god contributions (cards, pills, runes, soul stones, curses, characters, transformations)
+    const excludedTypesForProgress = ['card','pill','rune','soul_stone','curse','character','transformation'];
+    const searchableCount = (Array.isArray(searchableEntries) ? searchableEntries.filter(e => !excludedTypesForProgress.includes(e.type)) .length : 0);
+    const total = unlockTotal + challengeData.length + greedDonationUnlocks.length + dailyAchievements.length + Math.max(searchableCount, 1);
+    const completed = unlockCompleted + challengeCompleted + greedCompleted + dailyCompleted + collectionCompleted;
+
+    if (progressText) progressText.textContent = `${completed}/${total}`;
+    if (progressFill) progressFill.style.width = `${Math.min(100, Math.round((completed / total) * 100))}%`;
+}
+
+function saveCollection() {
+    localStorage.setItem(collectionStorageKey, JSON.stringify(collectionEntries));
+}
+
+function getCollectionEntryId(entry) {
+    return `${entry.type || 'entry'}:${entry.name || ''}`;
+}
+
+function isEntryCollected(entry) {
+    const id = getCollectionEntryId(entry);
+    return Boolean(collectionEntries[id]);
+}
+
+function toggleCollectionEntry(entry) {
+    const id = getCollectionEntryId(entry);
+    const isCollecting = !Boolean(collectionEntries[id]);
+    if (isCollecting) {
+        collectionEntries[id] = {
+            id,
+            name: entry.name,
+            image: entry.image,
+            type: entry.type || 'entry',
+            description: entry.description || entry.functionality || ''
+        };
+        playSFX('sfx-mark-complete');
+    } else {
+        delete collectionEntries[id];
+        playSFX('sfx-mark-incomplete');
+    }
+    saveCollection();
+    renderCollectionPage();
+    return isCollecting;
+}
+
+function renderCollectionPage() {
+    if (!collectionCount || !collectionList) return;
+    const excludedTypesForProgress = ['card','pill','rune','soul_stone','curse','character','transformation'];
+    const totalEntries = Array.isArray(searchableEntries) ? searchableEntries.filter(e => !excludedTypesForProgress.includes(e.type)).length : 0;
+    collectionCount.textContent = `${Object.keys(collectionEntries).length}/${Math.max(totalEntries, 1)} collected`;
+    collectionList.innerHTML = '';
+
+    const entries = Object.values(collectionEntries);
+    if (!entries.length) {
+        collectionList.innerHTML = '<p style="color:#aaa;">No entries collected yet.</p>';
+        return;
+    }
+
+    entries.forEach(entry => {
+        const item = document.createElement('div');
+        item.className = 'collection-item';
+
+        const icon = document.createElement('img');
+        icon.src = entry.image || 'img/Search/Items/no_set.png';
+        icon.alt = entry.name;
+
+        const details = document.createElement('div');
+        details.innerHTML = `<strong>${entry.name}</strong><div style="font-size:9px; color:#aaa;">${entry.type || 'entry'}</div>`;
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = 'Remove';
+        button.addEventListener('click', () => {
+            delete collectionEntries[entry.id];
+            saveCollection();
+            renderCollectionPage();
+        });
+
+        item.appendChild(icon);
+        item.appendChild(details);
+        item.appendChild(button);
+        collectionList.appendChild(item);
+    });
 }
 
 function isCharacterUnlocked(charName) {
     const charData = gameData[charName];
     if (!charData) return false;
     if (charData.name === 'Isaac') return true;
+    if (charData.name.startsWith('Tainted')) {
+        const key = `char_unlocked_${sanitizeKey(charData.name)}`;
+        return Boolean(userProgress[key]);
+    }
     const key = `char_unlocked_${sanitizeKey(charData.name)}`;
     if (userProgress[key]) return true;
-    // consider auto-unlocked by completing all marks
-    if (areCharacterMarksComplete(charData)) return true;
-    return false;
+    return areCharacterMarksComplete(charData);
 }
 
 function syncCharacterUnlockedFlags() {
     let changed = false;
     Object.values(gameData).forEach(charData => {
+        if (charData.name.startsWith('Tainted')) return;
         const key = `char_unlocked_${sanitizeKey(charData.name)}`;
         if (areCharacterMarksComplete(charData) && !userProgress[key]) {
             userProgress[key] = true;
@@ -1529,19 +1644,24 @@ function syncCharacterUnlockedFlags() {
 
 function populateSelect() {
     syncCharacterUnlockedFlags();
+    const previousValue = select.value;
     select.innerHTML = '';
     const chars = Object.keys(gameData).filter(c => {
         const isTaintedChar = c.startsWith("Tainted");
-        if (!(isTaintedMode ? isTaintedChar : !isTaintedChar)) return false;
-        return isCharacterUnlocked(c);
+        return isTaintedMode ? isTaintedChar : !isTaintedChar;
     });
 
     chars.forEach(char => {
         const option = document.createElement('option');
         option.value = char;
-        option.textContent = gameData[char].name;
+        const unlocked = isCharacterUnlocked(char);
+        option.textContent = unlocked ? gameData[char].name : `${gameData[char].name} (Locked)`;
+        option.dataset.locked = unlocked ? 'false' : 'true';
         select.appendChild(option);
     });
+
+    const nextValue = chars.includes(previousValue) ? previousValue : (chars[0] || '');
+    if (nextValue) select.value = nextValue;
 }
 
 const characterModePairs = {
@@ -1561,7 +1681,7 @@ const characterModePairs = {
     "Apollyon": "Tainted Apollyon",
     "The Forgotten": "Tainted Forgotten",
     "Bethany": "Tainted Bethany",
-    "Jacob & Esau": "Tainted Jacob"
+    "Jacob & Esau": "Tainted Jacob & Dark Esau"
 };
 
 const reverseCharacterModePairs = Object.fromEntries(
@@ -1570,6 +1690,33 @@ const reverseCharacterModePairs = Object.fromEntries(
 
 function getCharacterModeCounterpart(charName) {
     return characterModePairs[charName] || reverseCharacterModePairs[charName] || null;
+}
+
+function getCharacterUnlockState(charKey) {
+    const charData = gameData[charKey];
+    if (!charData) return { unlocked: false, reason: 'Character unavailable.', isTainted: false };
+
+    if (charData.name === 'Isaac') return { unlocked: true, reason: null, isTainted: false };
+
+    const unlockedKey = `char_unlocked_${sanitizeKey(charData.name)}`;
+    const unlocked = Boolean(userProgress[unlockedKey]) || (!charData.name.startsWith('Tainted') && areCharacterMarksComplete(charData));
+    if (unlocked) return { unlocked: true, reason: null, isTainted: charData.name.startsWith('Tainted') };
+
+    // For tainted characters provide a consistent, helpful unlock hint
+    if (charData.name.startsWith('Tainted')) {
+        const counterpartKey = getCharacterModeCounterpart(charKey);
+        const counterpartData = counterpartKey ? gameData[counterpartKey] : null;
+        const beastUnlock = counterpartData ? counterpartData.unlocks.find(unlock => unlock.boss === 'The Beast') : null;
+        const counterpartUnlocked = counterpartData ? isCharacterUnlocked(counterpartKey) : false;
+        const beastUnlocked = beastUnlock ? Boolean(userProgress[beastUnlock.id]) : false;
+
+        const reason = counterpartUnlocked && beastUnlocked
+            ? 'This tainted character is ready to be unlocked. Use the button below.'
+            : `Locked: complete the "The Beast" unlock for ${counterpartData ? counterpartData.name : 'its normal counterpart'} first.`;
+        return { unlocked: false, reason, isTainted: true, counterpartKey };
+    }
+
+    return { unlocked: false, reason: 'Locked. Use the "Unlocked?" button to mark this character as unlocked manually.', isTainted: false };
 }
 
 function getValidImagePath(baseName, defaultFolder, imgElement) {
@@ -1644,34 +1791,42 @@ function renderCharInfo() {
     const charData = gameData[char];
     if (!charData) return;
     const unlockedKey = `char_unlocked_${sanitizeKey(charData.name)}`;
-    const unlocked = Boolean(userProgress[unlockedKey]) || charData.name === 'Isaac';
+    const unlockState = getCharacterUnlockState(char);
+    const unlocked = unlockState.unlocked;
 
     charName.textContent = charData.name;
-    // if locked, show only unlock method in description
     if (!unlocked) {
         charDesc.textContent = getUnlockMethodFromDescription(charData.description) || 'Locked. Unlock condition unknown.';
     } else {
         charDesc.textContent = charData.description;
     }
+    if (charLockStatus) {
+        charLockStatus.textContent = unlockState.reason || (unlocked ? 'Unlocked' : 'Locked');
+        charLockStatus.className = `char-lock-status ${unlocked ? 'unlocked' : 'locked'}`;
+    }
     charStats.innerHTML = renderStats(charData);
 
     charImageContainer.innerHTML = '';
+    charImageContainer.classList.remove('stacked');
+    
     const mainImg = document.createElement('img');
     mainImg.src = charData.image;
     mainImg.alt = charData.name;
-    if (!unlocked) mainImg.classList.add('locked');
     charImageContainer.appendChild(mainImg);
     
     if (charData.image2) {
+        charImageContainer.classList.add('stacked');
         const secondImg = document.createElement('img');
         secondImg.src = charData.image2;
         secondImg.alt = `${charData.name} 2`;
-        if (!unlocked) secondImg.classList.add('locked');
         charImageContainer.appendChild(secondImg);
     }
 
-    // add Unlock button if locked
     const existingBtn = document.getElementById('unlock-char-btn');
+    if (unlocked && existingBtn) {
+        existingBtn.remove();
+    }
+
     if (!unlocked && !existingBtn) {
         const btn = document.createElement('button');
         btn.id = 'unlock-char-btn';
@@ -1679,7 +1834,20 @@ function renderCharInfo() {
         btn.textContent = 'Unlocked?';
         btn.className = 'unlock-char-btn';
         btn.addEventListener('click', () => {
-            // mark special key and all unlocks for this char as completed
+            if (charData.name.startsWith('Tainted')) {
+                const counterpartKey = unlockState.counterpartKey;
+                const counterpartData = counterpartKey ? gameData[counterpartKey] : null;
+                const beastUnlock = counterpartData ? counterpartData.unlocks.find(unlock => unlock.boss === 'The Beast') : null;
+                const counterpartUnlocked = counterpartData ? isCharacterUnlocked(counterpartKey) : false;
+                const beastUnlocked = beastUnlock ? Boolean(userProgress[beastUnlock.id]) : false;
+                if (!counterpartUnlocked || !beastUnlocked) {
+                    if (charLockStatus) {
+                        charLockStatus.textContent = `Locked: complete the "The Beast" unlock for ${counterpartData ? counterpartData.name : 'its normal counterpart'} first.`;
+                    }
+                    playSFX('sfx-mark-incomplete');
+                    return;
+                }
+            }
             userProgress[unlockedKey] = true;
             if (charData.unlocks && Array.isArray(charData.unlocks)) {
                 charData.unlocks.forEach(u => { if (u && u.id) userProgress[u.id] = true; });
@@ -2108,6 +2276,8 @@ function renderDailyRuns() {
     });
 }
 
+let searchableEntries = [];
+
 function renderAll() {
     syncGlobalSpecialUnlocks();
     syncGreedUnlocks();
@@ -2117,6 +2287,7 @@ function renderAll() {
     renderGreedMachine();
     renderChallenges();
     renderDailyRuns();
+    renderCollectionPage();
 }
 
 navButtons.forEach(button => {
@@ -2169,7 +2340,7 @@ function toggleTaintedMode() {
     document.body.classList.toggle('tainted-mode', isTaintedMode);
     playMusic(isTaintedMode ? 'tainted' : 'normal');
     populateSelect();
-    if (counterpart && gameData[counterpart]) {
+    if (counterpart && gameData[counterpart] && isCharacterUnlocked(counterpart)) {
         select.value = counterpart;
     }
     renderAll();
@@ -2198,32 +2369,33 @@ const qualityPicker = document.getElementById('quality-picker');
 let qualityFilter = null; // null = no specific quality, number 0-4 = selected
 const itemsSearchCount = document.getElementById('items-search-count');
 const itemsContainer = document.getElementById('items-container');
-let searchableEntries = [];
 
 function fetchItems() {
-    if (!window.TBOU_SEARCH_DATA || !window.TBOU_SEARCH_DATA.items || !window.TBOU_SEARCH_DATA.transformations) {
+    if (!window.TBOU_SEARCH_DATA) {
         console.error('Erro: TBOU_SEARCH_DATA nao foi carregado corretamente ou esta incompleto.');
         itemsContainer.innerHTML = '<p style="color: #aaa;">Não foi possível carregar os dados de pesquisa.</p>';
         return;
     }
 
-    const itemsData = window.TBOU_SEARCH_DATA.items.map(item => ({
-        ...item,
-        type: 'item'
-    }));
+    const entrySources = [
+        { key: 'items', type: 'item', mapper: item => ({ ...item, type: 'item' }) },
+        { key: 'transformations', type: 'transformation', mapper: trans => ({ name: trans.Name, description: trans.Description, functionality: trans.Method, image: trans.Image, type: 'transformation', id: 'N/A', quality: 'N/A', pool: 'N/A', transformation: 'N/A' }) },
+        { key: 'trinkets', type: 'trinket', mapper: entry => ({ ...entry, type: 'trinket', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'pills', type: 'pill', mapper: entry => ({ ...entry, type: 'pill', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'cards', type: 'card', mapper: entry => ({ ...entry, type: 'card', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'runes', type: 'rune', mapper: entry => ({ ...entry, type: 'rune', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'soul_stones', type: 'soul_stone', mapper: entry => ({ ...entry, type: 'soul_stone', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'Curses', type: 'curse', mapper: entry => ({ ...entry, type: 'curse', description: entry.effect || entry.description || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'characters', type: 'character', mapper: entry => ({ ...entry, type: 'character', description: entry.conditions || entry.unlock || entry.start_stats || 'No given description.', functionality: entry.strategy || entry.start_stuff || 'No given functionality.' }) }
+    ];
 
-    const transformationsData = window.TBOU_SEARCH_DATA.transformations.map(trans => ({
-        name: trans.Name,
-        description: trans.Description,
-        functionality: trans.Method,
-        image: trans.Image,
-        type: 'transformation',
-        id: 'N/A', quality: 'N/A', pool: 'N/A', transformation: 'N/A'
-    }));
+    searchableEntries = entrySources.flatMap(source => {
+        const list = window.TBOU_SEARCH_DATA[source.key];
+        return Array.isArray(list) ? list.map(source.mapper) : [];
+    });
 
-    searchableEntries = [...itemsData, ...transformationsData];
     renderSearchResults();
-    // populate subfilter options now that searchableEntries exists
+    renderCollectionPage();
     try { updateSubFilterOptions(); } catch(e) {}
 }
 
@@ -2328,8 +2500,19 @@ const popupContent = document.getElementById('item-popup-content');
 const popupCloseBtn = document.getElementById('item-popup-close');
 
 function getSearchIconUrl(entry) {
-    const image = entry.image ? entry.image.trim() : '';
-    return image || 'img/Search/Items/no_set.png';
+    let image = entry && (typeof entry.image === 'string' ? entry.image.trim() : (entry.Image && typeof entry.Image === 'string' ? entry.Image.trim() : ''));
+    if (!image) return 'img/Search/Items/no_set.png';
+    // sanitize spaces in filename to underscores
+    try {
+        const parts = image.split('/');
+        parts[parts.length-1] = parts[parts.length-1].replace(/\s+/g, '_');
+        image = parts.join('/');
+    } catch (e) {}
+    return image;
+}
+
+function getDisplayName(entry) {
+    return entry && (entry.name || entry.Name || entry.displayName || entry.Title || 'undefined');
 }
 
 function getQualityInfo(quality) {
@@ -2418,6 +2601,7 @@ function getTransformationIcon(name) {
 function showSearchPopup(entry) {
     if (!popupOverlay || !popupContent) return;
     const imageUrl = getSearchIconUrl(entry);
+    const displayName = getDisplayName(entry);
     const qualityInfo = entry.type === 'item' ? getQualityInfo(entry.quality) : null;
     const poolInfo = entry.type === 'item' ? getPoolInfo(entry.pool) : null;
     const displayPoolName = entry && entry.pool ? String(entry.pool).split(',').map(p => titleCase(normalizeForKey(p))).join(', ') : null;
@@ -2425,13 +2609,18 @@ function showSearchPopup(entry) {
     const transformationIcon = getTransformationIcon(transformationName);
     const transformationLabel = transformationName || (entry.type === 'item' ? entry.transformation || 'Nenhuma' : 'Sem transformação');
     const qualityClass = entry.type === 'item' ? `quality-${qualityInfo ? qualityInfo.key.toLowerCase() : 'n-a'}` : '';
+    const typeLabel = entry.type === 'item' ? 'Item' : entry.type === 'transformation' ? 'Transformation' : entry.type === 'trinket' ? 'Trinket' : entry.type === 'pill' ? 'Pill' : entry.type === 'card' ? 'Card' : entry.type === 'rune' ? 'Rune' : entry.type === 'soul_stone' ? 'Soul Stone' : entry.type === 'curse' ? 'Curse' : entry.type === 'character' ? 'Character' : 'Entry';
+    const descriptionLabel = entry.type === 'character' ? 'Conditions' : 'Description';
+    const functionalityLabel = entry.type === 'character' ? 'Strategy' : 'Functionality';
+    const collectionLabel = isEntryCollected(entry) ? 'Remove from Collection' : 'Add to Collection';
+    const allowedCollectionTypes = ['item','trinket'];
 
     popupContent.innerHTML = `
         <div class="item-popup-header">
-            <img src="${imageUrl}" alt="${entry.name}" onerror="this.src='img/Search/Items/no_set.png'">
+            <img src="${imageUrl}" alt="${displayName}" onerror="this.src='img/Search/Items/no_set.png'">
             <div>
-                <h2 id="item-popup-title">${entry.name}</h2>
-                <p class="item-popup-label">${entry.type === 'item' ? 'Item' : 'Transformation'}</p>
+                <h2 id="item-popup-title">${displayName}</h2>
+                <p class="item-popup-label">${typeLabel}</p>
                 <div class="item-popup-meta">
                     ${qualityInfo ? `<span class="meta-pill quality-pill ${qualityClass}" title="${qualityInfo.tooltip}"><img src="${qualityInfo.src}" alt="Quality icon" onerror="this.src='img/Search/Items/no_set.png'"><span>${qualityInfo.label}</span></span>` : ''}
                     ${poolInfo ? `<span class="meta-pill" title="${poolInfo.tooltip}"><img src="${poolInfo.src}" alt="Pool icon" onerror="this.src='img/Search/Items/no_set.png'"><span>${displayPoolName || entry.pool}</span></span>` : ''}
@@ -2439,15 +2628,23 @@ function showSearchPopup(entry) {
             </div>
         </div>
         <div class="item-popup-details">
-            <p><strong>Descripcion:</strong> ${entry.description || 'No given description.'}</p>
-            <p><strong>Functionality:</strong> ${entry.functionality || 'No given functionality.'}</p>
+            <p><strong>${descriptionLabel}:</strong> ${entry.description || 'No given description.'}</p>
+            <p><strong>${functionalityLabel}:</strong> ${entry.functionality || 'No given functionality.'}</p>
             <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                 ${entry.type === 'item' ? `<p style="flex: 1; margin: 0;"><strong>ID:</strong> ${entry.id || 'N/A'}</p>` : ''}
                 ${entry.type === 'item' ? `<p style="flex: 1; margin: 0;"><strong>Quality:</strong> ${qualityInfo ? qualityInfo.label : 'N/A'}</p>` : ''}
             </div>
             ${entry.type === 'item' ? `<p class="item-popup-transformation"><strong>Transformation:</strong> <img src="${transformationIcon}" alt="Transformation icon" onerror="this.src='img/Search/Items/no_set.png'"> ${transformationLabel}</p>` : ''}
         </div>
+        <div class="item-popup-footer">
+            ${allowedCollectionTypes.includes(entry.type) ? `<button id="toggle-collection-btn" class="confirm-btn" type="button">${collectionLabel}</button>` : ''}
+        </div>
     `;
+
+    document.getElementById('toggle-collection-btn')?.addEventListener('click', () => {
+        toggleCollectionEntry(entry);
+        showSearchPopup(entry);
+    });
 
     popupOverlay.classList.add('active');
     popupOverlay.setAttribute('aria-hidden', 'false');
@@ -2475,6 +2672,13 @@ function renderSearchResults() {
     if (filter && filter !== 'all') {
         if (filter === 'items') entries = entries.filter(e => e.type === 'item');
         if (filter === 'transformations') entries = entries.filter(e => e.type === 'transformation');
+        if (filter === 'trinkets') entries = entries.filter(e => e.type === 'trinket');
+        if (filter === 'pills') entries = entries.filter(e => e.type === 'pill');
+        if (filter === 'cards') entries = entries.filter(e => e.type === 'card');
+        if (filter === 'runes') entries = entries.filter(e => e.type === 'rune');
+        if (filter === 'soul_stones') entries = entries.filter(e => e.type === 'soul_stone');
+        if (filter === 'curses') entries = entries.filter(e => e.type === 'curse');
+        if (filter === 'characters') entries = entries.filter(e => e.type === 'character');
         if (filter === 'qualities') entries = entries.filter(e => e.type === 'item' && extractQualityNumber(e.quality) !== null);
         if (filter === 'pools') entries = entries.filter(e => e.type === 'item' && e.pool && String(e.pool).toLowerCase() !== 'n/a');
     }
@@ -2508,13 +2712,17 @@ function renderSearchResults() {
 
     entries.forEach(entry => {
         const card = document.createElement('div');
-        card.className = `item-card item-card-${entry.type}`;
+        const displayName = getDisplayName(entry);
+        // add semantic classes and quality-based class for items
+        const qualityNum = extractQualityNumber(entry.quality);
+        const qualityClass = (typeof qualityNum === 'number' && !isNaN(qualityNum)) ? `quality-${qualityNum}` : '';
+        card.className = `item-card item-card-${entry.type} ${qualityClass}`.trim();
         const imageUrl = getSearchIconUrl(entry);
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'item-icon-btn';
-        button.title = entry.name;
-        button.innerHTML = `<img src="${imageUrl}" alt="${entry.name}" loading="lazy" onerror="this.onerror=null;this.src='img/Search/Items/no_set.png'">`;
+        button.title = displayName;
+        button.innerHTML = `<img src="${imageUrl}" alt="${displayName}" loading="lazy" onerror="this.onerror=null;this.src='img/Search/Items/no_set.png'">`;
         button.addEventListener('click', (event) => {
             event.stopPropagation();
             showSearchPopup(entry);
@@ -2522,7 +2730,30 @@ function renderSearchResults() {
 
         const nameDiv = document.createElement('div');
         nameDiv.className = 'item-card-name';
-        nameDiv.textContent = entry.name;
+        nameDiv.textContent = displayName;
+
+        // assign special soul classes when appropriate
+        const lowerName = (displayName || '').toLowerCase();
+        const soulMap = {
+            'soul of isaac': 'soul-isaac',
+            'soul of magdalene': 'soul-magdalene',
+            'soul of cain': 'soul-cain',
+            'soul of judas': 'soul-judas',
+            "soul of blue baby": 'soul-bluebaby',
+            'soul of eve': 'soul-eve',
+            'soul of samson': 'soul-samson',
+            'soul of azazel': 'soul-azazel',
+            'soul of lazarus': 'soul-lazarus',
+            'soul of eden': 'soul-eden',
+            'soul of the lost': 'soul-the_lost',
+            'soul of lilith': 'soul-lilith',
+            'soul of the keeper': 'soul-keeper',
+            'soul of apollyon': 'soul-apollyon',
+            'soul of the forgotten': 'soul-forgotten',
+            'soul of bethany': 'soul-bethany',
+            'soul of jacob & esau': 'soul-jacob_esau'
+        };
+        Object.keys(soulMap).forEach(k => { if (lowerName.includes(k)) card.classList.add(soulMap[k]); });
 
         card.appendChild(button);
         card.appendChild(nameDiv);
@@ -2543,18 +2774,26 @@ document.addEventListener('keydown', (event) => {
 });
 
 setTimeout(fetchItems, 100);
+document.addEventListener('DOMContentLoaded', () => {
+    try { fetchItems(); } catch(e) {}
+});
 
 const musicToggleBtn = document.getElementById('music-toggle-btn');
 const bgMusic = document.getElementById('bg-music');
 let sfxMuted = false;
 const sfxToggleBtn = document.getElementById('sfx-toggle-btn');
 
-// Initialize audio buttons: show MUSIC ON by default and attempt autoplay on first interaction
+// Initialize audio buttons and state
+if (bgMusic) {
+    musicMuted = !!bgMusic.paused;
+}
 if (musicToggleBtn) {
-    musicToggleBtn.textContent = 'MUSIC ON';
+    musicToggleBtn.textContent = musicMuted ? 'MUSIC OFF' : 'MUSIC ON';
+    if (musicMuted) musicToggleBtn.classList.add('music-muted');
 }
 if (sfxToggleBtn) {
-    sfxToggleBtn.textContent = 'SFX ON';
+    sfxToggleBtn.textContent = sfxMuted ? 'SFX OFF' : 'SFX ON';
+    if (sfxMuted) sfxToggleBtn.classList.add('music-muted');
 }
 
 // Try to start music on first user interaction (gesture required by browsers)
@@ -2578,11 +2817,13 @@ if (musicToggleBtn && bgMusic) {
     musicToggleBtn.addEventListener('click', () => {
         if (bgMusic.paused) {
             bgMusic.play().then(() => {
+                musicMuted = false;
                 musicToggleBtn.textContent = 'MUSIC ON';
                 musicToggleBtn.classList.remove('music-muted');
             }).catch(err => console.log("Audio play blocked", err));
         } else {
             bgMusic.pause();
+            musicMuted = true;
             musicToggleBtn.textContent = 'MUSIC OFF';
             musicToggleBtn.classList.add('music-muted');
         }
@@ -2616,7 +2857,8 @@ function initSaveScreenBindings() {
         return {
             userProgress: userProgress || {},
             greedCoins: greedCoins || 0,
-            dailyProgress: dailyProgress || {}
+            dailyProgress: dailyProgress || {},
+            collectionEntries: collectionEntries || {}
         };
     }
 
@@ -2651,9 +2893,11 @@ function initSaveScreenBindings() {
                 if (parsed.userProgress) userProgress = parsed.userProgress;
                 if (typeof parsed.greedCoins !== 'undefined') greedCoins = Number(parsed.greedCoins) || 0;
                 if (parsed.dailyProgress) dailyProgress = parsed.dailyProgress;
+                if (parsed.collectionEntries) collectionEntries = parsed.collectionEntries;
                 saveProgress();
                 saveGreedProgress();
                 saveDailyProgress();
+                saveCollection();
                 renderAll();
                 alert('Save imported successfully.');
             } catch (e) {
@@ -2668,10 +2912,12 @@ function initSaveScreenBindings() {
             localStorage.removeItem('isaacUnlocksProgress');
             localStorage.removeItem('isaacGreedCoins');
             localStorage.removeItem('isaacDailyProgress');
+            localStorage.removeItem(collectionStorageKey);
             userProgress = {};
             greedCoins = 0;
             dailyProgress = { played:0, wins:0, streak:0 };
-            saveProgress(); saveGreedProgress(); saveDailyProgress();
+            collectionEntries = {};
+            saveProgress(); saveGreedProgress(); saveDailyProgress(); saveCollection();
             renderAll();
             alert('Saved data cleared.');
         });

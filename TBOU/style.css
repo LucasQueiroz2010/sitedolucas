@@ -224,6 +224,41 @@ select {
     text-align:justify;
 }
 
+.char-lock-status {
+    margin-top:10px;
+    font-size:10px;
+    color:#f1c40f;
+}
+
+.progress-container {
+    background:rgba(0,0,0,0.18);
+    border:2px solid var(--border-color);
+    border-radius:10px;
+    padding:12px 14px;
+    margin-bottom:18px;
+}
+
+.progress-label {
+    margin-bottom:10px;
+    color:#f1c40f;
+}
+
+.progress-bar {
+    width:100%;
+    height:16px;
+    background:rgba(255,255,255,0.08);
+    border-radius:999px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.progress-fill {
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, #ffd84f, #ff6f3c);
+    transition:width 0.2s ease;
+}
+
 .char-effects {
     display:flex;
     flex-wrap:wrap;
@@ -506,6 +541,41 @@ select {
     min-height:180px;
     cursor:pointer;
 }
+
+.item-card.quality-0 { border:2px solid transparent; border-image: linear-gradient(90deg, #c2c2c2, #c2c2c2) 1; }
+.item-card.quality-1 { border:2px solid transparent; border-image: linear-gradient(90deg, #90ff51, #90ff51) 1; }
+.item-card.quality-2 { border:2px solid transparent; border-image: linear-gradient(90deg, #65d5ff, #65d5ff) 1; }
+.item-card.quality-3 { border:2px solid transparent; border-image: linear-gradient(90deg, #ff54ec, #ff54ec) 1; }
+.item-card.quality-4 { border:2px solid transparent; border-image: linear-gradient(90deg, #ffd100, #ffd100) 1; }
+
+.item-card.item-card-curse { border:2px solid transparent; border-image: linear-gradient(90deg, #512799, #8e54f2) 1; }
+.item-card.item-card-trinket { border:2px solid transparent; border-image: linear-gradient(90deg, #818181, #818181) 1; }
+.item-card.item-card-pill { border:2px solid transparent; border-image: linear-gradient(90deg, #830000, #830000) 1; }
+.item-card.item-card-card { border:2px solid transparent; border-image: linear-gradient(90deg, #bd8354, #bd8354) 1; }
+.item-card.item-card-rune { border:2px solid transparent; border-image: linear-gradient(90deg, #311d54, #5c3e8e, #b7a4d8) 1; }
+.item-card.item-card-soul_stone { border:2px solid transparent; border-image: linear-gradient(90deg, #ec8181, #cd6464, #feb8b8) 1; }
+.item-card.item-card-transformation { border:2px solid transparent; border-image: linear-gradient(90deg, #999999, #666666) 1; }
+.item-card.item-card-character { border:2px solid transparent; border-image: linear-gradient(90deg, #aaaaaa, #777777) 1; }
+
+.item-card.soul-isaac { border:2px solid transparent; border-image: linear-gradient(90deg, #ec8181, #cd6464, #feb8b8) 1; }
+.item-card.soul-magdalene { border:2px solid transparent; border-image: linear-gradient(90deg, #e63a4e, #c02a45, #ff999d) 1; }
+.item-card.soul-cain { border:2px solid transparent; border-image: linear-gradient(90deg, #d77a4d, #f9a176, #b75424) 1; }
+.item-card.soul-judas { border:2px solid transparent; border-image: linear-gradient(90deg, #e50d2f, #bc5297, #7e071a) 1; }
+.item-card.soul-bluebaby { border:2px solid transparent; border-image: linear-gradient(90deg, #8f9ace, #454563, #8f9ace) 1; }
+.item-card.soul-eve { border:2px solid transparent; border-image: linear-gradient(90deg, #393737, #756666, #9a9393) 1; }
+.item-card.soul-samson { border:2px solid transparent; border-image: linear-gradient(90deg, #c1342e, #ff5d57, #4e2422) 1; }
+.item-card.soul-azazel { border:2px solid transparent; border-image: linear-gradient(90deg, #473333, #932c2c, #fc4242) 1; }
+.item-card.soul-lazarus { border:2px solid transparent; border-image: linear-gradient(90deg, #ed6c2e, #b73c0c, #ff9f73) 1; }
+.item-card.soul-eden { border:2px solid transparent; border-image: linear-gradient(90deg, #c92a3c, #f2a234, #3b9168, #3da6d1, #61095d, #9b63f9) 1; }
+.item-card.soul-the_lost { border:2px solid transparent; border-image: linear-gradient(90deg, #969ea4, #c2cfd8, #d6eaea) 1; }
+.item-card.soul-lilith { border:2px solid transparent; border-image: linear-gradient(90deg, #ab0c2a, #d40035, #f85a82) 1; }
+.item-card.soul-keeper { border:2px solid transparent; border-image: linear-gradient(90deg, #5b5151, #8c8a8a, #3b3232) 1; }
+.item-card.soul-apollyon { border:2px solid transparent; border-image: linear-gradient(90deg, #5e445b, #9d7e9a, #bdb2bc) 1; }
+.item-card.soul-forgotten { border:2px solid transparent; border-image: linear-gradient(90deg, #3676b9, #11365d, #498cd0) 1; }
+.item-card.soul-bethany { border:2px solid transparent; border-image: linear-gradient(90deg, #598cc8, #94b2d5, #b1d3e2) 1; }
+.item-card.soul-jacob_esau { border:2px solid transparent; border-image: linear-gradient(90deg, #cd6464, #ec8181, #feb8b8, #ab0c2a, #e63a4e, #c02a45) 1; }
+
+.item-card { background: #2f2f2f; }
 .item-card:hover {
     border-color: var(--screen-accent, var(--accent-color));
 }
@@ -753,6 +823,56 @@ select {
 
 .item-card-transformation {
     border-color:#7f6bd9;
+}
+
+.item-card-trinket,
+.item-card-pill,
+.item-card-card,
+.item-card-rune,
+.item-card-soul_stone,
+.item-card-curse,
+.item-card-character {
+    border-color:#f1c40f;
+}
+
+.collection-panel {
+    text-align:center;
+    padding:30px;
+}
+
+.collection-list {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:12px;
+    margin-top:18px;
+}
+
+.collection-item {
+    background:rgba(0,0,0,0.16);
+    border:2px solid var(--border-color);
+    border-radius:10px;
+    padding:10px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.collection-item button {
+    font-family:inherit;
+    background:transparent;
+    color:var(--text-color);
+    border:1px solid var(--border-color);
+    border-radius:6px;
+    padding:6px 8px;
+    cursor:pointer;
+}
+
+.collection-item img {
+    width:36px;
+    height:36px;
+    object-fit:contain;
+    image-rendering:pixelated;
 }
 
 .item-card h3 {
@@ -1387,3 +1507,47 @@ body {
     border-color: #fff;
     box-shadow: 0 0 12px rgba(255,255,255,0.2);
 }
+
+.char-image-container.stacked {
+    flex-direction: column;
+    gap: 0px; 
+}
+.char-image-container.stacked img {
+    margin-bottom: -10px;
+}
+
+.item-card {
+    background-color: #7a7a7a !important;
+    border: 3px solid transparent;
+}
+
+.border-q0 { border-color: #c2c2c2 !important; }
+.border-q1 { border-color: #90ff51 !important; }
+.border-q2 { border-color: #65d5ff !important; }
+.border-q3 { border-color: #ff54ec !important; }
+.border-q4 { border-color: #ffd100 !important; }
+
+.border-trinket { border-color: #818181 !important; }
+.border-pill { border-color: #830000 !important; }
+.border-card { border-color: #bd8354 !important; }
+
+.border-curse { border-image: linear-gradient(to right, #512799, #8e54f2) 1 !important; }
+.border-rune { border-image: linear-gradient(to right, #311d54, #5c3e8e, #b7a4d8) 1 !important; }
+
+.border-soul-isaac { border-image: linear-gradient(to right, #ec8181, #cd6464, #feb8b8) 1 !important; }
+.border-soul-magdalene { border-image: linear-gradient(to right, #e63a4e, #c02a45, #ff999d) 1 !important; }
+.border-soul-cain { border-image: linear-gradient(to right, #d77a4d, #f9a176, #b75424) 1 !important; }
+.border-soul-judas { border-image: linear-gradient(to right, #e50d2f, #bc5297, #7e071a) 1 !important; }
+.border-soul-bluebaby { border-image: linear-gradient(to right, #8f9ace, #454563, #8f9ace) 1 !important; }
+.border-soul-eve { border-image: linear-gradient(to right, #393737, #756666, #9a9393) 1 !important; }
+.border-soul-samson { border-image: linear-gradient(to right, #c1342e, #ff5d57, #4e2422) 1 !important; }
+.border-soul-azazel { border-image: linear-gradient(to right, #473333, #932c2c, #fc4242) 1 !important; }
+.border-soul-lazarus { border-image: linear-gradient(to right, #ed6c2e, #b73c0c, #ff9f73) 1 !important; }
+.border-soul-eden { border-image: linear-gradient(to right, #c92a3c, #f2a234, #3b9168, #3da6d1, #61095d, #9b63f9) 1 !important; }
+.border-soul-lost { border-image: linear-gradient(to right, #969ea4, #c2cfd8, #d6eaea) 1 !important; }
+.border-soul-lilith { border-image: linear-gradient(to right, #ab0c2a, #d40035, #f85a82) 1 !important; }
+.border-soul-keeper { border-image: linear-gradient(to right, #5b5151, #8c8a8a, #3b3232) 1 !important; }
+.border-soul-apollyon { border-image: linear-gradient(to right, #5e445b, #9d7e9a, #bdb2bc) 1 !important; }
+.border-soul-forgotten { border-image: linear-gradient(to right, #3676b9, #11365d, #498cd0) 1 !important; }
+.border-soul-bethany { border-image: linear-gradient(to right, #598cc8, #94b2d5, #b1d3e2) 1 !important; }
+.border-soul-jacob { border-image: linear-gradient(to right, #cd6464, #ec8181, #feb8b8, #ab0c2a, #e63a4e, #c02a45) 1 !important; }

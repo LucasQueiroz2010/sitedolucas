@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle Music">MUSIC ON</butt on>
+    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle Music">MUSIC ON</button>
     <button id="sfx-toggle-btn" class="music-toggle-btn" aria-label="Toggle Sound Effects">SFX ON</button>
     <div class="container">
         <h1 id="main-title">The Binding of Unlocks</h1>
@@ -22,7 +22,8 @@
                 <button class="menu-btn" data-view="greed-screen">Greed Donation Machine</button>
                 <button class="menu-btn" data-view="challenges-screen">Challenges</button>
                 <button class="menu-btn" data-view="daily-screen">Daily Run</button>                
-                <button class="menu-btn" data-view="items-screen">Items Search</button>
+                <button class="menu-btn" data-view="items-screen">The Search of Things (TSOT)</button>
+                <button class="menu-btn" data-view="collection-screen">Collection Page</button>
                 <button class="menu-btn" data-view="save-screen">Save and Load</button>
             </div>
         </div>
@@ -46,6 +47,7 @@
                     <div class="char-details">
                         <h2 id="char-name"></h2>
                         <p id="char-desc"></p>
+                        <div id="char-lock-status" class="char-lock-status"></div>
                         <div id="char-effects" class="char-effects"></div>
                     </div>
                 </div>
@@ -56,8 +58,11 @@
                 </div>
             </div>
 
-            <div id="progress-container">
-                Progress: <span id="progress-text">0/0</span>
+            <div id="progress-container" class="progress-container">
+                <div class="progress-label">Global Progress: <span id="progress-text">0/0</span></div>
+                <div class="progress-bar" aria-label="Global progress bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
             </div>
 
             <div class="unlock-grid" id="unlock-grid"></div>
@@ -133,13 +138,20 @@
                 <button class="back-btn" data-view="home-screen">Back</button>
             </div>
             <div class="section-panel item-search-panel">
-                <h2>Items Search</h2>
+                <h2>The Search of Things (TSOT)</h2>
                 <div class="item-search-controls">
-                    <input type="text" id="item-search-bar" placeholder="Search item, trinket, transformation..." autocomplete="off">
+                    <input type="text" id="item-search-bar" placeholder="Search items, trinkets, characters..." autocomplete="off">
                     <select id="item-filter-select" class="item-filter-select" aria-label="Filter items">
                         <option value="all">All</option>
                         <option value="items">Items</option>
                         <option value="transformations">Transformations</option>
+                        <option value="trinkets">Trinkets</option>
+                        <option value="pills">Pills</option>
+                        <option value="cards">Cards</option>
+                        <option value="runes">Runes</option>
+                        <option value="soul_stones">Soul Stones</option>
+                        <option value="curses">Curses</option>
+                        <option value="characters">Characters</option>
                         <option value="qualities">Qualities</option>
                         <option value="pools">Item Pools</option>
                     </select>
@@ -152,6 +164,18 @@
                 </div>
                 <div id="items-search-count" class="items-search-count"></div>
                 <div id="items-container" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="collection-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="section-panel collection-panel">
+                <h2>Collection</h2>
+                <p class="collection-intro">Mark here when you have collected all items and trinkets.</p>
+                <div id="collection-count" class="items-search-count"></div>
+                <div id="collection-list" class="collection-list"></div>
             </div>
         </div>
     </div>
@@ -188,7 +212,7 @@
 
     <audio id="sfx-mark-complete" src="sound/Mark_complete.wav"></audio>
     <audio id="sfx-mark-incomplete" src="sound/Mark_incomplete.wav"></audio>
-    <audio id="sfx-all-complete" src="sound/All_complete.wav"></audio>
+    <audio id="sfx-all-complete" src="sound/All_Complete.wav"></audio>
     <audio id="sfx-coin-insert" src="sound/coin_insert.wav"></audio>
     <audio id="sfx-coin-unsert" src="sound/coin_unsert.wav"></audio>
 

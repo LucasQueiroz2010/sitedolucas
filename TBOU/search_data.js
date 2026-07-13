@@ -8482,7 +8482,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Shop.png"],
       "quality": "img/Search/Quality/Quality3.png",
       "description": "Repent",
-      "functionality": "Active item with a recharge time of 15 seconds. Chains down the nearest enemy, completely preventing them from acting for 5 seconds. This effect works on enemies that are invulnerable as well, and can alleviate a lot of stress from most trap rooms. If used again, it releases the enemy early. If multiple enemies are chained down at once, the enemy released early will be the one closest to the player, even if the non-character 'Tainted Esau' (check the character 'Tainted Jacob' on the unlock screen to more details) is chained down too.",
+      "functionality": "Active item with a recharge time of 15 seconds. Chains down the nearest enemy, completely preventing them from acting for 5 seconds. This effect works on enemies that are invulnerable as well, and can alleviate a lot of stress from most trap rooms. If used again, it releases the enemy early. If multiple enemies are chained down at once, the enemy released early will be the one closest to the player, even if the non-character 'Tainted Esau' (search for 'Tainted Esau' to more details) is chained down too.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -12434,7 +12434,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "No extra conditions.",
       "start_stuff": "The 'Yum Heart' item and a 'Full Health (if unlocked)' pill.",
       "start_stats": "4 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 0.85 speed and 0 luck.",
-      "stategy": "The best way to play as Magdalene is to focus on a way to expend your health. Of course devil deals are something great, but other sources of hit (like blood onation machines or devil beggars) are a great source of healing, and if you're smart and lucky enough, you can use the sacrificial room to your vantage, using your full health pill and the 'Yum Heart' item.Is highly reccomended to unlock the 'Full Health' pill.",
+      "strategy": "The best way to play as Magdalene is to focus on a way to expend your health. Of course devil deals are something great, but other sources of hit (like blood onation machines or devil beggars) are a great source of healing, and if you're smart and lucky enough, you can use the sacrificial room to your vantage, using your full health pill and the 'Yum Heart' item.Is highly reccomended to unlock the 'Full Health' pill.",
       "unlock": "Have 7 or more red heart container at the same time on a run.",
       "id": "2"
     },
@@ -12444,7 +12444,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Only shoot tears from his right eye.",
       "start_stuff": "1 key, the 'Lucky Foot' item and the 'Paper Clip (if unlocked)' trinket.",
       "start_stats": "2 red hearts, 3.50 damage, 1.20X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.30 speed and 0 luck.",
-      "stategy": "The best method of playing as Cain is aleays, and i say ALWAYS use pills, because, even if the pills aren't revealed, they are always good due to the 'Lucky Foot' item. The arly game can be tough due to the low range, so is always good to take your time to kill enemies. is highly reccomended to unlock the 'Paperclip' trinket",
+      "strategy": "The best method of playing as Cain is aleays, and i say ALWAYS use pills, because, even if the pills aren't revealed, they are always good due to the 'Lucky Foot' item. The arly game can be tough due to the low range, so is always good to take your time to kill enemies. is highly reccomended to unlock the 'Paperclip' trinket",
       "unlock": "Hold 55 pennies at the same time on a run.",
       "id": "3"
     },
@@ -12454,7 +12454,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "No extra conditions.",
       "start_stuff": "3 pennies and the 'The Book of Belial' item.",
       "start_stats": "1 red heart container, 3.50 damage, 1.35x damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "stategy": "On Judas, try your absolute best to be far away from your enemies and use the 'The Book of Belial' item to clear harder rooms. Always, and i say ALWAYS prioritize the use of 'The Book of Belial' to the boss room to make your boss fight 5 times easier.",
+      "strategy": "On Judas, try your absolute best to be far away from your enemies and use the 'The Book of Belial' item to clear harder rooms. Always, and i say ALWAYS prioritize the use of 'The Book of Belial' to the boss room to make your boss fight 5 times easier.",
       "unlock": "Defeat the boss 'Satan' for the first time.",
       "id": "4"
     },
@@ -12464,7 +12464,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have red heart containers, making all kinds of 'Health Up' items and pills to grant a soul heart instead.",
       "start_stuff": "The 'The Poop' item.",
       "start_stats": "3 soul hearts, 3.50 damage, 1.05X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.1 speed an 0 luck.",
-      "stategy": "On the Blue Baby, always uses your active 'The Poop' item and acumulate a ton of poops on a single room, the reason? Every time you destroy a poop as Blue Baby, you spawn a blue fly from the poop, just like the 'Lil Larva' trinket, but passively. 'The Poop' item also have other uses, such as being able to build bridges on 1X1 holes tiles by using 'The Poop' item close to a hole and blowing up the opposite side of the spawned poop.",
+      "strategy": "On the Blue Baby, always uses your active 'The Poop' item and acumulate a ton of poops on a single room, the reason? Every time you destroy a poop as Blue Baby, you spawn a blue fly from the poop, just like the 'Lil Larva' trinket, but passively. 'The Poop' item also have other uses, such as being able to build bridges on 1X1 holes tiles by using 'The Poop' item close to a hole and blowing up the opposite side of the spawned poop.",
       "unlock": "Defeat the boss 'Mom's Heart' 10 times.",
       "id": "5"
     },
@@ -12474,7 +12474,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "The 'Whore of Babylon' item effect can be activated when on  a full red heart instead of half of it.",
       "start_stuff": "The 'Whore of Babylon', 'Dead Bird' and 'Razor Blaze (if unlocked)' items.",
       "start_stats": "2 red heart containers, 3.50 damage, 0.75X damage multiplier (if 'Whore of Babylon' effect is on, the multiplier goes up to 1.0X), 2.73 tears, 1.0 shot speed, 6.5 range, 1.24 speed and 0 luck.",
-      "stategy": "Even if looks scary when you're a newbie into TBOI, is highly reccomended to stay at 1 red heart or lower when playing as Eve (is easier to do with the 'Razor Blade' item unlock), because the 'Whore of Babylon' effect doesn't only makes the damage multiplier go back to normla, but grants +1.5 damage and +0.3 speed on top of it.",
+      "strategy": "Even if looks scary when you're a newbie into TBOI, is highly reccomended to stay at 1 red heart or lower when playing as Eve (is easier to do with the 'Razor Blade' item unlock), because the 'Whore of Babylon' effect doesn't only makes the damage multiplier go back to normla, but grants +1.5 damage and +0.3 speed on top of it.",
       "unlock": "Don't pick up any kind of hearts for 2 consecutive floors.",
       "id": "6"
     },
@@ -12484,7 +12484,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "No extra conditions.",
       "start_stuff": "The 'Bloody Lust' item and the 'Child's Heart (if unlocked)' trinket.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2,63 tears, 1.31 shot speed, 5.0 range, 1.1 speed and 0 luck.",
-      "stategy": "On Samson, try to make every single hit you take worth it, maybe entering vurse rooms, playing demon beggars or blood donation machines, but the point is for every hit Samson takes, he gets a damage up due to the 'Bloody Lust' starting item.",
+      "strategy": "On Samson, try to make every single hit you take worth it, maybe entering vurse rooms, playing demon beggars or blood donation machines, but the point is for every hit Samson takes, he gets a damage up due to the 'Bloody Lust' starting item.",
       "unlock": "Don't take any kind of damage for 2 consecutive floors.",
       "id": "7"
     },
@@ -12494,7 +12494,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Short-like brimstone instead of tears.",
       "start_stuff": "'The Fool' card.",
       "start_stats": "3 black hearts, 3.50 damage, 1.50X damage multiplier, 0.76 tears, 1.0 shot speed, 4.5 range, 1.0 speed and 0 luck.",
-      "stategy": "Azazel is a easy character because of the short-brimstone and flight he gets at the start of every run. Is highly reccomended to go inside the first curse room of the run (if you still have 'The Fool' card) because you can go inside of the curse room for free (because of Azazel's natural hability to fly) and get out of there for free by using the 'The Fool' card. Even through Azazel don't start with red health, he still can get red heart containers via items and/or pills.",
+      "strategy": "Azazel is a easy character because of the short-brimstone and flight he gets at the start of every run. Is highly reccomended to go inside the first curse room of the run (if you still have 'The Fool' card) because you can go inside of the curse room for free (because of Azazel's natural hability to fly) and get out of there for free by using the 'The Fool' card. Even through Azazel don't start with red health, he still can get red heart containers via items and/or pills.",
       "unlock": "Do 3 deals with the devil on a run.",
       "id": "8"
     },
@@ -12504,7 +12504,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Have an extra live on every single floor. The life don't stack and takes 1 red heart container per death and revives as the 'Lazarus Risen' character.",
       "start_stuff": "1 random pill and the 'Anemic (if unlocked)' item.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.0 speed and -1 luck.",
-      "stategy": "On Lazarus, try to suicide with value. The best ways to die with value is by sacrificial rooms, blood donations machines, devil beggar, etc. Also try your best to have items that have on-hit effects, such as the 'Fanny Pack' or 'Gimpy' items as an examples.",
+      "strategy": "On Lazarus, try to suicide with value. The best ways to die with value is by sacrificial rooms, blood donations machines, devil beggar, etc. Also try your best to have items that have on-hit effects, such as the 'Fanny Pack' or 'Gimpy' items as an examples.",
       "unlock": "Have 4 soul hearts at the same time.",
       "id": "9"
     },
@@ -12514,9 +12514,9 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Have an permanent version of the 'Anemic' item.",
       "start_stuff": "The 'Anemic' item.",
       "start_stats": "Same number of heart containers that Lazarus has minus 1 (the number of red heart cintainers cannot be below 1 per death) and same stats as Lazarus, but with a 1.40X dmage multiplier, +0.25 speed and +1 luck.",
-      "stategy": "Play normally until you get into the next floor, then go back into the Lazarus strategy.",
+      "strategy": "Play normally until you get into the next floor, then go back into the Lazarus strategy.",
       "unlock": "Die as Lazarus.",
-      "id": "9.5"
+      "id": "9.2"
     },
     {
       "name": "Eden",
@@ -12524,7 +12524,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Every run, has random stats, passive and active item.",
       "start_stuff": "Random with expection of story items.",
       "start_stats": "Random between 3.50 ± 1 damage, 1X damage multiplier, +0.75 to -0.5 from 2.73 tears, 1.0 ± 0.25 shot speed, 6.5 ± 1 range, 1.0 ± 0.15 speed and 0 ± 1 luck.",
-      "stategy": "Be lucky. As Eden, luck is either your best friend or the pain in your ass. Restart runs until you get and decent passive/active item and/or stats.",
+      "strategy": "Be lucky. As Eden, luck is either your best friend or the pain in your ass. Restart runs until you get and decent passive/active item and/or stats.",
       "unlock": "Complete the 'The Womb' floor for the first time.",
       "id": "10"
     },
@@ -12534,7 +12534,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Have no health, but have natural spectral tears and flight.",
       "start_stuff": "The 'Eternal D6' item and the 'Holy Mantle (if unlocked)' item.",
       "start_stats": "No health, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range. 1.0 speed and 0 luck.",
-      "stategy": "Don't touch this character until you unlocked the 'Holy Mantle' starting item, making it necessary to donate 879 pennies to the Greed Donation Machine, but if you already have it unlocked or just unlocked it, the best strategy for The Lost is to use obstavles to get away from enemies, becausemost enemies don't have the hability to fly. The Lost also have the hability to enter and get out of curse rooms for free, but if you get ht while inside the curse room, you will die when trying to go out, because flight makes so that you can enter curse rooms without taking damage, but you take damage to leave the curse room.",
+      "strategy": "Don't touch this character until you unlocked the 'Holy Mantle' starting item, making it necessary to donate 879 pennies to the Greed Donation Machine, but if you already have it unlocked or just unlocked it, the best strategy for The Lost is to use obstavles to get away from enemies, becausemost enemies don't have the hability to fly. The Lost also have the hability to enter and get out of curse rooms for free, but if you get ht while inside the curse room, you will die when trying to go out, because flight makes so that you can enter curse rooms without taking damage, but you take damage to leave the curse room.",
       "unlock": "Die in a sacrifice room while holding the 'Missing Poster' trinket.",
       "id": "11"
     },
@@ -12544,7 +12544,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Blindfolded (cannot shoot tears by herself).",
       "start_stuff": "The 'Incubus', 'Box of Friends' and 'Cambion Conception' items.",
       "start_stats": "1 red heart container and 2 black hearts, 3.50 damage, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck/.",
-      "stategy": "As Lilith, your familiars are your life! Since she cannot fire tears by herself, she depend of familiars that can, so try to get as many familiars as possible, but also try to get item to help you recharge the 'Box of Friends' item (like the 'The Battery' and/or the '9 Volt' items).",
+      "strategy": "As Lilith, your familiars are your life! Since she cannot fire tears by herself, she depend of familiars that can, so try to get as many familiars as possible, but also try to get item to help you recharge the 'Box of Friends' item (like the 'The Battery' and/or the '9 Volt' items).",
       "unlock": "Defeat the boss 'Ultra Greed' as the character 'Azazel'.",
       "id": "12"
     },
@@ -12554,7 +12554,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Use coins intead of red hearts to heal. All kinds of heart turns into blue flies.",
       "start_stuff": "The 'Wodden Nickel' item and the 'Store Key' trinket (if both are unlocked).",
       "start_stats": "3 coin heart container (only 2 if the 3º isn't unlocked), 3.50 damage, 1.20X damage multiplier, 0.83 tears, 1.0 shot speed, 6.5 range, 0.90 speed an -2 luck.",
-      "stategy": "Berofe you start, unlock the 3º coin container and the 'Wooden Nickel' starting item. After that, use the 'Wooden Nickel item as much as possible, but don't collect the pennies, because the pennies can be used to regenerate your health, play the safricife room and much more, so leave a ton of money on the ground until the end of the floor.'.",
+      "strategy": "Berofe you start, unlock the 3º coin container and the 'Wooden Nickel' starting item. After that, use the 'Wooden Nickel item as much as possible, but don't collect the pennies, because the pennies can be used to regenerate your health, play the safricife room and much more, so leave a ton of money on the ground until the end of the floor.'.",
       "unlock": "Donate 1000 pennies to the greed donation machine.",
       "id": "13"
     },
@@ -12564,7 +12564,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "No extra conditions.",
       "start_stuff": "The 'Void' item.",
       "start_stats": "2 red heart containers, 3.50 damage, 1X damage multipllier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "stategy": "Apollyon starts weak, but if you're smart and fast enough, you can win with ease. Always try to go into alternative floors (such as 'Downpour' and 'The Mines'), because in those floors, the treasure room will have 2 items for you to choose one of them, but one of the items will be 'blind', so you can only know what the item was when you collect him. The good part about Appolyon is the fact that he can pickup an blind item to reveal what it is nd, if you don't like it, you can use the 'Void' item to void the item during the pickup animation. Also try to enter all libraries, because if you use the 'Void' on a active item, you will absorb the item effect, makin gso that the next time you use 'Void', you also use the effect of all active item at the ame time.",
+      "strategy": "Apollyon starts weak, but if you're smart and fast enough, you can win with ease. Always try to go into alternative floors (such as 'Downpour' and 'The Mines'), because in those floors, the treasure room will have 2 items for you to choose one of them, but one of the items will be 'blind', so you can only know what the item was when you collect him. The good part about Appolyon is the fact that he can pickup an blind item to reveal what it is nd, if you don't like it, you can use the 'Void' item to void the item during the pickup animation. Also try to enter all libraries, because if you use the 'Void' on a active item, you will absorb the item effect, makin gso that the next time you use 'Void', you also use the effect of all active item at the ame time.",
       "unlock": "Defeat the boss 'Mega Satan' for the first time.",
       "id": "14"
     },
@@ -12574,7 +12574,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have red heart containers, making all kinds of 'Health Up' item and pills to grant a bone heart instead. Cannot have soul hearts, being those tranferred to his second character, The Soul.",
       "start_stuff": "No starting items/pickups.",
       "start_stats": "3 bone heart containers, 3.50 damage, 1.50X damage multiplier, 1.36 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "stategy": "As The Forgotten, try to use you bone club to knock enemies away from you and deal massive damage. Pay attention to your health, because if you tae damage you don't lose deal chance, but if you lose a bone heart (by taking damage with a empty bone heart) you will lose your deal chance. Also, you can grab pickups with the swing of your bone club, making it possible to get item from 1 tile gaps. Watch out for the range stat, because if the stat is too high, The impact area of the bone club will be further away from you, making it harder to hit enemies.",
+      "strategy": "As The Forgotten, try to use you bone club to knock enemies away from you and deal massive damage. Pay attention to your health, because if you tae damage you don't lose deal chance, but if you lose a bone heart (by taking damage with a empty bone heart) you will lose your deal chance. Also, you can grab pickups with the swing of your bone club, making it possible to get item from 1 tile gaps. Watch out for the range stat, because if the stat is too high, The impact area of the bone club will be further away from you, making it harder to hit enemies.",
       "unlock": "Search for the 'Broken Shovel 1' item to have more information.",
       "id": "15"
     },
@@ -12584,18 +12584,18 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have red heart containers, making all kinds of 'Health Up' items and pills to grant a soul heart instead. Is chained to The Forgotten, making the area of exploration lower.",
       "start_stuff": "No starting items/pickups.",
       "start_stats": "1 soul heart, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.30 speed and 0 luck.",
-      "stategy": "If you press the drop button once as The Forgotten, you switch between controlling The Forgotten and The Soul. The Soul can fly is a limited area defined by the lengh of the chain that is stuck between him and The Forgotten, making him really useful to get pickups/items from far away. When in soul mode, The Forgotten's body will be idle, immune to damage, able to block projectiles and will atract nearby projectiles to himself, making him the 'perfect' cover to bullet-hell bosses/enemies, so use that to your advantage.",
+      "strategy": "If you press the drop button once as The Forgotten, you switch between controlling The Forgotten and The Soul. The Soul can fly is a limited area defined by the lengh of the chain that is stuck between him and The Forgotten, making him really useful to get pickups/items from far away. When in soul mode, The Forgotten's body will be idle, immune to damage, able to block projectiles and will atract nearby projectiles to himself, making him the 'perfect' cover to bullet-hell bosses/enemies, so use that to your advantage.",
       "unlock": "Same as The Forgotten.",
-      "id": "15.5"
+      "id": "15.2"
     },
     {
       "name": "Bethany",
       "image": "img/Search/Characters/Bethany.png",
       "conditions": "Cannot have soul hearts, making all kinds of soul hearts to turn into soul charges to active items.",
-      "start_stuff": "The 'Book of Virtudes' item and .",
-      "start_stats": "3 red heart containers, 2 soul hearts (which are immediately converted into 4 soul charges), 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "stategy": "Bethany is a sensible character due to the fact that she cannot have soul hearts, making almost all sources of enemy damage to make her lose the deal chance. Use you active item, the 'Book of Virtues' s much as possible to create wisps, that orbit Bethany, block enemies projectiles, deal contact damage and shoot with the player, making this the only 'protection' that she has. Another thing: if you collect another active item, the 'Book of Virtudes' will be used with the active item, giving the spawned wisp a different effect depending on the active item, so maybe (depending on what active item you have) to use it even if you wouldn't recieve it's efect (example: use the 'Yum Heart' item even if you already have full health just to spawn a special heart wisp). Eternal hearts are really useful with Bethany, because the're are one of the only things that blocks damage that could decrese deal chance. Talking about deals, the first deal that Bethany will have is a angel deal instead of a devil deal (because of the passive effect of the 'Book of Virtudes item'). Is highlt recomended to not go into devil deals, since Bthany relies on red health.",
-      "unlock": "efeait the boss 'Mom's Heart' or 'It Lives!' as the character 'Lazarus' on hard mode without dying at all.",
+      "start_stuff": "The 'Book of Virtudes' item and 4 soul charges.",
+      "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
+      "strategy": "Bethany is a sensible character due to the fact that she cannot have soul hearts, making almost all sources of enemy damage to make her lose the deal chance. Use you active item, the 'Book of Virtues' s much as possible to create wisps, that orbit Bethany, block enemies projectiles, deal contact damage and shoot with the player, making this the only 'protection' that she has. Another thing: if you collect another active item, the 'Book of Virtudes' will be used with the active item, giving the spawned wisp a different effect depending on the active item, so maybe (depending on what active item you have) to use it even if you wouldn't recieve it's efect (example: use the 'Yum Heart' item even if you already have full health just to spawn a special heart wisp). Eternal hearts are really useful with Bethany, because the're are one of the only things that blocks damage that could decrese deal chance. Talking about deals, the first deal that Bethany will have is a angel deal instead of a devil deal (because of the passive effect of the 'Book of Virtudes item'). Is highlt recomended to not go into devil deals, since Bthany relies on red health.",
+      "unlock": "Defeat the boss 'Mom's Heart' or 'It Lives!' as the character 'Lazarus' on hard mode without dying at all.",
       "id": "16"
     },
     {
@@ -12604,7 +12604,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Are controled with the same inputs and share the speed stat with Esau.",
       "start_stuff": "No starting items/pickups.",
       "start_stats": "3 red heart containers, 2.75 damage, 1X damage multiplier, 3.0 tears, 1.15 shot speed, 5 range, 1 speed and 1 luck.",
-      "stategy": "These 2 are complicated, because if one of them die, the other also dies. The best strategy is to make one of them the tank and the other the defender, giving (for example) Jacob all the damage/attack items and Esau all the defense items, but also giving something of the other category to the other (giving a little of defense to the attack character and giving a littlr of attack power to the defender). Another less effective but way funnier strategy is to give all items to one character and almost nothing to the other, making a funnier but riskyer challenge.",
+      "strategy": "These 2 are complicated, because if one of them die, the other also dies. The best strategy is to make one of them the tank and the other the defender, giving (for example) Jacob all the damage/attack items and Esau all the defense items, but also giving something of the other category to the other (giving a little of defense to the attack character and giving a littlr of attack power to the defender). Another less effective but way funnier strategy is to give all items to one character and almost nothing to the other, making a funnier but riskyer challenge.",
       "unlock": "Defeat the boss 'Mother' for the first time.",
       "id": "17"
     },
@@ -12614,9 +12614,9 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Are controlled with the same inputs and share the speed stat with Jacob.",
       "start_stuff": "No starting items/pickups.",
       "start_stats": "1 red heart container, 1 soul heart, 3.75 damage, 1X damage multiplier, 3.65 tears, 0.85 shot speed, 8 range, 1 speed and -1 luck.",
-      "stategy": ".",
+      "strategy": ".",
       "unlock": "Same as Jacob.",
-      "id": "17.5"
+      "id": "17.2"
     },
     {
       "name": "Tainted Isaac",
@@ -12624,7 +12624,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Have a limited amount of 8 passive items that can be holded at the same time, but item cycles between 2 items from the same item pool.",
       "start_stuff": "1 penny.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "stategy": "When you play as T. Isaac, you best friends are both the 'Void' and the 'Abyss' items, because when your inventory is full, you can transform item into stats (with 'Void') or into permanent attack locusts (with Abyss). Another good strategy is about 'Health Up' items, because if you pickup the 'Dinner' item (for example) and you switch it for another item, you will keep the health gain. So the best strategy for T. ISaac is make sure you don't have any useless items in your inventory and prioritize items that give the best stats and/or tear effect.",
+      "strategy": "When you play as T. Isaac, you best friends are both the 'Void' and the 'Abyss' items, because when your inventory is full, you can transform item into stats (with 'Void') or into permanent attack locusts (with Abyss). Another good strategy is about 'Health Up' items, because if you pickup the 'Dinner' item (for example) and you switch it for another item, you will keep the health gain. So the best strategy for T. ISaac is make sure you don't have any useless items in your inventory and prioritize items that give the best stats and/or tear effect.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Isaac.",
       "id": "18"
     },
@@ -12634,7 +12634,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "All hearts but the first 2 are depleted over time, but doing melee damage spawn a half red heart that disseapears after 2 seconds. She heals twice as much health with 'Yum Heart'.",
       "start_stuff": "The 'Yum Heart' in the pocket active item slot.",
       "start_stats": "2 red hearts, 2 drainable empty red hearts, 3.50 damage, 0.75X damage multiplier, 2.73 tears. 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "stategy": "T. Magdalene is a melee type of character, because if you go and try to deal contact damage to enemies, she will automaticaly 'hug' an enemy. Hugged enemies are guaranteed to drop a temporary half red heart that last 2 seconds after disseapering when killed by the hug. Her first 2 red heart container will not drain, but if the player takes enemmy damage with the not-drain red hearts, their deal chance will be lowered, but if the draining red hearts are the ones that takes the damage, your deal chance will not go down. Try to get items that benefits all the damage that you take, such as 'Fanny Pack', 'Gimpy' or 'Celtic Cross'.",
+      "strategy": "T. Magdalene is a melee type of character, because if you go and try to deal contact damage to enemies, she will automaticaly 'hug' an enemy. Hugged enemies are guaranteed to drop a temporary half red heart that last 2 seconds after disseapering when killed by the hug. Her first 2 red heart container will not drain, but if the player takes enemmy damage with the not-drain red hearts, their deal chance will be lowered, but if the draining red hearts are the ones that takes the damage, your deal chance will not go down. Try to get items that benefits all the damage that you take, such as 'Fanny Pack', 'Gimpy' or 'Celtic Cross'.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Magdalene.",
       "id": "19"
     },
@@ -12644,7 +12644,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot pick up any items at all, transforming all items into pickups.",
       "start_stuff": "1 key and the 'Bag of Crafting' in the pocket active item slot.",
       "start_stats": "2 red heart containers, 3.50 damage, 1.20X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.30 speed and 0 luck.",
-      "stategy": "On T. Cain, leave all of your pickups on the ground, so that you can later use the 'Bag of Crafting' item later to craft your items with the pickups. Always relember: the better the pickup, the better is the item crafted (examples: golden pickups, pills, cards, batteries, nickels, dimes, etc.), and only collect pickup to specific situtions, such as blowing shopkeepers, secret rooms, entering shops and treasure rooms or opening chests.",
+      "strategy": "On T. Cain, leave all of your pickups on the ground, so that you can later use the 'Bag of Crafting' item later to craft your items with the pickups. Always relember: the better the pickup, the better is the item crafted (examples: golden pickups, pills, cards, batteries, nickels, dimes, etc.), and only collect pickup to specific situtions, such as blowing shopkeepers, secret rooms, entering shops and treasure rooms or opening chests.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Cain.",
       "id": "20"
     },
@@ -12654,7 +12654,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have red heart containers, making all kinds of 'Health Up' items and pills to grant a black heart instead.",
       "start_stuff": "3 pennies and the 'Dark Arts' in the pocket active item slot.",
       "start_stats": "2 black hearts, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.23 speed and 0 luck.",
-      "stategy": "When you're playing as T. Judas, you need to pay attention to all enemies and projectiles on the screen, because they can turn into temporary damage. When you use 'Dark Arts' and pass though enemies and projectiles, you deal damage to enemies, destroy the projectiles and recieves a damage boost for a while, depending on how many enemies and/or projectiles you cutted, making the best strategy as Tainted Judas to use the 'Dark Arts' item aggressively.",
+      "strategy": "When you're playing as T. Judas, you need to pay attention to all enemies and projectiles on the screen, because they can turn into temporary damage. When you use 'Dark Arts' and pass though enemies and projectiles, you deal damage to enemies, destroy the projectiles and recieves a damage boost for a while, depending on how many enemies and/or projectiles you cutted, making the best strategy as Tainted Judas to use the 'Dark Arts' item aggressively.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Judas.",
       "id": "21"
     },
@@ -12664,7 +12664,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have red heart containers, making all kinds of 'Health Up' items and pills to grant a soul heart intead. Cannot have normal bombs, making all kinds of bombs to turn into poop pickups.",
       "start_stuff": "3 poop bombs and the 'Hold' in the pocket active item slot.",
       "start_stats": "3 soul hearts, 3.50 damage, 1X damage multiplier, 2.38 tears 1.0 shot speed, 6.5 range, 0.90 speed and 0 luck.",
-      "stategy": "While playing as T. Blue Baby, all bomb pickups will be replaced with poop pickups. Those poops have multiple diferent effects, so the best strategy is to know what each poop pickup do, and if the pickup is really good, keep it with the 'Hold' item.",
+      "strategy": "While playing as T. Blue Baby, all bomb pickups will be replaced with poop pickups. Those poops have multiple diferent effects, so the best strategy is to know what each poop pickup do, and if the pickup is really good, keep it with the 'Hold' item.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Blue Baby.",
       "id": "22"
     },
@@ -12674,7 +12674,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "If shooting tears for to long, will use a half red heart to spawn a blood clot until reaches half a heart.",
       "start_stuff": "The 'Sumptorium' in the pocket active item slot.",
       "start_stats": "2 red heart containers, 3.50 damage, 1.20X damage multiplier, 2.23 + 0.66X tears (and tears multiplier), 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "stategy": "T. Eve is a character that will (almost) always be at low health, but the price of low health is an army of tear-shooting blood clots. After holding the fire button for 2 seconds, T. Eve will trade half a heart for 1 clot, and depending on what kind of heart in used when the 'trade' is made, the kind of clot that will spawn is different, making health trade with black, eternal, golden and soul hearts really worth it. Another strategy is to use the pocket active item 'Sumptorium', because when the item is used with blood clots on the screen, T. Eve will 'suck' all clots to her halth bar, and re-spawning the clot will just reset all the clots health.",
+      "strategy": "T. Eve is a character that will (almost) always be at low health, but the price of low health is an army of tear-shooting blood clots. After holding the fire button for 2 seconds, T. Eve will trade half a heart for 1 clot, and depending on what kind of heart in used when the 'trade' is made, the kind of clot that will spawn is different, making health trade with black, eternal, golden and soul hearts really worth it. Another strategy is to use the pocket active item 'Sumptorium', because when the item is used with blood clots on the screen, T. Eve will 'suck' all clots to her halth bar, and re-spawning the clot will just reset all the clots health.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Eve.",
       "id": "23"
     },
@@ -12684,9 +12684,9 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Dealing/taking damage icreases a 'rage' stat, that when fully charged, activates the 'Berserk!' item effect.",
       "start_stuff": "No starting items/pickups.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.63 tears, 1.0 shot speed, 5 range, 1.0 speed and 0 luck.",
-      "stategy": "When dealing damage to enemies or taking damage from any source, T. Samson will start to fill a 'Rage' stat that is indicated in how much red T. Samson is. When fully red, T. Samson will activate the 'Berserk!' effect, turning into an melee-attack kind of character, dealing massive damage to enemies, and every time you kill a enemy, the 'Berserker Timer' is increased by 1 second. The best strategy sa T. Samson is to (try) to use the Berserker form on the boss of the floor and/or on room with a ton of enemies to fight.",
-      "id": "24",
+      "strategy": "When dealing damage to enemies or taking damage from any source, T. Samson will start to fill a 'Rage' stat that is indicated in how much red T. Samson is. When fully red, T. Samson will activate the 'Berserk!' effect, turning into an melee-attack kind of character, dealing massive damage to enemies, and every time you kill a enemy, the 'Berserker Timer' is increased by 1 second. The best strategy sa T. Samson is to (try) to use the Berserker form on the boss of the floor and/or on room with a ton of enemies to fight.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Samson.",
+      "id": "24"
     },
     {
       "name": "Tainted Azazel",
@@ -12694,7 +12694,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Thin brimstone that deals half the character's damage. 'Hemoptysis' passive item effect.",
       "start_stuff": "The 'The Fool' card.",
       "start_stats": "3 black hearts, 3.50 damage, 1.50X damage multiplier, 0.91 tears, 1.0 shot speed, 6.5 reange, 1.0 speed and 0 luck.",
-      "stategy": "When playing as T. Azazel, your damage outcome is cutted in half unless you aplly the 'Curse of Brimstone' on enemies. To apply the curse, just use the sneeze attack close to enemies, then shoot then with the thin-looking 'Brimstone' attack. When in boss fights, always apply the 'CUrse of Brimstone' into the boss to a better experience.",
+      "strategy": "When playing as T. Azazel, your damage outcome is cutted in half unless you aplly the 'Curse of Brimstone' on enemies. To apply the curse, just use the sneeze attack close to enemies, then shoot then with the thin-looking 'Brimstone' attack. When in boss fights, always apply the 'CUrse of Brimstone' into the boss to a better experience.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Azazel.",
       "id": "25"
     },
@@ -12704,7 +12704,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "No extra conditions.",
       "start_stuff": "The 'Flip' in the pocket active item slot.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.0 speed and 0 luck.",
-      "stategy": "When a room is cleared while as Tainted Lazarus, you will transform into Dead Tainted Lazarus and vice-versa. The pocket active item 'Flip' can be used to force the transforomation from one form to another, but can also be used on item pedestals in treasure rooms, shops and much more, so always have the 'Flip' item charged up when entering any kind of places with item pedestals. Tainted Lzarus and Dead Tainted Lazarus have their own health, stats and items, so giving the correct items for the correct form is always god (like how Tainted Lazarus have low range, try to give him any 'Range Up' items).",
+      "strategy": "When a room is cleared while as Tainted Lazarus, you will transform into Dead Tainted Lazarus and vice-versa. The pocket active item 'Flip' can be used to force the transforomation from one form to another, but can also be used on item pedestals in treasure rooms, shops and much more, so always have the 'Flip' item charged up when entering any kind of places with item pedestals. Tainted Lzarus and Dead Tainted Lazarus have their own health, stats and items, so giving the correct items for the correct form is always god (like how Tainted Lazarus have low range, try to give him any 'Range Up' items).",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Lazarus (or Lazarus Risen).",
       "id": "26"
     },
@@ -12714,9 +12714,9 @@ window.TBOU_SEARCH_DATA =
       "conditions": "No extra conditions.",
       "start_stuff": "The 'Flip' in the pocket active item slot.",
       "start_stats": "2 soul hearts, 3.50 damage, 1.50X damage multiplier, 2.63 tears, 1.0 shot speed, 6.5 range, 0.90 speed and -2 luck.",
-      "stategy": "When a room is cleared while as Dead Tainted Lazarus, you will transform into Tainted Lazarus and vice-versa. The pocket active item 'Flip' can be used to force the transforomation from one form to another, but can also be used on item pedestals in treasure rooms, shops and much more, so always have the 'Flip' item charged up when entering any kind of places with item pedestals. Dead Tainted Lzarus and Tainted Lazarus have their own health, stats and items, so giving the correct items for the correct form is always god (like how Dead Tainted Lazarus have no red health, try to give him any 'Health Up' items).",
+      "strategy": "When a room is cleared while as Dead Tainted Lazarus, you will transform into Tainted Lazarus and vice-versa. The pocket active item 'Flip' can be used to force the transforomation from one form to another, but can also be used on item pedestals in treasure rooms, shops and much more, so always have the 'Flip' item charged up when entering any kind of places with item pedestals. Dead Tainted Lzarus and Tainted Lazarus have their own health, stats and items, so giving the correct items for the correct form is always god (like how Dead Tainted Lazarus have no red health, try to give him any 'Health Up' items).",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Lazarus (or Lazarus Risen).",
-      "id": "26.5"
+      "id": "26.2"
     },
     {
       "name": "Tainted Eden",
@@ -12724,7 +12724,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Every damage dealt by enemies rerolls all passive and active items from the same item pool we're they were collected.",
       "start_stuff": "Random with exception of story items.",
       "start_stats": "Random between 3.50 ± 1 damage, 1X damage multiplier, +0.75 to -0.5 from 2.73 tears, 1.0 ± 0.25 shot speed, 6.5 ± 1 range, 1.0 ± 0.15 speed and 0 ± 1 luck.",
-      "stategy": "When T. Eden is in play, you either wants to damage yourself a ton for a chance of getting better items or don't wanna get hit because you have all the good items. Try to abuse the item pool function and rerrol yourself into the items yoou fell the most comfortable with, but don't get attached to your items, because any skill issue will throw your build into the trash.",
+      "strategy": "When T. Eden is in play, you either wants to damage yourself a ton for a chance of getting better items or don't wanna get hit because you have all the good items. Try to abuse the item pool function and rerrol yourself into the items yoou fell the most comfortable with, but don't get attached to your items, because any skill issue will throw your build into the trash.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Eden.",
       "id": "27"
     },
@@ -12734,69 +12734,99 @@ window.TBOU_SEARCH_DATA =
       "conditions": "All cards have a 10% chance of being replaced by a 'Holy Card' pickup, but most defensive items cannot appear naturally to him.",
       "start_stuff": "1 penny and a 'Holy Card' pickup.",
       "start_stats": "No health, 3.50 damage, 1.30X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "stategy": "T. Lost is a nightmare because he relies on holy cards to be able to defend himself from any form of damage, since he doesn't have the normal 'Holy Mantle' effect. The best strategy is to always visit the shops if you have 15 cents or more, because there is a chance of a 'Holy Card' to be at sale or any items that grant card effects, such as the 'Deck of Cards', 'Starter Deck' or 'Blank Card' items. Always prioritize holy cards and shops for more chances of finding holy cards.",
-      "id": "28",
+      "strategy": "T. Lost is a nightmare because he relies on holy cards to be able to defend himself from any form of damage, since he doesn't have the normal 'Holy Mantle' effect. The best strategy is to always visit the shops if you have 15 cents or more, because there is a chance of a holy card to be for sale or any items that grant cards, such as the 'Deck of Cards', 'Starter Deck', 'Booster Pack' or 'Blank Card' items. Always prioritize holy cards and shops for more chances of finding holy cards.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as The Lost.",
+      "id": "28"
     },
     {
-      "name": "",
-      "image": "img/Search/Characters/.png",
-      "conditions": "No extra conditions.",
-      "start_stuff": ".",
-      "start_stats": ".",
-      "stategy": ".",
-      "unlock": ".",
+      "name": "Tainted Lilith",
+      "image": "img/Search/Characters/T_Lilith.png",
+      "conditions": "Blindfolded (cannot shoot tears by herself). Have a Fetus that are yeeted you of her chest.",
+      "start_stuff": "No starting items/pickups.",
+      "start_stats": "1 red heart conainer, 2 black hearts, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 0.85 speed and 0 luck.",
+      "strategy": "T. Lilith is a character that relies on her 'Gello' fetus to deal damage and survive in combat. When the fire button is pressed and holded, she fires her fetus, and if the fire button is held for more time, the Gello starts to shoot tears out of it's mouth. The first burst of the Gello deals 3X teh player's damage, being a reliable strategy to spam the attack instead of hold the fire button and start to fire tears.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Lilith.",
       "id": "29"
     },
     {
-      "name": "",
-      "image": "img/Search/Characters/.png",
-      "conditions": "No extra conditions.",
-      "start_stuff": ".",
-      "start_stats": ".",
-      "stategy": ".",
-      "unlock": ".",
+      "name": "Tainted Keeper",
+      "image": "img/Search/Characters/T_Keeper.png",
+      "conditions": "Enemies drop coins on death, but the coins disappear after 2 seconds. All items costs money, just like if they are from sale. All shop are better. Use coins intead of red hearts to heal. All kinds of heart turns into blue flies.",
+      "start_stuff": "1 bomb.",
+      "start_stats": "2 coin containers, 3.50 damage, 1X damage multiplier, 0,53 tears, 1.0 shot speed, 6.5 range, 1.0 speed and -2 luck.",
+      "strategy": "T. Keeper is all about money, so be as greedy as possible! Since enemies can drop any kind of coins, including nickels, dimes, lucky pennies and sticky nickels on death, always try to collect the money, even if you are going to take damage, because of Tainted Keeper's coin containers, 1 penny heals him 1 container, so is at leats a win-win situation if you know how to shoot and kill enemies properly. Try to skip treasure rooms because the item inside costs money. All shops as Tainted Keeper are better, and will have more items from outside the shop item pool, so is better to go to the shop rather than the treasure room.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as the Keeper.",
       "id": "30"
     },
     {
-      "name": "",
-      "image": "img/Search/Characters/.png",
-      "conditions": "No extra conditions.",
-      "start_stuff": ".",
-      "start_stats": ".",
-      "stategy": ".",
-      "unlock": ".",
+      "name": "Tainted Apollyon",
+      "image": "img/Search/Characters/T_Apollyon.png",
+      "conditions": "Start with 1 'Abyss' locust hat deals 1X the player damage.",
+      "start_stuff": "The 'Abyss' on the pocket active item slot.",
+      "start_stats": "2 red heart containers, 3.50 damage, 1X damage multiplier, 2.23 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
+      "strategy": "As T. Apollyon, the best way to win is to use the 'Abyss' item on the correct items for the best damaga output and the best funcionality of the 'Abyss' locusts. Since T. Apollyon relies on 'Abyss', the best strategy is to know the effects of some items when they are turned into locusts, because (as an example) defensive items turn into shileded locusts, that can block enemies projectiles, and poison-related items turn into poisosed locusts, dealing poison damage over time. Try to undertand that locust give what effect and you are really good done playing T. Apollyon.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Apollyon.",
       "id": "31"
     },
     {
-      "name": "",
-      "image": "img/Search/Characters/.png",
-      "conditions": "No extra conditions.",
-      "start_stuff": ".",
-      "start_stats": ".",
-      "stategy": ".",
-      "unlock": ".",
+      "name": "Tainted Forgotten",
+      "image": "img/Search/Characters/T_Forgotten.png",
+      "conditions": "Are invulnerable, but can't walk by himself.",
+      "start_stuff": "No starting items/pickups.",
+      "start_stats": "No health, 3.50 damage, 1.50X damage multiplier, 1.36 tears, 1.0 shot speed, 6.5 range, -1.0 speed and 0 luck.",
+      "strategy": "As T. Forgotten, you rely on the Tainted Soul to move around by having the necessity of being picked up and throwed into enemies and/or places with pickups to collect. There's not a big of a deal while playing as T. Forgotten, because the move and the health of the charathcer are linked to the Tainted Soul, that cannot shoot tears by herself and depends on Tainted Forgotten to deal damage to enemies. Pressing the fire button will make T. Forgotten to use his bone club on the direction of the button while stoppped.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as The Forgotten.",
       "id": "32"
     },
     {
-      "name": "",
-      "image": "img/Search/Characters/.png",
-      "conditions": "No extra conditions.",
-      "start_stuff": ".",
-      "start_stats": ".",
-      "stategy": ".",
-      "unlock": ".",
+      "name": "Tainted Soul",
+      "image": "img/Search/Characters/T_Soul.png",
+      "conditions": "Cannot shoot tears by himself, relibeing dependent on Tainted Forgottenv  to deal damage to enemies. Cannot have red heart containers, making all kinds of 'Health Up' items and pills to grant a soul heart instead. Share stats with Tainted Forgotten.",
+      "start_stuff": "No starting items/pickups.",
+      "start_stats": "3 soul hearts, 3.50 damage, 1.50X damage multiplier, -2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
+      "strategy": "As T. Soul, you rely on Tainted Forgotten to deal damage to enemies due to the fact that you by yourself cannot shoot tears. If you pass over Tainted Forgotten, you will pick him up, and when you press a fire key, you thow him into the direction of our choice. The inicial throw will deal 2X damage, so always try to throw him at enemies for the best damage output.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as The Forgotten.",
+      "id": "32.5"
+    },
+    {
+      "name": "Tainted Bethany",
+      "image": "img/Search/Characters/T_Bethany.png",
+      "conditions": "Cannot have red heart containers, making all kinds of 'Health Up' items and pills to grant a soul heart instead. All red hearts collected turna into red charges to active items.",
+      "start_stuff": "The 'Lemegeton' on the pocket active item slot and 6 red charges.",
+      "start_stats": "3 soul hearts, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
+      "strategy": "When playing as T. Bethany, take care of your item-wisps, because they are essential for better performance. Every time you use the 'Legemeton', you have 25% chance of spawning an item from the item pool of the current room, so try to abuse this and use your pocket ative item inside certain rooms, such as secret rooms.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Bethany.",
       "id": "33"
     },
     {
-      "name": "",
-      "image": "img/Search/Characters/.png",
-      "conditions": "No extra conditions.",
-      "start_stuff": ".",
-      "start_stats": ".",
-      "stategy": ".",
-      "unlock": ".",
+      "name": "Tainted Jacob",
+      "image": "img/Search/Characters/T_Jacob.png",
+      "conditions": "Eternally chased by Tainted Esau.",
+      "start_stuff": "The 'Anima Sola' on the pocket active item slot.",
+      "start_stats": "3 red heart conatiners, 3.50 damage, 1X damage multiplier, 3.00 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
+      "strategy": "T. Jacob is the character that will be a headache at the start, but if you play it correctly, you can overcome the initial challenges of the character. After 20-40 seconds on the start of every floor, Tainted Esau will spawn and charge at you ocassionaly. If you use 'Anima Sola' on the starting room, Tainted Esau will spawn immediately. If T. Jacob are thouched by Tainted esau, he 'dies', transforming himself into Lost T. Jacob.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Jacob & Esau.",
       "id": "34"
+    },
+    {
+      "name": "Dead Tainted Jacob (a.k.a. Lost Tainted Jacob)",
+      "image": "img/Search/Characters/Lost_T_Jacob.png",
+      "conditions": "Eternally chased by Tainted Esau. Dies in one hit.",
+      "start_stuff": "The 'Anima Sola' on the pocket active item slot.",
+      "start_stats": "3 red heart conatiners, 3.50 damage, 1X damage multiplier, 3.00 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
+      "strategy": "Lost T. Jacob is a 'character' that is only acessible by being touched by Tainted Esau. When Tainted Jacob is on this state, he acts like Tainted Lost, being a ghost with flight and spectral tears, but no 'Hol Mantle' effect. There is some ways of avoiding taking damage, being one of the ways by haing an eternal heart, serving like an 'hit' for Lost T. Jacob. When entering the next floor, Lost T. Jacob will transform back into Tainted Jacob, so at the end of the floor, if you intencionally touch T. Esau, you can have flight for the entire floor, collect all pickups you previously would not be able to, and then go to the next floor.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Jacob & Esau.",
+      "id": "34.2"
+    },
+    {
+      "name": "Tainted Esau (a.k.a. Dark Esau)",
+      "image": "img/Search/Characters/T_Esau.png",
+      "conditions": "Eternally angry and wants revenge from Tainted Jacob.",
+      "start_stuff": "No starting items/pickups.",
+      "start_stats": "No stats.",
+      "strategy": "T. Esau is a undefeatable 'miniboss' that will always try to kill Tainted Jacob with dashes. Every floor he will take around 20-40 seconds to spawn, will try to dash in the direction of Tainted Jacob if too close to him, when he spawns, he will create a temporary hole in the ground that spits fire and deal damage to Tainted Jacob and to all enemies around. The dash that T. esau do can damage enemies and bosses, making him a good weapon if controlled by the 'Anima Sola' item. The 'Anima Sola' item will always target T. Esau if he's on screen and if used again when he is already chained down, he is released instantly on a dash in the direction of Tainted Jacob (use this to the best of your ability). While chained down, Tainted Jacob can touch T. Esau without transforming into Lost T. Jacob.",
+      "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Jacob & Esau.",
+      "id": "34.3"
     }
-  ]
+  ],
 };
