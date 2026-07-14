@@ -533,6 +533,7 @@ OBS: Essa atualização está feita pela metade devido a problemas no meu dispos
 4) O antigo arquivo README (Avisos Importantes) foi excluido.
 ND: O TBOU ainda está em estado de beta, então espere mudanças drásticas no futuro, além disso, eu vou focar mais no PTWE por conta do projeto estar meio abandonado e cheio de bugs.
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 Informações:
 UQV: 23. / ND: 11. / Atualização GAMER: 16. / UD: 19. / URM: 17. / TBOU: 13
