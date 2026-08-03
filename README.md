@@ -330,7 +330,11 @@ ND: Ontem (dia 15/02/2010), eu fiz 16 anos, e quando eu começei a programar em 
 1) Foi mudados alguns delathes no README.
 2) Foi mudado o texto do contador de versão da página inicial.
 3) Foi adicionado 3 arquivos PHP e 1 imagem nova.
+<<<<<<< HEAD
 ND: Eu tentei implementar um banco de dados (para que seja possível fazer login/se cadastrar no meu site), mas eu ainda não consegui, pois isso precisa de um backend externo, e eu ainda não sei usar um backend externo.
+=======
+ND: Eu tentyei implementar um banco de dados (para que seja possível fazer login/se cadastrar no meu site), mas eu ainda não consegui, pois isso precisa de um backend externo, e eu ainda não sei usar um backend externo.
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 (4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
 2.0_beta: Site do Lucas V2.0 - BETA 1: Versão experimental da versão 2.0 + Atualização GAMER 9 + ND 5.
@@ -520,7 +524,11 @@ ND: Esse update é um teste do novo design do TBOU, então o site pode e prováv
 3) Foi adicionado no TSOI informações sobre todos os personagens e estratégias para como jogar com eles.
 4) Foi atualizado a descrição da maioria dos personagens.
 5) Foi mudado alguns outros bugs de qualidade de vida.
+<<<<<<< HEAD
 OBS: Essa atualização está feita pela metade devido a problemas no meu dispositivo, então espere por uma atualização para consertar as pontas soltas.
+=======
+OBS: Essa atualização está feita pela metade devido a problemas no meu dispositivo, então espere por uma atualizaç~~ao para consertar as pontas soltas.
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 
 2.0_beta14.2: Site do Lucas - BETA 14.2: URM 17
 
@@ -533,6 +541,7 @@ OBS: Essa atualização está feita pela metade devido a problemas no meu dispos
 4) O antigo arquivo README (Avisos Importantes) foi excluido.
 ND: O TBOU ainda está em estado de beta, então espere mudanças drásticas no futuro, além disso, eu vou focar mais no PTWE por conta do projeto estar meio abandonado e cheio de bugs.
 
+<<<<<<< HEAD
 2.0_beta16: Site do Lucas - BETA 16: TBOU 14
 1) Foi mudado o layout dos botões da página inicial.
 2) Foi adicionado o modo de suporte mobile para o site (ainda é um WIP).
@@ -541,5 +550,9 @@ ND: O TBOU ainda está em estado de beta, então espere mudanças drásticas no 
 5) Foi adicionado a telal de 'Shop Donation Machine'.
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+=======
+
+
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 Informações:
 UQV: 23. / ND: 11. / Atualização GAMER: 16. / UD: 19. / URM: 17. / TBOU: 13

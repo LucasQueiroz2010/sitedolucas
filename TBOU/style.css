@@ -180,6 +180,7 @@ h1 {
     justify-content:center;
     gap:14px;
 }
+<<<<<<< HEAD
 #shop-screen .greed-actions {
     display:grid;
     grid-template-columns: repeat(4, minmax(120px, 1fr));
@@ -197,6 +198,11 @@ h1 {
     max-width:860px;
     margin:0 auto;
     align-items:stretch;
+=======
+.home-actions {
+    flex-direction:column;
+    align-items:center;
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 }
 
 .menu-btn, .back-btn, .coin-btn, .daily-actions button {
@@ -212,7 +218,11 @@ h1 {
 }
 
 .menu-btn {
+<<<<<<< HEAD
     width: 100%;
+=======
+    width: min(100%,360px);
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     min-height:72px;
     color: var(--screen-accent, var(--accent-color));
 }
@@ -1166,6 +1176,7 @@ select {
     overflow: hidden;
 }
 
+<<<<<<< HEAD
 #shop-screen .greed-unlocks {
     display: grid;
     grid-template-columns: repeat(2, minmax(220px, 1fr));
@@ -1176,6 +1187,8 @@ select {
     margin: 0 auto;
 }
 
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 .greed-machine::before {
     content: '';
     position: absolute;

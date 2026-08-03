@@ -50,6 +50,7 @@ const greedDonationUnlocks = [
     { coins: 1000, id: "greed_1000", reward: "Keeper" }
 ];
 
+<<<<<<< HEAD
 const shopDonationUnlocks = [
     { coins: 10, id: "shop_10", reward: "Blue Map" },
     { coins: 20, id: "shop_20", reward: "Store Upgrade lv. 1" },
@@ -63,6 +64,8 @@ const shopDonationUnlocks = [
     { coins: 999, id: "shop_999", reward: "Stop Watch" }
 ];
 
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 const dailyAchievements = [
     { id: "daily_broken_modem", name: "Broken Modem", reward: "Win 7 Daily Runs", stat: "wins", goal: 7 },
     { id: "daily_cracked_crown", name: "Cracked Crown", reward: "Get a 5 Daily Run victory streak", stat: "streak", goal: 5 },
@@ -902,9 +905,12 @@ const greedCoinTotal = document.getElementById('greed-coin-total');
 const greedMachineCounter = document.getElementById('greed-machine-counter');
 const greedMachine = document.querySelector('.greed-machine');
 const greedUnlocks = document.getElementById('greed-unlocks');
+<<<<<<< HEAD
 const shopCoinTotal = document.getElementById('shop-coin-total');
 const shopMachineCounter = document.getElementById('shop-machine-counter');
 const shopUnlocks = document.getElementById('shop-unlocks');
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 const challengeGrid = document.getElementById('challenge-grid');
 const challengeProgress = document.getElementById('challenge-progress');
 const dailyPlayed = document.getElementById('daily-played');
@@ -912,6 +918,7 @@ const dailyStreak = document.getElementById('daily-streak');
 const dailyAchievementsGrid = document.getElementById('daily-achievements');
 const dailyVictoryBtn = document.getElementById('daily-victory-btn');
 const dailyDefeatBtn = document.getElementById('daily-defeat-btn');
+<<<<<<< HEAD
 const deviceChoiceOverlay = document.getElementById('device-choice-overlay');
 const devicePcBtn = document.getElementById('device-pc-btn');
 const deviceMobileBtn = document.getElementById('device-mobile-btn');
@@ -965,6 +972,10 @@ if (switchModeBtn) {
         showDeviceChoiceOverlay();
     });
 }
+=======
+
+let isTaintedMode = false;
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 
 function loadJSONStorage(key, fallback) {
     const value = localStorage.getItem(key);
@@ -983,10 +994,13 @@ let greedCoins = (() => {
     const raw = localStorage.getItem('isaacGreedCoins');
     return raw !== null ? Number(raw) || 0 : 0;
 })();
+<<<<<<< HEAD
 let shopCoins = (() => {
     const raw = localStorage.getItem('isaacShopCoins');
     return raw !== null ? Number(raw) || 0 : 0;
 })();
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 let dailyProgress = loadJSONStorage('isaacDailyProgress', {
     played: 0,
     wins: 0,
@@ -1430,10 +1444,13 @@ function saveGreedProgress() {
     localStorage.setItem('isaacGreedCoins', String(greedCoins));
 }
 
+<<<<<<< HEAD
 function saveShopProgress() {
     localStorage.setItem('isaacShopCoins', String(shopCoins));
 }
 
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 function saveDailyProgress() {
     localStorage.setItem('isaacDailyProgress', JSON.stringify(dailyProgress));
 }
@@ -1458,7 +1475,10 @@ function showView(viewId) {
         }
         renderGreedMachine();
     }
+<<<<<<< HEAD
     if (viewId === 'shop-screen') renderShopMachine();
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     if (viewId === 'challenges-screen') renderChallenges();
     if (viewId === 'daily-screen') renderDailyRuns();
     if (viewId === 'collection-screen') renderCollectionPage();
@@ -1520,6 +1540,7 @@ function resetGreedProgress() {
     renderAll();
 }
 
+<<<<<<< HEAD
 function resetShopProgress() {
     shopCoins = 0;
     saveShopProgress();
@@ -1528,6 +1549,8 @@ function resetShopProgress() {
     renderAll();
 }
 
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 function resetChallengesProgress() {
     challengeData.forEach(challenge => delete userProgress[challenge.id]);
     saveProgress();
@@ -1546,7 +1569,10 @@ function bindResetButtons() {
     const mapping = [
         { id: 'reset-unlocks-btn', info: 'Unlocks screen', action: resetUnlocksProgress },
         { id: 'reset-greed-btn', info: 'Greed Donation Machine', action: resetGreedProgress },
+<<<<<<< HEAD
         { id: 'reset-shop-btn', info: 'Shop Donation Machine', action: resetShopProgress },
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
         { id: 'reset-challenges-btn', info: 'Challenges', action: resetChallengesProgress },
         { id: 'reset-daily-btn', info: 'Daily Run', action: resetDailyProgress }
     ];
@@ -1573,6 +1599,7 @@ function syncGreedUnlocks() {
     if (changed) saveProgress();
 }
 
+<<<<<<< HEAD
 function syncShopUnlocks() {
     let changed = false;
     shopDonationUnlocks.forEach(unlock => {
@@ -1586,6 +1613,8 @@ function syncShopUnlocks() {
     if (changed) saveProgress();
 }
 
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 function getRequirementKey(requirement) {
     if (requirement.id) return requirement.id;
     return `manual_req_${requirement.text.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')}`;
@@ -1628,14 +1657,22 @@ function updateProgressDisplay() {
     const unlockCompleted = Object.values(gameData).reduce((total, charData) => total + getUnlocksForCharacter(charData).filter(unlock => userProgress[unlock.id]).length, 0) + (isTaintedMode ? 0 : globalSpecialUnlocks.filter(unlock => userProgress[unlock.id]).length);
     const challengeCompleted = challengeData.filter(challenge => userProgress[challenge.id]).length;
     const greedCompleted = greedDonationUnlocks.filter(unlock => userProgress[unlock.id]).length;
+<<<<<<< HEAD
     const shopCompleted = shopDonationUnlocks.filter(unlock => userProgress[unlock.id]).length;
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     const dailyCompleted = dailyAchievements.filter(achievement => userProgress[achievement.id]).length;
     const collectionCompleted = Object.keys(collectionEntries).length;
     // Exclude non-dead-god contributions (cards, pills, runes, soul stones, curses, characters, transformations)
     const excludedTypesForProgress = ['card','pill','rune','soul_stone','curse','character','transformation'];
     const searchableCount = (Array.isArray(searchableEntries) ? searchableEntries.filter(e => !excludedTypesForProgress.includes(e.type)) .length : 0);
+<<<<<<< HEAD
     const total = unlockTotal + challengeData.length + greedDonationUnlocks.length + shopDonationUnlocks.length + dailyAchievements.length + Math.max(searchableCount, 1);
     const completed = unlockCompleted + challengeCompleted + greedCompleted + shopCompleted + dailyCompleted + collectionCompleted;
+=======
+    const total = unlockTotal + challengeData.length + greedDonationUnlocks.length + dailyAchievements.length + Math.max(searchableCount, 1);
+    const completed = unlockCompleted + challengeCompleted + greedCompleted + dailyCompleted + collectionCompleted;
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 
     if (progressText) progressText.textContent = `${completed}/${total}`;
     if (progressFill) progressFill.style.width = `${Math.min(100, Math.round((completed / total) * 100))}%`;
@@ -1909,6 +1946,7 @@ function renderCharInfo() {
     charImageContainer.classList.remove('stacked');
     
     const mainImg = document.createElement('img');
+<<<<<<< HEAD
     const showSpecialTaintedJacobVisual = charData.name === 'Tainted Jacob & Dark Esau' && getTaintedJacobVisualMode() === 'dark-esau';
     if (showSpecialTaintedJacobVisual) {
         mainImg.src = 'img/Characters/Tainted/Dark_Esau.png';
@@ -1926,6 +1964,13 @@ function renderCharInfo() {
     }
     
     if (charData.image2 && !showSpecialTaintedJacobVisual) {
+=======
+    mainImg.src = charData.image;
+    mainImg.alt = charData.name;
+    charImageContainer.appendChild(mainImg);
+    
+    if (charData.image2) {
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
         charImageContainer.classList.add('stacked');
         const secondImg = document.createElement('img');
         secondImg.src = charData.image2;
@@ -2294,6 +2339,7 @@ function renderGreedMachine() {
     });
 }
 
+<<<<<<< HEAD
 function renderShopMachine() {
     syncShopUnlocks();
     if (shopCoinTotal) shopCoinTotal.textContent = shopCoins;
@@ -2324,6 +2370,8 @@ function renderShopMachine() {
     });
 }
 
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 function renderChallenges() {
     if (!challengeGrid) return;
     challengeGrid.innerHTML = '';
@@ -2422,12 +2470,18 @@ let searchableEntries = [];
 function renderAll() {
     syncGlobalSpecialUnlocks();
     syncGreedUnlocks();
+<<<<<<< HEAD
     syncShopUnlocks();
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     renderCharInfo();
     renderUnlocks();
     updateProgressDisplay();
     renderGreedMachine();
+<<<<<<< HEAD
     renderShopMachine();
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     renderChallenges();
     renderDailyRuns();
     renderCollectionPage();
@@ -2439,6 +2493,7 @@ navButtons.forEach(button => {
 
 document.querySelectorAll('.coin-btn').forEach(button => {
     button.addEventListener('click', () => {
+<<<<<<< HEAD
         const machine = button.dataset.machine || 'greed';
         const coins = Number(button.dataset.coins) || 0;
         if (machine === 'shop') {
@@ -2452,6 +2507,9 @@ document.querySelectorAll('.coin-btn').forEach(button => {
             renderAll();
             return;
         }
+=======
+        const coins = Number(button.dataset.coins) || 0;
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
         const nextCoins = Math.max(0, Math.min(greedCoins + coins, 1000));
         const delta = nextCoins - greedCoins;
         greedCoins = nextCoins;
@@ -2513,6 +2571,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+<<<<<<< HEAD
 if (devicePcBtn) {
     devicePcBtn.addEventListener('click', () => applyDeviceChoice('pc'));
 }
@@ -2520,6 +2579,8 @@ if (deviceMobileBtn) {
     deviceMobileBtn.addEventListener('click', () => applyDeviceChoice('mobile'));
 }
 initDeviceChoice();
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 populateSelect();
 renderAll();
 
@@ -2542,6 +2603,7 @@ function fetchItems() {
     const entrySources = [
         { key: 'items', type: 'item', mapper: item => ({ ...item, type: 'item' }) },
         { key: 'transformations', type: 'transformation', mapper: trans => ({ name: trans.Name, description: trans.Description, functionality: trans.Method, image: trans.Image, type: 'transformation', id: 'N/A', quality: 'N/A', pool: 'N/A', transformation: 'N/A' }) },
+<<<<<<< HEAD
         { key: 'trinkets', type: 'trinket', mapper: entry => ({
             ...entry,
             type: 'trinket',
@@ -2586,6 +2648,15 @@ function fetchItems() {
             description: entry.conditions || entry.unlock || entry.start_stats || entry.description || entry.message || 'No given description.',
             functionality: entry.strategy || entry.start_stuff || entry.functionality || entry.effect || 'No given functionality.'
         }) }
+=======
+        { key: 'trinkets', type: 'trinket', mapper: entry => ({ ...entry, type: 'trinket', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'pills', type: 'pill', mapper: entry => ({ ...entry, type: 'pill', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'cards', type: 'card', mapper: entry => ({ ...entry, type: 'card', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'runes', type: 'rune', mapper: entry => ({ ...entry, type: 'rune', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'soul_stones', type: 'soul_stone', mapper: entry => ({ ...entry, type: 'soul_stone', description: entry.description || entry.effect || entry.unlock || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'Curses', type: 'curse', mapper: entry => ({ ...entry, type: 'curse', description: entry.effect || entry.description || 'No given description.', functionality: entry.effect || entry.description || 'No given functionality.' }) },
+        { key: 'characters', type: 'character', mapper: entry => ({ ...entry, type: 'character', description: entry.conditions || entry.unlock || entry.start_stats || 'No given description.', functionality: entry.strategy || entry.start_stuff || 'No given functionality.' }) }
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     ];
 
     searchableEntries = entrySources.flatMap(source => {
@@ -2699,6 +2770,7 @@ const popupContent = document.getElementById('item-popup-content');
 const popupCloseBtn = document.getElementById('item-popup-close');
 
 function getSearchIconUrl(entry) {
+<<<<<<< HEAD
     const candidateImages = [];
     const addCandidate = (candidate) => {
         if (!candidate) return;
@@ -2744,6 +2816,17 @@ function getSearchIconUrl(entry) {
     }
     addCandidate('img/Search/Items/no_set.png');
     return candidateImages[0] || 'img/Search/Items/no_set.png';
+=======
+    let image = entry && (typeof entry.image === 'string' ? entry.image.trim() : (entry.Image && typeof entry.Image === 'string' ? entry.Image.trim() : ''));
+    if (!image) return 'img/Search/Items/no_set.png';
+    // sanitize spaces in filename to underscores
+    try {
+        const parts = image.split('/');
+        parts[parts.length-1] = parts[parts.length-1].replace(/\s+/g, '_');
+        image = parts.join('/');
+    } catch (e) {}
+    return image;
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 }
 
 function getDisplayName(entry) {
@@ -2833,6 +2916,7 @@ function getTransformationIcon(name) {
     return transformation && transformation.Image ? transformation.Image : 'img/Search/Items/no_set.png';
 }
 
+<<<<<<< HEAD
 function getEntryDescription(entry) {
     if (!entry) return '';
     const raw = entry.description || entry.Description || entry.message || entry.Message || entry.unlock || entry.Unlock || entry.conditions || entry.Conditions || entry.effect || entry.Effect || '';
@@ -2845,6 +2929,8 @@ function getEntryFunctionality(entry) {
     return String(raw || '').trim();
 }
 
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 function showSearchPopup(entry) {
     if (!popupOverlay || !popupContent) return;
     const imageUrl = getSearchIconUrl(entry);
@@ -2859,8 +2945,11 @@ function showSearchPopup(entry) {
     const typeLabel = entry.type === 'item' ? 'Item' : entry.type === 'transformation' ? 'Transformation' : entry.type === 'trinket' ? 'Trinket' : entry.type === 'pill' ? 'Pill' : entry.type === 'card' ? 'Card' : entry.type === 'rune' ? 'Rune' : entry.type === 'soul_stone' ? 'Soul Stone' : entry.type === 'curse' ? 'Curse' : entry.type === 'character' ? 'Character' : 'Entry';
     const descriptionLabel = entry.type === 'character' ? 'Conditions' : 'Description';
     const functionalityLabel = entry.type === 'character' ? 'Strategy' : 'Functionality';
+<<<<<<< HEAD
     const descriptionText = getEntryDescription(entry) || 'No given description.';
     const functionalityText = getEntryFunctionality(entry) || 'No given functionality.';
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     const collectionLabel = isEntryCollected(entry) ? 'Remove from Collection' : 'Add to Collection';
     const allowedCollectionTypes = ['item','trinket'];
 
@@ -2877,8 +2966,13 @@ function showSearchPopup(entry) {
             </div>
         </div>
         <div class="item-popup-details">
+<<<<<<< HEAD
             <p><strong>${descriptionLabel}:</strong> ${descriptionText}</p>
             <p><strong>${functionalityLabel}:</strong> ${functionalityText}</p>
+=======
+            <p><strong>${descriptionLabel}:</strong> ${entry.description || 'No given description.'}</p>
+            <p><strong>${functionalityLabel}:</strong> ${entry.functionality || 'No given functionality.'}</p>
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
             <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                 ${entry.type === 'item' ? `<p style="flex: 1; margin: 0;"><strong>ID:</strong> ${entry.id || 'N/A'}</p>` : ''}
                 ${entry.type === 'item' ? `<p style="flex: 1; margin: 0;"><strong>Quality:</strong> ${qualityInfo ? qualityInfo.label : 'N/A'}</p>` : ''}
@@ -2976,10 +3070,13 @@ function renderSearchResults() {
             event.stopPropagation();
             showSearchPopup(entry);
         });
+<<<<<<< HEAD
         card.addEventListener('click', (event) => {
             if (event.target.closest('button')) return;
             showSearchPopup(entry);
         });
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 
         const nameDiv = document.createElement('div');
         nameDiv.className = 'item-card-name';
@@ -3036,6 +3133,7 @@ const bgMusic = document.getElementById('bg-music');
 let sfxMuted = false;
 const sfxToggleBtn = document.getElementById('sfx-toggle-btn');
 
+<<<<<<< HEAD
 function updateMusicButtonState() {
     if (!musicToggleBtn) return;
     const isMuted = !bgMusic || bgMusic.paused;
@@ -3052,6 +3150,14 @@ if (bgMusic) {
     updateMusicButtonState();
 }
 if (musicToggleBtn) {
+=======
+// Initialize audio buttons and state
+if (bgMusic) {
+    musicMuted = !!bgMusic.paused;
+}
+if (musicToggleBtn) {
+    musicToggleBtn.textContent = musicMuted ? 'MUSIC OFF' : 'MUSIC ON';
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     if (musicMuted) musicToggleBtn.classList.add('music-muted');
 }
 if (sfxToggleBtn) {
@@ -3064,10 +3170,18 @@ function startMusicOnUserGesture() {
     if (!bgMusic) return;
     if (bgMusic.paused) {
         bgMusic.play().then(() => {
+<<<<<<< HEAD
             updateMusicButtonState();
         }).catch(() => {
             updateMusicButtonState();
         });
+=======
+            if (musicToggleBtn) {
+                musicToggleBtn.textContent = 'MUSIC ON';
+                musicToggleBtn.classList.remove('music-muted');
+            }
+        }).catch(() => {});
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     }
     document.removeEventListener('click', startMusicOnUserGesture);
     document.removeEventListener('keydown', startMusicOnUserGesture);
@@ -3079,11 +3193,23 @@ if (musicToggleBtn && bgMusic) {
     musicToggleBtn.addEventListener('click', () => {
         if (bgMusic.paused) {
             bgMusic.play().then(() => {
+<<<<<<< HEAD
                 updateMusicButtonState();
             }).catch(err => console.log("Audio play blocked", err));
         } else {
             bgMusic.pause();
             updateMusicButtonState();
+=======
+                musicMuted = false;
+                musicToggleBtn.textContent = 'MUSIC ON';
+                musicToggleBtn.classList.remove('music-muted');
+            }).catch(err => console.log("Audio play blocked", err));
+        } else {
+            bgMusic.pause();
+            musicMuted = true;
+            musicToggleBtn.textContent = 'MUSIC OFF';
+            musicToggleBtn.classList.add('music-muted');
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
         }
     });
 }
@@ -3115,7 +3241,10 @@ function initSaveScreenBindings() {
         return {
             userProgress: userProgress || {},
             greedCoins: greedCoins || 0,
+<<<<<<< HEAD
             shopCoins: shopCoins || 0,
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
             dailyProgress: dailyProgress || {},
             collectionEntries: collectionEntries || {}
         };
@@ -3151,12 +3280,18 @@ function initSaveScreenBindings() {
                 const parsed = JSON.parse(textarea.value);
                 if (parsed.userProgress) userProgress = parsed.userProgress;
                 if (typeof parsed.greedCoins !== 'undefined') greedCoins = Number(parsed.greedCoins) || 0;
+<<<<<<< HEAD
                 if (typeof parsed.shopCoins !== 'undefined') shopCoins = Number(parsed.shopCoins) || 0;
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
                 if (parsed.dailyProgress) dailyProgress = parsed.dailyProgress;
                 if (parsed.collectionEntries) collectionEntries = parsed.collectionEntries;
                 saveProgress();
                 saveGreedProgress();
+<<<<<<< HEAD
                 saveShopProgress();
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
                 saveDailyProgress();
                 saveCollection();
                 renderAll();
@@ -3172,15 +3307,24 @@ function initSaveScreenBindings() {
             if (!confirm('Clear all saved data in localStorage? This cannot be undone.')) return;
             localStorage.removeItem('isaacUnlocksProgress');
             localStorage.removeItem('isaacGreedCoins');
+<<<<<<< HEAD
             localStorage.removeItem('isaacShopCoins');
+=======
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
             localStorage.removeItem('isaacDailyProgress');
             localStorage.removeItem(collectionStorageKey);
             userProgress = {};
             greedCoins = 0;
+<<<<<<< HEAD
             shopCoins = 0;
             dailyProgress = { played:0, wins:0, streak:0 };
             collectionEntries = {};
             saveProgress(); saveGreedProgress(); saveShopProgress(); saveDailyProgress(); saveCollection();
+=======
+            dailyProgress = { played:0, wins:0, streak:0 };
+            collectionEntries = {};
+            saveProgress(); saveGreedProgress(); saveDailyProgress(); saveCollection();
+>>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
             renderAll();
             alert('Saved data cleared.');
         });
