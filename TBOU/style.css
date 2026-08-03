@@ -212,11 +212,7 @@ h1 {
 }
 
 .menu-btn {
-<<<<<<< HEAD
     width: 100%;
-=======
-    width: min(100%,360px);
->>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
     min-height:72px;
     color: var(--screen-accent, var(--accent-color));
 }
