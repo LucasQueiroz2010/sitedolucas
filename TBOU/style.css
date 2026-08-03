@@ -1166,7 +1166,6 @@ select {
     overflow: hidden;
 }
 
-<<<<<<< HEAD
 #shop-screen .greed-unlocks {
     display: grid;
     grid-template-columns: repeat(2, minmax(220px, 1fr));
@@ -1177,8 +1176,6 @@ select {
     margin: 0 auto;
 }
 
-=======
->>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 .greed-machine::before {
     content: '';
     position: absolute;
