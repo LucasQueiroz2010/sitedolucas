@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Binding of Unlocks</title>
+    
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle Music">MUSIC ON</button>
+    <button id="sfx-toggle-btn" class="music-toggle-btn" aria-label="Toggle Sound Effects">SFX ON</button>
+    <button id="switch-mode-btn" class="switch-mode-btn" type="button" aria-label="Switch Device Mode">Switch Mode</button>
+    <div id="device-choice-overlay" class="device-choice-overlay" aria-hidden="true">
+        <div class="device-choice-modal" role="dialog" aria-modal="true" aria-labelledby="device-choice-title">
+            <h2 id="device-choice-title">Device?</h2>
+            <p>Are you accessing on a mobile device or a PC?</p>
+            <div class="device-choice-actions">
+                <button id="device-pc-btn" class="menu-btn">I'm on a PC!</button>
+                <button id="device-mobile-btn" class="menu-btn">I'm on a phone! (phone layout is a WIP...)</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 id="main-title">The Binding of Unlocks</h1>
+
+        <div id="home-screen" class="screen home-screen active">
+            <div class="home-actions">
+                <button class="menu-btn" data-view="unlocks-screen">Unlocks</button>
+                <button class="menu-btn" data-view="shop-screen">Shop Donation Machine</button>
+                <button class="menu-btn" data-view="greed-screen">Greed Donation Machine</button>
+                <button class="menu-btn" data-view="challenges-screen">Challenges</button>
+                <button class="menu-btn" data-view="daily-screen">Daily Run</button>
+                <button class="menu-btn" data-view="items-screen">The Search of Things (TSOT)</button>
+                <button class="menu-btn" data-view="collection-screen">Collection Page</button>
+                <button class="menu-btn" data-view="save-screen">Save and Load</button>
+            </div>
+        </div>
+
+        <div id="unlocks-screen" class="screen">
+                <p class="swap-message">Press [E] to swap between Normal/Tainted characters!</p>
+                <br>
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="controls">
+
+                <select id="character-select"></select>
+                <button id="swap-btn" class="secret-btn" title="Secret Swap">[E]</button>
+            </div>
+
+            <div class="character-info-panel" id="char-info">
+                <div class="char-header">
+                    <div class="char-image-container" id="char-image-container">
+                    </div>
+                    <div class="char-details">
+                        <h2 id="char-name"></h2>
+                        <p id="char-desc"></p>
+                        <div id="char-lock-status" class="char-lock-status"></div>
+                        <div id="char-effects" class="char-effects"></div>
+                    </div>
+                </div>
+                <div class="char-stats" id="char-stats"></div>
+                <div class="char-starting-items">
+                    <h3>Starting Items</h3>
+                    <ul class="item-list" id="starting-items-list"></ul>
+                </div>
+            </div>
+
+            <div id="progress-container" class="progress-container">
+                <div class="progress-label">Global Progress: <span id="progress-text">0/0</span></div>
+                <div class="progress-bar" aria-label="Global progress bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="unlock-grid" id="unlock-grid"></div>
+            <div class="screen-reset">
+                <button id="reset-unlocks-btn" class="reset-btn" title="Do you really want to reset the Unlocks screen?"><img src="img/R_Key.png" alt="R Key"></button>
+            </div>
+        </div>
+
+        <div id="greed-screen" class="screen">
+        <img src="img/Shopkeeper.png" class="shopkeeper-left" alt="Shopkeeper" loading="lazy">
+        <img src="img/Hanging_Shopkeeper.png" class="shopkeeper-right" alt="Hanging Shopkeeper" loading="lazy">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="greed-panel">
+                <div class="greed-total">Donated Coins: <span id="greed-coin-total">0</span>/1000</div>
+                <div class="greed-machine" aria-label="Greed Donation Machine">
+                    <div class="machine-face">C</div>
+                    <div class="machine-counter" id="greed-machine-counter" aria-label="Machine coin counter"></div>
+                    <div class="machine-slot"></div>
+                    <div class="machine-base"></div>
+                </div>
+                <div class="greed-actions">
+                    <button class="coin-btn" data-coins="1" title="+1 Coin"><img src="img/Characters/Character_Items/Icons/coin.png" alt="">+1</button>
+                    <button class="coin-btn" data-coins="5" title="+5 Coins"><img src="img/Characters/Character_Items/Icons/nickel.png" alt="">+5</button>
+                    <button class="coin-btn" data-coins="10" title="+10 Coins"><img src="img/Characters/Character_Items/Icons/dime.png" alt="">+10</button>
+                    <button class="coin-btn" data-coins="100" title="+100 Coins"><img src="img/Characters/Character_Items/Icons/dollar.png" alt="">+100</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-1" title="-1 Coin"><img src="img/Characters/Character_Items/Icons/coin.png" alt="">-1</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-5" title="-5 Coins"><img src="img/Characters/Character_Items/Icons/nickel.png" alt="">-5</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-10" title="-10 Coins"><img src="img/Characters/Character_Items/Icons/dime.png" alt="">-10</button>
+                    <button class="coin-btn coin-btn-negative" data-coins="-100" title="-100 Coins"><img src="img/Characters/Character_Items/Icons/dollar.png" alt="">-100</button>
+                </div>
+                <div class="greed-unlocks" id="greed-unlocks"></div>
+            </div>
+            <div class="screen-reset">
+                <button id="reset-greed-btn" class="reset-btn" title="Do you really want to reset the Greed Donation Machine?"><img src="img/R_Key.png" alt="R Key"></button>
+            </div>
+        </div>
+
+        <div id="shop-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="greed-panel shop-panel" data-machine="shop">
+                <div class="greed-total">Donated Pennies: <span id="shop-coin-total">0</span>/999</div>
+                <div class="greed-machine" aria-label="Shop Donation Machine">
+                    <div class="machine-face">S</div>
+                    <div class="machine-counter" id="shop-machine-counter" aria-label="Machine penny counter"></div>
+                    <div class="machine-slot"></div>
+                    <div class="machine-base"></div>
+                </div>
+                <div class="greed-actions">
+                    <button class="coin-btn" data-machine="shop" data-coins="1" title="+1 Penny"><img src="img/Characters/Character_Items/Icons/coin.png" alt="">+1</button>
+                    <button class="coin-btn" data-machine="shop" data-coins="5" title="+5 Pennies"><img src="img/Characters/Character_Items/Icons/nickel.png" alt="">+5</button>
+                    <button class="coin-btn" data-machine="shop" data-coins="10" title="+10 Pennies"><img src="img/Characters/Character_Items/Icons/dime.png" alt="">+10</button>
+                    <button class="coin-btn" data-machine="shop" data-coins="100" title="+100 Pennies"><img src="img/Characters/Character_Items/Icons/dollar.png" alt="">+100</button>
+                    <button class="coin-btn coin-btn-negative" data-machine="shop" data-coins="-1" title="-1 Penny"><img src="img/Characters/Character_Items/Icons/coin.png" alt="">-1</button>
+                    <button class="coin-btn coin-btn-negative" data-machine="shop" data-coins="-5" title="-5 Pennies"><img src="img/Characters/Character_Items/Icons/nickel.png" alt="">-5</button>
+                    <button class="coin-btn coin-btn-negative" data-machine="shop" data-coins="-10" title="-10 Pennies"><img src="img/Characters/Character_Items/Icons/dime.png" alt="">-10</button>
+                    <button class="coin-btn coin-btn-negative" data-machine="shop" data-coins="-100" title="-100 Pennies"><img src="img/Characters/Character_Items/Icons/dollar.png" alt="">-100</button>
+                </div>
+                <div class="greed-unlocks" id="shop-unlocks"></div>
+            </div>
+            <div class="screen-reset">
+                <button id="reset-shop-btn" class="reset-btn" title="Do you really want to reset the Shop Donation Machine?"><img src="img/R_Key.png" alt="R Key"></button>
+            </div>
+        </div>
+
+        <div id="challenges-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div id="challenge-progress" class="screen-progress"></div>
+            <div class="challenge-grid" id="challenge-grid"></div>
+            <div class="screen-reset">
+                <button id="reset-challenges-btn" class="reset-btn" title="Do you really want to reset the Challenges?"><img src="img/R_Key.png" alt="R Key"></button>
+            </div>
+        </div>
+
+        <div id="daily-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="daily-panel">
+                <div class="daily-stats">
+                    <div>Played Daily Runs: <span id="daily-played">0</span></div>
+                    <div>Victory streak: <span id="daily-streak">0</span></div>
+                </div>
+                <div class="daily-actions">
+                    <button id="daily-victory-btn">Victory!</button>
+                    <button id="daily-defeat-btn">Defeat...</button>
+                </div>
+                <h2>Daily Achievements</h2>
+                <div class="daily-achievements" id="daily-achievements"></div>
+                <div class="screen-reset">
+                    <button id="reset-daily-btn" class="reset-btn" title="Do you really want to reset the Daily Run?"><img src="img/R_Key.png" alt="R Key"></button>
+                </div>
+            </div>
+        </div>
+        <div id="items-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="section-panel item-search-panel">
+                <h2>The Search of Things (TSOT)</h2>
+                <div class="item-search-controls">
+                    <input type="text" id="item-search-bar" placeholder="Search items, trinkets, characters..." autocomplete="off">
+                    <select id="item-filter-select" class="item-filter-select" aria-label="Filter items">
+                        <option value="all">All</option>
+                        <option value="items">Items</option>
+                        <option value="transformations">Transformations</option>
+                        <option value="trinkets">Trinkets</option>
+                        <option value="pills">Pills</option>
+                        <option value="cards">Cards</option>
+                        <option value="runes">Runes</option>
+                        <option value="soul_stones">Soul Stones</option>
+                        <option value="curses">Curses</option>
+                        <option value="characters">Characters</option>
+                        <option value="qualities">Qualities</option>
+                        <option value="pools">Item Pools</option>
+                    </select>
+                    <select id="item-subfilter-select" class="item-subfilter-select" aria-label="Sub filter" style="display:none;">
+                        <!-- dynamic options: item pools -->
+                    </select>
+                    <div id="quality-picker" class="quality-picker" style="display:none;" aria-hidden="true">
+                        <!-- dynamic quality buttons (icons + label) -->
+                    </div>
+                </div>
+                <div id="items-search-count" class="items-search-count"></div>
+                <div id="items-container" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="collection-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="section-panel collection-panel">
+                <h2>Collection</h2>
+                <p class="collection-intro">Mark here when you have collected all items and trinkets.</p>
+                <div id="collection-count" class="items-search-count"></div>
+                <div id="collection-list" class="collection-list"></div>
+            </div>
+        </div>
+    </div>
+    
+        <div id="save-screen" class="screen">
+            <div class="section-nav">
+                <button class="back-btn" data-view="home-screen">Back</button>
+            </div>
+            <div class="save-panel">
+                <h2>Save and Load Progress</h2>
+                <p>Use the controls below to export or import your save. You can copy the JSON, download it, or paste a previously exported save to restore progress.</p>
+                <div style="display:flex; gap:12px; margin-bottom:12px;">
+                    <button id="export-save-btn" class="menu-btn">Export Save (Copy)</button>
+                    <button id="download-save-btn" class="menu-btn">Download Save</button>
+                </div>
+                <textarea id="save-textarea" style="width:100%; height:160px; background:rgba(0,0,0,0.6); color:#fff; border:2px solid var(--border-color); border-radius:8px; padding:12px;"></textarea>
+                <div style="display:flex; gap:12px; margin-top:12px;">
+                    <button id="import-save-btn" class="menu-btn">Import Save (Paste & Load)</button>
+                    <button id="clear-save-btn" class="menu-btn">Clear Saved Data</button>
+                </div>
+            </div>
+        </div>
+
+    <div id="item-popup-overlay" class="item-popup-overlay" aria-hidden="true">
+        <div class="item-popup" role="dialog" aria-modal="true" aria-labelledby="item-popup-title">
+            <button id="item-popup-close" class="item-popup-close" aria-label="Fechar">×</button>
+            <div id="item-popup-content"></div>
+        </div>
+    </div>
+    
+    <audio id="bg-music" loop>
+        <source id="music-source" src="sound/Normal_Music.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="sfx-mark-complete" src="sound/Mark_complete.wav"></audio>
+    <audio id="sfx-mark-incomplete" src="sound/Mark_incomplete.wav"></audio>
+    <audio id="sfx-all-complete" src="sound/All_Complete.wav"></audio>
+    <audio id="sfx-coin-insert" src="sound/coin_insert.wav"></audio>
+    <audio id="sfx-coin-unsert" src="sound/coin_unsert.wav"></audio>
+
+    <script src="search_data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

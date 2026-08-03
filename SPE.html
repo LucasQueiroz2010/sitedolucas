@@ -1,0 +1,75 @@
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>SPE</title>
+    <link rel="stylesheet" href="estilo.css">
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		
+		<script>
+function getDadosEnderecoPorCEP(cep) {
+    let cepApenasNumeros = cep.replace(/\D/g, '');
+    if (cepApenasNumeros.length !== 8) {
+        alert("CEP inválido! Digite 8 números.");return;}
+
+    let url = 'https://viacep.com.br/ws/' + cepApenasNumeros + '/json/';
+
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open('GET', url);
+    xmlHttp.onreadystatechange = () => {
+        if(xmlHttp.readyState == 4) {
+            if(xmlHttp.status == 200) {
+                let dadosJSONObj = JSON.parse(xmlHttp.responseText);
+                if (dadosJSONObj.erro) {
+                    alert("CEP não encontrado!");
+                    return;}					
+                document.getElementById('endereco').value = dadosJSONObj.logradouro;
+                document.getElementById('bairro').value = dadosJSONObj.bairro;
+                document.getElementById('cidade').value = dadosJSONObj.localidade;
+                document.getElementById('uf').value = dadosJSONObj.uf;
+				document.getElementById('numero').focus();
+            } else {
+                alert("Erro ao buscar o CEP. Tente novamente.");}}}
+
+    xmlHttp.send();}
+		</script>
+	</head>
+	<body style="background-image: url(imagens/background_SPE.jpg); background-size: cover;">		
+<a class="link_SPE" id="transicaolink" href="index.html">Página Principal</a>
+		<nav>
+			<div class="container">
+<br><br>
+		<h3 class="CSS1_SPE">Site Pesquisador de Endereços.</h3>
+			</div>
+		</nav>
+<br><br><br><br><br>
+		<div class="container">
+			<div class="row form-group">
+				<div class="col-sm-3">
+					<input style="border: 2px solid black; color: black;" type="text" class="form-control allowed_SPE" placeholder="CEP" onblur="getDadosEnderecoPorCEP(this.value)"/>
+				</div>
+				<div class="col-sm-7">
+					<input style="border: 2px solid black;" type="text" class="form-control not_allowed_SPE" placeholder="Endereço" readonly id="endereco" />
+				</div>
+				<div class="col-sm-2">
+					<input style="border: 2px solid black;" type="text" class="form-control allowed_SPE" placeholder="Número" id="numero" />
+				</div>
+			</div>
+<br>
+			<div class="row form-group">
+				<div class="col-sm-6">
+					<input style="border: 2px solid black;" type="text" class="form-control not_allowed_SPE" placeholder="Bairro" readonly id="bairro" />
+				</div>
+				<div class="col-sm-4">
+					<input style="border: 2px solid black;" type="text" class="form-control not_allowed_SPE" placeholder="Cidade" readonly id="cidade" />
+				</div>
+
+				<div class="col-sm-2">
+					<input style="border: 2px solid black;" type="text" class="form-control not_allowed_SPE" placeholder="UF" readonly id="uf" />
+				</div>
+			</div>
+		</div>
+<script src="JavaScripts_gerais/script_geral.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,2 @@
+var nomecompleto = 'Lucas Oliveira de Queiroz';
+document.write('<footer id="aniversario" style="background-color: gray; color: black; padding: 3px; text-align: center; border: 3px solid black; width: fit-content; margin: 0 auto;">&copy; <time>2025-2026</time> - '+nomecompleto+' - Todos os direitos reservados.</footer>')
