@@ -537,6 +537,8 @@ ND: O TBOU ainda está em estado de beta, então espere mudanças drásticas no 
 1) Foi mudado o layout dos botões da página inicial.
 2) Foi adicionado o modo de suporte mobile para o site (ainda é um WIP).
 3) Foi adicionado uma chance de 25% da tela de desbloqueio do Tainted Jacob ser 'diferente'.
+4) Alguns bugs menores foram corrigidos.
+5) Foi adicionado a telal de 'Shop Donation Machine'.
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Informações:
