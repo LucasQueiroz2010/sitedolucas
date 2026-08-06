@@ -422,19 +422,6 @@ body {
     color: #888; 
 }
 
-#btn-tutorial { 
-    background: #8bcf7e; 
-    border-color: #4c8a35; 
-    color: #101000; 
-}
-
-#btn-tutorial.selected { 
-    background: #c4ff9c; 
-    border-color: #6dc251; 
-    transform: scale(1.1); 
-    color: #000; 
-}
-
 #btn-start-battle {
     margin-top: 30px; 
     padding: 15px 40px; 

@@ -22,11 +22,17 @@ const AVATARES_PADRAO = [
     '../imagens/Isaac.gif'
 ];
 
-let usuarioLogado = JSON.parse(localStorage.getItem('usuarioAtual'));
-if (!usuarioLogado) {
-    usuarioLogado = {
+const PTWE_SESSION_KEY = 'ptwe_session';
+const PTWE_USERS_KEY = 'ptwe_users';
+let usuarioLogado = null;
+let modoCadastroPTWE = false;
+
+function criarEstruturaPadraoPTWE() {
+    return {
+        id: `ptwe_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
         nome: PERFIL_PADRAO.nome,
         foto: PERFIL_PADRAO.foto,
+        senha: '',
         progressoPTWE: {
             modosDesbloqueados: { noise: true, doise: false, faker: false },
             ranks: {
@@ -37,11 +43,34 @@ if (!usuarioLogado) {
             partidasJogadas: { noise: 0, doise: 0, faker: 0 }
         }
     };
-    atualizarBancoDeDados(usuarioLogado);
-} else {
-    usuarioLogado.foto = normalizarAvatarPath(usuarioLogado.foto || PERFIL_PADRAO.foto);
-    if (!usuarioLogado.progressoPTWE) {
-        usuarioLogado.progressoPTWE = {
+}
+
+function lerUsuariosPTWE() {
+    try {
+        return JSON.parse(localStorage.getItem(PTWE_USERS_KEY)) || [];
+    } catch {
+        return [];
+    }
+}
+
+function salvarUsuariosPTWE(usuarios) {
+    localStorage.setItem(PTWE_USERS_KEY, JSON.stringify(usuarios));
+}
+
+function salvarSessaoPTWE(usuario) {
+    localStorage.setItem(PTWE_SESSION_KEY, JSON.stringify({ id: usuario.id, nome: usuario.nome }));
+}
+
+function limparSessaoPTWE() {
+    localStorage.removeItem(PTWE_SESSION_KEY);
+}
+
+function normalizarUsuarioPTWE(usuario) {
+    if (!usuario) return null;
+    const normalizado = { ...usuario };
+    normalizado.foto = normalizarAvatarPath(normalizado.foto || PERFIL_PADRAO.foto);
+    if (!normalizado.progressoPTWE) {
+        normalizado.progressoPTWE = {
             modosDesbloqueados: { noise: true, doise: false, faker: false },
             ranks: {
                 noise: { P: 0, S: 0, A: 0, B: 0, C: 0, D: 0 },
@@ -50,24 +79,172 @@ if (!usuarioLogado) {
             },
             partidasJogadas: { noise: 0, doise: 0, faker: 0 }
         };
-        atualizarBancoDeDados(usuarioLogado);
-    } else if (!usuarioLogado.progressoPTWE.partidasJogadas) {
-        usuarioLogado.progressoPTWE.partidasJogadas = { noise: 0, doise: 0, faker: 0 };
-        atualizarBancoDeDados(usuarioLogado);
     }
+    if (!normalizado.progressoPTWE.partidasJogadas) {
+        normalizado.progressoPTWE.partidasJogadas = { noise: 0, doise: 0, faker: 0 };
+    }
+    return normalizado;
 }
 
 function atualizarBancoDeDados(usuarioModificado) {
-    localStorage.setItem('usuarioAtual', JSON.stringify(usuarioModificado));
-    let usuariosDB = JSON.parse(localStorage.getItem('usuariosDB')) || [];
-    let index = usuariosDB.findIndex(u => u.nome === usuarioModificado.nome);
-    if(index !== -1) {
-        usuariosDB[index] = usuarioModificado;
-        localStorage.setItem('usuariosDB', JSON.stringify(usuariosDB));
+    if (!usuarioModificado) return;
+    const usuarioNormalizado = normalizarUsuarioPTWE(usuarioModificado);
+    usuarioLogado = usuarioNormalizado;
+    salvarSessaoPTWE(usuarioNormalizado);
+    const usuarios = lerUsuariosPTWE();
+    const index = usuarios.findIndex(u => u.id === usuarioNormalizado.id);
+    if (index !== -1) {
+        usuarios[index] = usuarioNormalizado;
+    } else {
+        usuarios.push(usuarioNormalizado);
+    }
+    salvarUsuariosPTWE(usuarios);
+}
+
+function mostrarTelaAuthPTWE() {
+    const authScreen = document.getElementById('auth-screen');
+    const gameContainer = document.getElementById('game-container');
+    if (authScreen) authScreen.classList.remove('hidden');
+    if (gameContainer) gameContainer.style.display = 'none';
+}
+
+function esconderTelaAuthPTWE() {
+    const authScreen = document.getElementById('auth-screen');
+    const gameContainer = document.getElementById('game-container');
+    if (authScreen) authScreen.classList.add('hidden');
+    if (gameContainer) gameContainer.style.display = 'block';
+}
+
+function atualizarInterfacePerfilPTWE() {
+    if (!usuarioLogado) return;
+    const nomeEl = document.getElementById('nome-perfil-ptwe');
+    const fotoEl = document.getElementById('foto-perfil-ptwe');
+    if (nomeEl) nomeEl.innerText = usuarioLogado.nome;
+    if (fotoEl) fotoEl.src = usuarioLogado.foto || PERFIL_PADRAO.foto;
+}
+
+function mostrarMensagemAuthPTWE(mensagem, tipo = 'info') {
+    const messageEl = document.getElementById('auth-message');
+    if (!messageEl) return;
+    messageEl.innerText = mensagem;
+    messageEl.style.color = tipo === 'erro' ? '#ff8a80' : '#7fd3ff';
+}
+
+function alternarModoAuthPTWE() {
+    modoCadastroPTWE = !modoCadastroPTWE;
+    const titulo = document.getElementById('auth-title');
+    const submitBtn = document.getElementById('auth-submit');
+    const toggleBtn = document.getElementById('auth-toggle');
+    if (titulo) titulo.innerText = modoCadastroPTWE ? 'CRIAR CONTA PTWE' : 'PTWE LOGIN';
+    if (submitBtn) submitBtn.innerText = modoCadastroPTWE ? 'CRIAR CONTA' : 'ENTRAR';
+    if (toggleBtn) toggleBtn.innerText = modoCadastroPTWE ? 'JÁ TENHO CONTA' : 'CRIAR CONTA';
+    mostrarMensagemAuthPTWE(modoCadastroPTWE ? 'Crie uma conta exclusiva do PTWE.' : 'Entre na sua conta exclusiva do PTWE.');
+}
+
+function entrarPTWE() {
+    const nome = document.getElementById('auth-username').value.trim();
+    const senha = document.getElementById('auth-password').value;
+    if (!nome || !senha) {
+        mostrarMensagemAuthPTWE('Preencha nome e senha.', 'erro');
+        return;
+    }
+    const usuarios = lerUsuariosPTWE();
+    const usuarioEncontrado = usuarios.find(u => u.nome.toLowerCase() === nome.toLowerCase() && u.senha === senha);
+    if (!usuarioEncontrado) {
+        mostrarMensagemAuthPTWE('Usuário ou senha incorretos.', 'erro');
+        return;
+    }
+    usuarioLogado = normalizarUsuarioPTWE(usuarioEncontrado);
+    atualizarBancoDeDados(usuarioLogado);
+    atualizarInterfacePerfilPTWE();
+    esconderTelaAuthPTWE();
+    mostrarMensagemAuthPTWE('Bem-vindo ao PTWE!');
+    arrancarJogo();
+}
+
+function registrarPTWE() {
+    const nome = document.getElementById('auth-username').value.trim();
+    const senha = document.getElementById('auth-password').value;
+    if (!nome || !senha) {
+        mostrarMensagemAuthPTWE('Informe um nome e uma senha.', 'erro');
+        return;
+    }
+    const usuarios = lerUsuariosPTWE();
+    if (usuarios.some(u => u.nome.toLowerCase() === nome.toLowerCase())) {
+        mostrarMensagemAuthPTWE('Este nome já existe. Escolha outro.', 'erro');
+        return;
+    }
+    const novoUsuario = criarEstruturaPadraoPTWE();
+    novoUsuario.nome = nome;
+    novoUsuario.senha = senha;
+    novoUsuario.id = `ptwe_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+    usuarioLogado = normalizarUsuarioPTWE(novoUsuario);
+    atualizarBancoDeDados(usuarioLogado);
+    atualizarInterfacePerfilPTWE();
+    esconderTelaAuthPTWE();
+    mostrarMensagemAuthPTWE('Conta criada com sucesso.');
+    arrancarJogo();
+}
+
+function configurarAuthPTWE() {
+    const submitBtn = document.getElementById('auth-submit');
+    const toggleBtn = document.getElementById('auth-toggle');
+    const passwordInput = document.getElementById('auth-password');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', () => {
+            if (modoCadastroPTWE) registrarPTWE();
+            else entrarPTWE();
+        });
+    }
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', alternarModoAuthPTWE);
+    }
+    if (passwordInput) {
+        passwordInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                if (modoCadastroPTWE) registrarPTWE();
+                else entrarPTWE();
+            }
+        });
+    }
+    alternarModoAuthPTWE();
+}
+
+function inicializarSessaoPTWE() {
+    const sessao = localStorage.getItem(PTWE_SESSION_KEY);
+    if (!sessao) {
+        mostrarTelaAuthPTWE();
+        return false;
+    }
+    try {
+        const dadosSessao = JSON.parse(sessao);
+        const usuarios = lerUsuariosPTWE();
+        const usuarioSalvo = usuarios.find(u => u.id === dadosSessao.id);
+        if (!usuarioSalvo) {
+            limparSessaoPTWE();
+            mostrarTelaAuthPTWE();
+            return false;
+        }
+        usuarioLogado = normalizarUsuarioPTWE(usuarioSalvo);
+        atualizarInterfacePerfilPTWE();
+        esconderTelaAuthPTWE();
+        return true;
+    } catch {
+        limparSessaoPTWE();
+        mostrarTelaAuthPTWE();
+        return false;
     }
 }
 
-
+function deslogarPTWE() {
+    limparSessaoPTWE();
+    usuarioLogado = null;
+    mostrarTelaAuthPTWE();
+    document.getElementById('auth-username').value = '';
+    document.getElementById('auth-password').value = '';
+    mostrarMensagemAuthPTWE('Você saiu da conta PTWE.');
+}
 
 const assetsParaCarregar = [
     'imagens_jogo/P_sprites/Parry1.gif', 'imagens_jogo/P_sprites/Parry2.gif', 'imagens_jogo/P_sprites/Parry3.gif',
@@ -680,8 +857,7 @@ function abrirTrocaModoPause() {
     const modos = [
         {id: 'noise', nome: 'NOISE MODE'},
         {id: 'doise', nome: 'DOISE OVERLAY'},
-        {id: 'faker', nome: 'FAKER ATTACK'},
-        {id: 'tutorial', nome: 'TUTORIAL'}
+        {id: 'faker', nome: 'FAKER ATTACK'}
     ];
 
     modos.forEach(m => {
@@ -845,7 +1021,19 @@ function atualizarPeppino() {
     let bateuNaParede = false;
     const peppinoMaxX = getWorldWidth() - peppino.largura;
     if (peppino.x <= 0) { peppino.x = 0; bateuNaParede = true; }
-    else if (peppino.x + peppino.largura >= peppinoMaxX) { peppino.x = peppinoMaxX; bateuNaParede = true; }
+    else if (peppino.x + peppino.largura >= peppinoMaxX) {
+        peppino.x = peppinoMaxX; bateuNaParede = true;
+        if (window && window.console && window.DEBUG_EDGE) console.debug('Player clamped at right edge', { x: peppino.x, maxX: peppinoMaxX, controles: {...controles} });
+        // stop horizontal movement when clamped to avoid oscillation/suction
+        peppino.vx = 0;
+        peppino.wallTimer = 0;
+        // small nudge if player is holding left to avoid staying glued to the edge
+        if (controles.esquerda) {
+            peppino.x = Math.max(0, peppinoMaxX - 6);
+            peppino.vx = -3;
+            if (window && window.console && window.DEBUG_EDGE) console.debug('Player nudged left from edge', { x: peppino.x });
+        }
+    }
 
     if (!animacaoTravada) {
         if (bateuNaParede && !peppino.noChao && (controles.esquerda || controles.direita)) {
@@ -1160,7 +1348,7 @@ function perseguirAlvo(x, y, velocidade) {
 function fugirDoPeppino() {
     inimigo.direcao = peppino.x < inimigo.x ? 1 : -1;
     inimigo.vx = 5.5 * inimigo.direcao;
-    if ((inimigo.x <= 5 || inimigo.x + inimigo.largura >= LARGURA_TELA - 5) && inimigo.noChao) pularNoise(false);
+    if ((inimigo.x <= 5 || inimigo.x + inimigo.largura >= getWorldWidth() - 5) && inimigo.noChao) pularNoise(false);
 }
 
 function tentarPuloAleatorio() {
@@ -1212,7 +1400,7 @@ function atualizarSkateboard() {
             tocarSom('soundtrack_jogo/Noise/Noise_mach1.wav', false, 'noise-skate-mach1');
             inimigo.somSkateTocou = true;
         }
-        const alvoX = inimigo.skateDirecao === 1 ? 0 : LARGURA_TELA - inimigo.largura;
+        const alvoX = inimigo.skateDirecao === 1 ? 0 : getWorldWidth() - inimigo.largura;
         inimigo.vx = alvoX > inimigo.x ? 8 : -8;
         atualizarDirecaoPorVelocidade(inimigo);
         inimigo.x += inimigo.vx;
@@ -1221,7 +1409,7 @@ function atualizarSkateboard() {
             inimigo.estado = 'skate-charge';
             inimigo.skateTimer = 48;
             inimigo.somSkateTocou = false;
-            inimigo.direcao = inimigo.x < LARGURA_TELA / 2 ? 1 : -1;
+            inimigo.direcao = inimigo.x < getWorldWidth() / 2 ? 1 : -1;
             pararSom('noise-skate-mach1');
         }
     } else if (inimigo.estado === 'skate-charge') {
@@ -1230,7 +1418,7 @@ function atualizarSkateboard() {
         if (inimigo.skateTimer <= 0) {
             inimigo.estado = 'skate-attack';
             inimigo.somSkateTocou = false;
-            inimigo.skateDirecao = inimigo.x < LARGURA_TELA / 2 ? 1 : -1;
+            inimigo.skateDirecao = inimigo.x < getWorldWidth() / 2 ? 1 : -1;
             inimigo.direcao = inimigo.skateDirecao;
         }
     } else if (inimigo.estado === 'skate-attack') {
@@ -1241,8 +1429,8 @@ function atualizarSkateboard() {
         inimigo.vx = 24 * inimigo.skateDirecao;
         atualizarDirecaoPorVelocidade(inimigo);
         inimigo.x += inimigo.vx;
-        if (inimigo.x <= 0 || inimigo.x + inimigo.largura >= LARGURA_TELA) {
-            inimigo.x = Math.max(0, Math.min(LARGURA_TELA - inimigo.largura, inimigo.x));
+        if (inimigo.x <= 0 || inimigo.x + inimigo.largura >= getWorldWidth()) {
+            inimigo.x = Math.max(0, Math.min(getWorldWidth() - inimigo.largura, inimigo.x));
             inimigo.estado = 'skate-wallhit';
             inimigo.skateTimer = 48;
             pararSom('noise-skate-mach2');
@@ -1270,7 +1458,11 @@ function limitarInimigoNaArena() {
     } else if (inimigo.x + inimigo.largura >= maxX) {
         inimigo.x = maxX;
         inimigo.direcao = -1;
-        inimigo.vx = -Math.abs(inimigo.vx);
+        // Stop horizontal movement and nudge slightly left to avoid getting glued
+        inimigo.vx = 0;
+        inimigo.x = Math.max(0, maxX - 6);
+        inimigo.direcao = -1;
+        if (window && window.console && window.DEBUG_EDGE) console.debug('Enemy clamped at right edge and nudged left', { x: inimigo.x, maxX, estado: inimigo.estado });
     }
 }
 
@@ -1652,15 +1844,9 @@ function abrirEdicaoPerfil() {
     const grid = document.getElementById('grid-avatares');
     grid.innerHTML = '';
 
-    const usuariosDB = JSON.parse(localStorage.getItem('usuariosDB')) || [];
-    const fotosExistentes = usuariosDB
-        .map(u => u.foto)
-        .filter(foto => typeof foto === 'string' && foto.trim() !== '');
-
     const avatarSources = Array.from(new Set([
         ...AVATARES_PADRAO,
-        usuarioLogado.foto || PERFIL_PADRAO.foto,
-        ...fotosExistentes
+        usuarioLogado.foto || PERFIL_PADRAO.foto
     ].map(normalizarAvatarPath)));
 
     avatarSources.forEach(src => {
@@ -1708,5 +1894,14 @@ function arrancarJogo() {
     iniciarPreloader();
 }
 
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrancarJogo);
-else arrancarJogo();
+function inicializarAplicacaoPTWE() {
+    configurarAuthPTWE();
+    const sessaoCarregada = inicializarSessaoPTWE();
+    if (sessaoCarregada) {
+        arrancarJogo();
+    }
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inicializarAplicacaoPTWE);
+else inicializarAplicacaoPTWE();
+

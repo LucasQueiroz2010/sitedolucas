@@ -5,8 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PTWE</title>
     <link rel="stylesheet" href="estilo.css">
+    <style>
+        body { margin: 0; }
+        .auth-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .auth-card {
+            background: #1f1f1f;
+            border: 3px solid #f7c948;
+            border-radius: 12px;
+            padding: 24px;
+            width: min(420px, 100%);
+            color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+        .auth-card input {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #666;
+            background: #111;
+            color: white;
+            box-sizing: border-box;
+        }
+        .auth-card button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .auth-link {
+            color: #7fd3ff;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .hidden { display: none !important; }
+    </style>
 </head>
 <body>
+    <div id="auth-screen" class="auth-overlay">
+        <div class="auth-card">
+            <h2 id="auth-title">PTWE LOGIN</h2>
+            <p id="auth-message">Entre na sua conta exclusiva do PTWE para salvar progresso e perfil.</p>
+            <input id="auth-username" type="text" placeholder="Nome de usuário">
+            <input id="auth-password" type="password" placeholder="Senha">
+            <button id="auth-submit" class="btn-start">ENTRAR</button>
+            <button id="auth-toggle" class="btn-start" style="background:#2b8a3e; border-color:#1f6b2d;">CRIAR CONTA</button>
+            <div class="auth-link" onclick="window.location.href='../index.html'">Voltar ao site principal</div>
+        </div>
+    </div>
 
     <div id="perfil-ptwe" onclick="abrirEstatisticas()">
         <img id="foto-perfil-ptwe" src="../imagens/usuario_padrao.png" alt="Perfil">
@@ -19,7 +75,7 @@
         <div class="botoes-container">
             <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="abrirEdicaoPerfil()">EDIT PROFILE</button>
             <button class="btn-start" style="font-size: 25px; padding: 10px 20px; background: #ff3333; border-color: #aa0000; color: white; text-shadow: 2px 2px 0px black; box-shadow: 0px 8px 0px #880000;" onclick="apagarDados()">ERASE DATA</button>
-            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="localStorage.removeItem('usuarioAtual'); window.location.href='../login.html'">LOGOUT</button>
+            <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="deslogarPTWE(); window.location.href='../index.html'">LOGOUT</button>
             <button class="btn-start" style="font-size: 25px; padding: 10px 20px;" onclick="fecharEstatisticas()">BACK</button>
         </div>
     </div>
@@ -36,7 +92,7 @@
         </div>
     </div>
 
-    <div id="game-container">
+    <div id="game-container" style="display: none;">
         <div id="hud" style="display: none;">
             <div id="scoreDisplay">SCORE: 0</div>
             <div id="timerDisplay">TIME: 60</div>
@@ -64,7 +120,7 @@
             </div>
 
             <div id="mode-screen" style="display: none;">
-                    <button class="btn-modo btn-tutorial" id="btn-tutorial" onclick="selecionarModo('tutorial')">TUTORIAL (WIP)</button><br>
+                    
                 <div class="modos-container">
                     <button class="btn-modo btn-noise" id="btn-noise" onclick="selecionarModo('noise')">NOISE MODE</button>
                     <button class="btn-modo btn-doise" id="btn-doise" onclick="selecionarModo('doise')" disabled>DOISE OVERLAY</button>

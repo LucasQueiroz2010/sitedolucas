@@ -3538,7 +3538,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Treasure_Room.png"],
       "quality": "img/Search/Quality/Quality1.png",
       "description": "Speed down + rage is building",
-      "functionality": "Passive item. Grants the player -0.3 speed, but when on a room with enemies, your speed increases up to the cap (2.0 speed). WHen it hits the cap, the player recieves invencibility (and deals 20 damage on contact with enemies) for 5 seconds.",
+      "functionality": "Passive item. Grants the player -0.3 speed, but when on a room with enemies, your speed increases up to the cap (2.0 speed). WHen it hits the cap, the player receives invencibility (and deals 20 damage on contact with enemies) for 5 seconds.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -4954,7 +4954,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Devil_Beggar.png", "img/Search/Items_pool/Baby_Shop.png", "img/Search/Items_pool/Devil_Room.png"],
       "quality": "img/Search/Quality/Quality3.png",
       "description": "Damage booster",
-      "functionality": "Passive item. Spawns a familiar that bounces around the room and has a dark aura around it. Enemies within the radius of the aura takes 2.5 damage per tick. If the player stays inside the aura, they recieve a 1.5x damage multiplier.",
+      "functionality": "Passive item. Spawns a familiar that bounces around the room and has a dark aura around it. Enemies within the radius of the aura takes 2.5 damage per tick. If the player stays inside the aura, they receive a 1.5x damage multiplier.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -4966,7 +4966,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Treasure_Room.png"],
       "quality": "img/Search/Quality/Quality2.png",
       "description": "Rainbow effects!",
-      "functionality": "Passive item. Every tear recieves a random effect, being those effects: from the items 'Anti-Gravity', 'Ball of Bandages' (Level 4), 'Ball of Tar', 'Bumbo' (Level 3), 'The Common Cold', 'Compound Fracture', 'Continuum', 'Cricket's Body', 'Cupid's Arrow', 'Euthanasia', 'Explosivo', 'Eye of Belial', 'Eye of Greed', 'Eye of the Occult', 'Fire Mind', 'Flat Stone', 'Glaucoma', 'God's Flesh', 'Godhead', 'Haemolacria', 'Head of the Keeper', 'Holy Light', 'Immaculate Heart', 'Ipecac', 'Iron Bar', 'Jacob's Ladder', 'Knockout Drops', 'Lachryphagy', 'Large Zit', 'Little Horn', 'Lodestone', 'Lost Contact', 'A Lump of Coal', 'Mom's Contacts', 'Mom's Eyeshadow', 'Mom's Perfume', 'Mucormycosis', 'The Mulligan', 'My Reflection', 'Mysterious Liquid', 'Ocular Rift', 'Ouija Board', 'The Parasite', 'Parasitoid', 'Pisces', 'Polyphemus', 'Pop!', 'Proptosis', 'Ring Worm', 'Rotten Tomato', 'Rubber Cement', 'Serpent's Kiss', 'Sinus Infection', 'Spider Bite', 'Spoon Bender', 'Strange Attractor', 'Sulfuric Acid', 'Technology Zero', 'Terra', 'Tiny Planet', 'Trisagion' or 'Uranus' and/or the effect of the trinkets: 'Wiggle Worm', 'Brain Worm', 'Ouroboros Worm', 'Hook Worm' or 'Pulse Worm', 'Wiggle Worm' or 'Ring Worm'.",
+      "functionality": "Passive item. Every tear receives a random effect, being those effects: from the items 'Anti-Gravity', 'Ball of Bandages' (Level 4), 'Ball of Tar', 'Bumbo' (Level 3), 'The Common Cold', 'Compound Fracture', 'Continuum', 'Cricket's Body', 'Cupid's Arrow', 'Euthanasia', 'Explosivo', 'Eye of Belial', 'Eye of Greed', 'Eye of the Occult', 'Fire Mind', 'Flat Stone', 'Glaucoma', 'God's Flesh', 'Godhead', 'Haemolacria', 'Head of the Keeper', 'Holy Light', 'Immaculate Heart', 'Ipecac', 'Iron Bar', 'Jacob's Ladder', 'Knockout Drops', 'Lachryphagy', 'Large Zit', 'Little Horn', 'Lodestone', 'Lost Contact', 'A Lump of Coal', 'Mom's Contacts', 'Mom's Eyeshadow', 'Mom's Perfume', 'Mucormycosis', 'The Mulligan', 'My Reflection', 'Mysterious Liquid', 'Ocular Rift', 'Ouija Board', 'The Parasite', 'Parasitoid', 'Pisces', 'Polyphemus', 'Pop!', 'Proptosis', 'Ring Worm', 'Rotten Tomato', 'Rubber Cement', 'Serpent's Kiss', 'Sinus Infection', 'Spider Bite', 'Spoon Bender', 'Strange Attractor', 'Sulfuric Acid', 'Technology Zero', 'Terra', 'Tiny Planet', 'Trisagion' or 'Uranus' and/or the effect of the trinkets: 'Wiggle Worm', 'Brain Worm', 'Ouroboros Worm', 'Hook Worm' or 'Pulse Worm', 'Wiggle Worm' or 'Ring Worm'.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -7966,7 +7966,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Devil_Beggar.png", "img/Search/Items_pool/Treasure_Room.png"],
       "quality": "img/Search/Quality/Quality1.png",
       "description": "It multiplies",
-      "functionality": "Passive item. If the player has one red heart or less at the beginning of a floor, they recieve an empty heart container.",
+      "functionality": "Passive item. If the player has one red heart or less at the beginning of a floor, they receive an empty heart container.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -8302,7 +8302,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
       "quality": "img/Search/Quality/Quality1.png",
       "description": "Rip and tear",
-      "functionality": "Active item that charges up the more damage you deal to enemies and/or yourself. Upon use, puts the player in a berserk state for 5 seconds, during which applys +0.4 speed, +3 flat damage and makes tears to be replaced by replaced by a jaw bone melee weapon that is similar to 'The Forgotten' bone club. The jaw bone deals 3× the player's damage when swung and 1.5× the player's damage per tick when thrown. The swung jaw bone reflects enemy shots. When an enemy is killed while in the berserk mode, the player will recieve +1 second of berserk mode.",
+      "functionality": "Active item that charges up the more damage you deal to enemies and/or yourself. Upon use, puts the player in a berserk state for 5 seconds, during which applys +0.4 speed, +3 flat damage and makes tears to be replaced by replaced by a jaw bone melee weapon that is similar to 'The Forgotten' bone club. The jaw bone deals 3× the player's damage when swung and 1.5× the player's damage per tick when thrown. The swung jaw bone reflects enemy shots. When an enemy is killed while in the berserk mode, the player will receive +1 second of berserk mode.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -8314,7 +8314,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
       "quality": "img/Search/Quality/Quality1.png",
       "description": "One with the shadows",
-      "functionality": "Active item with a recharge time of 6 seconds. When used, the player recieves +1.0 speed and can walk through enemies/bullets for 1 second or until he shoots. If the player walks through an enemy and/or bullet during this time, it freezes the enemy and/or bullet until the effect ends, then takes damage equal to 2× the player's damage plus a flat 3.5. If there are multiple enemies/projectiles caught in the attack, each consecutive attack deals an additional flat 3.5 damage. At the end of the effect, an area of effect blast is created, dealing more damage the more enemies or bullets were pierced during the effect. For each enemy and/or bullet the player passes though, he recieves a higher temporary damage up, that qucky fades away.",
+      "functionality": "Active item with a recharge time of 6 seconds. When used, the player receives +1.0 speed and can walk through enemies/bullets for 1 second or until he shoots. If the player walks through an enemy and/or bullet during this time, it freezes the enemy and/or bullet until the effect ends, then takes damage equal to 2× the player's damage plus a flat 3.5. If there are multiple enemies/projectiles caught in the attack, each consecutive attack deals an additional flat 3.5 damage. At the end of the effect, an area of effect blast is created, dealing more damage the more enemies or bullets were pierced during the effect. For each enemy and/or bullet the player passes though, he receives a higher temporary damage up, that qucky fades away.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -8662,7 +8662,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Shop.png"],
       "quality": "img/Search/Quality/Quality3.png",
       "description": "Stronger spirit",
-      "functionality": "Passive item. Makes whenever a red heart container would be granted to Blue Baby, it grants 2 soul hearts instead of one, doubling the health recieved by 'Health Up' items and pills.",
+      "functionality": "Passive item. Makes whenever a red heart container would be granted to Blue Baby, it grants 2 soul hearts instead of one, doubling the health received by 'Health Up' items and pills.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -10790,8 +10790,8 @@ window.TBOU_SEARCH_DATA =
       "name": "Hollow Heart",
       "description": "A brittle blessing",
       "image": "img/Search/Trinkets/Hollow_Heart.png",
-      "effect": "At the start of every floor, the player will recieve 1 bone heart.",
-      "golden_effect": "At the start of every floor, the player will recieve 1 bone hearts.",
+      "effect": "At the start of every floor, the player will receive 1 bone heart.",
+      "golden_effect": "At the start of every floor, the player will receive 1 bone hearts.",
       "drop": "This trinket can randomly appear during a run.",
       "unlock": "This trinket is unlocked by defeating the boss 'Mother' as the character 'Tainted Forgotten'.",
       "id": "168"
@@ -11276,8 +11276,8 @@ window.TBOU_SEARCH_DATA =
       "name": "Addicted!",
       "image": "img/Search/Pickups/Pills/Addicted.png",
       "polarity": "Negative",
-      "effect": "Makes all damage that the player recieves to be doubled for the current room.",
-      "horse_effect": "Makes all damage that the player recieves to be doubled for the current room and gives a broken heart.",
+      "effect": "Makes all damage that the player receives to be doubled for the current room.",
+      "horse_effect": "Makes all damage that the player receives to be doubled for the current room and gives a broken heart.",
       "unlock": "This pill is unlocked by completing the 'PAY TO PLAY' challenge (Challenge #24).",
       "id": "29"
     },
@@ -11973,7 +11973,7 @@ window.TBOU_SEARCH_DATA =
       "image_picked": "img/Search/Pickups/Cards/Reverse_The_Chariot.png",
       "image_ground": "img/Search/Pickups/Cards/Reverse_Card.png",
       "message": "May nothing walk past you",
-      "effect": "On use, transforms the player into a stone statue that cannot take any kinds of damage, but needs to rapidly tap the move button to barely be able to walk and recieves a 4x fire rate multiplier. The effect lasts for 10 seconds.",
+      "effect": "On use, transforms the player into a stone statue that cannot take any kinds of damage, but needs to rapidly tap the move button to barely be able to walk and receives a 4x fire rate multiplier. The effect lasts for 10 seconds.",
       "tarot_cloth": "No difference.",
       "id": "5.30.63"
     },
@@ -12594,7 +12594,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have soul hearts, making all kinds of soul hearts to turn into soul charges to active items.",
       "start_stuff": "The 'Book of Virtudes' item and 4 soul charges.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "strategy": "Bethany is a sensible character due to the fact that she cannot have soul hearts, making almost all sources of enemy damage to make her lose the deal chance. Use you active item, the 'Book of Virtues' s much as possible to create wisps, that orbit Bethany, block enemies projectiles, deal contact damage and shoot with the player, making this the only 'protection' that she has. Another thing: if you collect another active item, the 'Book of Virtudes' will be used with the active item, giving the spawned wisp a different effect depending on the active item, so maybe (depending on what active item you have) to use it even if you wouldn't recieve it's efect (example: use the 'Yum Heart' item even if you already have full health just to spawn a special heart wisp). Eternal hearts are really useful with Bethany, because the're are one of the only things that blocks damage that could decrese deal chance. Talking about deals, the first deal that Bethany will have is a angel deal instead of a devil deal (because of the passive effect of the 'Book of Virtudes item'). Is highlt recomended to not go into devil deals, since Bthany relies on red health.",
+      "strategy": "Bethany is a sensible character due to the fact that she cannot have soul hearts, making almost all sources of enemy damage to make her lose the deal chance. Use you active item, the 'Book of Virtues' s much as possible to create wisps, that orbit Bethany, block enemies projectiles, deal contact damage and shoot with the player, making this the only 'protection' that she has. Another thing: if you collect another active item, the 'Book of Virtudes' will be used with the active item, giving the spawned wisp a different effect depending on the active item, so maybe (depending on what active item you have) to use it even if you wouldn't receive it's efect (example: use the 'Yum Heart' item even if you already have full health just to spawn a special heart wisp). Eternal hearts are really useful with Bethany, because the're are one of the only things that blocks damage that could decrese deal chance. Talking about deals, the first deal that Bethany will have is a angel deal instead of a devil deal (because of the passive effect of the 'Book of Virtudes item'). Is highlt recomended to not go into devil deals, since Bthany relies on red health.",
       "unlock": "Defeat the boss 'Mom's Heart' or 'It Lives!' as the character 'Lazarus' on hard mode without dying at all.",
       "id": "16"
     },
@@ -12654,7 +12654,7 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have red heart containers, making all kinds of 'Health Up' items and pills to grant a black heart instead.",
       "start_stuff": "3 pennies and the 'Dark Arts' in the pocket active item slot.",
       "start_stats": "2 black hearts, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.23 speed and 0 luck.",
-      "strategy": "When you're playing as T. Judas, you need to pay attention to all enemies and projectiles on the screen, because they can turn into temporary damage. When you use 'Dark Arts' and pass though enemies and projectiles, you deal damage to enemies, destroy the projectiles and recieves a damage boost for a while, depending on how many enemies and/or projectiles you cutted, making the best strategy as Tainted Judas to use the 'Dark Arts' item aggressively.",
+      "strategy": "When you're playing as T. Judas, you need to pay attention to all enemies and projectiles on the screen, because they can turn into temporary damage. When you use 'Dark Arts' and pass though enemies and projectiles, you deal damage to enemies, destroy the projectiles and receives a damage boost for a while, depending on how many enemies and/or projectiles you cutted, making the best strategy as Tainted Judas to use the 'Dark Arts' item aggressively.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Judas.",
       "id": "21"
     },
@@ -16379,7 +16379,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Treasure_Room.png"],
       "quality": "img/Search/Quality/Quality1.png",
       "description": "Speed down + rage is building",
-      "functionality": "Passive item. Grants the player -0.3 speed, but when on a room with enemies, your speed increases up to the cap (2.0 speed). WHen it hits the cap, the player recieves invencibility (and deals 20 damage on contact with enemies) for 5 seconds.",
+      "functionality": "Passive item. Grants the player -0.3 speed, but when on a room with enemies, your speed increases up to the cap (2.0 speed). WHen it hits the cap, the player receives invencibility (and deals 20 damage on contact with enemies) for 5 seconds.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -17795,7 +17795,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Devil_Beggar.png", "img/Search/Items_pool/Baby_Shop.png", "img/Search/Items_pool/Devil_Room.png"],
       "quality": "img/Search/Quality/Quality3.png",
       "description": "Damage booster",
-      "functionality": "Passive item. Spawns a familiar that bounces around the room and has a dark aura around it. Enemies within the radius of the aura takes 2.5 damage per tick. If the player stays inside the aura, they recieve a 1.5x damage multiplier.",
+      "functionality": "Passive item. Spawns a familiar that bounces around the room and has a dark aura around it. Enemies within the radius of the aura takes 2.5 damage per tick. If the player stays inside the aura, they receive a 1.5x damage multiplier.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -17807,7 +17807,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Treasure_Room.png"],
       "quality": "img/Search/Quality/Quality2.png",
       "description": "Rainbow effects!",
-      "functionality": "Passive item. Every tear recieves a random effect, being those effects: from the items 'Anti-Gravity', 'Ball of Bandages' (Level 4), 'Ball of Tar', 'Bumbo' (Level 3), 'The Common Cold', 'Compound Fracture', 'Continuum', 'Cricket's Body', 'Cupid's Arrow', 'Euthanasia', 'Explosivo', 'Eye of Belial', 'Eye of Greed', 'Eye of the Occult', 'Fire Mind', 'Flat Stone', 'Glaucoma', 'God's Flesh', 'Godhead', 'Haemolacria', 'Head of the Keeper', 'Holy Light', 'Immaculate Heart', 'Ipecac', 'Iron Bar', 'Jacob's Ladder', 'Knockout Drops', 'Lachryphagy', 'Large Zit', 'Little Horn', 'Lodestone', 'Lost Contact', 'A Lump of Coal', 'Mom's Contacts', 'Mom's Eyeshadow', 'Mom's Perfume', 'Mucormycosis', 'The Mulligan', 'My Reflection', 'Mysterious Liquid', 'Ocular Rift', 'Ouija Board', 'The Parasite', 'Parasitoid', 'Pisces', 'Polyphemus', 'Pop!', 'Proptosis', 'Ring Worm', 'Rotten Tomato', 'Rubber Cement', 'Serpent's Kiss', 'Sinus Infection', 'Spider Bite', 'Spoon Bender', 'Strange Attractor', 'Sulfuric Acid', 'Technology Zero', 'Terra', 'Tiny Planet', 'Trisagion' or 'Uranus' and/or the effect of the trinkets: 'Wiggle Worm', 'Brain Worm', 'Ouroboros Worm', 'Hook Worm' or 'Pulse Worm', 'Wiggle Worm' or 'Ring Worm'.",
+      "functionality": "Passive item. Every tear receives a random effect, being those effects: from the items 'Anti-Gravity', 'Ball of Bandages' (Level 4), 'Ball of Tar', 'Bumbo' (Level 3), 'The Common Cold', 'Compound Fracture', 'Continuum', 'Cricket's Body', 'Cupid's Arrow', 'Euthanasia', 'Explosivo', 'Eye of Belial', 'Eye of Greed', 'Eye of the Occult', 'Fire Mind', 'Flat Stone', 'Glaucoma', 'God's Flesh', 'Godhead', 'Haemolacria', 'Head of the Keeper', 'Holy Light', 'Immaculate Heart', 'Ipecac', 'Iron Bar', 'Jacob's Ladder', 'Knockout Drops', 'Lachryphagy', 'Large Zit', 'Little Horn', 'Lodestone', 'Lost Contact', 'A Lump of Coal', 'Mom's Contacts', 'Mom's Eyeshadow', 'Mom's Perfume', 'Mucormycosis', 'The Mulligan', 'My Reflection', 'Mysterious Liquid', 'Ocular Rift', 'Ouija Board', 'The Parasite', 'Parasitoid', 'Pisces', 'Polyphemus', 'Pop!', 'Proptosis', 'Ring Worm', 'Rotten Tomato', 'Rubber Cement', 'Serpent's Kiss', 'Sinus Infection', 'Spider Bite', 'Spoon Bender', 'Strange Attractor', 'Sulfuric Acid', 'Technology Zero', 'Terra', 'Tiny Planet', 'Trisagion' or 'Uranus' and/or the effect of the trinkets: 'Wiggle Worm', 'Brain Worm', 'Ouroboros Worm', 'Hook Worm' or 'Pulse Worm', 'Wiggle Worm' or 'Ring Worm'.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -20807,7 +20807,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Devil_Beggar.png", "img/Search/Items_pool/Treasure_Room.png"],
       "quality": "img/Search/Quality/Quality1.png",
       "description": "It multiplies",
-      "functionality": "Passive item. If the player has one red heart or less at the beginning of a floor, they recieve an empty heart container.",
+      "functionality": "Passive item. If the player has one red heart or less at the beginning of a floor, they receive an empty heart container.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -21143,7 +21143,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
       "quality": "img/Search/Quality/Quality1.png",
       "description": "Rip and tear",
-      "functionality": "Active item that charges up the more damage you deal to enemies and/or yourself. Upon use, puts the player in a berserk state for 5 seconds, during which applys +0.4 speed, +3 flat damage and makes tears to be replaced by replaced by a jaw bone melee weapon that is similar to 'The Forgotten' bone club. The jaw bone deals 3× the player's damage when swung and 1.5× the player's damage per tick when thrown. The swung jaw bone reflects enemy shots. When an enemy is killed while in the berserk mode, the player will recieve +1 second of berserk mode.",
+      "functionality": "Active item that charges up the more damage you deal to enemies and/or yourself. Upon use, puts the player in a berserk state for 5 seconds, during which applys +0.4 speed, +3 flat damage and makes tears to be replaced by replaced by a jaw bone melee weapon that is similar to 'The Forgotten' bone club. The jaw bone deals 3× the player's damage when swung and 1.5× the player's damage per tick when thrown. The swung jaw bone reflects enemy shots. When an enemy is killed while in the berserk mode, the player will receive +1 second of berserk mode.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -21155,7 +21155,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
       "quality": "img/Search/Quality/Quality1.png",
       "description": "One with the shadows",
-      "functionality": "Active item with a recharge time of 6 seconds. When used, the player recieves +1.0 speed and can walk through enemies/bullets for 1 second or until he shoots. If the player walks through an enemy and/or bullet during this time, it freezes the enemy and/or bullet until the effect ends, then takes damage equal to 2× the player's damage plus a flat 3.5. If there are multiple enemies/projectiles caught in the attack, each consecutive attack deals an additional flat 3.5 damage. At the end of the effect, an area of effect blast is created, dealing more damage the more enemies or bullets were pierced during the effect. For each enemy and/or bullet the player passes though, he recieves a higher temporary damage up, that qucky fades away.",
+      "functionality": "Active item with a recharge time of 6 seconds. When used, the player receives +1.0 speed and can walk through enemies/bullets for 1 second or until he shoots. If the player walks through an enemy and/or bullet during this time, it freezes the enemy and/or bullet until the effect ends, then takes damage equal to 2× the player's damage plus a flat 3.5. If there are multiple enemies/projectiles caught in the attack, each consecutive attack deals an additional flat 3.5 damage. At the end of the effect, an area of effect blast is created, dealing more damage the more enemies or bullets were pierced during the effect. For each enemy and/or bullet the player passes though, he receives a higher temporary damage up, that qucky fades away.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -21503,7 +21503,7 @@ window.TBOU_SEARCH_DATA =
       "poolImages": ["img/Search/Items_pool/Shop.png"],
       "quality": "img/Search/Quality/Quality3.png",
       "description": "Stronger spirit",
-      "functionality": "Passive item. Makes whenever a red heart container would be granted to Blue Baby, it grants 2 soul hearts instead of one, doubling the health recieved by 'Health Up' items and pills.",
+      "functionality": "Passive item. Makes whenever a red heart container would be granted to Blue Baby, it grants 2 soul hearts instead of one, doubling the health received by 'Health Up' items and pills.",
       "transformation": "This item don't contribute to any transformations.",
       "transformationImage": ""
     },
@@ -23631,8 +23631,8 @@ window.TBOU_SEARCH_DATA =
       "name": "Hollow Heart",
       "description": "A brittle blessing",
       "image": "img/Search/Trinkets/Hollow_Heart.png",
-      "effect": "At the start of every floor, the player will recieve 1 bone heart.",
-      "golden_effect": "At the start of every floor, the player will recieve 1 bone hearts.",
+      "effect": "At the start of every floor, the player will receive 1 bone heart.",
+      "golden_effect": "At the start of every floor, the player will receive 1 bone hearts.",
       "drop": "This trinket can randomly appear during a run.",
       "unlock": "This trinket is unlocked by defeating the boss 'Mother' as the character 'Tainted Forgotten'.",
       "id": "168"
@@ -24117,8 +24117,8 @@ window.TBOU_SEARCH_DATA =
       "name": "Addicted!",
       "image": "img/Search/Pickups/Pills/Addicted.png",
       "polarity": "Negative",
-      "effect": "Makes all damage that the player recieves to be doubled for the current room.",
-      "horse_effect": "Makes all damage that the player recieves to be doubled for the current room and gives a broken heart.",
+      "effect": "Makes all damage that the player receives to be doubled for the current room.",
+      "horse_effect": "Makes all damage that the player receives to be doubled for the current room and gives a broken heart.",
       "unlock": "This pill is unlocked by completing the 'PAY TO PLAY' challenge (Challenge #24).",
       "id": "29"
     },
@@ -24814,7 +24814,7 @@ window.TBOU_SEARCH_DATA =
       "image_picked": "img/Search/Pickups/Cards/Reverse_The_Chariot.png",
       "image_ground": "img/Search/Pickups/Cards/Reverse_Card.png",
       "message": "May nothing walk past you",
-      "effect": "On use, transforms the player into a stone statue that cannot take any kinds of damage, but needs to rapidly tap the move button to barely be able to walk and recieves a 4x fire rate multiplier. The effect lasts for 10 seconds.",
+      "effect": "On use, transforms the player into a stone statue that cannot take any kinds of damage, but needs to rapidly tap the move button to barely be able to walk and receives a 4x fire rate multiplier. The effect lasts for 10 seconds.",
       "tarot_cloth": "No difference.",
       "id": "5.30.63"
     },
@@ -25266,6 +25266,8 @@ window.TBOU_SEARCH_DATA =
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "start_stuff": "1 bomb and 'The D6 (if unlocked)' item.",
       "strategy": "The best way to play with Isaac is to, first of all, unlock the 'The D6' item, after that you need to try your absolute best to put an item pedestal into the secret room, because that's one of the best item pools of the game and you can rerrol the items with the 'The D6' item. Another good strategy is to manage your charges like your like depends on it.",
+      "hyperfocus": "This character is hyperfocused in: dice-related items.",
+      "certainly_effect": "Will make so that, every time the 'The D6' item is used, instead of rerroling the item, you will use the 'Soul of Isaac' effect. Rerroling again will rerrol both options.",
       "unlock": "Unlocked by default.",
       "id": "1"
     },
@@ -25276,6 +25278,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Yum Heart' item and a 'Full Health (if unlocked)' pill.",
       "start_stats": "4 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 0.85 speed and 0 luck.",
       "strategy": "The best way to play as Magdalene is to focus on a way to expend your health. Of course devil deals are something great, but other sources of hit (like blood onation machines or devil beggars) are a great source of healing, and if you're smart and lucky enough, you can use the sacrificial room to your vantage, using your full health pill and the 'Yum Heart' item.Is highly reccomended to unlock the 'Full Health' pill.",
+      "hyperfocus": "This character is hyperfocused in: health-related items.",
+      "certainly_effect": "Will make so that, if you are on full health and use the 'Yum Heart' item, you receive a half soul heart per use.",
       "unlock": "Have 7 or more red heart container at the same time on a run.",
       "id": "2"
     },
@@ -25286,6 +25290,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "1 key, the 'Lucky Foot' item and the 'Paper Clip (if unlocked)' trinket.",
       "start_stats": "2 red hearts, 3.50 damage, 1.20X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.30 speed and 0 luck.",
       "strategy": "The best method of playing as Cain is aleays, and i say ALWAYS use pills, because, even if the pills aren't revealed, they are always good due to the 'Lucky Foot' item. The arly game can be tough due to the low range, so is always good to take your time to kill enemies. is highly reccomended to unlock the 'Paperclip' trinket",
+      "hyperfocus": "This character is hyperfocused in: luck-based items.",
+      "certainly_effect": "Will make every luck stat received by any meeans to be doubled by 1.5X and for each 5 luck, the character receives a stackable 1.05X damage multiplier. If the luck stat is lost, the damge multiplier is also lost.",
       "unlock": "Hold 55 pennies at the same time on a run.",
       "id": "3"
     },
@@ -25296,6 +25302,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "3 pennies and the 'The Book of Belial' item.",
       "start_stats": "1 red heart container, 3.50 damage, 1.35x damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "On Judas, try your absolute best to be far away from your enemies and use the 'The Book of Belial' item to clear harder rooms. Always, and i say ALWAYS prioritize the use of 'The Book of Belial' to the boss room to make your boss fight 5 times easier.",
+      "hyperfocus": "This character is hyperfocused in: damage multipliers items.",
+      "certainly_effect": "Will make the 'Book of Belial' item to be removed from his active item slot and go to his pocket-active item slot instead. If the player doesn't have the 'Book of Belial' item, he is granted one in his pocket-active item.",
       "unlock": "Defeat the boss 'Satan' for the first time.",
       "id": "4"
     },
@@ -25306,6 +25314,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'The Poop' item.",
       "start_stats": "3 soul hearts, 3.50 damage, 1.05X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.1 speed an 0 luck.",
       "strategy": "On the Blue Baby, always uses your active 'The Poop' item and acumulate a ton of poops on a single room, the reason? Every time you destroy a poop as Blue Baby, you spawn a blue fly from the poop, just like the 'Lil Larva' trinket, but passively. 'The Poop' item also have other uses, such as being able to build bridges on 1X1 holes tiles by using 'The Poop' item close to a hole and blowing up the opposite side of the spawned poop.",
+      "hyperfocus": "This character is hyperfocused in: fly-related items.",
+      "certainly_effect": "Will make the 'The Poop' item to be removed from his active item slot and go to his pocket-active item slot instead. If the player doesn't have the 'The Poop' item, he is granted one in his pocket-active item.",
       "unlock": "Defeat the boss 'Mom's Heart' 10 times.",
       "id": "5"
     },
@@ -25316,6 +25326,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Whore of Babylon', 'Dead Bird' and 'Razor Blaze (if unlocked)' items.",
       "start_stats": "2 red heart containers, 3.50 damage, 0.75X damage multiplier (if 'Whore of Babylon' effect is on, the multiplier goes up to 1.0X), 2.73 tears, 1.0 shot speed, 6.5 range, 1.24 speed and 0 luck.",
       "strategy": "Even if looks scary when you're a newbie into TBOI, is highly reccomended to stay at 1 red heart or lower when playing as Eve (is easier to do with the 'Razor Blade' item unlock), because the 'Whore of Babylon' effect doesn't only makes the damage multiplier go back to normla, but grants +1.5 damage and +0.3 speed on top of it.",
+      "hyperfocus": "This character is hyperfocused in: dark-related items.",
+      "certainly_effect": "Will make the 'The Razor' item to be removed from his active item slot and go to his pocket-active item slot instead. If the player doesn't have the 'The Razor' item, he is granted one in his pocket-active item.",
       "unlock": "Don't pick up any kind of hearts for 2 consecutive floors.",
       "id": "6"
     },
@@ -25326,6 +25338,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Bloody Lust' item and the 'Child's Heart (if unlocked)' trinket.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2,63 tears, 1.31 shot speed, 5.0 range, 1.1 speed and 0 luck.",
       "strategy": "On Samson, try to make every single hit you take worth it, maybe entering vurse rooms, playing demon beggars or blood donation machines, but the point is for every hit Samson takes, he gets a damage up due to the 'Bloody Lust' starting item.",
+      "hyperfocus": "This character is hyperfocused in: self damage-related items.",
+      "certainly_effect": "Will make so that, every time you get hit, the 'Bloody Lust' effect is doubled (act like you got hit twice instead of onec, making the damage cap to be smaller, but dobleing damamge per hit).",
       "unlock": "Don't take any kind of damage for 2 consecutive floors.",
       "id": "7"
     },
@@ -25336,6 +25350,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "'The Fool' card.",
       "start_stats": "3 black hearts, 3.50 damage, 1.50X damage multiplier, 0.76 tears, 1.0 shot speed, 4.5 range, 1.0 speed and 0 luck.",
       "strategy": "Azazel is a easy character because of the short-brimstone and flight he gets at the start of every run. Is highly reccomended to go inside the first curse room of the run (if you still have 'The Fool' card) because you can go inside of the curse room for free (because of Azazel's natural hability to fly) and get out of there for free by using the 'The Fool' card. Even through Azazel don't start with red health, he still can get red heart containers via items and/or pills.",
+      "hyperfocus": "This character is hyperfocused in: Demon-related items.",
+      "certainly_effect": "Will make so that, if Azazel charges half of his Brimstone attack, he shoots a normal tear.",
       "unlock": "Do 3 deals with the devil on a run.",
       "id": "8"
     },
@@ -25346,6 +25362,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "1 random pill and the 'Anemic (if unlocked)' item.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.0 speed and -1 luck.",
       "strategy": "On Lazarus, try to suicide with value. The best ways to die with value is by sacrificial rooms, blood donations machines, devil beggar, etc. Also try your best to have items that have on-hit effects, such as the 'Fanny Pack' or 'Gimpy' items as an examples.",
+      "hyperfocus": "This character is hyperfocused in: Revive-related items.",
+      "certainly_effect": "Effect only works on death.",
       "unlock": "Have 4 soul hearts at the same time.",
       "id": "9"
     },
@@ -25356,6 +25374,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Anemic' item.",
       "start_stats": "Same number of heart containers that Lazarus has minus 1 (the number of red heart cintainers cannot be below 1 per death) and same stats as Lazarus, but with a 1.40X dmage multiplier, +0.25 speed and +1 luck.",
       "strategy": "Play normally until you get into the next floor, then go back into the Lazarus strategy.",
+      "hyperfocus": "This character is hyperfocused in: Death-related items.",
+      "certainly_effect": "Will grant an extra life that don't grant any stats up.",
       "unlock": "Die as Lazarus.",
       "id": "9.2"
     },
@@ -25366,6 +25386,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "Random with expection of story items.",
       "start_stats": "Random between 3.50 ± 1 damage, 1X damage multiplier, +0.75 to -0.5 from 2.73 tears, 1.0 ± 0.25 shot speed, 6.5 ± 1 range, 1.0 ± 0.15 speed and 0 ± 1 luck.",
       "strategy": "Be lucky. As Eden, luck is either your best friend or the pain in your ass. Restart runs until you get and decent passive/active item and/or stats.",
+      "hyperfocus": "This character has a random hyperfocus per run. The hyperfocus will be taken from a random character.",
+      "certainly_effect": "Will randomly increase all of her stats.",
       "unlock": "Complete the 'The Womb' floor for the first time.",
       "id": "10"
     },
@@ -25376,6 +25398,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Eternal D6' item and the 'Holy Mantle (if unlocked)' item.",
       "start_stats": "No health, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range. 1.0 speed and 0 luck.",
       "strategy": "Don't touch this character until you unlocked the 'Holy Mantle' starting item, making it necessary to donate 879 pennies to the Greed Donation Machine, but if you already have it unlocked or just unlocked it, the best strategy for The Lost is to use obstavles to get away from enemies, becausemost enemies don't have the hability to fly. The Lost also have the hability to enter and get out of curse rooms for free, but if you get ht while inside the curse room, you will die when trying to go out, because flight makes so that you can enter curse rooms without taking damage, but you take damage to leave the curse room.",
+      "hyperfocus": "This character is hyperfocused in: defense-related items.",
+      "certainly_effect": "Will make his native 'Holy Mantle' to be used over any other intances of 'Holy Mantle' (like the 'Blanket' item or 'Holy Card' use). Also makes so that, if The Lost is in a room and collects an soul heart, his holy mantle is regenerated.",
       "unlock": "Die in a sacrifice room while holding the 'Missing Poster' trinket.",
       "id": "11"
     },
@@ -25386,6 +25410,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Incubus', 'Box of Friends' and 'Cambion Conception' items.",
       "start_stats": "1 red heart container and 2 black hearts, 3.50 damage, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck/.",
       "strategy": "As Lilith, your familiars are your life! Since she cannot fire tears by herself, she depend of familiars that can, so try to get as many familiars as possible, but also try to get item to help you recharge the 'Box of Friends' item (like the 'The Battery' and/or the '9 Volt' items).",
+      "hyperfocus": "This character is hyperfocused in: familiar-related items (including knife and key pieces 1 & 2).",
+      "certainly_effect": "Will make all familiar-related items to be free in any circumstances, such as devil deals, shops, etc. Also grants a permanent clone on an random familiar that she has.",
       "unlock": "Defeat the boss 'Ultra Greed' as the character 'Azazel'.",
       "id": "12"
     },
@@ -25396,6 +25422,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Wodden Nickel' item and the 'Store Key' trinket (if both are unlocked).",
       "start_stats": "3 coin heart container (only 2 if the 3º isn't unlocked), 3.50 damage, 1.20X damage multiplier, 0.83 tears, 1.0 shot speed, 6.5 range, 0.90 speed an -2 luck.",
       "strategy": "Berofe you start, unlock the 3º coin container and the 'Wooden Nickel' starting item. After that, use the 'Wooden Nickel item as much as possible, but don't collect the pennies, because the pennies can be used to regenerate your health, play the safricife room and much more, so leave a ton of money on the ground until the end of the floor.'.",
+      "hyperfocus": "This character is hyperfocused in: money-related items.",
+      "certainly_effect": "Will make his health to be able to go up to 6 coin containers (need health up items/pills to increase health, and does not ount the coin container granted by the 'Birthright' item). Also makes all shops to have at least 1 item/pick-up to have a discount.",
       "unlock": "Donate 1000 pennies to the greed donation machine.",
       "id": "13"
     },
@@ -25406,6 +25434,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Void' item.",
       "start_stats": "2 red heart containers, 3.50 damage, 1X damage multipllier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "Apollyon starts weak, but if you're smart and fast enough, you can win with ease. Always try to go into alternative floors (such as 'Downpour' and 'The Mines'), because in those floors, the treasure room will have 2 items for you to choose one of them, but one of the items will be 'blind', so you can only know what the item was when you collect him. The good part about Appolyon is the fact that he can pickup an blind item to reveal what it is nd, if you don't like it, you can use the 'Void' item to void the item during the pickup animation. Also try to enter all libraries, because if you use the 'Void' on a active item, you will absorb the item effect, makin gso that the next time you use 'Void', you also use the effect of all active item at the ame time.",
+      "hyperfocus": "This character is hyperfocused in: using Void to consume any item.",
+      "certainly_effect": "Will grant a shot speed cap for the 'Void' item, making you receive a maximum of +1 shot speed.",
       "unlock": "Defeat the boss 'Mega Satan' for the first time.",
       "id": "14"
     },
@@ -25416,6 +25446,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "3 bone heart containers, 3.50 damage, 1.50X damage multiplier, 1.36 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "As The Forgotten, try to use you bone club to knock enemies away from you and deal massive damage. Pay attention to your health, because if you tae damage you don't lose deal chance, but if you lose a bone heart (by taking damage with a empty bone heart) you will lose your deal chance. Also, you can grab pickups with the swing of your bone club, making it possible to get item from 1 tile gaps. Watch out for the range stat, because if the stat is too high, The impact area of the bone club will be further away from you, making it harder to hit enemies.",
+      "hyperfocus": "This character is hyperfocused in: melee-related items.",
+      "certainly_effect": "Will make The Soul's health to be depleated first when taking damage while playing as The Forgotten. Using the item as The Forgotten also uses the item effect for The Soul. If The Soul's health is over, you will receive a soul heart on the next floor, but you lose -0.3 tears.",
       "unlock": "Search for the 'Broken Shovel 1' item to have more information.",
       "id": "15"
     },
@@ -25426,6 +25458,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "1 soul heart, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.30 speed and 0 luck.",
       "strategy": "If you press the drop button once as The Forgotten, you switch between controlling The Forgotten and The Soul. The Soul can fly is a limited area defined by the lengh of the chain that is stuck between him and The Forgotten, making him really useful to get pickups/items from far away. When in soul mode, The Forgotten's body will be idle, immune to damage, able to block projectiles and will atract nearby projectiles to himself, making him the 'perfect' cover to bullet-hell bosses/enemies, so use that to your advantage.",
+      "hyperfocus": "This character is hyperfocused in: soul heart-related items.",
+      "certainly_effect": "Will make The Forgotten's health to be depleated first when taking damage while playing as The Soul. Using the item as The Soul also uses the item effect on The Forgotten. If The Forgotten's health is over, he body 'dies' for the floor, but on the next floor it reappears with 1 empty bone heart, but you lose -0.5 damage.",
       "unlock": "Same as The Forgotten.",
       "id": "15.2"
     },
@@ -25435,7 +25469,9 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have soul hearts, making all kinds of soul hearts to turn into soul charges to active items.",
       "start_stuff": "The 'Book of Virtudes' item and 4 soul charges.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
-      "strategy": "Bethany is a sensible character due to the fact that she cannot have soul hearts, making almost all sources of enemy damage to make her lose the deal chance. Use you active item, the 'Book of Virtues' s much as possible to create wisps, that orbit Bethany, block enemies projectiles, deal contact damage and shoot with the player, making this the only 'protection' that she has. Another thing: if you collect another active item, the 'Book of Virtudes' will be used with the active item, giving the spawned wisp a different effect depending on the active item, so maybe (depending on what active item you have) to use it even if you wouldn't recieve it's efect (example: use the 'Yum Heart' item even if you already have full health just to spawn a special heart wisp). Eternal hearts are really useful with Bethany, because the're are one of the only things that blocks damage that could decrese deal chance. Talking about deals, the first deal that Bethany will have is a angel deal instead of a devil deal (because of the passive effect of the 'Book of Virtudes item'). Is highlt recomended to not go into devil deals, since Bthany relies on red health.",
+      "strategy": "Bethany is a sensible character due to the fact that she cannot have soul hearts, making almost all sources of enemy damage to make her lose the deal chance. Use you active item, the 'Book of Virtues' s much as possible to create wisps, that orbit Bethany, block enemies projectiles, deal contact damage and shoot with the player, making this the only 'protection' that she has. Another thing: if you collect another active item, the 'Book of Virtudes' will be used with the active item, giving the spawned wisp a different effect depending on the active item, so maybe (depending on what active item you have) to use it even if you wouldn't receive it's efect (example: use the 'Yum Heart' item even if you already have full health just to spawn a special heart wisp). Eternal hearts are really useful with Bethany, because the're are one of the only things that blocks damage that could decrese deal chance. Talking about deals, the first deal that Bethany will have is a angel deal instead of a devil deal (because of the passive effect of the 'Book of Virtudes item'). Is highlt recomended to not go into devil deals, since Bthany relies on red health.",
+      "hyperfocus": "This character is hyperfocused in: angel-related items.",
+      "certainly_effect": "Will make it possible for Bethany to have 1 soul heart on her health bar.",
       "unlock": "Defeat the boss 'Mom's Heart' or 'It Lives!' as the character 'Lazarus' on hard mode without dying at all.",
       "id": "16"
     },
@@ -25446,6 +25482,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "3 red heart containers, 2.75 damage, 1X damage multiplier, 3.0 tears, 1.15 shot speed, 5 range, 1 speed and 1 luck.",
       "strategy": "These 2 are complicated, because if one of them die, the other also dies. The best strategy is to make one of them the tank and the other the defender, giving (for example) Jacob all the damage/attack items and Esau all the defense items, but also giving something of the other category to the other (giving a little of defense to the attack character and giving a littlr of attack power to the defender). Another less effective but way funnier strategy is to give all items to one character and almost nothing to the other, making a funnier but riskyer challenge.",
+      "hyperfocus": "This character is hyperfocused in: mom-related items.",
+      "certainly_effect": "Makes so that you can continue the game if Esau dies. Esau will respawn on the next floor with -1 item, but if Esau has no items, Jacob loses an item, and if both of them doesn't have any items, both of them dies. Using the item as Jacob also uses the item effect on Esau.",
       "unlock": "Defeat the boss 'Mother' for the first time.",
       "id": "17"
     },
@@ -25456,7 +25494,9 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "1 red heart container, 1 soul heart, 3.75 damage, 1X damage multiplier, 3.65 tears, 0.85 shot speed, 8 range, 1 speed and -1 luck.",
       "strategy": ".",
-      "unlock": "Same as Jacob.",
+      "hyperfocus": "This character is hyperfocused in: guppy-related items.",
+      "certainly_effect": "Makes so that you can continue the game if Jacob dies. Jacob will respawn on the next floor with -1 item, but if Jacob has no items, Esau loses an item, and if both of them doesn't have any items, both of them dies. Using the item as Esau also uses the item effect on Jacob.",
+      "unlock": "Defeat the boss 'Mother' for the first time.",
       "id": "17.2"
     },
     {
@@ -25466,6 +25506,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "1 penny.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "When you play as T. Isaac, you best friends are both the 'Void' and the 'Abyss' items, because when your inventory is full, you can transform item into stats (with 'Void') or into permanent attack locusts (with Abyss). Another good strategy is about 'Health Up' items, because if you pickup the 'Dinner' item (for example) and you switch it for another item, you will keep the health gain. So the best strategy for T. ISaac is make sure you don't have any useless items in your inventory and prioritize items that give the best stats and/or tear effect.",
+      "hyperfocus": "This character is hyperfocused in: active items and/or quality 3/4 items.",
+      "certainly_effect": "Will make all qulity 4 items to not use inventory spaces.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Isaac.",
       "id": "18"
     },
@@ -25476,6 +25518,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Yum Heart' in the pocket active item slot.",
       "start_stats": "2 red hearts, 2 drainable empty red hearts, 3.50 damage, 0.75X damage multiplier, 2.73 tears. 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "T. Magdalene is a melee type of character, because if you go and try to deal contact damage to enemies, she will automaticaly 'hug' an enemy. Hugged enemies are guaranteed to drop a temporary half red heart that last 2 seconds after disseapering when killed by the hug. Her first 2 red heart container will not drain, but if the player takes enemmy damage with the not-drain red hearts, their deal chance will be lowered, but if the draining red hearts are the ones that takes the damage, your deal chance will not go down. Try to get items that benefits all the damage that you take, such as 'Fanny Pack', 'Gimpy' or 'Celtic Cross'.",
+      "hyperfocus": "This character is hyperfocused in: self damage-related items.",
+      "certainly_effect": "Will make all of the temporary red hearts to last 4.5 seconds.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Magdalene.",
       "id": "19"
     },
@@ -25486,6 +25530,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "1 key and the 'Bag of Crafting' in the pocket active item slot.",
       "start_stats": "2 red heart containers, 3.50 damage, 1.20X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.30 speed and 0 luck.",
       "strategy": "On T. Cain, leave all of your pickups on the ground, so that you can later use the 'Bag of Crafting' item later to craft your items with the pickups. Always relember: the better the pickup, the better is the item crafted (examples: golden pickups, pills, cards, batteries, nickels, dimes, etc.), and only collect pickup to specific situtions, such as blowing shopkeepers, secret rooms, entering shops and treasure rooms or opening chests.",
+      "hyperfocus": "This character is hyperfocused in: items that spawn pick-ups (Everthing Jar, Mom's Bottle of Pills, etc.).",
+      "certainly_effect": "Will make all items to have a 10% chance of being normally collected by him. If he doesn't want the collected item, he can use the 'Bag of Craftting' during the pick-up item animation to transform the item into a much more pick-ups than usual. Also makes Tainted Cain able to deal his full damage stat when attacking an enemy with the 'Bag of Crafting' item.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Cain.",
       "id": "20"
     },
@@ -25495,7 +25541,9 @@ window.TBOU_SEARCH_DATA =
       "conditions": "Cannot have red heart containers, making all kinds of 'Health Up' items and pills to grant a black heart instead.",
       "start_stuff": "3 pennies and the 'Dark Arts' in the pocket active item slot.",
       "start_stats": "2 black hearts, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.23 speed and 0 luck.",
-      "strategy": "When you're playing as T. Judas, you need to pay attention to all enemies and projectiles on the screen, because they can turn into temporary damage. When you use 'Dark Arts' and pass though enemies and projectiles, you deal damage to enemies, destroy the projectiles and recieves a damage boost for a while, depending on how many enemies and/or projectiles you cutted, making the best strategy as Tainted Judas to use the 'Dark Arts' item aggressively.",
+      "strategy": "When you're playing as T. Judas, you need to pay attention to all enemies and projectiles on the screen, because they can turn into temporary damage. When you use 'Dark Arts' and pass though enemies and projectiles, you deal damage to enemies, destroy the projectiles and receives a damage boost for a while, depending on how many enemies and/or projectiles you cutted, making the best strategy as Tainted Judas to use the 'Dark Arts' item aggressively.",
+      "hyperfocus": "This character is hyperfocused in: tears-related items.",
+      "certainly_effect": "Will make it possible to shoot tears when under the 'Dark Arts' item effect. Also makes the temporray damage to last a little longer.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Judas.",
       "id": "21"
     },
@@ -25506,6 +25554,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "3 poop bombs and the 'Hold' in the pocket active item slot.",
       "start_stats": "3 soul hearts, 3.50 damage, 1X damage multiplier, 2.38 tears 1.0 shot speed, 6.5 range, 0.90 speed and 0 luck.",
       "strategy": "While playing as T. Blue Baby, all bomb pickups will be replaced with poop pickups. Those poops have multiple diferent effects, so the best strategy is to know what each poop pickup do, and if the pickup is really good, keep it with the 'Hold' item.",
+      "hyperfocus": "This character is hyperfocused in: poop-related items.",
+      "certainly_effect": "Will make it possible to Tainted Blue Baby to be immune to explosions made by his own sources.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Blue Baby.",
       "id": "22"
     },
@@ -25516,6 +25566,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Sumptorium' in the pocket active item slot.",
       "start_stats": "2 red heart containers, 3.50 damage, 1.20X damage multiplier, 2.23 + 0.66X tears (and tears multiplier), 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "T. Eve is a character that will (almost) always be at low health, but the price of low health is an army of tear-shooting blood clots. After holding the fire button for 2 seconds, T. Eve will trade half a heart for 1 clot, and depending on what kind of heart in used when the 'trade' is made, the kind of clot that will spawn is different, making health trade with black, eternal, golden and soul hearts really worth it. Another strategy is to use the pocket active item 'Sumptorium', because when the item is used with blood clots on the screen, T. Eve will 'suck' all clots to her halth bar, and re-spawning the clot will just reset all the clots health.",
+      "hyperfocus": "This character is hyperfocused in: regeneration-related items.",
+      "certainly_effect": "Will make her stop producing clots when her health is under 1 heart and a half. If she's get down to half a heart (by getting hit), she will instantly use the 'Sumptorium' item.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Eve.",
       "id": "23"
     },
@@ -25526,6 +25578,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.63 tears, 1.0 shot speed, 5 range, 1.0 speed and 0 luck.",
       "strategy": "When dealing damage to enemies or taking damage from any source, T. Samson will start to fill a 'Rage' stat that is indicated in how much red T. Samson is. When fully red, T. Samson will activate the 'Berserk!' effect, turning into an melee-attack kind of character, dealing massive damage to enemies, and every time you kill a enemy, the 'Berserker Timer' is increased by 1 second. The best strategy sa T. Samson is to (try) to use the Berserker form on the boss of the floor and/or on room with a ton of enemies to fight.",
+      "hyperfocus": "This character is hyperfocused in: range-related items.",
+      "certainly_effect": "Will grant the 'Berserk!' item in his pocket-active item, making it possible to control his berserker state and use it when you wnat to.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Samson.",
       "id": "24"
     },
@@ -25536,6 +25590,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'The Fool' card.",
       "start_stats": "3 black hearts, 3.50 damage, 1.50X damage multiplier, 0.91 tears, 1.0 shot speed, 6.5 reange, 1.0 speed and 0 luck.",
       "strategy": "When playing as T. Azazel, your damage outcome is cutted in half unless you aplly the 'Curse of Brimstone' on enemies. To apply the curse, just use the sneeze attack close to enemies, then shoot then with the thin-looking 'Brimstone' attack. When in boss fights, always apply the 'CUrse of Brimstone' into the boss to a better experience.",
+      "hyperfocus": "This character is hyperfocused in: flight-related items.",
+      "certainly_effect": "Will make his Brimstone to be wider.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Azazel.",
       "id": "25"
     },
@@ -25546,6 +25602,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Flip' in the pocket active item slot.",
       "start_stats": "3 red heart containers, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 4.5 range, 1.0 speed and 0 luck.",
       "strategy": "When a room is cleared while as Tainted Lazarus, you will transform into Dead Tainted Lazarus and vice-versa. The pocket active item 'Flip' can be used to force the transforomation from one form to another, but can also be used on item pedestals in treasure rooms, shops and much more, so always have the 'Flip' item charged up when entering any kind of places with item pedestals. Tainted Lzarus and Dead Tainted Lazarus have their own health, stats and items, so giving the correct items for the correct form is always god (like how Tainted Lazarus have low range, try to give him any 'Range Up' items).",
+      "hyperfocus": "This character is hyperfocused in: battery-related items.",
+      "certainly_effect": "Will make his inventory and Dead Tainted Lazarus' to be shared. Using the item as Tainted Lazarus also uses the item as Dead Tainted Lazarus.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Lazarus (or Lazarus Risen).",
       "id": "26"
     },
@@ -25556,6 +25614,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Flip' in the pocket active item slot.",
       "start_stats": "2 soul hearts, 3.50 damage, 1.50X damage multiplier, 2.63 tears, 1.0 shot speed, 6.5 range, 0.90 speed and -2 luck.",
       "strategy": "When a room is cleared while as Dead Tainted Lazarus, you will transform into Tainted Lazarus and vice-versa. The pocket active item 'Flip' can be used to force the transforomation from one form to another, but can also be used on item pedestals in treasure rooms, shops and much more, so always have the 'Flip' item charged up when entering any kind of places with item pedestals. Dead Tainted Lzarus and Tainted Lazarus have their own health, stats and items, so giving the correct items for the correct form is always god (like how Dead Tainted Lazarus have no red health, try to give him any 'Health Up' items).",
+      "hyperfocus": "This character is hyperfocused in: battery-related items.",
+      "certainly_effect": "Will make his inventory and Tainted Lazarus' to be shared. Using the item as Dead Tainted Lazarus also uses the item as Tainted Lazarus.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Lazarus (or Lazarus Risen).",
       "id": "26.2"
     },
@@ -25566,6 +25626,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "Random with exception of story items.",
       "start_stats": "Random between 3.50 ± 1 damage, 1X damage multiplier, +0.75 to -0.5 from 2.73 tears, 1.0 ± 0.25 shot speed, 6.5 ± 1 range, 1.0 ± 0.15 speed and 0 ± 1 luck.",
       "strategy": "When T. Eden is in play, you either wants to damage yourself a ton for a chance of getting better items or don't wanna get hit because you have all the good items. Try to abuse the item pool function and rerrol yourself into the items yoou fell the most comfortable with, but don't get attached to your items, because any skill issue will throw your build into the trash.",
+      "hyperfocus": "This character hyperfocus is rerroled every single time they get hit.",
+      "certainly_effect": "Will only rerrol their build if you take 2 instance of enemy damage in a room. Will also grant an 'D4' on the pocket-active item that cannot be rerroled.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Eden.",
       "id": "27"
     },
@@ -25576,6 +25638,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "1 penny and a 'Holy Card' pickup.",
       "start_stats": "No health, 3.50 damage, 1.30X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "T. Lost is a nightmare because he relies on holy cards to be able to defend himself from any form of damage, since he doesn't have the normal 'Holy Mantle' effect. The best strategy is to always visit the shops if you have 15 cents or more, because there is a chance of a holy card to be for sale or any items that grant cards, such as the 'Deck of Cards', 'Starter Deck', 'Booster Pack' or 'Blank Card' items. Always prioritize holy cards and shops for more chances of finding holy cards.",
+      "hyperfocus": "This character is hyperfocused in: ofensive-related items.",
+      "certainly_effect": "Will make defensive items able to appear again.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as The Lost.",
       "id": "28"
     },
@@ -25586,6 +25650,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "1 red heart conainer, 2 black hearts, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 0.85 speed and 0 luck.",
       "strategy": "T. Lilith is a character that relies on her 'Gello' fetus to deal damage and survive in combat. When the fire button is pressed and holded, she fires her fetus, and if the fire button is held for more time, the Gello starts to shoot tears out of it's mouth. The first burst of the Gello deals 3X teh player's damage, being a reliable strategy to spam the attack instead of hold the fire button and start to fire tears.",
+      "hyperfocus": "This character is hyperfocused in: tears-related items.",
+      "certainly_effect": "Will make Tainted Lilith able to shoot tears with Gello, but with a 0.35X tears multiplier.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Lilith.",
       "id": "29"
     },
@@ -25596,6 +25662,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "1 bomb.",
       "start_stats": "2 coin containers, 3.50 damage, 1X damage multiplier, 0,53 tears, 1.0 shot speed, 6.5 range, 1.0 speed and -2 luck.",
       "strategy": "T. Keeper is all about money, so be as greedy as possible! Since enemies can drop any kind of coins, including nickels, dimes, lucky pennies and sticky nickels on death, always try to collect the money, even if you are going to take damage, because of Tainted Keeper's coin containers, 1 penny heals him 1 container, so is at leats a win-win situation if you know how to shoot and kill enemies properly. Try to skip treasure rooms because the item inside costs money. All shops as Tainted Keeper are better, and will have more items from outside the shop item pool, so is better to go to the shop rather than the treasure room.",
+      "hyperfocus": "This character is hyperfocused in: shop-related items.",
+      "certainly_effect": "Will make all items that are not inside any kind of shop to have an 50% chance of not being on sale.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as the Keeper.",
       "id": "30"
     },
@@ -25606,6 +25674,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Abyss' on the pocket active item slot.",
       "start_stats": "2 red heart containers, 3.50 damage, 1X damage multiplier, 2.23 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "As T. Apollyon, the best way to win is to use the 'Abyss' item on the correct items for the best damaga output and the best funcionality of the 'Abyss' locusts. Since T. Apollyon relies on 'Abyss', the best strategy is to know the effects of some items when they are turned into locusts, because (as an example) defensive items turn into shileded locusts, that can block enemies projectiles, and poison-related items turn into poisosed locusts, dealing poison damage over time. Try to undertand that locust give what effect and you are really good done playing T. Apollyon.",
+      "hyperfocus": "This character is hyperfocused in: using Abyss to transform items into locusts.",
+      "certainly_effect": "Will make all locusts to have an 1.25X damage multiplier.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Apollyon.",
       "id": "31"
     },
@@ -25616,6 +25686,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "No health, 3.50 damage, 1.50X damage multiplier, 1.36 tears, 1.0 shot speed, 6.5 range, -1.0 speed and 0 luck.",
       "strategy": "As T. Forgotten, you rely on the Tainted Soul to move around by having the necessity of being picked up and throwed into enemies and/or places with pickups to collect. There's not a big of a deal while playing as T. Forgotten, because the move and the health of the charathcer are linked to the Tainted Soul, that cannot shoot tears by herself and depends on Tainted Forgotten to deal damage to enemies. Pressing the fire button will make T. Forgotten to use his bone club on the direction of the button while stoppped.",
+      "hyperfocus": "This character is hyperfocused in: damage-related items.",
+      "certainly_effect": "Will make him able to automatically and slowly move in the direction of enemies (like a really slow homing tear). Using the item as Tainted Forgotten also uses the item as Tainted Soul.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as The Forgotten.",
       "id": "32"
     },
@@ -25626,6 +25698,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "3 soul hearts, 3.50 damage, 1.50X damage multiplier, -2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "As T. Soul, you rely on Tainted Forgotten to deal damage to enemies due to the fact that you by yourself cannot shoot tears. If you pass over Tainted Forgotten, you will pick him up, and when you press a fire key, you thow him into the direction of our choice. The inicial throw will deal 2X damage, so always try to throw him at enemies for the best damage output.",
+      "hyperfocus": "This character is hyperfocused in: speed-related items.",
+      "certainly_effect": "Will make Tainted Forgotten able to jump (like the 'How To Jump' item) in the direction of Tainted Soul when taking damage. Using the item as Tainted Soul alo uses as Tainted Frgotten.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as The Forgotten.",
       "id": "32.5"
     },
@@ -25636,6 +25710,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Lemegeton' on the pocket active item slot and 6 red charges.",
       "start_stats": "3 soul hearts, 3.50 damage, 1X damage multiplier, 2.73 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "When playing as T. Bethany, take care of your item-wisps, because they are essential for better performance. Every time you use the 'Legemeton', you have 25% chance of spawning an item from the item pool of the current room, so try to abuse this and use your pocket ative item inside certain rooms, such as secret rooms.",
+      "hyperfocus": "This character is hyperfocused in: book-related items.",
+      "certainly_effect": "Will make all of ther item-wisps to have 1.5X health.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Bethany.",
       "id": "33"
     },
@@ -25646,6 +25722,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Anima Sola' on the pocket active item slot.",
       "start_stats": "3 red heart conatiners, 3.50 damage, 1X damage multiplier, 3.00 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "T. Jacob is the character that will be a headache at the start, but if you play it correctly, you can overcome the initial challenges of the character. After 20-40 seconds on the start of every floor, Tainted Esau will spawn and charge at you ocassionaly. If you use 'Anima Sola' on the starting room, Tainted Esau will spawn immediately. If T. Jacob are thouched by Tainted esau, he 'dies', transforming himself into Lost T. Jacob.",
+      "hyperfocus": "This character is hyperfocused in: using anima sola in Tainted Esau.",
+      "certainly_effect": "Will make the recharge time of the 'Anima Sola' item to be 12 seconds instead of 15 seconds. Using his item as Tainted Jacob also uses the item as Lost T. Jacob and Tainted Esau.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Jacob & Esau.",
       "id": "34"
     },
@@ -25656,6 +25734,8 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "The 'Anima Sola' on the pocket active item slot.",
       "start_stats": "3 red heart conatiners, 3.50 damage, 1X damage multiplier, 3.00 tears, 1.0 shot speed, 6.5 range, 1.0 speed and 0 luck.",
       "strategy": "Lost T. Jacob is a 'character' that is only acessible by being touched by Tainted Esau. When Tainted Jacob is on this state, he acts like Tainted Lost, being a ghost with flight and spectral tears, but no 'Hol Mantle' effect. There is some ways of avoiding taking damage, being one of the ways by haing an eternal heart, serving like an 'hit' for Lost T. Jacob. When entering the next floor, Lost T. Jacob will transform back into Tainted Jacob, so at the end of the floor, if you intencionally touch T. Esau, you can have flight for the entire floor, collect all pickups you previously would not be able to, and then go to the next floor.",
+      "hyperfocus": "This character is hyperfocused in: holy mantle-relaated imtems (on eternal hearts).",
+      "certainly_effect": "Will make him able to have an passive 'Wooden Cross' effect (hav a single 'Holy Mantle' instance per floor). Using his item as Lost T. Jacob also uses the item as Tainted Jacob and Tainted Esau.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Jacob & Esau.",
       "id": "34.2"
     },
@@ -25666,8 +25746,385 @@ window.TBOU_SEARCH_DATA =
       "start_stuff": "No starting items/pickups.",
       "start_stats": "No stats.",
       "strategy": "T. Esau is a undefeatable 'miniboss' that will always try to kill Tainted Jacob with dashes. Every floor he will take around 20-40 seconds to spawn, will try to dash in the direction of Tainted Jacob if too close to him, when he spawns, he will create a temporary hole in the ground that spits fire and deal damage to Tainted Jacob and to all enemies around. The dash that T. esau do can damage enemies and bosses, making him a good weapon if controlled by the 'Anima Sola' item. The 'Anima Sola' item will always target T. Esau if he's on screen and if used again when he is already chained down, he is released instantly on a dash in the direction of Tainted Jacob (use this to the best of your ability). While chained down, Tainted Jacob can touch T. Esau without transforming into Lost T. Jacob.",
+      "hyperfocus": "This character is hyperfocused in: transforming Tainted Jacob into Lost T. Jacob and/or killing Tainted Jacob.",
+      "certainly_effect": "Will make him laugh while Tainted Jacob dies. Using his item as Tainted Esau also uses the item as Tainted Jacob and Lost T. Jacob.",
       "unlock": "Use the 'Red Key' item (or similars) in the 'Home' floor to open the secret closet while playing as Jacob & Esau.",
       "id": "34.3"
     }
   ],
+
+"Lucas_Mod_Items":
+  [
+    {
+      "name": "Communism",
+      "image": "img/Search/Items/WIP.png",
+      "id": "718",
+      "pool": "Treasure Room, Shop (cost a random price between 5-30 pennies), Devil Room (cost 2 heart containers), Curse Room, Devil Beggar Pool, not allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Shop.png", "img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Curse_Room.png", "img/Search/Items_pool/Devil_Beggar.png"],
+      "quality": "img/Search/Quality/Quality3.png",
+      "description": "Equality = Power?",
+      "functionality": "Passive item. Gives the player a +2.5 damage, -0.5 tears and -0.1 shot speed. Makes the player shoot sickles or hammers that have a 10% chance of drop a ramdon coin when an enemy is killed. All items/pick-ups on shops have an randomized price between 5-30 pennies and prices are rerroled per floor. The player gains a 1.3X damage multiplier if his pick-ups (coins, keys and bombs) are equal.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the miniboss 'Corruption' for the first time."
+
+    },
+    {
+      "name": "Positive Mindset",
+      "image": "img/Search/Items/WIP.png",
+      "id": "719",
+      "pool": "Angel Room, Beggar Pool, Rotten Beggar Pool, allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Beggar.png", "img/Search/Items_pool/Rotten_Beggar.png"],
+      "quality": "img/Search/Quality/Quality2.png",
+      "description": "In the worst situations, think positively.",
+      "functionality": "Active item with 8 pibs of charge. Gants 1 of 12 random effects based of the tears stat. The possible effects are (from good to bad effects): Make all enemies on the room to be affected by the 'happiness' effect, kill all enemies on the room and healing the player based of the amound of enemies (half red heart per enemy killed), grant the '20/20' item effect for the current room, spawn a item fro a random item pool (even items that isn't unlocked), grants one positive horse pill effect, grants a small all stats up (+0.5 damage, +0.2 tears, +0.1 speed, +0.15 range, +0.05 shot speed and +0.5 luck), grants a small all stats down (-0.2 damage, -0.1 tears, -0.05 speed, -0.1 range, -0.1 shot speed and -0.25 luck), grants one negative pill effect, heals all enemies in the room while damaging the player, all enemies in the room are affected with the 'sadness' effect, nothing and a single use of the 'Wavy Cap' item.",
+      "transformation": "This item contribute to the 'Seraphin' transformations.",
+      "transformationImage": "img/Search/Transformations/Seraphin.png",
+      "unlock": "Defeat the boss 'Delirium' while playing as the character 'Lucas'."
+    },
+    {
+      "name": "Problematic Mindset",
+      "image": "img/Search/Items/WIP.png",
+      "id": "720",
+      "pool": "Treasure Room, Devil Room (cost 1 heart container), Devil Beggar Pool, not allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Devil_Room.png", "img/Search/Item_pool/Devil_Beggar.png"],
+      "quality": "img/Search/Quality/Quality2.png",
+      "description": "It's all my fault and there's nothing I can do about it...",
+      "functionality": "Active item with 4 pibs of charge. On use, creates an clone of all enemies in the room. All clones are permanently affected by the 'sadness' effect and have a 5% chance of dropping a 'Happiness Fragment' pick-up on death.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'Delirium' while playing as the character 'Tainted Lucas'."
+    },
+    {
+      "name": "Lucas' Faith",
+      "image": "img/Search/Items/WIP.png",
+      "id": "721",
+      "pool": "Angel Room, Secret Room, allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality4.png",
+      "description": "Autistec faith on your hands, take good care of it!",
+      "functionality": "Active item with 8 pibs of charge. On use, there's a chance of multiple effects to happen, but for each use, there's a stackable +10% of the item to 'breake'. When the item breakes, it gets deleted and spawns either a eternal heart or an soul heart. These are the possible effects on use: grants +0.5 damage, grants +1.5 luck, drop 1 eternal heart or 1 dime as Keeper/Tainted Keeper, Drop 3 soul hearts or 3 pennies as Keeper/Tainted Keeper or spawn an item from the current item pool (if this effect is granted, the item will have an 100% chance of breaking when used).",
+      "transformation": "This item contribute to the 'Seraphin' transformations.",
+      "transformationImage": "img/Search/Transformations/Seraphin.png",
+      "unlock": "Defeat the boss 'Isaac' while playing as the character 'Lucas'."
+    },
+    {
+      "name": "Autism Diagnosis Report",
+      "image": "img/Search/Items/WIP.png",
+      "id": "722",
+      "pool": "Treasure Room, Shop (costs 20 pennies), Secret Room, Devil Beggar pool, Beggar Pool, Angel Room, Devil Room (costs 2 heart containers), allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Shop.png", "img/Search/Items_pool/Secret_Room.png", "img/Search/Items_pool/Devil_Beggar.png", "img/Search/Items_pool/Beggar.png", "img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Devil_Room.png"],
+      "quality": "img/Search/Quality/Quality2.png",
+      "description": "Hyperfocus... with a cost.",
+      "functionality": "Passive item. Depending on the character you're currenting playing, the player receive an hyperfocus effect based on what the item is. Seacrh for the character for you to know it's hyperfocused items. Having an hyperfocused item on your inventory will increase a random stat. Getting hit 6-9 times makes the player enter a meltdown state, where the player receie a all stats down. The only way to get out of an meltdown is collecting an item the character is hyperfocused. All characters are hyperfocused on the 'Birthright' item.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss '???' while playing as the character 'Lucas'."
+    },
+    {
+      "name": "Lucas' Glasses",
+      "image": "img/Search/Items/WIP.png",
+      "id": "723",
+      "pool": "Treasure Room, Secret Room, allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality4.png",
+      "description": "See the world with a positive point of view!",
+      "functionality": "Passive item. Grants a 1.2X damage multiplier. Grants a smaller 'Sacred Orb' effect, making all quality 0 (with exception of the 'Tiny Planet' and 'Strange Attractor').",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'The Lamb' while playing as the character 'Lucas'."
+    },
+    {
+      "name": "Self-esteem",
+      "image": "img/Search/Items/WIP.png",
+      "id": "724",
+      "pool": "Treasure Room, Shop (costs 20 pennies), Beggar Pool, Ultra Secret Room, not allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Shop.png", "img/Search/Items_pool/Beggar.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality1.png",
+      "description": "Love yourself the way you are.",
+      "functionality": "Passive item. Creates a clone of the reversed version of the character (creates tainted version if playing as normal character and vice-versa) as an secondary character. This secondary character will have the exact same items that you have. On death, the secondary character drops a random item from it's inventory, the item will be deleted from the player's inventory, granting a -0.05 tears down.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the bosses 'Isaac', '???', 'Satan' and 'The Lamb' while playing as the character 'Tainted Lucas'."
+    },
+    {
+      "name": "Happiness in a jar",
+      "image": "img/Search/Items/WIP.png",
+      "id": "725",
+      "pool": "Treasure Room, Angel Room, Beggar Pool, Key Master Pool, allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Beggar.png", "img/Search/Items_pool/Key_Master.png"],
+      "quality": "img/Search/Quality/Quality3.png",
+      "description": "If you could be a little happier... just a little!",
+      "functionality": "Passive item. Grants a 2.5% chance to shoot 'happiness' tears at 0 luck, capping at 10% at 10 luck.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'Ultra Greed' while playing as the character 'Lucas'."
+    },
+    {
+      "name": "Depression 2",
+      "image": "img/Search/Items/WIP.png",
+      "id": "725",
+      "pool": "Treasure Room, Golden Chest, Key Master Pool, Devil Room (costs 1 heart container), not allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Golden_Chest.png", "img/Search/Items_pool/Key_Master.png", "img/Search/Items_pool/Devil_Room.png"],
+      "quality": "img/Search/Quality/Quality1.png",
+      "description": ";-;",
+      "functionality": "Passive item. Grants a 2.5% chance to shoot 'sadness' tears at 0 luck, capping at 10% at 10 luck.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'The Beast' while playing as the character 'Tainted Lucas'."
+    },
+    {
+      "name": "The Conscientious Objector",
+      "image": "img/Search/Items/WIP.png",
+      "id": "726",
+      "pool": "Treasure Room, Secret Room, Ultra Secret Room, not allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Secret_Room.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality#.png",
+      "description": "Critical stats are fair and balanced",
+      "functionality": "Active item that can be used unlimited times. Cicles between multiple images that represent one of the player's stats and multiplies that stat, but negatively multiplies othe stats: Null indicator = no effect, damage indicator: 2X damage multiplier, but but tears, speed, range, shot speed and luck will receive a 0.7X multiplier. Tears indicator: Grants a 2X tears multiplier (can pass the tear cap), but damage, speed, range, shot speed and luck will receive a 0.7X multiplier. Speed indicator: Grants a 2X speed multiplier (can pass the speed cap), but damage, tears, range, shot speed and luck will receive a 0.7X multiplier. Range indicator: Grants a 2X range multiplier, but damage, tears, speed, shot speed and luck will recieve a 0.8X multiplier. Shot speed: Grants a 2X shot speed multiplier, but damage, tears, speed, range and luck will recieve a 0.8X multiplier. Luck indicator: Grants a 2.5X luck multiplier, but damage, tears, speed, range and shot speed will recieve a 0.7X multiplier. Deal indicator: Grants a 1.5X deal chance multiplier, but damage, tears, speed, range, shot speed and luck will recieve a 0.5X multiplier. Planetarium indicator: Grants a 3X planetarium chance multiplier, but damage, tears, speed, range, shot speed, luck and deal chance will recieve a 0.5X multiplier. Will make the 'TF2 notification' sound when appearing on any item pedestal for the first time. While held, you have a 1% chance of shooting a critical tear. Critical tears intantly kills anything that touches it. The chance of shooting an critical tear are not increased with luck.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'Hush' while playing as the character 'Lucas'."
+    },
+    {
+      "name": "The Goldenfication Ray 2010™",
+      "image": "img/Search/Items/WIP.png",
+      "id": "727",
+      "pool": "Shop, Super Greed miniboss drop, Shopkeeper 1% drop, not allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Shop.png"],
+      "quality": "img/Search/Quality/Quality4.png",
+      "description": "Allow your greed to materialize.",
+      "functionality": "Active item with 10 pibs pibs of charge (have 8 pibs of charge if playing as Keeper/Tainted Keeper). On pick-up grants 5-10 pennies and costs 20 pennies to use. If used without enough money, nothing happens. Turn all pick-ups and items into their golden variants.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'Ultra Greedier' while playing as the character 'Lucas'."
+    },
+    {
+      "name": "Lucas' Wrath",
+      "image": "img/Search/Items/WIP.png",
+      "id": "728",
+      "pool": "Wrath miniboss drop, Devil Room (costs 2 heart containers), Ultra Secret Room, not allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality3.png",
+      "description": "I can't hold my crap for much longer!",
+      "functionality": "Passive item. On pickup, a hidden fury meter is introduced, making the longer the player attacks without stopping, the angrier he gets, having 3 stages of anger in total: simmering stage, boiling over stage and overstimulated stage. Simmering stage (triggered by holding the fire button for 5 seconds): The player's tears turns into a reddish color and he gains a flat +1 damage and a +0.2 tears up.. Boiling over stage (triggered by holding the fire button for 10 seconds): The player starts visibly shaking. He gains an additional +2.0 damage up and his tears gain a chance to explode on impact (like the 'Fire Mind' item, but without damaging the player). However, blind rage has a cost: the player suffers a -0.3 speed down and a accuracy penalty (tears fire in a much wider, less predictable cone). While on this stage, the player has a 2.5% chance (at 0 luck, capping at a 10% chance at 10 luck) to fire angriness tears. Overstimulated stage (triggered by taking any damage while on stage 2): The player enters a angry mode, where for 15 seconds (increasing +3 seconds for each time the player takes damage) the player gains a +1.5 damage and +0.1 tears up (with all the other effects from previous stages). Also, there is a increased chance of 7.5% (at luck 0, capping at a 20% chance at 10 luck) to shoot angriness tears. Cooling Off: If the player stops firing for 1 second on stage 1, 2.5 seconds on stage 2 and 5 seconds on stage 3, he calms down. The fury meter instantly resets to zero and he loses all the associated buffs until he builds it back up again. For each stage that the player gets, he will recieve a message on screen. Going from stage 0 to 1: 'Small Angriness Up...' Going from stage 1 to 2: 'Rage Up.' Going from stage 2 to 3: 1Wrath Up!'. Going from any stage back to stage 0: 'Calmed down, breath in and out.'.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'Mother' while playing as the character 'Tainted Lucas'."
+    },
+    {
+      "name": "Uncertainty",
+      "image": "img/Search/Items/WIP.png",
+      "id": "729",
+      "pool": "Devil Room (costs 2 heart conatiners), Angel Room, allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Angel_Room.png"],
+      "quality": "img/Search/Quality/Quality2.png",
+      "description": "You can only be on one side.",
+      "functionality": "Active item with 3 pibs of charge. On use, switches between an angelic and demonic states, altering deals generation and room interactions. Cannot go back into the original form after using the item. If used on the 'Satan' boss fight, satan will take the item from the player and will leave the battle peacefully. Angelic state function: grants a -0.5 damage, +1 tears, + 3 range, -0.5 shot speed, +0.5 speed and +2 luck and will make all angel deals to have the 'Damocles' item effect, but all items in the devil delas will cost doubled. Demonic version function: grants a +1 damage up, -0.5 tears, -1 range, +0.5 shot speed, -0.1 speed and -1 luck. Will make all devil items either to cost half it's usual value or you are able to get one item for free, but the rest disseapear (like The Lost/Tainted Lost mechanic). If you try to use the item inside the 'Mirror World' on the floors 'Downpour' or 'Dross' while playing as Tarnished Lucas, you will lose the item for the floor and you will activate the 'Mama Mega' item effect.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": ["img/Search/Transformations/Leviathan.png", "img/Search/Transformations/Seraphin.png"],
+      "unlock": "Defeat the boss 'Delirium' while playing as the character 'Tarnished Lucas'."
+    },
+    {
+      "name": "Acceptance",
+      "image": "img/Search/Items/WIP.png",
+      "id": "730",
+      "pool": "none",
+      "poolImages": ["img/Search/Items_pool/.png"],
+      "quality": "img/Search/Quality/Quality0.png",
+      "description": "Fate accepted.",
+      "functionality": "Active item with 12 pibs of charge. Item exclusive to Tarnished Lucas. Forces the player to stay on the Soul state until the otem recharges. When the item recharges, the item is removed from the player's inventory and are replaced with the 'Uncertainty'.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "None."
+    },
+    {
+      "name": "Certainty",
+      "image": "img/Search/Items/WIP.png",
+      "id": "731",
+      "pool": "Ultra Secret Room, allowed on Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Ultra_Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality4.png",
+      "description": "Be sure of yourself.",
+      "functionality": "Active item that can be used only once. On use, it will modify the current character's mechanic in some way. Search for the character for specific informations.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Use the 'Uncertainty' item while fighting the boss 'Satan'."
+    },
+    {
+      "name": "Unfairness",
+      "image": "img/Search/Items/WIP.png",
+      "id": "732",
+      "pool": "None.",
+      "poolImages": ["img/Search/Items_pool/.png"],
+      "quality": "img/Search/Quality/Quality2.png",
+      "description": "Why is everthing so unfair?",
+      "functionality": "Passive item. Item exclusive to Tarnished Lucas' unlock. Will grant a single-use of the 'Holy Mantle' item for each Champion enemy or boss killed. Can stack up to 3 'Holy Mantle' instances at a time.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "None."
+    },
+    {
+      "name": "Dead Ringer",
+      "image": "img/Search/Items/WIP.png",
+      "id": "734",
+      "pool": "Treasure Room, Shop (costs 20 pennies), Secret Room, Devil Room (costs 2 heart containers), allowed on Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Shop.png", "img/Search/Items_pool/Secret_Room.png", "img/Search/Items_pool/Devil_Room.png"],
+      "quality": "img/Search/Quality/Quality3.png",
+      "description": "French Laugh Galore.",
+      "functionality": "Passive item. Grants an extra life to the player on pick-up and makes so that when the player dies, he recieves a temporary +1.5 damage and speed up, as well as making the player camouflaged for 10 seconds. The damage and speed boost is depleted over the time of 2.5 seconds, but only when the player stop being camouflaged. To stop being camouflaged, either wait the timer or shoot a tear. The damage and speed doesn't deplect when you are camouflaged. After the death, the item have a +5% chance of being deleted from the player's inventory, starting with 0% and increasing until hitting 100%. For each death, the chance of the 'Spy Laugh' sound to be executed are increased in +10%.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss '' while playing as the character ''."
+    },
+    {
+      "name": "Anxious Italian's Hat",
+      "image": "img/Search/Items/WIP.png",
+      "id": "734",
+      "pool": "Treasure Room, Golden Chest Pool, allowed on Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Golden_Chest.png"],
+      "quality": "img/Search/Quality/Quality2.png",
+      "description": "EEEEEEEEEEEAAAAAARRRGGGHHHHHH!!!!!",
+      "functionality": "Passive item. On pick-up, will make so that, the move the player walks without stopping,the higher is his speed, and at 2.0 speed, is created an effect similar to when Peppino Spaghetti starts to run at mach 3 or higher. Enemies in contact is instantly killed and bosses take a really good amount of damage.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'Mom's Heart/It Lives!' while playing as the character 'Tainted Giovanna'."
+    },
+    {
+      "name": "Holy Bombs",
+      "image": "img/Search/Items/WIP.png",
+      "id": "735",
+      "pool": "Treasure Room, Angel Room, Bomb Beggar Pool, allowed on Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Bomb_Beggar.png"],
+      "quality": "img/Search/Quality/Quality1.png",
+      "description": "Holy blast +5 bombs.",
+      "functionality": "Passive item. On pick-up, will grant 5 bombs to the player and will make bombs to not detonate on a timer, instead acting as proximity mines, waiting indefinitely until an enemy walks near them, and make bombs to explode into a cross-blast of holy light that stays active for 2.5 seconds. If you leave and re-enter the room, the bombs will explode on the usual timer.",
+      "transformation": "This item contribute to the 'Seraphin' transformations.",
+      "transformationImage": "img/Search/Transformations/Seraphin.png",
+      "unlock": "Defeat the boss 'Mega Satan' while playing as the character 'Tarnished Lucas'."
+    },
+    {
+      "name": "Heaven's Toll",
+      "image": "img/Search/Items/WIP.png",
+      "id": "736",
+      "pool": "Shop (costs 15 cents), Curse Room, Devil Room, allowed on Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Shop.png", "img/Search/Items_pool/Curse_Room.png", "img/Search/Items_pool/Devil_Room.png"],
+      "quality": "img/Search/Quality/Quality1.png",
+      "description": "Salvation isn't free.",
+      "functionality": "Passive item. Upon picking this up, all future angel room items cost money instead of being free. It guarantees that an angel room door will spawn after every boss fight (like the 'Goat Head/Eucharist' effect). Makes devil deals to be 50% less probable rather than angel deals, but makes at least 0-2 devil deal items for free.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Defeat the boss 'Mom's Heart/It Lives!' while playing as the character 'Tarnished Lucas'."
+    },
+    {
+      "name": "Lucas' D6",
+      "image": "img/Search/Items/WIP.png",
+      "id": "737",
+      "pool": "Treasure Room, Secret Room, allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality4.png",
+      "description": "Rerrol into a better and balanced destiny.",
+      "functionality": "Active item with 5 pibs of charge. On use, will rerrol any item pedestal into an item of the same item pool of the current room. Rerrol the item into the same quality or higher based on luck, never rerroling into lower quality items if the player's luck is higher than 5. If an item is already quality 4, there is a 25% chance of the item to be converted into 2 quality 2 items, and both items can be taken.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Get all hard mode marks while playing as Lucas."
+    },
+    {
+      "name": "White Candle",
+      "image": "img/Search/Items/WIP.png",
+      "id": "738",
+      "pool": "Shop (costs 15 cents), Angel Room, Golden Chest Pool, allowed in Greed/Greedier mode",
+      "poolImages": ["img/Search/Items_pool/Shop.png", "img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Golden_Chest.png"],
+      "quality": "img/Search/Quality/Quality3.png",
+      "description": "Blesssing probability, but at what cost",
+      "functionality": "Passive item. Grants an eternal heart on pick-up. Grants a higher chance (+30%) to any curse to be their opposite blessing. Increases the chance of curses to appear by +25% (since you need curses to have blessings). If the player already has the 'Black Candle' item, it synergizes with the White Candle, making only blessings possible to appear.",
+      "transformation": "This item contribute to the 'Seraphin' transformation.",
+      "transformationImage": "img/Search/Transformations/Seraphin.png",
+      "unlock": "Get all hard mode marks while playing as Tainted Lucas"
+    },
+    {
+      "name": "Gratitude Certificate",
+      "image": "img/Search/Items/WIP.png",
+      "id": "739",
+      "pool": "Treasure Room, Secret Room",
+      "poolImages": ["img/Search/Items_pool/Treasure_Room.png", "img/Search/Items_pool/Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality4.png",
+      "description": "Thanks for playing!",
+      "functionality": "Active item that can only be used once. On use, Teleports the player to the 'Lucas' Room' floor, whre the player can select one item exclusively from the Lucas Mod. This item works exactaly like the 'Death Certificate' item.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Unlock everthing that the Lucas Mod have to offer."
+    },
+    {
+      "name": "The Body?",
+      "image": "img/Search/Items/WIP.png",
+      "id": "740",
+      "pool": "Devil Room (costs 1 heart container), Angel Room, Ultra Secret Room",
+      "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality2.png",
+      "description": "I feel weak.",
+      "functionality": "Passive item. Grants a weaker 'Pluto' item effect, making the player size and hit smaller, but it will also grant 2-4 broken hearts on pick-up.",
+      "transformation": "This item contribute to the 'Stompy' transformation.",
+      "transformationImage": "img/Search/Transformations/Stompy.png",
+      "unlock": "Die for the first time while playing as the character 'Tainted Lucas'."
+    },
+    {
+      "name": "The Soul?",
+      "image": "img/Search/Items/WIP.png",
+      "id": "'741",
+      "pool": "Devil Room (costs 2 heart containers), Angel Room, Ultra Secret Room.",
+      "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality3.png",
+      "description": "I am nothing",
+      "functionality": "Passive item. Will make all items that costs hearts to be completly free, but it will spawn Tainted Esau for the rest of your run. Tainted Esau will not turn you into a ghost when he touches you, but he will deal double damage to you. The 'Anima Sola' item will lock him, but it will be removed from your inventory after the first use. It will also grant a permanente 'Curse of Fragility' that cannot be removed.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Die for the first time while playing as the character 'Tarnished Lucas'."
+    },
+    {
+      "name": "The Mind?",
+      "image": "img/Search/Items/WIP.png",
+      "id": "742",
+      "pool": "Devil Room (costs 1 heart container), Angel Room, Devil Beggar Pool, Ultra Secret Room.",
+      "poolImages": ["img/Search/Items_pool/Devil_Room.png", "img/Search/Items_pool/Angel_Room.png", "img/Search/Items_pool/Devil_Beggar.png", "img/Search/Items_pool/Ultra_Secret_Room.png"],
+      "quality": "img/Search/Quality/Quality1.png",
+      "description": "I don't know.",
+      "functionality": "Passive item. Will shuffle all item pools (example: treasure room will grant shop items, angel rooms will grant Ultra Secret room items, etc). Will grant a permanent 'Curse of the Lost' that cannot be removed.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png",
+      "unlock": "Die for the first time while playing as the character 'Lucas'."
+    },
+  ],
+
+"Lucas_Mod_Trinkets":
+  [
+    {
+      "name": "",
+      "image": "img/Search/Items/WIP.png",
+      "id": "",
+      "pool": "",
+      "poolImages": ["img/Search/Items_pool/.png", "img/Search/Items_pool/.png"],
+      "quality": "img/Search/Quality/Quality#.png",
+      "description": "",
+      "functionality": "Passive item. Gives the player a +0.7 tears.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png"
+    },
+  ],
+
+"Lucas_Mod_???":
+  [
+    {
+      "name": "",
+      "image": "img/Search/Items/WIP.png",
+      "id": "",
+      "pool": "",
+      "poolImages": ["img/Search/Items_pool/.png", "img/Search/Items_pool/.png"],
+      "quality": "img/Search/Quality/Quality#.png",
+      "description": "",
+      "functionality": "Passive item. Gives the player a +0.7 tears.",
+      "transformation": "This item don't contribute to any transformations.",
+      "transformationImage": "img/Search/Transformations/.png"
+    },
+  ]
 };

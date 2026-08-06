@@ -330,11 +330,7 @@ ND: Ontem (dia 15/02/2010), eu fiz 16 anos, e quando eu começei a programar em 
 1) Foi mudados alguns delathes no README.
 2) Foi mudado o texto do contador de versão da página inicial.
 3) Foi adicionado 3 arquivos PHP e 1 imagem nova.
-<<<<<<< HEAD
 ND: Eu tentei implementar um banco de dados (para que seja possível fazer login/se cadastrar no meu site), mas eu ainda não consegui, pois isso precisa de um backend externo, e eu ainda não sei usar um backend externo.
-=======
-ND: Eu tentyei implementar um banco de dados (para que seja possível fazer login/se cadastrar no meu site), mas eu ainda não consegui, pois isso precisa de um backend externo, e eu ainda não sei usar um backend externo.
->>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 (4)!' Trying to remove subject 'fatal_error' ... task successfully failed '!(4)
 
 2.0_beta: Site do Lucas V2.0 - BETA 1: Versão experimental da versão 2.0 + Atualização GAMER 9 + ND 5.
@@ -524,11 +520,7 @@ ND: Esse update é um teste do novo design do TBOU, então o site pode e prováv
 3) Foi adicionado no TSOI informações sobre todos os personagens e estratégias para como jogar com eles.
 4) Foi atualizado a descrição da maioria dos personagens.
 5) Foi mudado alguns outros bugs de qualidade de vida.
-<<<<<<< HEAD
 OBS: Essa atualização está feita pela metade devido a problemas no meu dispositivo, então espere por uma atualização para consertar as pontas soltas.
-=======
-OBS: Essa atualização está feita pela metade devido a problemas no meu dispositivo, então espere por uma atualizaç~~ao para consertar as pontas soltas.
->>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
 
 2.0_beta14.2: Site do Lucas - BETA 14.2: URM 17
 
@@ -541,7 +533,6 @@ OBS: Essa atualização está feita pela metade devido a problemas no meu dispos
 4) O antigo arquivo README (Avisos Importantes) foi excluido.
 ND: O TBOU ainda está em estado de beta, então espere mudanças drásticas no futuro, além disso, eu vou focar mais no PTWE por conta do projeto estar meio abandonado e cheio de bugs.
 
-<<<<<<< HEAD
 2.0_beta16: Site do Lucas - BETA 16: TBOU 14
 1) Foi mudado o layout dos botões da página inicial.
 2) Foi adicionado o modo de suporte mobile para o site (ainda é um WIP).
@@ -549,10 +540,20 @@ ND: O TBOU ainda está em estado de beta, então espere mudanças drásticas no 
 4) Alguns bugs menores foram corrigidos.
 5) Foi adicionado a telal de 'Shop Donation Machine'.
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-=======
+2.0_beta16.1: Site do Lucas - BETA 16.1: UQV 24 + PTWE 17
+1) Foi removido o sistema de login de todos os sites, menos o do PTWE.
+2) O PTWE tem seu próprio sistema de login separado do site por si próprio.
+3) Alguns bugs pequenos do PTWE foram corrigidos.
+4) Foi implementado uma nova forma de se referir aos updates do PTWE.
+5) Foi removido o tutorial do PTWE.
 
+2.0_beta16.2: Site do Lucas - BETA 16.2: TBOU 14 + ND 12
+1) Foi adicionado uma parte da codificação de um filtro no TSOT, chamado 'Lucas Extraordinary Mod!'.
+2) Foi corrigido um bug que acontecia na tela inicial e que impedia de clicar nos botões.
+3) O sistema de login foi completamente removido com exseção do PTWE (até mesmo códigos antigos).
+4) Foi removido alguma imagens em relaçao ao tutorisl do PTWE.
+ND: Eu vou desenvolver um mod de The Binding of Isaac chamado 'Lucas Extraordinary Mod!', então o meu site vai ser tipo a 'wiki' do meu mod, explicando como tudo vai funcionar.
 
->>>>>>> 756ab2ca6fb6a31a2f5342fbe51c0d3976bc2063
+# Legenda do Lucas
 Informações:
-UQV: 23. / ND: 11. / Atualização GAMER: 16. / UD: 19. / URM: 17. / TBOU: 13
+UQV: 24. / ND: 12. / Atualização GAMER/PTWE: 17. / UD: 19. / URM: 17. / TBOU: 14
