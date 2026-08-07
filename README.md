@@ -554,6 +554,11 @@ ND: O TBOU ainda está em estado de beta, então espere mudanças drásticas no 
 4) Foi removido alguma imagens em relaçao ao tutorisl do PTWE.
 ND: Eu vou desenvolver um mod de The Binding of Isaac chamado 'Lucas Extraordinary Mod!', então o meu site vai ser tipo a 'wiki' do meu mod, explicando como tudo vai funcionar.
 
+???
+1) Foi corrigido um bug de texto da página index do TBOU.
+2) O código em relação.
+3) ERROR 404: update not found.
+
 # Legenda do Lucas
 Informações:
-UQV: 24. / ND: 12. / Atualização GAMER/PTWE: 17. / UD: 19. / URM: 17. / TBOU: 14
+UQV: 25. / ND: 12. / Atualização GAMER/PTWE: 17. / UD: 19. / URM: 17. / TBOU: 15
